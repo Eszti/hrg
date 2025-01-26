@@ -21,7 +21,7 @@ class Pipeline(Script):
         self.name_to_class = {
             "preproc": Preproc,
             "train": Train,
-            "source": Hrg,
+            "hrg": Hrg,
             "artefacts": Artefacts,
             "random": Random,
             "parse": Parse,

@@ -54,7 +54,7 @@ class Train(LoopOnTriplets):
                 if len(used_rules.keys()) != len(grammar):
                     triplet_log.writelines(f"\nNot all rules are used: {len(used_rules.keys())} of {len(grammar)}\n")
                     self.not_all_rules_used.append(triplet_idx)
-                with open(f"{hrg_dir}/sen{triplet_idx}.source", "w") as f:
+                with open(f"{hrg_dir}/sen{triplet_idx}.hrg", "w") as f:
                     f.writelines(grammar_lines)
             except ParseTooLongException as e:
                 self.parse_did_not_finish.append(triplet_idx)

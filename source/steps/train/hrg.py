@@ -13,7 +13,7 @@ class Hrg(LoopOnSenDirs):
         self.grammar_fn_prefix = f"{self.config_json.split('/')[-1].split('.json')[0]}"
 
     def _do_for_sen(self, sen_idx, sen_dir):
-        filename = f"{sen_dir}/sen{sen_idx}.source"
+        filename = f"{sen_dir}/sen{sen_idx}.hrg"
         if os.path.exists(filename):
             with open(filename) as f:
                 lines = f.readlines()
@@ -31,7 +31,7 @@ class Hrg(LoopOnSenDirs):
                 file_name = self.grammar_fn_prefix
             else:
                 file_name = f"{self.grammar_fn_prefix}_{name}"
-            with open(f"{grammar_dir}/{file_name}.source", "w") as f:
+            with open(f"{grammar_dir}/{file_name}.hrg", "w") as f:
                 self.__write_rules(f, grammar, "weight")
             with open(f"{grammar_dir}/{file_name}.stat", "w") as f:
                 self.__write_rules(f, grammar, "cnt")

@@ -10,6 +10,7 @@ class LoopOnSenDirs(Script):
     def __init__(self, description, log=True, config=None):
         super().__init__(description, log, config)
         self.in_dir = f"{self.data_dir}/{self.config['in_dir']}"
+        self.break_loop = False
 
     def __get_range(self):
         first = self.first
@@ -29,6 +30,8 @@ class LoopOnSenDirs(Script):
             sen_dir = f"{self.in_dir}/{str(sen_idx)}"
             self._do_for_sen(sen_idx, sen_dir)
             self.last_sen_to_proc = sen_idx
+            if self.break_loop:
+                break
 
     @abstractmethod
     def _do_for_sen(self, sen_idx, sen_dir):

@@ -8,17 +8,25 @@
 
 First, we try to find a top estimate for our system in order to validate our concept.
 
-### Train a grammar
-
- We [train](steps/train/train.py) a hyperedge replacement [grammar](pipeline/output/grammar) (HRG) using the [lsoie dataset](https://github.com/Jacobsolawetz/large-scale-oie/tree/master/dataset_creation/lsoie_data) on the triplet induced sub-graphs of the UD graph of a sentence. We create one rule per word and use the nonterminals `S`, `A`, `P` and `X` (no label). 
+### Get the data
 
 ```bash
-# Get the data
 export DATA_DIR=$HOME/data
 mkdir $DATA_DIR
 cd $DATA_DIR
 # Download and unzip the lsoie data into a folder called lsoie_data
+```
 
+### Train a grammar
+
+```bash
+# Change to source directory
+cd source
+```
+
+ We [train](steps/train/train.py) a hyperedge replacement [grammar](pipeline/output/grammar) (HRG) using the [lsoie dataset](https://github.com/Jacobsolawetz/large-scale-oie/tree/master/dataset_creation/lsoie_data) on the triplet induced sub-graphs of the UD graph of a sentence. We create one rule per word and use the nonterminals `S`, `A`, `P` and `X` (no label). 
+
+```bash
 # Preprocess the train data
 python steps/preproc/preproc.py  -d $DATA_DIR -c pipeline/config/preproc_train.json
 

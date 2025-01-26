@@ -14,6 +14,7 @@ class Script(ABC):
         else:
             self.config_json = config
         self.data_dir = args.data_dir
+        self.local = self.config_json.endswith("local.json")
         self.pipeline_dir = os.path.dirname(os.path.dirname(os.path.realpath(self.config_json)))
         self.script_output_root = f"{self.pipeline_dir}/output"
         self.config_name = self.config_json.split('/')[-1].split('.json')[0]

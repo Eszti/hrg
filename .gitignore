@@ -1,2 +1,6 @@
 *.egg-info/
 .idea/
+
+# Local tests
+*_local/
+*_local*.*
