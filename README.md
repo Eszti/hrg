@@ -1,5 +1,9 @@
 # Method documentation
 
+## Setup
+
+`# python version = 3.10`
+
 ## Proof of concept 
 
 First, we try to find a top estimate for our system in order to validate our concept.
