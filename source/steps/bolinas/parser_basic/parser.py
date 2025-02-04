@@ -3,7 +3,7 @@ from collections import defaultdict, deque
 
 from ordered_set import OrderedSet
 
-from source.steps.bolinas.common.chart import Chart
+from source.steps.bolinas.common.cky_chart import CkyChart
 from source.steps.bolinas.common.exceptions import ParseTooLongException, CkyTooLongException
 from source.steps.bolinas.parser_basic.vo_item import HergItem
 
@@ -23,21 +23,17 @@ class Parser:
         self.stop_at_first = stop_at_first
         self.permutations = permutations
 
-    def parse_graphs(self, graph_iterator, partial=False):
+    def parse_graphs(self, graph_iterator, partial=False, logger=None):
         """
         Parse all the graphs in graph_iterator.
         This is a generator.
         """
         for graph in graph_iterator:
-            log = ""
-            raw_chart, parse_log = self.parse(graph, partial=partial)
-            log += parse_log
-            chart, cky_log = get_cky_chart(raw_chart, self.permutations)
-            log += cky_log
-            log += f"\n{chart.log_length()}"
-            yield chart, log
+            raw_chart = self.parse(graph, partial=partial, logger=logger)
+            chart = get_cky_chart(raw_chart, self.permutations, logger=logger)
+            yield chart
 
-    def parse(self, graph, partial=False):
+    def parse(self, graph, partial=False, logger=None):
         """
         Parses the given string and/or graph.
         """
@@ -51,7 +47,6 @@ class Parser:
 
         grammar = self.grammar
 
-        parse_log = ""
         start_time = time.time()
         graph_size = len(graph.triples(nodelabels=self.nodelabels))
 
@@ -177,13 +172,14 @@ class Parser:
         elapsed_time = round(time.time() - start_time, 2)
         parsing_summary = f"Parsing: {elapsed_time} sec, {steps} steps"
         print(f"\n{parsing_summary}")
-        parse_log += f"{parsing_summary}\n"
-        parse_log += f"Max queue size: {max_queue_size}\n"
-        parse_log += f"Max queue diff comp: {max_queue_diff_comp}\n"
-        parse_log += f"Max queue diff outside nt: {max_queue_diff_outside_nt}\n"
-        parse_log += f"Max queue diff shift: {max_queue_diff_shift}\n"
+        if logger:
+            logger.log(f"{parsing_summary}")
+            logger.log(f"Max queue size: {max_queue_size}")
+            logger.log(f"Max queue diff comp: {max_queue_diff_comp}")
+            logger.log(f"Max queue diff outside nt: {max_queue_diff_outside_nt}")
+            logger.log(f"Max queue diff shift: {max_queue_diff_shift}")
 
-        return chart, parse_log
+        return chart
 
     def successful_parse(self, item, graph_size):
         """
@@ -198,7 +194,7 @@ class Parser:
 cky_steps = 0
 
 
-def get_cky_chart(chart, permutations):
+def get_cky_chart(chart, permutations, logger=None):
     """
     Convert the chart returned by the parser into a standard parse chart.
     """
@@ -251,7 +247,7 @@ def get_cky_chart(chart, permutations):
             for citem in production:
                 stack.append(citem)
 
-    cky_chart = Chart()
+    cky_chart_dict = dict()
     for item in visit_items:
         if not (item == 'START' or item.closed):
             continue
@@ -259,14 +255,18 @@ def get_cky_chart(chart, permutations):
         prods = search_productions(item, chart)
         if prods:
             if permutations:
-                cky_chart[item] = prods
+                cky_chart_dict[item] = prods
             else:
                 unique_prods = filter_permutations(prods)
-                cky_chart[item] = unique_prods
+                cky_chart_dict[item] = unique_prods
+    cky_chart = CkyChart(cky_chart_dict)
     elapsed_time = round(time.time() - start_time, 2)
     cky_summary = f"Cky conversion: {elapsed_time} sec, {cky_steps} steps"
     print(cky_summary)
-    return cky_chart, f"\n{cky_summary}\n"
+    if logger:
+        logger.log(f"\n{cky_summary}")
+        logger.log(cky_chart.log_length())
+    return cky_chart
 
 
 def filter_permutations(prods):

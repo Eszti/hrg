@@ -6,10 +6,6 @@ class BinarizationException(Exception):
     pass
 
 
-class DerivationException(Exception):
-    pass
-
-
 class LexerError(Exception):
     pass
 

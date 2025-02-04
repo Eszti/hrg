@@ -41,7 +41,7 @@ class Validate(LoopOnTriplets):
 
     def _after_loop(self):
         val_ratio = float(len(self.validated)) / self.all_dev_triplets
-        self._log(
+        self.logger.log(
             f"\nValidation ratio: {round(val_ratio, 2)} ({len(self.validated)} / {self.all_dev_triplets})\n"
             f"\nNumber of validated: {len(self.validated)}\n"
             f"{json.dumps(self.validated)}"

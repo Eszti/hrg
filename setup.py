@@ -18,7 +18,6 @@ setup(
         "protobuf==3.20",
         "scikit-learn",
         "stanza",
-        "tuw-nlp",
     ],
     packages=find_packages(),
     include_package_data=True,

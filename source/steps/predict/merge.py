@@ -78,16 +78,16 @@ class Merge(LoopOnSenDirs):
                     json.dump(all_ex_list, f, indent=4)
 
                 if ki == 0:
-                    self._log(f"\nKeeping all extractions.")
+                    self.logger.log(f"\nKeeping all extractions.")
                 else:
-                    self._log(f"\nKeeping top {ki} extractions.")
+                    self.logger.log(f"\nKeeping top {ki} extractions.")
                 sum_sens = 0
                 ex_stat_i = {key: v for key, v in sorted(self.ex_stat[subdir_str][ki].items())}
                 for j, v in ex_stat_i.items():
-                    self._log(f"{j} extraction(s): {v} sen")
+                    self.logger.log(f"{j} extraction(s): {v} sen")
                     sum_sens += v
-                self._log(f"Sum {sum_sens} sens")
-                self._log(f"Output saved to {out_fn}\n")
+                self.logger.log(f"Sum {sum_sens} sens")
+                self.logger.log(f"Output saved to {out_fn}\n")
         super()._after_loop()
 
 

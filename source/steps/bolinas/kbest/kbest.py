@@ -1,42 +1,11 @@
 import json
-import math
 import os.path
-import pickle
 
-from collections import OrderedDict
-from copy import copy
-
+from common.script.logger import Logger
 from source.common.conll import ConllSen
 from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
-from source.steps.bolinas.common.exceptions import DerivationException
-from source.steps.bolinas.common.oie import get_labels, extract_for_kth_derivation
 from source.steps.bolinas.kbest.filter.pr_filter import filter_for_pr
-from source.steps.bolinas.kbest.filter.size_filter import filter_for_size
-
-
-def get_k_best_unique_derivation(chart, k):
-    kbest_unique_nodes = set()
-    kbest_unique_derivations = []
-    for score, derivation in chart:
-        final_item = derivation[1]["START"][0]
-        nodes = sorted(list(final_item.nodeset), key=lambda node: int(node[1:]))
-        nodes_str = " ".join(nodes)
-        if nodes_str not in kbest_unique_nodes:
-            kbest_unique_nodes.add(nodes_str)
-            kbest_unique_derivations.append((score, derivation))
-        if len(kbest_unique_derivations) >= k:
-            break
-    assert len(kbest_unique_derivations) == len(kbest_unique_nodes)
-    if len(kbest_unique_derivations) < k:
-        print(f"Found only {len(kbest_unique_derivations)} derivations.")
-    return kbest_unique_derivations
-
-
-def save_output(outputs):
-    for (fn, lines) in outputs:
-        if lines:
-            with open(fn, "w") as f:
-                f.writelines(lines)
+from steps.bolinas.common.cky_chart import CkyChart
 
 
 def get_gold_labels(preproc_dir):
@@ -64,10 +33,9 @@ class KBest(LoopOnSenDirs):
         if not os.path.exists(chart_file):
             return
 
-        with open(chart_file, "rb") as f:
-            chart = pickle.load(f)
+        cky_chart = CkyChart.from_pickle(chart_file)
 
-        if "START" not in chart:
+        if cky_chart.no_derivation():
             print("No derivation found")
             return
 
@@ -81,26 +49,22 @@ class KBest(LoopOnSenDirs):
             if c.get("ignore", False):
                 continue
             print(f"Processing {name}")
-            matches_lines = []
-            labels_lines = []
-            rules_lines = []
-            sen_log_lines = []
+            out_dir = self._get_subdir(name, parent_dir=bolinas_dir)
+            sen_logger = Logger(f"{out_dir}/sen{sen_idx}.log")
 
-            filtered_chart = copy(chart)
-            sen_log_lines.append(f"Chart 'START' length: {len(filtered_chart['START'])}\n")
-            if "chart_filter" in c:
-                chart_filter = c["chart_filter"]
-                assert chart_filter in ["basic", "max"]
-                filtered_chart = filter_for_size(chart, chart_filter)
-            sen_log_lines.append(f"Chart 'START' length after size filter: {len(filtered_chart['START'])}\n")
+            filtered_chart = cky_chart
+            sen_logger.log(filtered_chart.log_length())
+            if "chart_filter" in c and c["chart_filter"] == "max":
+                sen_logger.log("Apply max size filter")
+                filtered_chart = cky_chart.chart_with_only_max_size()
+                sen_logger.log(filtered_chart.log_length())
 
-            derivations = filtered_chart.derivations("START")
+            derivation_list = filtered_chart.search_derivations("START", logger=sen_logger)
 
             assert ("k" in c and "pr_metric" not in c) or ("k" not in c and "pr_metric" in c)
 
-            labels_with_arg_idx = []
             if "k" in c:
-                k_best_unique_derivations = get_k_best_unique_derivation(derivations, c["k"])
+                k_best_unique_derivations = derivation_list.get_k_best_unique_derivation(c["k"])
             elif "pr_metric" in c:
                 metric = c["pr_metric"]
                 assert metric in ["prec", "rec", "f1"]
@@ -118,62 +82,18 @@ class KBest(LoopOnSenDirs):
                 print("Neither 'k' nor 'pr_metric' is set")
                 continue
 
-            last_score = None
-            score_disorder = {}
-            for i, (score, derivation) in enumerate(k_best_unique_derivations):
-                ki = i + 1
-                if "k" in c:
-                    n_score = score if self.logprob else math.exp(score)
-                else:
-                    n_score = score
+            self.score_disorder_collector[sen_idx] = k_best_unique_derivations.check_score_disorder(sen_logger)
 
-                new_score = score
-                if last_score:
-                    if new_score > last_score:
-                        order_str = "%d-%d" % (ki - 1, ki)
-                        score_disorder[order_str] = (last_score, new_score)
-                last_score = new_score
-
-                try:
-                    shifted_derivation, used_rules, matched_nodes, _, _ = extract_for_kth_derivation(
-                        derivation,
-                        n_score,
-                        ki,
-                    )
-                    matches_lines.append(shifted_derivation)
-                    rules_lines.append(f"{used_rules}\n")
-                    sen_log_lines.append(matched_nodes)
-                    if "pr_metric" in c:
-                        labels = labels_with_arg_idx[i]
-                    else:
-                        labels = get_labels(derivation)
-                    labels_lines.append(
-                        f"{json.dumps(OrderedDict(sorted(labels.items(), key=lambda x: int(x[0]))))};{n_score}\n")
-                except DerivationException as e:
-                    print("Could not construct derivation: '%s'. Skipping." % e)
-
-            for i, val in score_disorder.items():
-                sen_log_lines.append("%s: %g / %g\n" % (i, val[0], val[1]))
-            self.score_disorder_collector[sen_idx] = (len(score_disorder.items()), len(k_best_unique_derivations))
-
-            out_dir = os.path.join(bolinas_dir, name)
-            if not os.path.exists(out_dir):
-                os.makedirs(out_dir)
-            save_output(
-                [
-                    (f"{out_dir}/sen{sen_idx}_matches.graph", matches_lines),
-                    (f"{out_dir}/sen{sen_idx}_predicted_labels.txt", labels_lines),
-                    (f"{out_dir}/sen{sen_idx}_derivation.txt", rules_lines),
-                    (f"{out_dir}/sen{sen_idx}.log", sen_log_lines),
-                ]
-            )
+            k_best_unique_derivations.log_all_derivations(sen_logger)
+            k_best_unique_derivations.save_derivations_as_graph_file(f"{out_dir}/sen{sen_idx}_matches.graph")
+            k_best_unique_derivations.save_predicted_labels(f"{out_dir}/sen{sen_idx}_predicted_labels.txt")
 
     def _after_loop(self):
         num_sem = len(self.score_disorder_collector.keys())
-        self._log(f"\nNumber of sentences: {num_sem}")
-        sum_score_disorder = sum([val[0] for val in self.score_disorder_collector.values()])
-        self._log(f"Sum of score disorders: {sum_score_disorder}")
-        self._log(f"Average score disorders: {round(sum_score_disorder / float(num_sem), 2)}")
+        self.logger.log(f"\nNumber of sentences: {num_sem}")
+        sum_score_disorder = sum(self.score_disorder_collector.values())
+        self.logger.log(f"Sum of score disorders: {sum_score_disorder}")
+        self.logger.log(f"Average score disorders: {round(sum_score_disorder / float(num_sem), 2)}")
         super()._after_loop()
 
 

@@ -44,4 +44,4 @@ class LoopOnSenDirs(Script):
             self.grammar = Grammar.load_from_file(f, VoRule, reverse=False, nodelabels=True, logprob=True)
 
         rhs2_type = f"-to-{self.grammar.rhs2_type}" if self.grammar.rhs2_type else ''
-        self._log(f"\nLoaded {self.grammar.rhs1_type}{rhs2_type} grammar with {len(self.grammar)} rules.")
+        self.logger.log(f"\nLoaded {self.grammar.rhs1_type}{rhs2_type} grammar with {len(self.grammar)} rules.")

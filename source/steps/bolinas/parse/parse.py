@@ -1,9 +1,10 @@
 import fileinput
-import pickle
 
+from common.script.logger import Logger
 from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
 from source.steps.bolinas.common.hgraph.hgraph import Hgraph
 from source.steps.bolinas.parser_basic.parser import Parser
+from steps.bolinas.common.cky_chart import CkyChart
 
 
 class Parse(LoopOnSenDirs):
@@ -26,23 +27,20 @@ class Parse(LoopOnSenDirs):
         )
 
     def _parse_sen(self, graph_file, chart_file, sen_log_file):
-        sen_log_lines = []
+        sen_logger = Logger(sen_log_file)
         parse_generator = self.parser.parse_graphs(
             (Hgraph.from_string(x) for x in fileinput.input(graph_file)),
             partial=True,
+            logger=sen_logger,
         )
 
-        for i, (chart, parse_logs) in enumerate(parse_generator):
+        for i, cky_chart in enumerate(parse_generator):
             assert i == 0
-            if "START" not in chart:
-                self._log("No derivation found", sen_log_lines)
+            if cky_chart.no_derivation():
+                sen_logger.log("No derivation found")
                 continue
             else:
-                self._log(parse_logs, sen_log_lines)
-                with open(chart_file, "wb") as f:
-                    pickle.dump(chart, f, -1)
-        with open(sen_log_file, "w") as f:
-            f.writelines(sen_log_lines)
+                CkyChart.to_file(cky_chart, chart_file)
 
 
 if __name__ == "__main__":

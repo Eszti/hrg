@@ -36,7 +36,7 @@ class Pipeline(Script):
         for step in self.steps:
             step_name = step['step_name']
             script_name = step['script_name']
-            self._log(f"Processing step {step_name}: {datetime.now()}")
+            self.logger.log(f"Processing step {step_name}: {datetime.now()}")
             step_class = self.name_to_class[script_name]
             config = f"{self.pipeline_dir}/config/{step['config']}"
             step = step_class(config=config)

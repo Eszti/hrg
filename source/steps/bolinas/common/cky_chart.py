@@ -1,14 +1,56 @@
 import heapq
 import itertools
+import pickle
 import time
+from collections import Counter
+from copy import copy
+
+from steps.bolinas.common.derivation_list import DerivationList
 
 
-class Chart(dict):
-    """
-    A CKY style parse chart that can return k-best derivations and can return inside and outside probabilities.
-    """
+class CkyChart:
+    def __init__(self, items_dict):
+        self.chart = items_dict
 
-    def derivations(self, item="START", only_first=False, max_steps=None, k_best=None):
+    @staticmethod
+    def from_pickle(fn):
+        with open(fn, "rb") as f:
+            chart = pickle.load(f)
+        return CkyChart(chart)
+
+    def to_file(self, fn):
+        with open(fn, "wb") as f:
+            pickle.dump(self.chart, f, -1)
+
+    def no_derivation(self):
+        return "START" not in self.chart
+
+    def chart_with_only_max_size(self):
+        boundary_value = sorted(self._get_sizes().keys(), reverse=True)[0]
+        filtered_chart = self._delete_smaller(boundary_value)
+        return CkyChart(filtered_chart)
+
+    def _get_sizes(self):
+        graph_sizes = Counter()
+        for split in self.chart["START"]:
+            assert len(split.items()) == 1
+            graph_size = len(split["START"].nodeset)
+            graph_sizes[graph_size] += 1
+        return graph_sizes
+
+    def _delete_smaller(self, boundary_value):
+        new_chart = copy(self.chart)
+        splits_to_keep = []
+        for split in self.chart["START"]:
+            assert len(split.items()) == 1
+            graph_size = len(split["START"].nodeset)
+            if graph_size >= boundary_value:
+                splits_to_keep.append(split)
+        del new_chart["START"]
+        new_chart["START"] = splits_to_keep
+        return new_chart
+
+    def search_derivations(self, item="START", only_first=False, max_steps=None, k_best=None, logger=None):
         start_time = time.time()
         if only_first:
             derivation, steps = self._first_derivation(item)
@@ -18,7 +60,9 @@ class Chart(dict):
         elapsed_time = round(time.time() - start_time, 2)
         search_summary = f"Search: {elapsed_time} sec, {steps} steps"
         print(search_summary)
-        return derivations, f"{search_summary}\n"
+        if logger:
+            logger.log(f"{search_summary}\n")
+        return DerivationList(derivations, raw=True)
 
     def _derivations(self, item, done_steps, max_steps, k_best):
         """
@@ -31,7 +75,7 @@ class Chart(dict):
             rprob = item.rule.weight
 
         # If item is a leaf, just return it and its probability
-        if not item in self:
+        if not item in self.chart:
             if item == "START":
                 print("No derivations.")
                 return [], 1
@@ -40,7 +84,7 @@ class Chart(dict):
 
         pool = []
         all_steps = done_steps
-        splits = self[item]
+        splits = self.chart[item]
         for split in splits:
             if max_steps is None or all_steps < max_steps:
                 nts, children = zip(*split.items())
@@ -76,14 +120,14 @@ class Chart(dict):
         else:
             rprob = item.rule.weight
 
-        if not item in self:
+        if not item in self.chart:
             if item == "START":
                 print("No derivations.")
                 return None
             else:
                 return (rprob, item), 1
 
-        split = list(self[item])[0]
+        split = list(self.chart[item])[0]
         nts, children = zip(*split.items())
         children_derivations = [self._first_derivation(child) for child in children]
         one_from_each_child, steps = zip(*children_derivations)
@@ -95,13 +139,13 @@ class Chart(dict):
 
     def items_length(self):
         length = 0
-        splits = self.items()
+        splits = self.chart.items()
         for split in splits:
             for item_dict in split[1]:
                 length += len(item_dict.values())
         return length
 
     def log_length(self):
-        return f"Chart START items len: {len(self['START']) if 'START' in self else 0}\n" \
-               f"Chart keys len: {len(self)}\n" \
+        return f"Chart START items len: {len(self.chart['START']) if 'START' in self.chart else 0}\n" \
+               f"Chart keys len: {len(self.chart)}\n" \
                f"Chart items len: {self.items_length()}\n"

@@ -35,9 +35,9 @@ class Hrg(LoopOnSenDirs):
                 self.__write_rules(f, grammar, "weight")
             with open(f"{grammar_dir}/{file_name}.stat", "w") as f:
                 self.__write_rules(f, grammar, "cnt")
-            self._log(f"\nUnique rules for {file_name}: {self.__get_total_number_of_rules(grammar)}")
+            self.logger.log(f"\nUnique rules for {file_name}: {self.__get_total_number_of_rules(grammar)}")
             for nt, prods in grammar.items():
-                self._log(f"{nt}: {len(prods)}\t({round(len(prods) / self.__get_total_number_of_rules(grammar), 3)})")
+                self.logger.log(f"{nt}: {len(prods)}\t({round(len(prods) / self.__get_total_number_of_rules(grammar), 3)})")
         super()._after_loop()
 
     @staticmethod

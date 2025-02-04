@@ -3,6 +3,7 @@ import logging
 
 from tuw_nlp.graph.graph import Graph
 
+from common.script.logger import Logger
 from source.common.script.loop_on_triplets import LoopOnTriplets
 from source.steps.bolinas.common.exceptions import ParseTooLongException, CkyTooLongException, \
     NotAllNodesCoveredException
@@ -27,7 +28,7 @@ class Train(LoopOnTriplets):
 
     def _do_for_triplet(self, sen_dir, triplet_idx, triplet_graph_str, triplet):
         hrg_dir = self._get_subdir(str(triplet_idx), self.out_dir)
-        triplet_log = open(f"{hrg_dir}/sen{triplet_idx}.log", "w")
+        triplet_logger = Logger(f"{hrg_dir}/sen{triplet_idx}.log")
         triplet_graph = Graph.from_bolinas(triplet_graph_str)
 
         initial_rule = ""
@@ -42,32 +43,32 @@ class Train(LoopOnTriplets):
             grammar_lines = [f"{initial_rule}"]
             for rule in sorted(rules):
                 grammar_lines.append(f"{rule}")
-            triplet_log.write(f"Grammar length: {len(grammar_lines)}\n")
+            triplet_logger.log(f"Grammar length: {len(grammar_lines)}")
             grammar = Grammar.load_from_file(grammar_lines, VoRule, nodelabels=True, logprob=True)
             parser = Parser(grammar, stop_at_first=True, permutations=False)
 
             try:
-                log_from_validator, used_rules = check_membership(parser, triplet_graph_str)
-                triplet_log.writelines(log_from_validator)
-                if used_rules is None:
+                derivation = check_membership(parser, triplet_graph_str, triplet_logger)
+                if derivation is None:
                     self.not_validated.append(triplet_idx)
-                if len(used_rules.keys()) != len(grammar):
-                    triplet_log.writelines(f"\nNot all rules are used: {len(used_rules.keys())} of {len(grammar)}\n")
+                number_of_used_rule = len(derivation.rules_counter.keys())
+                if number_of_used_rule != len(grammar):
+                    triplet_logger.log(f"\nNot all rules are used: {number_of_used_rule} of {len(grammar)}\n")
                     self.not_all_rules_used.append(triplet_idx)
                 with open(f"{hrg_dir}/sen{triplet_idx}.hrg", "w") as f:
                     f.writelines(grammar_lines)
             except ParseTooLongException as e:
                 self.parse_did_not_finish.append(triplet_idx)
-                triplet_log.write(e.print_message())
+                triplet_logger.log(e.print_message())
             except CkyTooLongException as e:
                 self.cky_did_not_finish.append(triplet_idx)
-                triplet_log.write(e.print_message())
+                triplet_logger.log(e.print_message())
             except NotAllNodesCoveredException as e:
                 self.not_all_nodes_covered.append(triplet_idx)
-                triplet_log.write(e.print_message())
+                triplet_logger.log(e.print_message())
 
     def _after_loop(self):
-        self._log(
+        self.logger.log(
             f"\nNumber of no rules: {len(self.no_rule)}\n"
             f"{json.dumps(self.no_rule)}"
             f"\nNumber of not validated: {len(self.not_validated)}\n"

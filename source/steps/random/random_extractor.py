@@ -37,8 +37,8 @@ class Random(LoopOnSenDirs):
 
     def __read_sequences(self):
         self.sequences = json.load(open(f"{self.artefact_dir}/{self.artefact_prefix}_sequences.json"))
-        self._log(f"sentence lengths: {len(self.sequences)}")
-        self._log(f"{sorted(self.sequences)}")
+        self.logger.log(f"sentence lengths: {len(self.sequences)}")
+        self.logger.log(f"{sorted(self.sequences)}")
 
     def _do_for_sen(self, sen_idx, sen_dir):
         out_sen_dir = f"{self.out_dir}/{str(sen_idx)}/predict"
@@ -108,7 +108,7 @@ class Random(LoopOnSenDirs):
             self.non_verbs[sen_idx].append((p_idx_l, pos_tags))
 
     def _after_loop(self):
-        self._log(self.non_verbs)
+        self.logger.log(self.non_verbs)
         super()._after_loop()
 
 

@@ -13,7 +13,7 @@ class ConllSen:
     def __read_conll(fn):
         with open(fn) as f:
             lines = f.readlines()
-        return [line.strip().split("\t") for line in lines if line.strip()]
+        return [line.strip().split("\t") for line in lines if line.strip() if not line.startswith("#")]
 
     def sen_text(self):
         return " ".join([line[1] for line in self.parsed])
