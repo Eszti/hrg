@@ -49,3 +49,13 @@ class NotAllNodesCoveredException(Exception):
         return f"{len(self.derived_nodes)}/{len(self.not_covered_nodes)} " \
                f"(covered/not covered) out of {len(self.orig_nodes)}\n"\
                f"Not covered nodes:\n{self.not_covered_nodes}\n"
+
+
+class ScoreDisorderException(Exception):
+    def __init__(self, i, score_a, score_b):
+        self.i = i
+        self.score_a = score_a
+        self.score_b = score_b
+
+    def print_message(self):
+        return f"score disorder - {self.i}: {self.score_a:g} / {self.score_b:g}"

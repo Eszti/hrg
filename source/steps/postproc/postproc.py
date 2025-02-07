@@ -29,22 +29,23 @@ def add_arg_idx(extracted_labels, length, arg_perm):
     prev = "O"
     idx = -1
     groups = defaultdict(list)
+    new_labels = copy.copy(extracted_labels)
     for i in range(1, length + 1):
-        if str(i) not in extracted_labels:
-            extracted_labels[str(i)] = "O"
+        if str(i) not in new_labels:
+            new_labels[str(i)] = "O"
         else:
-            if extracted_labels[str(i)] == "A":
+            if new_labels[str(i)] == "A":
                 if not prev.startswith("A"):
                     idx += 1
                 groups[idx].append(i)
-                extracted_labels[str(i)] = "A" + str(idx)
-        prev = extracted_labels[str(i)]
+                new_labels[str(i)] = "A" + str(idx)
+        prev = new_labels[str(i)]
     if not arg_perm:
-        return [extracted_labels]
+        return [new_labels]
     ret = []
     group_permutations = list(itertools.permutations(groups.keys()))
     for permutation in group_permutations:
-        new_extractions = copy.copy(extracted_labels)
+        new_extractions = copy.copy(new_labels)
         for i, group_idx in enumerate(permutation):
             for word_idx in groups[group_idx]:
                 new_extractions[str(word_idx)] = "A" + str(i)

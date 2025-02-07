@@ -19,7 +19,7 @@ class Parse(LoopOnSenDirs):
         self.parser = Parser(self.grammar, max_steps=self.config.get("max_steps", 10000))
 
     def _do_for_sen(self, sen_idx, sen_dir):
-        bolinas_dir = self._get_subdir("bolinas", parent_dir=f"{self.out_dir}/{str(sen_idx)}")
+        bolinas_dir = self._get_subdir("parse", parent_dir=f"{self.out_dir}/{str(sen_idx)}")
         self._parse_sen(
             graph_file=f"{sen_dir}/pos_edge.graph",
             chart_file=f"{bolinas_dir}/sen{str(sen_idx)}_chart.pickle",

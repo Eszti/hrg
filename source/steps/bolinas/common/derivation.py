@@ -10,14 +10,17 @@ class Derivation:
     def __init__(self, derivation, score):
         self.derivation = derivation
         self.score = score
+        self.original_score = score
         self.derived_nodes = None
         self.used_rules = None
         self.rules_counter = Counter()
         self.predicted_labels = None
+        self.postprocessed_labels = None
 
     def collect_derived_nodes(self):
-        final_item = self.derivation[1]["START"][0]
-        self.derived_nodes = sorted(list(final_item.nodeset), key=lambda node: int(node[1:]))
+        if self.derived_nodes is None:
+            final_item = self.derivation[1]["START"][0]
+            self.derived_nodes = sorted(list(final_item.nodeset), key=lambda node: int(node[1:]))
 
     def __log_derived_nodes(self, logger, k):
         logger.log(f"k{k}:\t{self.derived_nodes} - {len(self.derived_nodes)}\n")
@@ -39,7 +42,8 @@ class Derivation:
         return Derivation.__walk_derivation(self.derivation, combiner, leaf)
 
     def collect_used_rules(self):
-        self.used_rules = self.__get_rules()
+        if self.used_rules is None:
+            self.used_rules = self.__get_rules()
 
     def __log_used_rules(self, logger):
         for rule_id in sorted(self.used_rules):
@@ -53,8 +57,12 @@ class Derivation:
         logger.log(f"Number of different used rules: {len(self.rules_counter.keys())}")
         logger.log(f"Total number of used rules: {sum(self.rules_counter.values())}\n")
 
+    def set_postprocessed_labels(self, pp_labels):
+        self.postprocessed_labels = pp_labels
+
     def predict_labels(self):
-        self.predicted_labels = self.__get_labels()
+        if self.predicted_labels is None:
+            self.predicted_labels = self.__get_labels()
 
     def print_predicted_labels(self):
         return f"{json.dumps(OrderedDict(sorted(self.predicted_labels.items(), key=lambda x: int(x[0]))))}"
@@ -69,13 +77,16 @@ class Derivation:
             return children
 
         def leaf(item):
-            return {item.mapping['_1'].split('n')[1]: item.rule.symbol}
+            nt = item.rule.symbol
+            if nt == 'S':
+                return {}
+            return {(item.mapping['_1'].split('n')[1]): nt}
 
         return Derivation.__walk_derivation(self.derivation, combiner, leaf)
 
     def __log_derivation(self, logger, k):
         logger.log(f"K{k}")
-        logger.log(f"Score: {self.score:g}")
+        logger.log(f"Score: {self.score:g} (Original score: {self.original_score:g})")
         logger.log(self.print_shifted())
         logger.log(f"{self.format_derivation()}\n")
 
