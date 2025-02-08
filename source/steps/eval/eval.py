@@ -22,7 +22,7 @@ class Eval(LoopOnModels):
         self.report += "# Evaluation\n"
 
     def _do_for_model(self, model):
-        model_name = model['name']
+        model_name = model["name"]
         self.report += f"## {model_name}\n"
         for chart_filter in sorted(model["bolinas_chart_filters"]):
             for pp in sorted(model["postprocess"]):
@@ -39,10 +39,7 @@ class Eval(LoopOnModels):
 
                 in_dir = f"{self.in_dir}/{model['in_dir']}"
                 files = self._get_merged_jsons(
-                    in_dir,
-                    chart_filter,
-                    pp,
-                    only_all=(mode == "all")
+                    in_dir, chart_filter, pp, only_all=(mode == "all")
                 )
 
                 p, r = [], []
@@ -55,23 +52,31 @@ class Eval(LoopOnModels):
 
     def __calculate_table(self, files, p, r, mode):
         first_col = "k" if mode == "k" else "model"
-        table = [[first_col,
-                  "predicted extractions",
-                  "gold extractions",
-                  "matches",
-                  "exact matches",
-                  "prec",
-                  "rec",
-                  "F1"]]
+        table = [
+            [
+                first_col,
+                "predicted extractions",
+                "gold extractions",
+                "matches",
+                "exact matches",
+                "prec",
+                "rec",
+                "F1",
+            ]
+        ]
 
         for file in files:
             all_predictions = json.load(open(file))
 
-            predictions_by_model = split_tuples_by_extractor(self.gold.keys(), all_predictions)
+            predictions_by_model = split_tuples_by_extractor(
+                self.gold.keys(), all_predictions
+            )
             for model, system_extractions in sorted(predictions_by_model.items()):
-                metrics, raw_match_scores, exact_matches, matches = eval_system(self.gold, system_extractions)
+                metrics, raw_match_scores, exact_matches, matches = eval_system(
+                    self.gold, system_extractions
+                )
 
-                prec, rec = metrics['precision'], metrics['recall']
+                prec, rec = metrics["precision"], metrics["recall"]
                 f1_score = round(f1(prec, rec), 4)
                 prec, rec = round(prec, 4), round(rec, 4)
                 p.append(prec)
@@ -82,19 +87,23 @@ class Eval(LoopOnModels):
                     first_col = model.split("_")[-1]
                 elif mode == "all":
                     first_col = "all"
-                pred_extractions = metrics['exactmatches_precision'][1]
-                nr_matches = metrics['matches']
-                nr_exact_matches = metrics['exactmatches_precision'][0]
-                gold_extractions = metrics['exactmatches_recall'][1]
+                pred_extractions = metrics["exactmatches_precision"][1]
+                nr_matches = metrics["matches"]
+                nr_exact_matches = metrics["exactmatches_precision"][0]
+                gold_extractions = metrics["exactmatches_recall"][1]
 
-                table.append([first_col,
-                              pred_extractions,
-                              gold_extractions,
-                              nr_matches,
-                              nr_exact_matches,
-                              prec,
-                              rec,
-                              f1_score])
+                table.append(
+                    [
+                        first_col,
+                        pred_extractions,
+                        gold_extractions,
+                        nr_matches,
+                        nr_exact_matches,
+                        prec,
+                        rec,
+                        f1_score,
+                    ]
+                )
                 assert nr_exact_matches == len(exact_matches)
                 assert nr_matches == len(matches)
 
@@ -123,7 +132,7 @@ class Eval(LoopOnModels):
                 self.p_list,
                 self.r_list,
                 self.pr_curve_names,
-                f"{self.report_dir}/pr_curve_{self.config_name}.png"
+                f"{self.report_dir}/pr_curve_{self.config_name}.png",
             )
             self.report += f"## P-R curve\n![](pr_curve_{self.config_name}.png)"
 

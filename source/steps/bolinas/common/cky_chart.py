@@ -50,7 +50,9 @@ class CkyChart:
         new_chart["START"] = splits_to_keep
         return new_chart
 
-    def search_derivations(self, item="START", only_first=False, max_steps=None, k_best=None, logger=None):
+    def search_derivations(
+        self, item="START", only_first=False, max_steps=None, k_best=None, logger=None
+    ):
         start_time = time.time()
         if only_first:
             derivation, steps = self._first_derivation(item)
@@ -88,7 +90,10 @@ class CkyChart:
         for split in splits:
             if max_steps is None or all_steps < max_steps:
                 nts, children = zip(*split.items())
-                children_derivations = [self._derivations(child, all_steps, max_steps, k_best) for child in children]
+                children_derivations = [
+                    self._derivations(child, all_steps, max_steps, k_best)
+                    for child in children
+                ]
                 kbest_each_child, steps_each_child = zip(*children_derivations)
                 all_steps += sum(steps_each_child)
 
@@ -98,18 +103,25 @@ class CkyChart:
                 for combination in all_combinations:
                     weights, trees = zip(*combination)
                     try:
-                        heapq.heappush(combinations_for_sorting, (sum(weights) + rprob, trees))
+                        heapq.heappush(
+                            combinations_for_sorting, (sum(weights) + rprob, trees)
+                        )
                     except TypeError:
                         pass
 
-                    for prob, trees in sorted(combinations_for_sorting, key=lambda x: x[0], reverse=True)[:k_best]:
+                    for prob, trees in sorted(
+                        combinations_for_sorting, key=lambda x: x[0], reverse=True
+                    )[:k_best]:
                         new_tree = (item, dict(zip(nts, trees)))
                         try:
                             heapq.heappush(pool, (prob, new_tree))
                         except TypeError:
                             pass
 
-        return sorted(pool, key=lambda x: x[0], reverse=True)[:k_best], all_steps - done_steps + 1
+        return (
+            sorted(pool, key=lambda x: x[0], reverse=True)[:k_best],
+            all_steps - done_steps + 1,
+        )
 
     def _first_derivation(self, item):
         """
@@ -134,7 +146,7 @@ class CkyChart:
 
         weights, trees = zip(*one_from_each_child)
         new_tree = (item, dict(zip(nts, trees)))
-        new_prob = (sum(weights) + rprob)
+        new_prob = sum(weights) + rprob
         return (new_prob, new_tree), sum(steps) + 1
 
     def items_length(self):
@@ -146,6 +158,8 @@ class CkyChart:
         return length
 
     def log_length(self):
-        return f"Chart START items len: {len(self.chart['START']) if 'START' in self.chart else 0}\n" \
-               f"Chart keys len: {len(self.chart)}\n" \
-               f"Chart items len: {self.items_length()}\n"
+        return (
+            f"Chart START items len: {len(self.chart['START']) if 'START' in self.chart else 0}\n"
+            f"Chart keys len: {len(self.chart)}\n"
+            f"Chart items len: {self.items_length()}\n"
+        )

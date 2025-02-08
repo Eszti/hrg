@@ -12,7 +12,10 @@ from steps.bolinas.kbest.kbest_models import BasicModel, MaxModel, PRModel
 class KBest(LoopOnSenDirs):
 
     def __init__(self, config=None):
-        super().__init__(description="Script to search k best derivations in parsed charts.", config=config)
+        super().__init__(
+            description="Script to search k best derivations in parsed charts.",
+            config=config,
+        )
         self.logprob = True
         self.model_name_to_class = {
             "basic": BasicModel(),
@@ -24,7 +27,7 @@ class KBest(LoopOnSenDirs):
         pass
 
     def _do_for_sen(self, sen_idx, preproc_sen_dir):
-        sen_dir = F"{self.out_dir}/{str(sen_idx)}"
+        sen_dir = f"{self.out_dir}/{str(sen_idx)}"
         chart_file = f"{sen_dir}/parse/sen{sen_idx}_chart.pickle"
         if not os.path.exists(chart_file):
             print("Chart file path does not exist.")
@@ -37,9 +40,7 @@ class KBest(LoopOnSenDirs):
             return
 
         gold_triplets = KBest.__get_gold_triplets(preproc_sen_dir)
-        top_order = json.load(open(
-            f"{preproc_sen_dir}/pos_edge_graph_top_order.json"
-        ))
+        top_order = json.load(open(f"{preproc_sen_dir}/pos_edge_graph_top_order.json"))
         pos_tags = ConllSen(preproc_sen_dir).pos_tags()
 
         kbest_dir = self._get_subdir("kbest", parent_dir=sen_dir)
@@ -58,15 +59,23 @@ class KBest(LoopOnSenDirs):
                 filtered_chart = cky_chart.chart_with_only_max_size()
                 sen_logger.log(filtered_chart.log_length())
 
-            derivation_list = filtered_chart.search_derivations("START", logger=sen_logger)
-            derivations_per_model = model.get_derivation_per_model(derivation_list, gold_triplets, pos_tags, top_order)
+            derivation_list = filtered_chart.search_derivations(
+                "START", logger=sen_logger
+            )
+            derivations_per_model = model.get_derivation_per_model(
+                derivation_list, gold_triplets, pos_tags, top_order
+            )
 
             for submodel_name, derivations in derivations_per_model.items():
                 derivations.check_score_disorder()
                 sen_logger.log(f"Log derivations for {submodel_name}\n")
                 derivations.log_all_derivations(sen_logger)
-                derivations.save_derivations_as_graph_file(f"{out_dir}/sen{sen_idx}_{submodel_name}_matches.graph")
-                derivations.save_triplets(f"{out_dir}/sen{sen_idx}_{submodel_name}_triplets.txt")
+                derivations.save_derivations_as_graph_file(
+                    f"{out_dir}/sen{sen_idx}_{submodel_name}_matches.graph"
+                )
+                derivations.save_triplets(
+                    f"{out_dir}/sen{sen_idx}_{submodel_name}_triplets.txt"
+                )
 
     @staticmethod
     def __get_gold_triplets(preproc_dir):

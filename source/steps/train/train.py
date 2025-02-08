@@ -5,8 +5,11 @@ from tuw_nlp.graph.graph import Graph
 
 from common.script.logger import Logger
 from source.common.script.loop_on_triplets import LoopOnTriplets
-from source.steps.bolinas.common.exceptions import ParseTooLongException, CkyTooLongException, \
-    NotAllNodesCoveredException
+from source.steps.bolinas.common.exceptions import (
+    ParseTooLongException,
+    CkyTooLongException,
+    NotAllNodesCoveredException,
+)
 from source.steps.bolinas.common.grammar import Grammar
 from source.steps.bolinas.parser_basic.parser import Parser
 from source.steps.bolinas.parser_basic.vo_rule import VoRule
@@ -16,7 +19,10 @@ from source.steps.train.rule_generation.per_word import get_rules_per_word
 
 class Train(LoopOnTriplets):
     def __init__(self, config=None):
-        super().__init__(description="Script to create source rules on preprocessed train data.", config=config)
+        super().__init__(
+            description="Script to create source rules on preprocessed train data.",
+            config=config,
+        )
         self.method = self.config["method"]
         self.out_dir += f"_{self.method}"
         self.no_rule = []
@@ -44,7 +50,9 @@ class Train(LoopOnTriplets):
             for rule in sorted(rules):
                 grammar_lines.append(f"{rule}")
             triplet_logger.log(f"Grammar length: {len(grammar_lines)}")
-            grammar = Grammar.load_from_file(grammar_lines, VoRule, nodelabels=True, logprob=True)
+            grammar = Grammar.load_from_file(
+                grammar_lines, VoRule, nodelabels=True, logprob=True
+            )
             parser = Parser(grammar, stop_at_first=True, permutations=False)
 
             try:
@@ -53,7 +61,9 @@ class Train(LoopOnTriplets):
                     self.not_validated.append(triplet_idx)
                 number_of_used_rule = len(derivation.rules_counter.keys())
                 if number_of_used_rule != len(grammar):
-                    triplet_logger.log(f"\nNot all rules are used: {number_of_used_rule} of {len(grammar)}\n")
+                    triplet_logger.log(
+                        f"\nNot all rules are used: {number_of_used_rule} of {len(grammar)}\n"
+                    )
                     self.not_all_rules_used.append(triplet_idx)
                 with open(f"{hrg_dir}/sen{triplet_idx}.hrg", "w") as f:
                     f.writelines(grammar_lines)
@@ -86,5 +96,5 @@ class Train(LoopOnTriplets):
 
 
 if __name__ == "__main__":
-    logging.getLogger('penman').setLevel(logging.ERROR)
+    logging.getLogger("penman").setLevel(logging.ERROR)
     Train().run()

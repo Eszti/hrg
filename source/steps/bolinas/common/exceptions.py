@@ -25,10 +25,12 @@ class ParseTooLongException(Exception):
         self.attempted_len = len(attempted)
 
     def print_message(self):
-        return f"Parse did not finish:\n" \
-               f"- steps: {self.steps}\n" \
-               f"- queue len: {self.queue_len}\n" \
-               f"- attempted len:{self.attempted_len}\n"
+        return (
+            f"Parse did not finish:\n"
+            f"- steps: {self.steps}\n"
+            f"- queue len: {self.queue_len}\n"
+            f"- attempted len:{self.attempted_len}\n"
+        )
 
 
 class CkyTooLongException(Exception):
@@ -46,9 +48,11 @@ class NotAllNodesCoveredException(Exception):
         self.not_covered_nodes = not_covered_nodes
 
     def print_message(self):
-        return f"{len(self.derived_nodes)}/{len(self.not_covered_nodes)} " \
-               f"(covered/not covered) out of {len(self.orig_nodes)}\n"\
-               f"Not covered nodes:\n{self.not_covered_nodes}\n"
+        return (
+            f"{len(self.derived_nodes)}/{len(self.not_covered_nodes)} "
+            f"(covered/not covered) out of {len(self.orig_nodes)}\n"
+            f"Not covered nodes:\n{self.not_covered_nodes}\n"
+        )
 
 
 class ScoreDisorderException(Exception):

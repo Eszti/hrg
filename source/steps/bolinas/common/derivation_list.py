@@ -11,7 +11,9 @@ from steps.postproc.postproc import postprocess
 class DerivationList:
     def __init__(self, derivation_list, raw=False):
         if raw:
-            self.derivation_list = [Derivation(derivation=x[1], score=x[0]) for x in derivation_list]
+            self.derivation_list = [
+                Derivation(derivation=x[1], score=x[0]) for x in derivation_list
+            ]
         else:
             self.derivation_list = derivation_list
 
@@ -37,13 +39,17 @@ class DerivationList:
             print(f"Found only {len(kbest_unique_derivations)} derivations.")
         return DerivationList(kbest_unique_derivations)
 
-    def get_best_matching_derivations(self, gold_triplets, pos_tags, top_order, arg_perm=False):
+    def get_best_matching_derivations(
+        self, gold_triplets, pos_tags, top_order, arg_perm=False
+    ):
         derivations_to_keep = defaultdict(lambda: [None] * len(gold_triplets))
         max_scores = defaultdict(lambda: [-1.0] * len(gold_triplets))
 
         for derivation in self.derivation_list:
             derivation.predict_labels()
-            _, all_permutations = postprocess(derivation.predicted_labels, pos_tags, top_order, arg_perm)
+            _, all_permutations = postprocess(
+                derivation.predicted_labels, pos_tags, top_order, arg_perm
+            )
 
             for permutation in all_permutations:
                 pred = Triplet(permutation, label_to_nodes=False)
@@ -66,8 +72,10 @@ class DerivationList:
                     assert max_scores[metric][i] == -1.0
                 else:
                     ret[metric].append(derivation)
-        ret = {k: DerivationList(sorted(v, key=lambda x: x.score, reverse=True)) for k, v
-               in ret.items()}
+        ret = {
+            k: DerivationList(sorted(v, key=lambda x: x.score, reverse=True))
+            for k, v in ret.items()
+        }
         return ret
 
     def save_derivations_as_graph_file(self, fn):
@@ -84,9 +92,9 @@ class DerivationList:
                 )
 
     def check_score_disorder(self):
-        for i in range(len(self.derivation_list)-1):
+        for i in range(len(self.derivation_list) - 1):
             score_a = self.derivation_list[i].score
-            score_b = self.derivation_list[i+1].score
+            score_b = self.derivation_list[i + 1].score
             if score_a < score_b:
                 raise ScoreDisorderException(i, score_a, score_b)
 

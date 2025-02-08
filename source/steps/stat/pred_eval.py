@@ -11,8 +11,12 @@ from source.common.script.loop_on_models import LoopOnModels
 
 class PredEval(LoopOnModels):
     def __init__(self, config=None):
-        super().__init__(description="Script to evaluate predicate resolution.", config=config)
-        self.pred_eval_dir = self._get_subdir(f"{self.config_name}", self._get_subdir("stat"))
+        super().__init__(
+            description="Script to evaluate predicate resolution.", config=config
+        )
+        self.pred_eval_dir = self._get_subdir(
+            f"{self.config_name}", self._get_subdir("stat")
+        )
         self.preproc_dir = f"{self.data_dir}/{self.config['preproc_dir']}"
 
     def _before_loop(self):
@@ -24,7 +28,7 @@ class PredEval(LoopOnModels):
         self.__fill_pos_table(self.gold, "Dev Gold")
 
     def _do_for_model(self, model):
-        model_name = model['name']
+        model_name = model["name"]
         processed_models = set()
         pred_stat = defaultdict(dict)
         self.eval_report += f"## {model_name}\n"
@@ -32,13 +36,12 @@ class PredEval(LoopOnModels):
             for pp in sorted(model["postprocess"]):
                 self.__calculate_eval_table(model["name"], chart_filter, pp)
                 all_json = self._get_merged_jsons(
-                    f"{self.in_dir}/{model_name}",
-                    chart_filter,
-                    pp,
-                    only_all=True
+                    f"{self.in_dir}/{model_name}", chart_filter, pp, only_all=True
                 )[0]
                 extractions = json.load(open(all_json))
-                self.__fill_pos_table(extractions, f"{model_name.split('_')[1]} - {chart_filter}")
+                self.__fill_pos_table(
+                    extractions, f"{model_name.split('_')[1]} - {chart_filter}"
+                )
                 if "random" not in model_name:
                     processed_model_name = f"{chart_filter}_{pp}"
                     processed_models.add(processed_model_name)
@@ -57,18 +60,20 @@ class PredEval(LoopOnModels):
         print(f"Processing: {model_name} - {chart_filter} - {pp}")
         if chart_filter or pp:
             self.eval_report += f"### {chart_filter} - {pp}\n"
-        table = [[
-            "k",
-            "gold rels",
-            "avg gold rel / sen",
-            "nr gold mult-word rels",
-            "predicted rels",
-            "avg predicted rel / sen",
-            "nr predicted mult-word rels",
-            "prec",
-            "rec",
-            "F1",
-        ]]
+        table = [
+            [
+                "k",
+                "gold rels",
+                "avg gold rel / sen",
+                "nr gold mult-word rels",
+                "predicted rels",
+                "avg predicted rel / sen",
+                "nr predicted mult-word rels",
+                "prec",
+                "rec",
+                "F1",
+            ]
+        ]
 
         in_dir = f"{self.in_dir}/{model_name}"
         files = self._get_merged_jsons(in_dir, chart_filter, pp)
@@ -95,18 +100,20 @@ class PredEval(LoopOnModels):
             rec = round(rec_num / rec_denom, 4)
             nr_gold_sens = len(self.gold_pred_indices.keys())
             nr_pred_sens = len(predictions.keys())
-            table.append([
-                first_col,
-                rec_denom,
-                round(rec_denom / nr_gold_sens, 4),
-                self.gold_multi_rel,
-                prec_denom,
-                round(prec_denom / nr_pred_sens, 4),
-                pred_multi_rel,
-                prec,
-                rec,
-                round(f1(prec, rec), 4),
-            ])
+            table.append(
+                [
+                    first_col,
+                    rec_denom,
+                    round(rec_denom / nr_gold_sens, 4),
+                    self.gold_multi_rel,
+                    prec_denom,
+                    round(prec_denom / nr_pred_sens, 4),
+                    pred_multi_rel,
+                    prec,
+                    rec,
+                    round(f1(prec, rec), 4),
+                ]
+            )
         bold = find_best_in_column(table, ["prec", "rec", "F1"])
         self.eval_report += make_markdown_table(table, bold)
         self.eval_report += "\n"
@@ -135,11 +142,13 @@ class PredEval(LoopOnModels):
                 for idx in rel_indexes:
                     while sen_id not in self.pos_tags:
                         sen_id -= 1
-                    cnt[self.pos_tags[sen_id][idx-1]] += 1
-        table = [[
-            "POS tag",
-            "number of pred words",
-        ]]
+                    cnt[self.pos_tags[sen_id][idx - 1]] += 1
+        table = [
+            [
+                "POS tag",
+                "number of pred words",
+            ]
+        ]
         for pos, nr in cnt.items():
             table.append([pos, nr])
         table.append(["sum", sum(cnt.values())])
@@ -157,7 +166,9 @@ class PredEval(LoopOnModels):
     def __save_pred_stat(self, name, pred_stat, models):
         pred_stat_records = []
         models = sorted(list(models))
-        pred_stat = OrderedDict(sorted(pred_stat.items(), key=lambda x: self.__get_sort_number(x[0])))
+        pred_stat = OrderedDict(
+            sorted(pred_stat.items(), key=lambda x: self.__get_sort_number(x[0]))
+        )
         index = []
         for k, v in pred_stat.items():
             record = []

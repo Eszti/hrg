@@ -4,7 +4,10 @@ from collections import defaultdict, deque
 from ordered_set import OrderedSet
 
 from source.steps.bolinas.common.cky_chart import CkyChart
-from source.steps.bolinas.common.exceptions import ParseTooLongException, CkyTooLongException
+from source.steps.bolinas.common.exceptions import (
+    ParseTooLongException,
+    CkyTooLongException,
+)
 from source.steps.bolinas.parser_basic.vo_item import HergItem
 
 
@@ -16,7 +19,9 @@ class Parser:
     a CKY parser).
     """
 
-    def __init__(self, grammar, stop_at_first=False, max_steps=None, permutations=False):
+    def __init__(
+        self, grammar, stop_at_first=False, max_steps=None, permutations=False
+    ):
         self.grammar = grammar
         self.nodelabels = grammar.nodelabels
         self.max_steps = max_steps
@@ -106,11 +111,11 @@ class Parser:
             if item.closed:
                 # check if it's a complete derivation
                 if self.successful_parse(item, graph_size):
-                    chart['START'].add((item,))
+                    chart["START"].add((item,))
                     if self.stop_at_first:
                         break
                 elif partial and self.grammar.start_symbol == item.rule.symbol:
-                    chart['START'].add((item,))
+                    chart["START"].add((item,))
 
                 # add to nonterminal lookup
                 nonterminal_lookup[item.rule.symbol].add(item)
@@ -155,9 +160,11 @@ class Parser:
                 else:
                     # shift
                     assert graph
-                    new_items = [item.shift(edge) for edge in
-                                 edge_terminal_lookup[item.outside_edge] if
-                                 item.can_shift(edge)]
+                    new_items = [
+                        item.shift(edge)
+                        for edge in edge_terminal_lookup[item.outside_edge]
+                        if item.can_shift(edge)
+                    ]
 
                     before = len(queue)
                     for nitem in new_items:
@@ -236,7 +243,7 @@ def get_cky_chart(chart, permutations, logger=None):
         else:
             return search_productions(prodlist[0][0], chart)
 
-    stack = ['START']
+    stack = ["START"]
     visit_items = set()
     while stack:
         item = stack.pop()
@@ -249,7 +256,7 @@ def get_cky_chart(chart, permutations, logger=None):
 
     cky_chart_dict = dict()
     for item in visit_items:
-        if not (item == 'START' or item.closed):
+        if not (item == "START" or item.closed):
             continue
 
         prods = search_productions(item, chart)

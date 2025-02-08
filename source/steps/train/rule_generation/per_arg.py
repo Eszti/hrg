@@ -16,9 +16,7 @@ def get_argument_graphs(triplet_graph, arguments, log):
         if nx.is_weakly_connected(a_graph):
             a_graphs[arg] = a_graph
         else:
-            log.write(
-                f"unconnected argument ({nodes})\n"
-            )
+            log.write(f"unconnected argument ({nodes})\n")
             a_graphs[arg] = None
     return a_graphs
 
@@ -168,4 +166,6 @@ def get_rules_per_arg(sen_idx, ud_graph, pred, args, arg_graphs, log, out_dir):
 def get_pred_arg_subgraph(ud_graph, pred, args, log):
     idx_to_keep = [n for nodes in args.values() for n in nodes] + pred
     log.write(f"idx_to_keep: {idx_to_keep}\n")
-    return ud_graph.subgraph(idx_to_keep, handle_unconnected="shortest_path").pos_edge_graph()
+    return ud_graph.subgraph(
+        idx_to_keep, handle_unconnected="shortest_path"
+    ).pos_edge_graph()

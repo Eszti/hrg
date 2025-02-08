@@ -6,9 +6,15 @@ class Triplet:
     def __init__(self, triplet_dict, label_to_nodes=True):
         if label_to_nodes:
             self.label_to_nodes = triplet_dict
-            self.node_to_label = {int(n): label for label, nodes in self.label_to_nodes.items() for n in nodes}
+            self.node_to_label = {
+                int(n): label
+                for label, nodes in self.label_to_nodes.items()
+                for n in nodes
+            }
         else:
-            self.node_to_label = {int(node): label for node, label in triplet_dict.items()}
+            self.node_to_label = {
+                int(node): label for node, label in triplet_dict.items()
+            }
             label_to_nodes_dict = defaultdict(list)
             for node, label in self.node_to_label.items():
                 label_to_nodes_dict[label].append(node)
@@ -16,7 +22,10 @@ class Triplet:
         self.__sort_label_to_nodes()
 
     def __sort_label_to_nodes(self):
-        self.label_to_nodes = {label: sorted([int(a) for a in args]) for label, args in self.label_to_nodes.items()}
+        self.label_to_nodes = {
+            label: sorted([int(a) for a in args])
+            for label, args in self.label_to_nodes.items()
+        }
 
     def to_json_str(self):
         return json.dumps(OrderedDict(sorted(self.label_to_nodes.items())))

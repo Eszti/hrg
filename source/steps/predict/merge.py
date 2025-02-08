@@ -10,7 +10,9 @@ from source.common.wire_extraction import WiReEx
 class Merge(LoopOnSenDirs):
 
     def __init__(self, config=None):
-        super().__init__(description="Script to merge predicted wire jsons.", config=config)
+        super().__init__(
+            description="Script to merge predicted wire jsons.", config=config
+        )
         self.out_dir += f"/{self.config['in_dir']}"
         self.chart_filters = self.config["bolinas_chart_filters"]
         self.postprocess = self.config["postprocess"]
@@ -64,11 +66,15 @@ class Merge(LoopOnSenDirs):
                 for sen, items in d2.items():
                     all_ex_list[sen] = sorted(list(items), key=lambda x: x["k"])
 
-                out_dir = self._add_filter_and_postprocess(self.out_dir, chart_filter, pp)
+                out_dir = self._add_filter_and_postprocess(
+                    self.out_dir, chart_filter, pp
+                )
                 if not os.path.exists(out_dir):
                     os.makedirs(out_dir)
 
-                out_fn = self._add_filter_and_postprocess(f"{out_dir}/{self.config['in_dir']}", chart_filter, pp, "_")
+                out_fn = self._add_filter_and_postprocess(
+                    f"{out_dir}/{self.config['in_dir']}", chart_filter, pp, "_"
+                )
                 if ki == 0:
                     out_fn += "_all.json"
                 else:
@@ -82,7 +88,9 @@ class Merge(LoopOnSenDirs):
                 else:
                     self.logger.log(f"\nKeeping top {ki} extractions.")
                 sum_sens = 0
-                ex_stat_i = {key: v for key, v in sorted(self.ex_stat[subdir_str][ki].items())}
+                ex_stat_i = {
+                    key: v for key, v in sorted(self.ex_stat[subdir_str][ki].items())
+                }
                 for j, v in ex_stat_i.items():
                     self.logger.log(f"{j} extraction(s): {v} sen")
                     sum_sens += v

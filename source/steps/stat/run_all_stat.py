@@ -6,8 +6,14 @@ from source.steps.stat.rule_stat import RuleStat
 
 class Stat(Script):
     def __init__(self, config=None):
-        super().__init__(description="Script to run all dev statistics at once.", config=config, log=False)
-        self.config_dir = self._get_subdir("config", parent_dir=self.pipeline_dir, create=False)
+        super().__init__(
+            description="Script to run all dev statistics at once.",
+            config=config,
+            log=False,
+        )
+        self.config_dir = self._get_subdir(
+            "config", parent_dir=self.pipeline_dir, create=False
+        )
 
     def _run_loop(self):
         print("Calculate k stat")

@@ -13,24 +13,24 @@ class Lexer(object):
 
     def __init__(self, rules):
         """
-        Initialize a new Lexer object using a set of lexical rules. 
+        Initialize a new Lexer object using a set of lexical rules.
 
-        @type rules: A list of tuples (lextype, regex) where lextype is a 
+        @type rules: A list of tuples (lextype, regex) where lextype is a
         string identifying the lexical type of the token and regex is a python
         regular expression string. The order of tuples in the list matters.
         """
         self.tokenre = self.make_compiled_regex(rules)
-        self.whitespacere = re.compile('[\s]*', re.MULTILINE)
+        self.whitespacere = re.compile("[\s]*", re.MULTILINE)
 
     def make_compiled_regex(self, rules):
-        regexstr = '|'.join('(?P<%s>%s)' % (name, rule) for name, rule in rules)
+        regexstr = "|".join("(?P<%s>%s)" % (name, rule) for name, rule in rules)
         return re.compile(regexstr)
 
     def lex(self, s):
         """
         Perform lexical scanning on a string and yield a (type, token, position)
-        triple at a time. Whitespaces are skipped automatically.  
-        This is a generator, so lexing is performed lazily. 
+        triple at a time. Whitespaces are skipped automatically.
+        This is a generator, so lexing is performed lazily.
         """
         position = 0
         s = s.strip()
@@ -54,6 +54,7 @@ class LexTypes:
     """
     Definitions of lexical types returned by the lexer.
     """
+
     LPAR = "LPAR"
     RPAR = "RPAR"
     COMMA = "COMMA"
@@ -69,21 +70,21 @@ class LexTypes:
 # Parser
 class GraphDescriptionParser(object):
     """
-    A deterministic, linear time parser for hypergraph descriptions. 
+    A deterministic, linear time parser for hypergraph descriptions.
     See documentation for hypergraph format.
 
     >>> parser = GraphDescriptionParser()
     """
 
     def __init__(self):
-        # Lexical 
+        # Lexical
         lex_rules = [
-            (LexTypes.LPAR, '\('),
-            (LexTypes.RPAR, '\)'),
-            (LexTypes.EDGELABEL, ':[^\s\)]*'),
-            (LexTypes.NODE, '[^\s(),.]*\.?[^\s(),.]*')
+            (LexTypes.LPAR, "\("),
+            (LexTypes.RPAR, "\)"),
+            (LexTypes.EDGELABEL, ":[^\s\)]*"),
+            (LexTypes.NODE, "[^\s(),.]*\.?[^\s(),.]*"),
         ]
-        self.node_re = re.compile('([^\s(),.*]*)(\.?)([^\s(),.*]*)(\*?([0-9]*))')
+        self.node_re = re.compile("([^\s(),.*]*)(\.?)([^\s(),.*]*)(\*?([0-9]*))")
         self.lexer = Lexer(lex_rules)
 
         self.id_count = 0
@@ -114,11 +115,15 @@ class GraphDescriptionParser(object):
             if groups[4]:  # Get external node ID
                 ext_id = int(groups[4])
                 if not self.explicit_ext_ids and self.ext_id_count >= 1:
-                    raise LexerError("Must specify explicit external node IDs for all or none of the external nodes.")
+                    raise LexerError(
+                        "Must specify explicit external node IDs for all or none of the external nodes."
+                    )
                 self.explicit_ext_ids = True
             else:
                 if self.explicit_ext_ids:
-                    raise LexerError("Must specify explicit external node IDs for all or none of the external nodes.")
+                    raise LexerError(
+                        "Must specify explicit external node IDs for all or none of the external nodes."
+                    )
                 if not ident in self.seen_nodes:  # UGLY
                     self.seen_nodes.add(ident)
                     ext_id = self.ext_id_count
@@ -130,13 +135,13 @@ class GraphDescriptionParser(object):
 
     def parse_string(self, s, concepts=True):
         """
-        Parse the string s and return a new hypergraph. 
+        Parse the string s and return a new hypergraph.
         """
 
         # Constants to identify items on the stack
         PNODE = 1  # Parent node
         CNODE = 2  # Child node
-        EDGE = 3  # Hyperedge 
+        EDGE = 3  # Hyperedge
 
         hgraph = Hgraph()
 
@@ -154,22 +159,27 @@ class GraphDescriptionParser(object):
         # 1, expecting head nodename
         # 2, expecting edge label or node
         # 3, expecting further child nodes or right paren
-        # 4, expecting saw edge label, expecting child node, edge label, right paren 
+        # 4, expecting saw edge label, expecting child node, edge label, right paren
 
         def insert_node(node, root=False):
             # Insert a node into the AMR
             ident, label, ext_id = node
             hgraph.node_to_concepts[ident] = label
             if ext_id is not None:
-                if ident in hgraph.external_nodes and hgraph.external_nodes[ident] != ext_id:
-                    raise ParserError("Incompatible external node IDs for node %s." % ident)
+                if (
+                    ident in hgraph.external_nodes
+                    and hgraph.external_nodes[ident] != ext_id
+                ):
+                    raise ParserError(
+                        "Incompatible external node IDs for node %s." % ident
+                    )
                 hgraph.external_nodes[ident] = ext_id
                 hgraph.rev_external_nodes[ext_id] = ident
             if root:
                 hgraph.roots.append(ident)
 
         def pop_and_transition():
-            # Create all edges in a group from the stack, attach them to the 
+            # Create all edges in a group from the stack, attach them to the
             # graph and then transition to the appropriate state in the FSA
             edges = []
             while stack[-1][0] != PNODE:  # Pop all edges
@@ -182,16 +192,16 @@ class GraphDescriptionParser(object):
                 itemtype, edgelabel = stack.pop()
                 edges.append((edgelabel, children))
 
-            # Construct the hyperedge 
+            # Construct the hyperedge
             itemtype, parentnode = stack.pop()
             for edgelabel, children in edges:
-                hypertarget = []  # build hyperedge tail 
+                hypertarget = []  # build hyperedge tail
                 for ident, label, ext_id in children:
                     hypertarget.append(ident)
                 hypertarget.reverse()
                 hyperchild = tuple(hypertarget)
 
-                if "$" in edgelabel:  # this is a nonterminal Edge 
+                if "$" in edgelabel:  # this is a nonterminal Edge
                     new_edge = NonterminalLabel.from_string(edgelabel)
                     if not new_edge.index:
                         new_edge.index = "_%i" % self.nt_id_count
@@ -219,14 +229,18 @@ class GraphDescriptionParser(object):
                     insert_node(self.parse_node(token), root=True)
                     state = 5
                 else:
-                    raise ParserError("Unexpected token %s at position %i." % (token, pos))
+                    raise ParserError(
+                        "Unexpected token %s at position %i." % (token, pos)
+                    )
 
             elif state == 1:
                 if typ == LexTypes.NODE:
                     stack.append((PNODE, self.parse_node(token)))  # Push head node
                     state = 2
                 else:
-                    raise ParserError("Unexpected token %s at position %i." % (token, pos))
+                    raise ParserError(
+                        "Unexpected token %s at position %i." % (token, pos)
+                    )
 
             elif state == 2:
                 if typ == LexTypes.EDGELABEL:
@@ -250,11 +264,13 @@ class GraphDescriptionParser(object):
                         insert_node(node, root=True)
                         state = 5
                 else:
-                    raise ParserError("Unexpected token %s at position %i." % (token, pos))
+                    raise ParserError(
+                        "Unexpected token %s at position %i." % (token, pos)
+                    )
 
             elif state == 3:
                 if typ == LexTypes.RPAR:  # Pop from stack and add edges
-                    pop_and_transition();
+                    pop_and_transition()
                 elif typ == LexTypes.NODE:
                     stack.append((CNODE, self.parse_node(token)))
                     state = 3
@@ -264,7 +280,9 @@ class GraphDescriptionParser(object):
                 elif typ == LexTypes.LPAR:
                     state = 1
                 else:
-                    raise ParserError("Unexpected token %s at position %i." % (token, pos))
+                    raise ParserError(
+                        "Unexpected token %s at position %i." % (token, pos)
+                    )
 
             elif state == 4:
                 if typ == LexTypes.LPAR:
@@ -275,9 +293,11 @@ class GraphDescriptionParser(object):
                 elif typ == LexTypes.EDGELABEL:
                     stack.append((EDGE, token[1:]))
                 elif typ == LexTypes.RPAR:  # Pop from stack and add edges
-                    pop_and_transition();
+                    pop_and_transition()
                 else:
-                    raise ParserError("Unexpected token %s at position %i." % (token, pos))
+                    raise ParserError(
+                        "Unexpected token %s at position %i." % (token, pos)
+                    )
 
             elif state == 5:
                 raise ParserError("Unexpected token %s at position %i." % (token, pos))

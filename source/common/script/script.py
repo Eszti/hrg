@@ -16,23 +16,32 @@ class Script(ABC):
         else:
             self.config_json = config
         self.data_dir = args.data_dir
-        self.pipeline_dir = os.path.dirname(os.path.dirname(os.path.realpath(self.config_json)))
+        self.pipeline_dir = os.path.dirname(
+            os.path.dirname(os.path.realpath(self.config_json))
+        )
         self.script_output_root = f"{self.pipeline_dir}/output"
-        self.config_name = self.config_json.split('/')[-1].split('.json')[0]
+        self.config_name = self.config_json.split("/")[-1].split(".json")[0]
         self.config = json.load(open(self.config_json))
         self._setup_logger(log)
         self.first_sen_to_proc = None
         self.last_sen_to_proc = None
-        self.out_dir = f"{self.data_dir}/{self.config['out_dir']}" if "out_dir" in self.config else None
+        self.out_dir = (
+            f"{self.data_dir}/{self.config['out_dir']}"
+            if "out_dir" in self.config
+            else None
+        )
         self.first = self.config.get("first", None)
         self.last = self.config.get("last", None)
 
     def _setup_logger(self, log):
         if log:
             self.logger = Logger(
-                log_file=f"{self._get_subdir('log', parent_dir=self.pipeline_dir)}/{self.config_name}.log")
+                log_file=f"{self._get_subdir('log', parent_dir=self.pipeline_dir)}/{self.config_name}.log"
+            )
             self.start_time = time.time()
-            self.logger.log(f"Execution start: {datetime.now()}\n{json.dumps(self.config, indent=4)}\n")
+            self.logger.log(
+                f"Execution start: {datetime.now()}\n{json.dumps(self.config, indent=4)}\n"
+            )
 
     def run(self):
         self._before_loop()
@@ -58,7 +67,7 @@ class Script(ABC):
             elapsed_time = time.time() - self.start_time
             self.logger.log(
                 f"Elapsed time: {round(elapsed_time / 60)} min {round(elapsed_time % 60)} sec\n",
-                to_stdout=True
+                to_stdout=True,
             )
 
     def _get_subdir(self, name, parent_dir=None, create=True):

@@ -20,7 +20,9 @@ class Derivation:
     def collect_derived_nodes(self):
         if self.derived_nodes is None:
             final_item = self.derivation[1]["START"][0]
-            self.derived_nodes = sorted(list(final_item.nodeset), key=lambda node: int(node[1:]))
+            self.derived_nodes = sorted(
+                list(final_item.nodeset), key=lambda node: int(node[1:])
+            )
 
     def __log_derived_nodes(self, logger, k):
         logger.log(f"k{k}:\t{self.derived_nodes} - {len(self.derived_nodes)}\n")
@@ -29,7 +31,7 @@ class Derivation:
         def combiner(item, childobjs):
             children = leaf(item)
             for nt, child in childobjs.items():
-                for (k, v) in child.items():
+                for k, v in child.items():
                     assert k not in children or v == children[k]
                     children[k] = v
             return children
@@ -48,10 +50,10 @@ class Derivation:
     def __log_used_rules(self, logger):
         for rule_id in sorted(self.used_rules):
             rule_str = self.used_rules[rule_id]
-            prob = rule_str.split(';')[1].strip()
+            prob = rule_str.split(";")[1].strip()
             if not prob:
                 prob = 0
-            rule = rule_str.split(';')[0].strip()
+            rule = rule_str.split(";")[0].strip()
             logger.log(f"{rule_id}\t{round(float(prob), 2)}\t{rule}")
         logger.log(f"\nUsed rules for derivation: {sorted(self.rules_counter.items())}")
         logger.log(f"Number of different used rules: {len(self.rules_counter.keys())}")
@@ -71,16 +73,16 @@ class Derivation:
         def combiner(item, childobjs):
             children = leaf(item)
             for nt, child in childobjs.items():
-                for (k, v) in child.items():
+                for k, v in child.items():
                     assert k not in children or v == children[k]
                     children[k] = v
             return children
 
         def leaf(item):
             nt = item.rule.symbol
-            if nt == 'S':
+            if nt == "S":
                 return {}
-            return {(item.mapping['_1'].split('n')[1]): nt}
+            return {(item.mapping["_1"].split("n")[1]): nt}
 
         return Derivation.__walk_derivation(self.derivation, combiner, leaf)
 
@@ -107,7 +109,12 @@ class Derivation:
             return leaf(derivation)
         else:
             item, children = derivation[0], derivation[1]
-            childobjs = dict([(rel, Derivation.__walk_derivation(c, combiner, leaf)) for (rel, c) in children.items()])
+            childobjs = dict(
+                [
+                    (rel, Derivation.__walk_derivation(c, combiner, leaf))
+                    for (rel, c) in children.items()
+                ]
+            )
 
             if item == "START":
                 return childobjs["START"]

@@ -14,7 +14,9 @@ from source.common.triplet import Triplet
 class Preproc(LoopOnConll):
 
     def __init__(self, config=None):
-        super().__init__(description="Script to preprocess conll oie data.", config=config)
+        super().__init__(
+            description="Script to preprocess conll oie data.", config=config
+        )
 
     def _before_loop(self):
         self.nlp = stanza.Pipeline(
@@ -25,7 +27,9 @@ class Preproc(LoopOnConll):
 
     def _do_for_sen(self, sen_idx, sen, sen_txt, last_sen_txt, sen_dir):
         self._save_conll(sen, f"{sen_dir}/sen{sen_idx}.conll")
-        parsed_doc = self._parse_doc(self.nlp, sen, sen_dir, save=sen_txt != last_sen_txt)
+        parsed_doc = self._parse_doc(
+            self.nlp, sen, sen_dir, save=sen_txt != last_sen_txt
+        )
         triplet = self._get_triplet(sen)
         triplet.to_file(f"{sen_dir}/sen{sen_idx}_triplet.txt")
         ud_graph = UDGraph(parsed_doc.sentences[0])
@@ -34,15 +38,19 @@ class Preproc(LoopOnConll):
             save_as_dot(f"{sen_dir}/general_ud.dot", ud_graph)
             json.dump(
                 [n for n in nx.topological_sort(ud_graph.G)],
-                open(f"{sen_dir}/pos_edge_graph_top_order.json", "w")
+                open(f"{sen_dir}/pos_edge_graph_top_order.json", "w"),
             )
             bolinas_graph = ud_graph.pos_edge_graph()
             save_bolinas_str(f"{sen_dir}/pos_edge.graph", bolinas_graph)
-            save_bolinas_str(f"{sen_dir}/pos_edge_with_labels.graph", bolinas_graph, add_names=True)
+            save_bolinas_str(
+                f"{sen_dir}/pos_edge_with_labels.graph", bolinas_graph, add_names=True
+            )
             self._add_node_labels(bolinas_graph)
             save_as_dot(f"{sen_dir}/pos_edge_graph.dot", bolinas_graph)
 
-        triplet_ud = ud_graph.subgraph(list(triplet.node_to_label.keys()), handle_unconnected="shortest_path")
+        triplet_ud = ud_graph.subgraph(
+            list(triplet.node_to_label.keys()), handle_unconnected="shortest_path"
+        )
         triplet_pos_edge = triplet_ud.pos_edge_graph()
         save_bolinas_str(f"{sen_dir}/sen{sen_idx}_triplet.graph", triplet_pos_edge)
         self._add_node_labels(triplet_pos_edge)
@@ -77,7 +85,7 @@ class Preproc(LoopOnConll):
 
     @staticmethod
     def _save_conll(sen, fn):
-        with open(fn, 'w') as f:
+        with open(fn, "w") as f:
             for line in sen:
                 line[0] = str(int(line[0]) + 1)
                 f.write("\t".join(line))
@@ -87,7 +95,7 @@ class Preproc(LoopOnConll):
     def _add_node_labels(bolinas_graph):
         for node, data in bolinas_graph.G.nodes(data=True):
             new_name = str(node)
-            name = data['name']
+            name = data["name"]
             if name:
                 new_name += f"\n{name}"
             data["name"] = new_name

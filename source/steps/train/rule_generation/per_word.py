@@ -10,11 +10,11 @@ def get_next_edges(G, root_word, triplet):
         node_idx = int(v.split("n")[-1])
         label = triplet.get_label(node_idx)
         if label:
-            next_edges[label[0]].append((e['color'], v))
+            next_edges[label[0]].append((e["color"], v))
         elif node_idx >= 1000:
-            root_pos = e['color']
+            root_pos = e["color"]
         else:
-            next_edges['X'].append((e['color'], v))
+            next_edges["X"].append((e["color"], v))
     return next_edges, root_pos
 
 
@@ -23,10 +23,10 @@ def gen_subseq_rules(G, pred_edges, triplet):
         for dep_rel, node in edges:
             next_edges, root_pos = get_next_edges(G, node, triplet)
 
-            rule = f'{lhs} -> (. :{dep_rel} (.'
+            rule = f"{lhs} -> (. :{dep_rel} (."
             for non_term in next_edges:
-                rule += ' ' + ' '.join(f':{non_term}$' for _ in next_edges[non_term])
-            rule += f' :{root_pos} .));\n'
+                rule += " " + " ".join(f":{non_term}$" for _ in next_edges[non_term])
+            rule += f" :{root_pos} .));\n"
             yield rule
 
             yield from gen_subseq_rules(G, next_edges, triplet)
@@ -35,10 +35,10 @@ def gen_subseq_rules(G, pred_edges, triplet):
 def get_initial_rule(next_edges, root_pos):
     if len(next_edges) == 0:
         return None
-    rule = 'S -> (.'
+    rule = "S -> (."
     for lhs in sorted(next_edges.keys()):
-        rule += ' ' + ' '.join(f':{lhs}$' for _ in next_edges[lhs])
-    rule += f' :{root_pos} .);\n'
+        rule += " " + " ".join(f":{lhs}$" for _ in next_edges[lhs])
+    rule += f" :{root_pos} .);\n"
     return rule
 
 

@@ -4,9 +4,7 @@ from collections import defaultdict
 class WiReEx(dict):
 
     def __init__(self, extraction):
-        dict.__init__(self,
-                      arg1=extraction["arg1"],
-                      rel=extraction["rel"])
+        dict.__init__(self, arg1=extraction["arg1"], rel=extraction["rel"])
         self["arg2+"] = extraction["arg2+"]
         if "score" in extraction:
             self["score"] = extraction["score"]
@@ -20,17 +18,33 @@ class WiReEx(dict):
             self["pred_res"] = extraction["pred_res"]
 
     def __eq__(self, other):
-        return self["rel"] == other["rel"] and self["arg1"] == other["arg1"] and self["arg2+"] == other["arg2+"]
+        return (
+            self["rel"] == other["rel"]
+            and self["arg1"] == other["arg1"]
+            and self["arg2+"] == other["arg2+"]
+        )
 
     def __hash__(self):
         return hash(
-            (self["rel"]["text"],
-             "".join(str(self["rel"]["indexes"])),
-             self["arg1"]["text"],
-             "".join(str(self["arg1"]["indexes"])),
-             sum([hash((" ".join(a["text"]), i)) for i, a in enumerate(self["arg2+"])]),
-             sum([hash(("".join(str(a["indexes"])), i)) for i, a in enumerate(self["arg2+"])])
-             ))
+            (
+                self["rel"]["text"],
+                "".join(str(self["rel"]["indexes"])),
+                self["arg1"]["text"],
+                "".join(str(self["arg1"]["indexes"])),
+                sum(
+                    [
+                        hash((" ".join(a["text"]), i))
+                        for i, a in enumerate(self["arg2+"])
+                    ]
+                ),
+                sum(
+                    [
+                        hash(("".join(str(a["indexes"])), i))
+                        for i, a in enumerate(self["arg2+"])
+                    ]
+                ),
+            )
+        )
 
 
 def create_wire_arg(arg_list):
@@ -41,16 +55,22 @@ def create_wire_arg(arg_list):
 
 
 def wire_from_dict(labels, sen_id):
-    arg2_keys = sorted([k for k in labels.keys() if not (k == "P" or k == "O" or k == "A0")])
-    return WiReEx({
-        "arg1": create_wire_arg(labels["A0"]),
-        "rel": create_wire_arg(labels["P"]),
-        "arg2+": [create_wire_arg(labels[key]) for key in arg2_keys],
-        "sen_id": sen_id,
-    })
+    arg2_keys = sorted(
+        [k for k in labels.keys() if not (k == "P" or k == "O" or k == "A0")]
+    )
+    return WiReEx(
+        {
+            "arg1": create_wire_arg(labels["A0"]),
+            "rel": create_wire_arg(labels["P"]),
+            "arg2+": [create_wire_arg(labels[key]) for key in arg2_keys],
+            "sen_id": sen_id,
+        }
+    )
 
 
-def get_wire_extraction(extracted_labels, sen_txt, k, sen_id, score="1.0", extractor="PoC", pred_res=""):
+def get_wire_extraction(
+    extracted_labels, sen_txt, k, sen_id, score="1.0", extractor="PoC", pred_res=""
+):
     words = sen_txt.split(" ")
     labels = defaultdict(list)
     for i, word in enumerate(words):

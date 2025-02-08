@@ -35,7 +35,7 @@ class ListMap(defaultdict):
 
     def __setitem__(self, k, v):
         if k in self:
-            raise KeyError('Cannot assign to ListMap entry; use replace() or append()')
+            raise KeyError("Cannot assign to ListMap entry; use replace() or append()")
         return defaultdict.__setitem__(self, k, v)
 
     def __getitem__(self, k):
@@ -72,6 +72,7 @@ class ListMap(defaultdict):
 
 # Actual AMR class
 
+
 class Hgraph(defaultdict):
     """
     An abstract meaning representation.
@@ -80,6 +81,7 @@ class Hgraph(defaultdict):
     a ListMap data structure holds a list of fillers for each role.
     A set of (concept, role, filler) triples can be extracted as well.
     """
+
     _parser_singleton = None
 
     def __init__(self, *args, **kwargs):
@@ -153,7 +155,10 @@ class Hgraph(defaultdict):
         Initialize a new abstract meaning representation from a Pennman style string.
         """
         if not cls._parser_singleton:  # Initialize the AMR parser only once
-            from source.steps.bolinas.common.hgraph.graph_description_parser import GraphDescriptionParser
+            from source.steps.bolinas.common.hgraph.graph_description_parser import (
+                GraphDescriptionParser,
+            )
+
             _parser_singleton = GraphDescriptionParser()
             amr = _parser_singleton.parse_string(amr_string)
             return amr
@@ -238,7 +243,13 @@ class Hgraph(defaultdict):
                 nonterminals.add(r.label)
             else:
                 if nodelabels:
-                    terminals.add((self.node_to_concepts[p], r, tuple([self.node_to_concepts[c] for c in children])))
+                    terminals.add(
+                        (
+                            self.node_to_concepts[p],
+                            r,
+                            tuple([self.node_to_concepts[c] for c in children]),
+                        )
+                    )
                 else:
                     terminals.add(r)
         return terminals, nonterminals
@@ -290,9 +301,13 @@ class Hgraph(defaultdict):
                     not_found.remove(c)
 
         while not_found:
-            parents = sorted([x for x in not_found if self[x]], key=lambda a: len(self.triples(start_node=a)))
+            parents = sorted(
+                [x for x in not_found if self[x]],
+                key=lambda a: len(self.triples(start_node=a)),
+            )
             if not parents:
-                if warn: warn.write("WARNING: orphaned leafs %s.\n" % str(not_found))
+                if warn:
+                    warn.write("WARNING: orphaned leafs %s.\n" % str(not_found))
                 roots.extend(list(not_found))
                 return roots
             new_root = parents.pop()
@@ -310,7 +325,7 @@ class Hgraph(defaultdict):
 
     def get_ordered_nodes(self):
         """
-        Get an mapping of nodes in this DAG to integers specifying a total order of 
+        Get an mapping of nodes in this DAG to integers specifying a total order of
         nodes. (partial order broken according to edge_label).
         """
         order = {}
@@ -366,10 +381,10 @@ class Hgraph(defaultdict):
         return result
 
     def dfs(
-            self,
-            extractor=lambda node, firsthit, leaf: node.__repr__(),
-            combiner=lambda par, childmap, depth: {par: childmap.items()}, 
-            hedge_combiner=lambda x: tuple(x)
+        self,
+        extractor=lambda node, firsthit, leaf: node.__repr__(),
+        combiner=lambda par, childmap, depth: {par: childmap.items()},
+        hedge_combiner=lambda x: tuple(x),
     ):
         """
         Recursively traverse the dag depth first starting at node. When traveling up through the
@@ -410,12 +425,16 @@ class Hgraph(defaultdict):
 
         return [rec_step(node, 0) for node in self.roots]
 
-    def triples(self, instances=False, start_node=None, refresh=False, nodelabels=False):
+    def triples(
+        self, instances=False, start_node=None, refresh=False, nodelabels=False
+    ):
         """
-        Retrieve a list of (parent, edge-label, tails) triples. 
+        Retrieve a list of (parent, edge-label, tails) triples.
         """
 
-        if (not (refresh or start_node or nodelabels != self.__nodelabels)) and self.__cached_triples:
+        if (
+            not (refresh or start_node or nodelabels != self.__nodelabels)
+        ) and self.__cached_triples:
             return self.__cached_triples
 
         triple_to_depth = {}
@@ -468,36 +487,69 @@ class Hgraph(defaultdict):
             if node is None:
                 return "root"
             if type(node) is tuple or type(node) is list:
-                return " ".join("%s*%i" % (n, self.external_nodes[n]) if n in self.external_nodes else n for n in node)
+                return " ".join(
+                    (
+                        "%s*%i" % (n, self.external_nodes[n])
+                        if n in self.external_nodes
+                        else n
+                    )
+                    for n in node
+                )
             else:
-                if type(node) is int or type(node) is float or isinstance(node, (Literal, StrLiteral, Quantity)):
+                if (
+                    type(node) is int
+                    or type(node) is float
+                    or isinstance(node, (Literal, StrLiteral, Quantity))
+                ):
                     return str(node)
                 else:
                     if firsthit:
-                        if node in self.node_to_concepts and self.node_to_concepts[node]:
+                        if (
+                            node in self.node_to_concepts
+                            and self.node_to_concepts[node]
+                        ):
                             concept = self.node_to_concepts[node]
                             if node in self.external_nodes:
                                 return "%s%s*%i " % (
-                                    "%s." % node if node in nodeids_to_print else "", concept,
-                                    self.external_nodes[node])
+                                    "%s." % node if node in nodeids_to_print else "",
+                                    concept,
+                                    self.external_nodes[node],
+                                )
                             else:
-                                return "%s%s " % ("%s." % node if node in nodeids_to_print else "", concept)
+                                return "%s%s " % (
+                                    "%s." % node if node in nodeids_to_print else "",
+                                    concept,
+                                )
                         else:
                             if node in self.external_nodes:
-                                return "%s.*%i " % (node if node in nodeids_to_print else "", self.external_nodes[node])
+                                return "%s.*%i " % (
+                                    node if node in nodeids_to_print else "",
+                                    self.external_nodes[node],
+                                )
                             else:
-                                return "%s." % (node if node in nodeids_to_print else "")
+                                return "%s." % (
+                                    node if node in nodeids_to_print else ""
+                                )
                     else:
                         return "%s." % (node if node in nodeids_to_print else "")
 
         def combiner(nodestr, childmap, depth):
             nt_children = sorted(
-                [child for child in childmap.items() if type(child[0]) == NonterminalLabel],
-                key=lambda x: str(x[0])
+                [
+                    child
+                    for child in childmap.items()
+                    if type(child[0]) == NonterminalLabel
+                ],
+                key=lambda x: str(x[0]),
             )
-            term_children = sorted([child for child in childmap.items() if type(child[0]) == str])
+            term_children = sorted(
+                [child for child in childmap.items() if type(child[0]) == str]
+            )
             childmap_items = nt_children + term_children
-            childstr_list = ["\n%s %s %s" % (depth * "\t", ":%s" % rel if rel else "", child) for rel, child in childmap_items]
+            childstr_list = [
+                "\n%s %s %s" % (depth * "\t", ":%s" % rel if rel else "", child)
+                for rel, child in childmap_items
+            ]
             childstr = " ".join(childstr_list)
             return "(%s %s)" % (nodestr, childstr)
 
@@ -519,13 +571,19 @@ class Hgraph(defaultdict):
         if type(child) is not tuple:
             child = (child,)
         if parent in child:
-            if warn: warn.write("WARNING: Self-edge (%s, %s, %s).\n" % (parent, relation, child))
+            if warn:
+                warn.write(
+                    "WARNING: Self-edge (%s, %s, %s).\n" % (parent, relation, child)
+                )
         for c in child:
             x = self[c]
             for rel, test in self[c].items():
                 if parent in test:
-                    if warn: warn.write("WARNING: (%s, %s, %s) produces a cycle with (%s, %s, %s)\n" % (
-                        parent, relation, child, c, rel, test))
+                    if warn:
+                        warn.write(
+                            "WARNING: (%s, %s, %s) produces a cycle with (%s, %s, %s)\n"
+                            % (parent, relation, child, c, rel, test)
+                        )
         self[parent].append(relation, child)
 
 

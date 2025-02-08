@@ -14,8 +14,10 @@ random.seed(10)
 class Random(LoopOnSenDirs):
 
     def __init__(self, config=None):
-        super().__init__(description="Script to generate random extractions.", config=config)
-        self.artefact_dir = self._get_subdir('artefacts', create=False)
+        super().__init__(
+            description="Script to generate random extractions.", config=config
+        )
+        self.artefact_dir = self._get_subdir("artefacts", create=False)
         self.artefact_prefix = self.config["artefact_prefix"]
         self.k_max = self.config.get("k_max", 10)
         self.models = self.config["models"]
@@ -36,7 +38,9 @@ class Random(LoopOnSenDirs):
             del self.k_dist[k]
 
     def __read_sequences(self):
-        self.sequences = json.load(open(f"{self.artefact_dir}/{self.artefact_prefix}_sequences.json"))
+        self.sequences = json.load(
+            open(f"{self.artefact_dir}/{self.artefact_prefix}_sequences.json")
+        )
         self.logger.log(f"sentence lengths: {len(self.sequences)}")
         self.logger.log(f"{sorted(self.sequences)}")
 
@@ -72,12 +76,17 @@ class Random(LoopOnSenDirs):
                 pred_seq += "_"
                 pred_seq += "_".join(["O"] * (sen_len - len(pred_seq)))
 
-            extracted_labels = {str(i + 1): l for i, l in enumerate(pred_seq.split("_"))}
+            extracted_labels = {
+                str(i + 1): l for i, l in enumerate(pred_seq.split("_"))
+            }
             self.__ensure_verb_pred(extracted_labels, sen_idx, pos_tags)
             for model in sorted(self.models):
                 model_labels = extracted_labels
                 if model == "boa":
-                    model_labels = {i: "A" if l.startswith("A") else l for i, l in extracted_labels.items()}
+                    model_labels = {
+                        i: "A" if l.startswith("A") else l
+                        for i, l in extracted_labels.items()
+                    }
                     add_arg_idx(model_labels, sen_len, arg_perm=False)
                 extracted[model][sen_txt].append(
                     get_wire_extraction(
@@ -86,7 +95,7 @@ class Random(LoopOnSenDirs):
                         i + 1,
                         sen_idx,
                         extractor=f"random_{model}",
-                        )
+                    )
                 )
         for model, ex in extracted.items():
             model_dir = f"{out_sen_dir}/{model}"

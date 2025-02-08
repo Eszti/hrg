@@ -23,7 +23,15 @@ class HergItem(Item):
     Chart item for a HRG parse.
     """
 
-    def __init__(self, rule, size=None, shifted=None, mapping=None, nodeset=None, nodelabels=False):
+    def __init__(
+        self,
+        rule,
+        size=None,
+        shifted=None,
+        mapping=None,
+        nodeset=None,
+        nodelabels=False,
+    ):
         # by default start empty, with no part of the graph consumed
         if size == None:
             size = 0
@@ -53,7 +61,9 @@ class HergItem(Item):
             self.outside_triple = triples[rule.rhs1_visit_order[size]]
             self.outside_edge = self.outside_triple[1]
             self.closed = False
-            self.outside_is_nonterminal = isinstance(self.outside_triple[1], NonterminalLabel)
+            self.outside_is_nonterminal = isinstance(
+                self.outside_triple[1], NonterminalLabel
+            )
             if self.outside_is_nonterminal:
                 self.outside_symbol = self.outside_triple[1].label
                 self.outside_nt_index = self.outside_triple[1].index
@@ -69,29 +79,39 @@ class HergItem(Item):
     def __hash__(self):
         # memoize the hash function
         if not self.__cached_hash:
-            self.__cached_hash = 2 * hash(self.rule) + 3 * self.size + \
-                                 5 * hash(self.shifted)
+            self.__cached_hash = (
+                2 * hash(self.rule) + 3 * self.size + 5 * hash(self.shifted)
+            )
         return self.__cached_hash
 
     def __eq__(self, other):
-        return isinstance(other, HergItem) and \
-               other.rule == self.rule and \
-               other.size == self.size and \
-               other.shifted == self.shifted and \
-               other.mapping == self.mapping
+        return (
+            isinstance(other, HergItem)
+            and other.rule == self.rule
+            and other.size == self.size
+            and other.shifted == self.shifted
+            and other.mapping == self.mapping
+        )
 
     def __lt__(self, other):
         return self.__str__().__lt__(other.__str__())
 
     def __repr__(self):
-        return 'HergItem(%d, %d, %s, %s)' % (self.rule.rule_id, self.size, self.rule.symbol, len(self.shifted))
+        return "HergItem(%d, %d, %s, %s)" % (
+            self.rule.rule_id,
+            self.size,
+            self.rule.symbol,
+            len(self.shifted),
+        )
 
     def __str__(self):
-        return '[%d, %d/%d, %s, {%s}]' % (self.rule.rule_id,
-                                          self.size,
-                                          len(self.rule.rhs1.triples()),
-                                          self.outside_symbol,
-                                          str([x for x in self.shifted]))
+        return "[%d, %d/%d, %s, {%s}]" % (
+            self.rule.rule_id,
+            self.size,
+            len(self.rule.rhs1.triples()),
+            self.outside_symbol,
+            str([x for x in self.shifted]),
+        )
 
     def can_shift(self, new_edge):
         """
@@ -161,7 +181,11 @@ class HergItem(Item):
         can_shift returned true.
         """
         o1 = self.outside_triple[0][0] if self.nodelabels else self.outside_triple[0]
-        o2 = tuple(x[0] for x in self.outside_triple[2]) if self.nodelabels else self.outside_triple[2]
+        o2 = (
+            tuple(x[0] for x in self.outside_triple[2])
+            if self.nodelabels
+            else self.outside_triple[2]
+        )
 
         n1 = new_edge[0][0] if self.nodelabels else new_edge[0]
         n2 = tuple(x[0] for x in new_edge[2]) if self.nodelabels else new_edge[2]
@@ -176,7 +200,9 @@ class HergItem(Item):
         for i in range(len(o2)):
             new_mapping[o2[i]] = n2[i]
 
-        return HergItem(self.rule, new_size, new_shifted, new_mapping, new_nodeset, self.nodelabels)
+        return HergItem(
+            self.rule, new_size, new_shifted, new_mapping, new_nodeset, self.nodelabels
+        )
 
     def can_complete(self, new_item):
         """
@@ -225,7 +251,10 @@ class HergItem(Item):
             otail = o2[i]
             ntail = new_item.rule.rhs1.rev_external_nodes[i]
             # Check tail label
-            if self.nodelabels and o2labels[i] != new_item.rule.rhs1.node_to_concepts[ntail]:
+            if (
+                self.nodelabels
+                and o2labels[i] != new_item.rule.rhs1.node_to_concepts[ntail]
+            ):
                 return False
             if otail in self.mapping and self.mapping[otail] != new_item.mapping[ntail]:
                 return False
@@ -244,7 +273,11 @@ class HergItem(Item):
         can_shift returned true.
         """
         o1 = self.outside_triple[0][0] if self.nodelabels else self.outside_triple[0]
-        o2 = tuple(x[0] for x in self.outside_triple[2]) if self.nodelabels else self.outside_triple[2]
+        o2 = (
+            tuple(x[0] for x in self.outside_triple[2])
+            if self.nodelabels
+            else self.outside_triple[2]
+        )
 
         new_size = self.size + 1
         new_shifted = frozenset(self.shifted | new_item.shifted)
@@ -256,5 +289,7 @@ class HergItem(Item):
             new_mapping[otail] = new_item.mapping[ntail]
         new_nodeset = self.nodeset | new_item.nodeset
 
-        new = HergItem(self.rule, new_size, new_shifted, new_mapping, new_nodeset, self.nodelabels)
+        new = HergItem(
+            self.rule, new_size, new_shifted, new_mapping, new_nodeset, self.nodelabels
+        )
         return new

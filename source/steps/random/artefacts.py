@@ -11,8 +11,11 @@ def get_labels_str(sen):
 class Artefacts(LoopOnConll):
 
     def __init__(self, config=None):
-        super().__init__(description="Script to extract artefacts of the given dataset.", config=config)
-        self.artefact_dir = self._get_subdir('artefacts')
+        super().__init__(
+            description="Script to extract artefacts of the given dataset.",
+            config=config,
+        )
+        self.artefact_dir = self._get_subdir("artefacts")
         self.sequences = defaultdict(list)
         self.nr_ex_stat = Counter()
         self.cnt = 1
@@ -36,4 +39,3 @@ class Artefacts(LoopOnConll):
 
 if __name__ == "__main__":
     Artefacts().run()
-

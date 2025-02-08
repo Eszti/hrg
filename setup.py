@@ -12,8 +12,10 @@ setup(
     author_email="eszter.iklodi@tuwien.ac.at,gabor.recski@tuwien.ac.at",
     license="MIT",
     install_requires=[
+        "black",
         "matplotlib",
         "networkx",
+        "pre-commit",
         "ordered-set",
         "protobuf==3.20",
         "scikit-learn",

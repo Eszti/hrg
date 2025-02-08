@@ -6,7 +6,10 @@ from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
 
 class Hrg(LoopOnSenDirs):
     def __init__(self, config=None):
-        super().__init__(description="Script to merge source rules into one grammar file of a given size.", config=config)
+        super().__init__(
+            description="Script to merge source rules into one grammar file of a given size.",
+            config=config,
+        )
         self.sizes = self.config.get("sizes", None)
         self.grammar = defaultdict()
         self.grammar["all"] = defaultdict(Counter)
@@ -35,9 +38,13 @@ class Hrg(LoopOnSenDirs):
                 self.__write_rules(f, grammar, "weight")
             with open(f"{grammar_dir}/{file_name}.stat", "w") as f:
                 self.__write_rules(f, grammar, "cnt")
-            self.logger.log(f"\nUnique rules for {file_name}: {self.__get_total_number_of_rules(grammar)}")
+            self.logger.log(
+                f"\nUnique rules for {file_name}: {self.__get_total_number_of_rules(grammar)}"
+            )
             for nt, prods in grammar.items():
-                self.logger.log(f"{nt}: {len(prods)}\t({round(len(prods) / self.__get_total_number_of_rules(grammar), 3)})")
+                self.logger.log(
+                    f"{nt}: {len(prods)}\t({round(len(prods) / self.__get_total_number_of_rules(grammar), 3)})"
+                )
         super()._after_loop()
 
     @staticmethod
@@ -54,7 +61,9 @@ class Hrg(LoopOnSenDirs):
                 factor = size / all_rules
                 new_grammar = defaultdict(Counter)
                 for nt, prods in self.grammar["all"].items():
-                    for prod, cnt in prods.most_common(n=int(round(factor * len(prods)))):
+                    for prod, cnt in prods.most_common(
+                        n=int(round(factor * len(prods)))
+                    ):
                         new_grammar[nt][prod] = cnt
                 self.grammar[f"{size}"] = new_grammar
 
@@ -71,7 +80,7 @@ class Hrg(LoopOnSenDirs):
 
     @staticmethod
     def __write_rules(f, grammar, numeric_info=None):
-        for (prod, cnt, w) in grammar["S"]:
+        for prod, cnt, w in grammar["S"]:
             if not numeric_info:
                 f.write(f"{prod}\n")
             elif numeric_info == "cnt":
@@ -81,7 +90,7 @@ class Hrg(LoopOnSenDirs):
         for nt, prods in grammar.items():
             if nt == "S":
                 continue
-            for (prod, cnt, w) in prods:
+            for prod, cnt, w in prods:
                 if not numeric_info:
                     f.write(f"{prod}\n")
                 elif numeric_info == "cnt":

@@ -13,7 +13,9 @@ class LoopOnModels(Script):
         self.models = self.config["models"]
         self.report = ""
         if "gold_fn" in self.config:
-            gold_path = f"{os.path.dirname(self.pipeline_dir)}/data/{self.config['gold_fn']}"
+            gold_path = (
+                f"{os.path.dirname(self.pipeline_dir)}/data/{self.config['gold_fn']}"
+            )
             self.gold = json.load(open(gold_path))
 
     def _run_loop(self):
@@ -36,10 +38,13 @@ class LoopOnModels(Script):
         else:
             k_files = [i for i in files if i.split("_")[-1].startswith("k")]
             if k_files:
-                files = sorted(k_files, key=lambda x: int(x.split('.')[0].split("_")[-1].split("k")[-1]))
+                files = sorted(
+                    k_files,
+                    key=lambda x: int(x.split(".")[0].split("_")[-1].split("k")[-1]),
+                )
         return [f"{in_dir}/{f}" for f in files]
 
     @staticmethod
     def _get_all_sen_dirs(in_dir):
-        sen_dirs = sorted([int(fn.split('.')[0]) for fn in os.listdir(in_dir)])
+        sen_dirs = sorted([int(fn.split(".")[0]) for fn in os.listdir(in_dir)])
         return [f"{in_dir}/{sen_dir}" for sen_dir in sen_dirs]
