@@ -2,7 +2,7 @@ import json
 import re
 from collections import Counter, OrderedDict
 
-from steps.bolinas.common.hgraph.hgraph import Hgraph
+from common.bolinas.hgraph import Hgraph
 
 
 class Derivation:

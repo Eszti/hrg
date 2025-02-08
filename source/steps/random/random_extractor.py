@@ -5,7 +5,7 @@ from collections import defaultdict
 
 from source.common.conll import ConllSen
 from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
-from source.common.wire_extraction import get_wire_extraction
+from common.oie.wire_extraction import get_wire_extraction
 from source.steps.postproc.postproc import add_arg_idx
 
 random.seed(10)

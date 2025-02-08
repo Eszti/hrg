@@ -2,9 +2,9 @@ import fileinput
 
 from common.script.logger import Logger
 from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
-from source.steps.bolinas.common.hgraph.hgraph import Hgraph
-from source.steps.bolinas.parser_basic.parser import Parser
-from steps.bolinas.common.cky_chart import CkyChart
+from common.bolinas.hgraph import Hgraph
+from common.bolinas.parser import Parser
+from common.bolinas.cky_chart import CkyChart
 
 
 class Parse(LoopOnSenDirs):

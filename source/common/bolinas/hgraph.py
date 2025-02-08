@@ -2,7 +2,7 @@ from collections import defaultdict, OrderedDict
 import re
 import sys
 
-from source.steps.bolinas.common.nonterminal import NonterminalLabel
+from common.bolinas.nonterminal import NonterminalLabel
 
 
 class ListMap(defaultdict):
@@ -155,7 +155,7 @@ class Hgraph(defaultdict):
         Initialize a new abstract meaning representation from a Pennman style string.
         """
         if not cls._parser_singleton:  # Initialize the AMR parser only once
-            from source.steps.bolinas.common.hgraph.graph_description_parser import (
+            from common.bolinas.graph_description_parser import (
                 GraphDescriptionParser,
             )
 

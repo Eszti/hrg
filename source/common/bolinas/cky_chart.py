@@ -5,7 +5,7 @@ import time
 from collections import Counter
 from copy import copy
 
-from steps.bolinas.common.derivation_list import DerivationList
+from common.bolinas.derivation_list import DerivationList
 
 
 class CkyChart:

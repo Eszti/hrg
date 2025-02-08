@@ -1,10 +1,10 @@
 import copy
 from collections import defaultdict
 
-from common.triplet import Triplet
-from common.triplet_matcher import TripletMatcher
-from steps.bolinas.common.derivation import Derivation
-from steps.bolinas.common.exceptions import ScoreDisorderException
+from common.oie.triplet import Triplet
+from common.oie.triplet_matcher import TripletMatcher
+from common.bolinas.derivation import Derivation
+from common.exceptions import ScoreDisorderException
 from steps.postproc.postproc import postprocess
 
 

@@ -2,8 +2,8 @@ import os
 from abc import abstractmethod
 
 from source.common.script.script import Script
-from source.steps.bolinas.common.grammar import Grammar
-from source.steps.bolinas.parser_basic.vo_rule import VoRule
+from common.bolinas.grammar import Grammar
+from common.bolinas.vo_rule import VoRule
 
 
 class LoopOnSenDirs(Script):

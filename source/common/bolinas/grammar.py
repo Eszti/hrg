@@ -2,10 +2,10 @@ from collections import defaultdict
 import math
 from io import StringIO
 
-from source.steps.bolinas.common.exceptions import GrammarError, ParserError
-from source.steps.bolinas.common.hgraph.hgraph import Hgraph
-from source.steps.bolinas.common.nonterminal import NonterminalLabel
-from source.steps.bolinas.parser_basic.vo_rule import VoRule
+from common.exceptions import GrammarError, ParserError
+from common.bolinas.hgraph import Hgraph
+from common.bolinas.nonterminal import NonterminalLabel
+from common.bolinas.vo_rule import VoRule
 
 GRAPH_FORMAT = "hypergraph"
 STRING_FORMAT = "string"

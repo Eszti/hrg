@@ -3,17 +3,16 @@ import logging
 
 from tuw_nlp.graph.graph import Graph
 
-from common.script.logger import Logger
-from source.common.script.loop_on_triplets import LoopOnTriplets
-from source.steps.bolinas.common.exceptions import (
+from common.bolinas.grammar import Grammar
+from common.bolinas.parser import Parser
+from common.bolinas.vo_rule import VoRule
+from common.exceptions import (
     ParseTooLongException,
     CkyTooLongException,
     NotAllNodesCoveredException,
 )
-from source.steps.bolinas.common.grammar import Grammar
-from source.steps.bolinas.parser_basic.parser import Parser
-from source.steps.bolinas.parser_basic.vo_rule import VoRule
-from source.steps.bolinas.validate.check_membership import check_membership
+from common.script.logger import Logger
+from source.common.script.loop_on_triplets import LoopOnTriplets
 from source.steps.train.rule_generation.per_word import get_rules_per_word
 
 
@@ -56,7 +55,7 @@ class Train(LoopOnTriplets):
             parser = Parser(grammar, stop_at_first=True, permutations=False)
 
             try:
-                derivation = check_membership(parser, triplet_graph_str, triplet_logger)
+                derivation = parser.check_membership(triplet_graph_str, triplet_logger)
                 if derivation is None:
                     self.not_validated.append(triplet_idx)
                 number_of_used_rule = len(derivation.rules_counter.keys())

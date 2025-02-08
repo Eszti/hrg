@@ -3,7 +3,7 @@ import json
 import sys
 from collections import defaultdict
 
-from source.common.wire_extraction import wire_from_conll
+from common.oie.wire_extraction import wire_from_conll
 from tuw_nlp.text.utils import gen_tsv_sens
 
 

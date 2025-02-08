@@ -1,8 +1,8 @@
 import re
 
-from source.steps.bolinas.common.exceptions import LexerError, ParserError
-from source.steps.bolinas.common.hgraph.hgraph import Hgraph
-from source.steps.bolinas.common.nonterminal import NonterminalLabel
+from common.exceptions import LexerError, ParserError
+from common.bolinas.hgraph import Hgraph
+from common.bolinas.nonterminal import NonterminalLabel
 
 
 class Lexer(object):

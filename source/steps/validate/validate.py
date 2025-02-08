@@ -1,13 +1,12 @@
 import json
 import logging
 
-from source.common.script.loop_on_triplets import LoopOnTriplets
-from source.steps.bolinas.common.exceptions import (
+from common.bolinas.parser import Parser
+from common.exceptions import (
     ParseTooLongException,
     CkyTooLongException,
 )
-from source.steps.bolinas.parser_basic.parser import Parser
-from source.steps.bolinas.validate.check_membership import check_membership
+from source.common.script.loop_on_triplets import LoopOnTriplets
 
 
 class Validate(LoopOnTriplets):
@@ -32,8 +31,8 @@ class Validate(LoopOnTriplets):
         hrg_dir = self._get_subdir(str(triplet_idx), self.out_dir)
         triplet_log = open(f"{hrg_dir}/sen{triplet_idx}.log", "w")
         try:
-            log_from_validator, used_rules = check_membership(
-                self.parser, triplet_graph_str
+            log_from_validator, used_rules = self.parser.check_membership(
+                triplet_graph_str
             )
             triplet_log.writelines(log_from_validator)
             if used_rules is None:

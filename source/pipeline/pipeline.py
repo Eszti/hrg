@@ -1,8 +1,8 @@
 from datetime import datetime
 
 from source.common.script.script import Script
-from source.steps.bolinas.kbest.kbest import KBest
-from source.steps.bolinas.parse.parse import Parse
+from steps.kbest.kbest import KBest
+from steps.parse.parse import Parse
 from source.steps.eval.eval import Eval
 from source.steps.predict.merge import Merge
 from source.steps.predict.predict import Predict

@@ -8,7 +8,7 @@ from tuw_nlp.graph.ud_graph import UDGraph
 
 from source.common.io import save_as_dot, save_bolinas_str
 from source.common.script.loop_on_conll import LoopOnConll
-from source.common.triplet import Triplet
+from common.oie.triplet import Triplet
 
 
 class Preproc(LoopOnConll):
