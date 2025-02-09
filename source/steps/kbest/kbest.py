@@ -1,11 +1,11 @@
 import json
 import os.path
 
-from common.script.logger import Logger
-from common.triplet.triplet import Triplet
+from source.common.bolinas.cky_chart import CkyChart
 from source.common.conll import ConllSen
+from source.common.script.logger import Logger
 from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
-from common.bolinas.cky_chart import CkyChart
+from source.common.triplet.triplet import Triplet
 
 
 class KbestModel:

@@ -1,4 +1,4 @@
-from common.exceptions import ScoreDisorderException
+from source.common.exceptions import ScoreDisorderException
 
 
 class PostProcessedDerivationList:

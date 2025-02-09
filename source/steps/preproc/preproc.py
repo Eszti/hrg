@@ -8,7 +8,7 @@ from tuw_nlp.graph.ud_graph import UDGraph
 
 from source.common.io import save_as_dot, save_bolinas_str
 from source.common.script.loop_on_conll import LoopOnConll
-from common.triplet.triplet import Triplet
+from source.common.triplet.triplet import Triplet
 
 
 class Preproc(LoopOnConll):
@@ -31,7 +31,7 @@ class Preproc(LoopOnConll):
             self.nlp, sen, sen_dir, save=sen_txt != last_sen_txt
         )
         triplet = self._get_triplet(sen)
-        triplet.to_file(f"{sen_dir}/sen{sen_idx}_triplet.txt")
+        triplet.to_file(f"{sen_dir}/sen{sen_idx}_triplet.json")
         ud_graph = UDGraph(parsed_doc.sentences[0])
 
         if sen_txt != last_sen_txt:

@@ -1,9 +1,11 @@
 import copy
 from collections import defaultdict
 
-from common.derivation.post_processed_derivation import PostProcessedDerivation
-from common.derivation.post_processed_derivation_list import PostProcessedDerivationList
-from common.triplet.triplet_matcher import TripletMatcher
+from source.common.derivation.post_processed_derivation import PostProcessedDerivation
+from source.common.derivation.post_processed_derivation_list import (
+    PostProcessedDerivationList,
+)
+from source.common.triplet.triplet_matcher import TripletMatcher
 
 
 class DerivationList:

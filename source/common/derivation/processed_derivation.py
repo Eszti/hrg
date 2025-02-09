@@ -1,7 +1,7 @@
 from collections import Counter
 
-from common.derivation.raw_derivation import RawDerivation
-from common.triplet.triplet import Triplet
+from source.common.derivation.raw_derivation import RawDerivation
+from source.common.triplet.triplet import Triplet
 
 
 class ProcessedDerivation(RawDerivation):

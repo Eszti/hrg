@@ -1,6 +1,6 @@
 import math
 
-from common.bolinas.hgraph import Hgraph
+from source.common.bolinas.hgraph import Hgraph
 
 
 class Rule(object):

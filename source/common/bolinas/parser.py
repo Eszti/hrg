@@ -3,15 +3,15 @@ from collections import defaultdict, deque
 
 from ordered_set import OrderedSet
 
-from common.bolinas.hgraph import Hgraph
-from common.bolinas.cky_chart import CkyChart
-from common.derivation.processed_derivation import ProcessedDerivation
-from common.exceptions import (
+from source.common.bolinas.cky_chart import CkyChart
+from source.common.bolinas.hgraph import Hgraph
+from source.common.bolinas.vo_item import HergItem
+from source.common.derivation.processed_derivation import ProcessedDerivation
+from source.common.exceptions import (
     ParseTooLongException,
-    CkyTooLongException,
     NotAllNodesCoveredException,
+    CkyTooLongException,
 )
-from common.bolinas.vo_item import HergItem
 
 
 class Parser:

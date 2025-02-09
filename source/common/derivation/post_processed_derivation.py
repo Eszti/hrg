@@ -1,5 +1,5 @@
-from common.derivation.processed_derivation import ProcessedDerivation
-from common.triplet.post_processed_triplet import PostProcessedTriplet
+from source.common.derivation.processed_derivation import ProcessedDerivation
+from source.common.triplet.post_processed_triplet import PostProcessedTriplet
 
 
 class PostProcessedDerivation(ProcessedDerivation):

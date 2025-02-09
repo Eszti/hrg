@@ -1,0 +1,6 @@
+Execution start: 2025-02-09 21:45:17.016183
+{
+    "in_file": "lsoie_data/lsoie_wiki_train.conll",
+    "out_dir": "train_preproc"
+}
+

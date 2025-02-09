@@ -3,15 +3,15 @@ import logging
 
 from tuw_nlp.graph.graph import Graph
 
-from common.bolinas.grammar import Grammar
-from common.bolinas.parser import Parser
-from common.bolinas.vo_rule import VoRule
-from common.exceptions import (
+from source.common.bolinas.grammar import Grammar
+from source.common.bolinas.parser import Parser
+from source.common.bolinas.vo_rule import VoRule
+from source.common.exceptions import (
     ParseTooLongException,
     CkyTooLongException,
     NotAllNodesCoveredException,
 )
-from common.script.logger import Logger
+from source.common.script.logger import Logger
 from source.common.script.loop_on_triplets import LoopOnTriplets
 from source.steps.train.rule_generation.per_word import get_rules_per_word
 

@@ -5,7 +5,7 @@ import time
 from collections import Counter
 from copy import copy
 
-from common.derivation.derivation_list import DerivationList
+from source.common.derivation.derivation_list import DerivationList
 
 
 class CkyChart:

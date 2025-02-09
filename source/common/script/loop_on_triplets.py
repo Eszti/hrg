@@ -2,7 +2,7 @@ import os
 from abc import abstractmethod
 
 from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
-from common.triplet.triplet import Triplet
+from source.common.triplet.triplet import Triplet
 
 
 class LoopOnTriplets(LoopOnSenDirs):
@@ -33,7 +33,7 @@ class LoopOnTriplets(LoopOnSenDirs):
                 lines = f.readlines()
                 assert len(lines) == 1
                 triplet_graph_str = lines[0].strip()
-            triplet = Triplet.from_file(f"{sen_dir}/sen{triplet_idx}_triplet.txt")
+            triplet = Triplet.from_file(f"{sen_dir}/sen{triplet_idx}_triplet.json")
             self._do_for_triplet(sen_dir, triplet_idx, triplet_graph_str, triplet)
 
     @abstractmethod

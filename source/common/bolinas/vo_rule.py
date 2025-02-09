@@ -1,6 +1,6 @@
-from common.bolinas.hgraph import Hgraph
-from common.bolinas.nonterminal import NonterminalLabel
-from common.bolinas.rule import Rule
+from source.common.bolinas.hgraph import Hgraph
+from source.common.bolinas.nonterminal import NonterminalLabel
+from source.common.bolinas.rule import Rule
 
 
 class VoRule(Rule):

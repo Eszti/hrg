@@ -1,6 +1,6 @@
 import re
 
-from common.bolinas.hgraph import Hgraph
+from source.common.bolinas.hgraph import Hgraph
 
 
 class RawDerivation:

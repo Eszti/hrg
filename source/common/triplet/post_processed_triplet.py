@@ -1,6 +1,6 @@
 import itertools
 
-from common.triplet.triplet import Triplet
+from source.common.triplet.triplet import Triplet
 
 
 class PostProcessedTriplet(Triplet):

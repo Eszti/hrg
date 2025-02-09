@@ -5,7 +5,7 @@ import time
 from abc import ABC, abstractmethod
 from datetime import datetime
 
-from common.script.logger import Logger
+from source.common.script.logger import Logger
 
 
 class Script(ABC):

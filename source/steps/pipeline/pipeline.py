@@ -1,9 +1,9 @@
 from datetime import datetime
 
 from source.common.script.script import Script
-from steps.kbest.kbest import KBest
-from steps.parse.parse import Parse
 from source.steps.eval.eval import Eval
+from source.steps.kbest.kbest import KBest
+from source.steps.parse.parse import Parse
 from source.steps.predict.merge import Merge
 from source.steps.predict.predict import Predict
 from source.steps.preproc.preproc import Preproc

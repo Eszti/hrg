@@ -11,7 +11,7 @@
 # In consuming this object, we either "shift" a terminal element or "complete" a
 # nonterminal (actually a closed chart item). Each of these steps produces a new
 # chart item.
-from common.bolinas.nonterminal import NonterminalLabel
+from source.common.bolinas.nonterminal import NonterminalLabel
 
 
 class Item(object):
