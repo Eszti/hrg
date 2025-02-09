@@ -24,9 +24,9 @@ class LoopOnTriplets(LoopOnSenDirs):
             triplet_idx = int(
                 graph_file.split("/")[-1].split("_triplet.graph")[0].split("sen")[-1]
             )
-            if self.first_triplet and triplet_idx < self.first_triplet:
+            if self.first_triplet is not None and triplet_idx < self.first_triplet:
                 continue
-            if self.last_triplet and triplet_idx == self.last_triplet:
+            if self.last_triplet is not None and triplet_idx == self.last_triplet:
                 self.break_loop = True
             print(f"\nProcessing triplet {triplet_idx}")
             with open(graph_file) as f:
@@ -35,6 +35,8 @@ class LoopOnTriplets(LoopOnSenDirs):
                 triplet_graph_str = lines[0].strip()
             triplet = Triplet.from_file(f"{sen_dir}/sen{triplet_idx}_triplet.json")
             self._do_for_triplet(sen_dir, triplet_idx, triplet_graph_str, triplet)
+            if self.break_loop:
+                break
 
     @abstractmethod
     def _do_for_triplet(self, sen_dir, triplet_idx, triplet_graph_str, triplet):

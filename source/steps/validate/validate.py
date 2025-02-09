@@ -1,11 +1,9 @@
 import json
 import logging
 
-from common.bolinas.parser import Parser
-from common.exceptions import (
-    ParseTooLongException,
-    CkyTooLongException,
-)
+from source.common.bolinas.parser import Parser
+from source.common.exceptions import ParseTooLongException, CkyTooLongException
+from source.common.script.logger import Logger
 from source.common.script.loop_on_triplets import LoopOnTriplets
 
 
@@ -24,27 +22,24 @@ class Validate(LoopOnTriplets):
 
     def _before_loop(self):
         self._load_grammar()
-        self.parser = Parser(self.grammar, stop_at_first=True)
+        self.parser = Parser(self.grammar, stop_at_first=True, max_steps=1000)
 
     def _do_for_triplet(self, sen_dir, triplet_idx, triplet_graph_str, triplet):
         self.all_dev_triplets += 1
         hrg_dir = self._get_subdir(str(triplet_idx), self.out_dir)
-        triplet_log = open(f"{hrg_dir}/sen{triplet_idx}.log", "w")
+        triplet_logger = Logger(f"{hrg_dir}/sen{triplet_idx}.log")
         try:
-            log_from_validator, used_rules = self.parser.check_membership(
-                triplet_graph_str
-            )
-            triplet_log.writelines(log_from_validator)
-            if used_rules is None:
+            derivation = self.parser.check_membership(triplet_graph_str, triplet_logger)
+            if derivation is None:
                 self.not_validated.append(triplet_idx)
             else:
                 self.validated.append(triplet_idx)
         except ParseTooLongException as e:
             self.parse_did_not_finish.append(triplet_idx)
-            triplet_log.write(e.print_message())
+            triplet_logger.log(e.print_message())
         except CkyTooLongException as e:
             self.cky_did_not_finish.append(triplet_idx)
-            triplet_log.write(e.print_message())
+            triplet_logger.log(e.print_message())
 
     def _after_loop(self):
         val_ratio = float(len(self.validated)) / self.all_dev_triplets
@@ -58,7 +53,7 @@ class Validate(LoopOnTriplets):
             f"{json.dumps(self.parse_did_not_finish)}"
             f"\nNumber of cky conversion did not finish: {len(self.cky_did_not_finish)}\n"
             f"{json.dumps(self.cky_did_not_finish)}",
-            print_to_std=True,
+            to_stdout=True,
         )
         super()._after_loop()
 
