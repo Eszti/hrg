@@ -2,7 +2,7 @@ import json
 import os.path
 
 from common.script.logger import Logger
-from common.oie.triplet import Triplet
+from common.triplet.triplet import Triplet
 from source.common.conll import ConllSen
 from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
 from common.bolinas.cky_chart import CkyChart
@@ -19,7 +19,11 @@ class KbestModel:
         self, derivation_list, gold_triplets, pos_tags, top_order, arg_perm=False
     ):
         if self.kbest:
-            return {self.subdir: derivation_list.get_k_best_unique_derivation(self.k)}
+            return {
+                self.subdir: derivation_list.get_k_best_unique_derivation(
+                    self.k, pos_tags, top_order
+                )
+            }
         return derivation_list.get_best_matching_derivations(
             gold_triplets, pos_tags, top_order, arg_perm
         )

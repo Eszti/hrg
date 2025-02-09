@@ -4,7 +4,7 @@ import os
 from collections import defaultdict, Counter
 
 from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
-from common.oie.wire_extraction import WiReEx
+from common.triplet.wire_extraction import WiReEx
 
 
 class Merge(LoopOnSenDirs):

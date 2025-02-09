@@ -8,14 +8,14 @@ from tuw_nlp.graph.ud_graph import UDGraph
 
 from source.common.io import save_as_dot, save_bolinas_str
 from source.common.script.loop_on_conll import LoopOnConll
-from common.oie.triplet import Triplet
+from common.triplet.triplet import Triplet
 
 
 class Preproc(LoopOnConll):
 
     def __init__(self, config=None):
         super().__init__(
-            description="Script to preprocess conll oie data.", config=config
+            description="Script to preprocess conll triplet data.", config=config
         )
 
     def _before_loop(self):

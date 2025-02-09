@@ -6,6 +6,7 @@ class Triplet:
     def __init__(self, triplet_dict, label_to_nodes=True):
         if label_to_nodes:
             self.label_to_nodes = triplet_dict
+            self.__sort_label_to_nodes()
             self.node_to_label = {
                 int(n): label
                 for label, nodes in self.label_to_nodes.items()
@@ -15,10 +16,13 @@ class Triplet:
             self.node_to_label = {
                 int(node): label for node, label in triplet_dict.items()
             }
-            label_to_nodes_dict = defaultdict(list)
-            for node, label in self.node_to_label.items():
-                label_to_nodes_dict[label].append(node)
-            self.label_to_nodes = label_to_nodes_dict
+            self._update_label_to_nodes()
+
+    def _update_label_to_nodes(self):
+        label_to_nodes_dict = defaultdict(list)
+        for node, label in self.node_to_label.items():
+            label_to_nodes_dict[label].append(node)
+        self.label_to_nodes = label_to_nodes_dict
         self.__sort_label_to_nodes()
 
     def __sort_label_to_nodes(self):

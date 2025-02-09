@@ -5,6 +5,7 @@ from ordered_set import OrderedSet
 
 from common.bolinas.hgraph import Hgraph
 from common.bolinas.cky_chart import CkyChart
+from common.derivation.processed_derivation import ProcessedDerivation
 from common.exceptions import (
     ParseTooLongException,
     CkyTooLongException,
@@ -200,7 +201,7 @@ class Parser:
         return len(item.shifted) == graph_size
 
     def check_membership(self, bolinas_graph, logger):
-        derivation = None
+        processed_derivation = None
         logger.log("\nVALIDATION:\n")
         input_graph = Hgraph.from_string(bolinas_graph)
         orig_nodes = sorted(
@@ -216,19 +217,23 @@ class Parser:
                 derivation_list = cky_chart.search_derivations(
                     "START", only_first=True, logger=logger
                 )
-                derivation = derivation_list[0]
-                derivation.full_log(logger=logger, k=1)
+                processed_derivation = ProcessedDerivation(
+                    derivation_list.derivation_list[0]
+                )
+                processed_derivation.full_log(logger=logger, k=1)
 
                 not_covered_nodes = sorted(
-                    set(orig_nodes) - set(derivation.derived_nodes),
+                    set(orig_nodes) - set(processed_derivation.derived_nodes),
                     key=lambda node: int(node[1:]),
                 )
                 if len(not_covered_nodes) != 0:
                     raise NotAllNodesCoveredException(
-                        orig_nodes, derivation.derived_nodes, not_covered_nodes
+                        orig_nodes,
+                        processed_derivation.derived_nodes,
+                        not_covered_nodes,
                     )
 
-        return derivation
+        return processed_derivation
 
 
 cky_steps = 0

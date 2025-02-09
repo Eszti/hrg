@@ -2,7 +2,7 @@ import os
 from abc import abstractmethod
 
 from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
-from common.oie.triplet import Triplet
+from common.triplet.triplet import Triplet
 
 
 class LoopOnTriplets(LoopOnSenDirs):

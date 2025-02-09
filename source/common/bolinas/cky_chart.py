@@ -5,7 +5,7 @@ import time
 from collections import Counter
 from copy import copy
 
-from common.bolinas.derivation_list import DerivationList
+from common.derivation.derivation_list import DerivationList
 
 
 class CkyChart:
@@ -64,7 +64,7 @@ class CkyChart:
         print(search_summary)
         if logger:
             logger.log(f"{search_summary}\n")
-        return DerivationList(derivations, raw=True)
+        return DerivationList(derivations)
 
     def _derivations(self, item, done_steps, max_steps, k_best):
         """
