@@ -1,4 +1,6 @@
 import itertools
+import json
+from collections import OrderedDict
 
 from source.common.triplet.triplet import Triplet
 
@@ -12,7 +14,7 @@ class PostProcessedTriplet(Triplet):
         self.pred_resolution = None
         self.__resolve_pred()
 
-        self.permutations = []
+        self.best_permutation = None
 
     def __resolve_pred(self):
         preds = [n for n, l in self.node_to_label.items() if l == "P"]
@@ -38,13 +40,22 @@ class PostProcessedTriplet(Triplet):
             self.pred_resolution = "C"
         self._update_label_to_nodes()
 
-    def calculate_all_permutations(self):
-        if not self.permutations:
-            args = self.arguments()
-            groups = list(args.values())
-            permutations = list(itertools.permutations(args.keys()))
-            for permutation in permutations:
-                label_dict = {"P": self.predicate()}
-                for i, arg_idx in enumerate(permutation):
-                    label_dict[arg_idx] = groups[i]
-                self.permutations.append(Triplet(label_dict))
+    def get_all_permutations(self):
+        ret = []
+        args = self.arguments()
+        groups = list(args.values())
+        permutations = list(itertools.permutations(args.keys()))
+        for permutation in permutations:
+            label_dict = {"P": self.predicate()}
+            for i, arg_idx in enumerate(permutation):
+                label_dict[arg_idx] = groups[i]
+            ret.append(Triplet(label_dict))
+        return ret
+
+    def to_json_str(self):
+        if self.best_permutation:
+            return json.dumps(
+                OrderedDict(sorted(self.best_permutation.label_to_nodes.items()))
+            )
+        else:
+            return super().to_json_str()

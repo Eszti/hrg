@@ -31,7 +31,7 @@ class DerivationList:
         return PostProcessedDerivationList(kbest_unique_derivations)
 
     def get_best_matching_derivations(
-        self, gold_triplets, top_order, pos_tags, arg_perm=False
+        self, gold_triplets, top_order, pos_tags, arg_perm=True
     ):
         derivations_to_keep = defaultdict(lambda: [None] * len(gold_triplets))
         max_scores = defaultdict(lambda: [-1.0] * len(gold_triplets))
@@ -41,10 +41,10 @@ class DerivationList:
                 derivation, top_order, pos_tags
             )
             original_triplet = postprocessed_derivation.post_processed_triplet
-
-            original_triplet.calculate_all_permutations()
             permutations = (
-                [original_triplet] if arg_perm else original_triplet.permutations
+                original_triplet.get_all_permutations()
+                if arg_perm
+                else [original_triplet]
             )
 
             for pred in permutations:
@@ -56,6 +56,9 @@ class DerivationList:
                         if score > max_scores[metric][i]:
                             new_derivation = copy.copy(postprocessed_derivation)
                             new_derivation.score = score
+                            new_derivation.post_processed_triplet.best_permutation = (
+                                pred
+                            )
                             new_derivation.score_name = metric
                             derivations_to_keep[metric][i] = new_derivation
                             max_scores[metric][i] = score

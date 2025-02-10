@@ -16,7 +16,7 @@ class KbestModel:
         self.subdir = None
 
     def get_derivation_per_model(
-        self, derivation_list, gold_triplets, pos_tags, top_order, arg_perm=False
+        self, derivation_list, gold_triplets, pos_tags, top_order
     ):
         if self.kbest:
             return {
@@ -25,7 +25,7 @@ class KbestModel:
                 )
             }
         return derivation_list.get_best_matching_derivations(
-            gold_triplets, pos_tags, top_order, arg_perm
+            gold_triplets, pos_tags, top_order
         )
 
 
@@ -118,7 +118,7 @@ class KBest(LoopOnSenDirs):
     @staticmethod
     def __get_gold_triplets(preproc_dir):
         gold_triplets = []
-        files = [fn for fn in os.listdir(preproc_dir) if fn.endswith("_triplet.txt")]
+        files = [fn for fn in os.listdir(preproc_dir) if fn.endswith("_triplet.json")]
         for fn in files:
             with open(f"{preproc_dir}/{fn}") as f:
                 gold_triplets.append(Triplet(json.load(f)))
