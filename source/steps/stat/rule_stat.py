@@ -10,7 +10,9 @@ from source.common.script.loop_on_models import LoopOnModels
 class RuleStat(LoopOnModels):
     def __init__(self, config=None):
         super().__init__(
-            description="Script to calculate statistics on rule usage.", config=config
+            description="Script to calculate statistics on rule usage.",
+            script_name="rule_stat",
+            config=config,
         )
         self.rule_stat_dir = self._get_subdir(
             f"{self.config_name}", self._get_subdir("stat")

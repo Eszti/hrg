@@ -6,8 +6,8 @@ from source.common.script.script import Script
 
 
 class LoopOnModels(Script):
-    def __init__(self, description, log=False, config=None):
-        super().__init__(description, log, config)
+    def __init__(self, description, script_name, log=False, config=None):
+        super().__init__(description, log=log, script_name=script_name, config=config)
         if "in_dir" in self.config:
             self.in_dir = f"{self.data_dir}/{self.config['in_dir']}"
         self.models = self.config["models"]

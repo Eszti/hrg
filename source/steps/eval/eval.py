@@ -8,7 +8,9 @@ from source.steps.eval.wire_scorer import split_tuples_by_extractor, eval_system
 class Eval(LoopOnModels):
 
     def __init__(self, config=None):
-        super().__init__(description="Script to evaluate systems.", config=config)
+        super().__init__(
+            description="Script to evaluate systems.", script_name="eval", config=config
+        )
         self.report_dir = self._get_subdir("eval")
         self.test = self.config.get("test", False)
         self.pr_curve = self.config.get("pr_curve", False)

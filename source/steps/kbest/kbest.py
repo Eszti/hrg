@@ -54,6 +54,7 @@ class KBest(LoopOnSenDirs):
     def __init__(self, config=None):
         super().__init__(
             description="Script to search k best derivations in parsed charts.",
+            script_name="kbest",
             config=config,
         )
         self.logprob = True

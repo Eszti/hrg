@@ -9,8 +9,9 @@ from source.common.script.logger import Logger
 
 
 class Script(ABC):
-    def __init__(self, description, log, config=None):
+    def __init__(self, description, log, script_name, config=None):
         args = self._get_data_dir_and_config_args(description)
+        self.script_name = script_name
         if config is None:
             self.config_json = args.config
         else:
@@ -42,6 +43,7 @@ class Script(ABC):
             self.logger.log(
                 f"Execution start: {datetime.now()}\n{json.dumps(self.config, indent=4)}\n"
             )
+            self.logger.log(f"Script name: {self.script_name}", to_stdout=True)
 
     def run(self):
         self._before_loop()

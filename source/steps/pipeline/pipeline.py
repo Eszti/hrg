@@ -16,7 +16,9 @@ from source.steps.train.train import Train
 
 class Pipeline(Script):
     def __init__(self, log=True, config=None):
-        super().__init__("Script to run a pipeline.", log, config)
+        super().__init__(
+            "Script to run a pipeline.", log=log, script_name="pipeline", config=config
+        )
         self.steps = self.config["steps"]
         self.name_to_class = {
             "preproc": Preproc,

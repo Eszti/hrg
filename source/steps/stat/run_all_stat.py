@@ -8,6 +8,7 @@ class Stat(Script):
     def __init__(self, config=None):
         super().__init__(
             description="Script to run all dev statistics at once.",
+            script_name="run_all_stat",
             config=config,
             log=False,
         )

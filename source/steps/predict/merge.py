@@ -11,7 +11,9 @@ class Merge(LoopOnSenDirs):
 
     def __init__(self, config=None):
         super().__init__(
-            description="Script to merge predicted wire jsons.", config=config
+            description="Script to merge predicted wire jsons.",
+            script_name="merge",
+            config=config,
         )
         self.out_dir += f"/{self.config['in_dir']}"
         self.chart_filters = self.config["bolinas_chart_filters"]

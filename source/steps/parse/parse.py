@@ -12,6 +12,7 @@ class Parse(LoopOnSenDirs):
     def __init__(self, config=None):
         super().__init__(
             description="Script to parse graph inputs and save parsed chars.",
+            script_name="parse",
             config=config,
         )
         self.grammar = None

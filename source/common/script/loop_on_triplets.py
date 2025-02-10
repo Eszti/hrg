@@ -6,8 +6,8 @@ from source.common.triplet.triplet import Triplet
 
 
 class LoopOnTriplets(LoopOnSenDirs):
-    def __init__(self, description, config):
-        super().__init__(description, log=True, config=config)
+    def __init__(self, description, script_name, config):
+        super().__init__(description, script_name=script_name, log=True, config=config)
         self.first_triplet = self.config.get("first_triplet", None)
         self.last_triplet = self.config.get("last_triplet", None)
 

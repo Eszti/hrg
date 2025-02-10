@@ -13,6 +13,7 @@ class Artefacts(LoopOnConll):
     def __init__(self, config=None):
         super().__init__(
             description="Script to extract artefacts of the given dataset.",
+            script_name="artefacts",
             config=config,
         )
         self.artefact_dir = self._get_subdir("artefacts")

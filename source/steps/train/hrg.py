@@ -8,6 +8,7 @@ class Hrg(LoopOnSenDirs):
     def __init__(self, config=None):
         super().__init__(
             description="Script to merge source rules into one grammar file of a given size.",
+            script_name="hrg",
             config=config,
         )
         self.sizes = self.config.get("sizes", None)

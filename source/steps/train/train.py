@@ -20,6 +20,7 @@ class Train(LoopOnTriplets):
     def __init__(self, config=None):
         super().__init__(
             description="Script to create source rules on preprocessed train data.",
+            script_name="train",
             config=config,
         )
         self.method = self.config["method"]

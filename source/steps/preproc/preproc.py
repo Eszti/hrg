@@ -15,7 +15,9 @@ class Preproc(LoopOnConll):
 
     def __init__(self, config=None):
         super().__init__(
-            description="Script to preprocess conll triplet data.", config=config
+            description="Script to preprocess conll triplet data.",
+            script_name="preproc",
+            config=config,
         )
 
     def _before_loop(self):

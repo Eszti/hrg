@@ -15,7 +15,9 @@ class Random(LoopOnSenDirs):
 
     def __init__(self, config=None):
         super().__init__(
-            description="Script to generate random extractions.", config=config
+            description="Script to generate random extractions.",
+            script_name="random",
+            config=config,
         )
         self.artefact_dir = self._get_subdir("artefacts", create=False)
         self.artefact_prefix = self.config["artefact_prefix"]

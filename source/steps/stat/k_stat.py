@@ -12,6 +12,7 @@ class KStat(LoopOnModels):
     def __init__(self, config=None):
         super().__init__(
             description="Script to calculate k stat on merged extractions.",
+            script_name="k_stat",
             config=config,
         )
         self.k_stat_dir = self._get_subdir(

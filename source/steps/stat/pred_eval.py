@@ -12,7 +12,9 @@ from source.common.script.loop_on_models import LoopOnModels
 class PredEval(LoopOnModels):
     def __init__(self, config=None):
         super().__init__(
-            description="Script to evaluate predicate resolution.", config=config
+            description="Script to evaluate predicate resolution.",
+            script_name="pred_eval",
+            config=config,
         )
         self.pred_eval_dir = self._get_subdir(
             f"{self.config_name}", self._get_subdir("stat")

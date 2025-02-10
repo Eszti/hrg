@@ -11,6 +11,7 @@ class Validate(LoopOnTriplets):
     def __init__(self, config=None):
         super().__init__(
             description="Script to check whether dev triplets are accepted by the grammar.",
+            script_name="validate",
             config=config,
         )
         self.not_validated = []
