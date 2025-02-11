@@ -1,5 +1,5 @@
 from source.common.derivation.processed_derivation import ProcessedDerivation
-from source.common.triplet.post_processed_triplet import PostProcessedTriplet
+from source.common.triplet.processed_triplet import ProcessedTriplet
 
 
 class PostProcessedDerivation(ProcessedDerivation):
@@ -8,7 +8,7 @@ class PostProcessedDerivation(ProcessedDerivation):
         self, raw_derivation, pos_tags, top_order, score=None, score_name=None
     ):
         super().__init__(raw_derivation, score, score_name)
-        self.post_processed_triplet = PostProcessedTriplet(
+        self.processed_triplet = ProcessedTriplet(
             self.derived_labels,
             pos_tags=pos_tags,
             top_order=top_order,
@@ -21,8 +21,8 @@ class PostProcessedDerivation(ProcessedDerivation):
 
     def __log_triplet(self, logger):
         logger.log(
-            f"Derived labels:\n{self.raw_triplet.to_json_str()} - # nodes: {self.raw_triplet.len()}"
+            f"Derived labels:\n{self.raw_triplet.to_short_json()} - # nodes: {self.raw_triplet.len()}"
         )
         logger.log(
-            f"Post-processed labels:\n{self.post_processed_triplet.to_json_str()} - # nodes: {self.post_processed_triplet.len()}\n"
+            f"Post-processed labels:\n{self.processed_triplet.to_short_json()} - # nodes: {self.processed_triplet.len()}\n"
         )

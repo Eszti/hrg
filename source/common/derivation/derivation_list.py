@@ -40,7 +40,7 @@ class DerivationList:
             postprocessed_derivation = PostProcessedDerivation(
                 derivation, top_order, pos_tags
             )
-            original_triplet = postprocessed_derivation.post_processed_triplet
+            original_triplet = postprocessed_derivation.processed_triplet
             permutations = (
                 original_triplet.get_all_permutations()
                 if arg_perm
@@ -56,9 +56,7 @@ class DerivationList:
                         if score > max_scores[metric][i]:
                             new_derivation = copy.copy(postprocessed_derivation)
                             new_derivation.score = score
-                            new_derivation.post_processed_triplet.best_permutation = (
-                                pred
-                            )
+                            new_derivation.processed_triplet.best_permutation = pred
                             new_derivation.score_name = metric
                             derivations_to_keep[metric][i] = new_derivation
                             max_scores[metric][i] = score

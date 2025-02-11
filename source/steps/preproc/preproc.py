@@ -33,7 +33,7 @@ class Preproc(LoopOnConll):
             self.nlp, sen, sen_dir, save=sen_txt != last_sen_txt
         )
         triplet = self._get_triplet(sen)
-        triplet.to_file(f"{sen_dir}/sen{sen_idx}_triplet.json")
+        triplet.to_short_file(f"{sen_dir}/sen{sen_idx}_triplet.json")
         ud_graph = UDGraph(parsed_doc.sentences[0])
 
         if sen_txt != last_sen_txt:

@@ -79,7 +79,9 @@ class KBest(LoopOnSenDirs):
 
         gold_triplets = KBest.__get_gold_triplets(preproc_sen_dir)
         top_order = json.load(open(f"{preproc_sen_dir}/pos_edge_graph_top_order.json"))
-        pos_tags = ConllSen(preproc_sen_dir).pos_tags()
+        conll_sen = ConllSen(preproc_sen_dir)
+        pos_tags = conll_sen.pos_tags()
+        sen_text = conll_sen.sen_text()
 
         kbest_dir = self._get_subdir("kbest", parent_dir=sen_dir)
 
@@ -111,8 +113,12 @@ class KBest(LoopOnSenDirs):
                 derivations.save_derivations_as_graph_file(
                     f"{out_dir}/sen{sen_idx}_{submodel_name}_matches.graph"
                 )
-                derivations.save_triplets(
-                    f"{out_dir}/sen{sen_idx}_{submodel_name}_triplets.txt"
+                triplets_for_sen = derivations.get_triplets_for_sen(sen_idx, sen_text)
+                triplets_for_sen.save_summary(
+                    f"{out_dir}/sen{sen_idx}_{submodel_name}_triplets_summary.txt"
+                )
+                triplets_for_sen.to_json(
+                    f"{out_dir}/sen{sen_idx}_{submodel_name}_triplets.json"
                 )
 
     @staticmethod

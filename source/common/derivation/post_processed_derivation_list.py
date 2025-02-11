@@ -1,27 +1,29 @@
 from source.common.exceptions import ScoreDisorderException
 
+from source.common.triplet.triplet import Triplet
+from source.common.triplet.triplets_for_sen import TripletsForSen
+
 
 class PostProcessedDerivationList:
     def __init__(self, derivation_list):
         self.derivation_list = derivation_list
-
-    def __iter__(self):
-        return (x for x in list.__iter__(self.derivation_list))
-
-    def __getitem__(self, item):
-        return self.derivation_list.__getitem__(item)
 
     def save_derivations_as_graph_file(self, fn):
         with open(fn, "w") as f:
             for derivation in self.derivation_list:
                 f.write(f"{derivation.print_shifted()};{derivation.score:g}\n")
 
-    def save_triplets(self, fn):
-        with open(fn, "w") as f:
-            for derivation in self.derivation_list:
-                f.write(
-                    f"{derivation.post_processed_triplet.to_json_str()};{derivation.score:g}\n"
+    def get_triplets_for_sen(self, sen_id, sen_text):
+        triplets = []
+        for i, derivation in enumerate(self.derivation_list):
+            triplets.append(
+                Triplet.from_processed_triplet(
+                    processed_triplet=derivation.processed_triplet,
+                    score=derivation.score,
+                    k=i + 1,
                 )
+            )
+        return TripletsForSen(triplets, sen_id, sen_text)
 
     def check_score_disorder(self):
         for i in range(len(self.derivation_list) - 1):

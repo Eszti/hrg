@@ -17,6 +17,21 @@ class Triplet:
                 int(node): label for node, label in triplet_dict.items()
             }
             self._update_label_to_nodes()
+        self.pred_resolution = None
+        self.derivation_score = None
+        self.k = None
+
+    @staticmethod
+    def from_processed_triplet(processed_triplet, score, k):
+        if processed_triplet.best_permutation is None:
+            node_to_label = processed_triplet.node_to_label
+        else:
+            node_to_label = processed_triplet.best_permutation.node_to_label
+        new_triplet = Triplet(node_to_label, label_to_nodes=False)
+        new_triplet.pred_resolution = processed_triplet.pred_resolution
+        new_triplet.derivation_score = score
+        new_triplet.k = k
+        return new_triplet
 
     def _update_label_to_nodes(self):
         label_to_nodes_dict = defaultdict(list)
@@ -26,25 +41,32 @@ class Triplet:
         self.__sort_label_to_nodes()
 
     def __sort_label_to_nodes(self):
-        self.label_to_nodes = {
-            label: sorted([int(a) for a in args])
-            for label, args in self.label_to_nodes.items()
-        }
+        self.label_to_nodes = OrderedDict(
+            sorted(
+                {
+                    label: sorted([int(a) for a in args])
+                    for label, args in self.label_to_nodes.items()
+                }.items()
+            )
+        )
 
-    def to_json_str(self):
-        return json.dumps(OrderedDict(sorted(self.label_to_nodes.items())))
+    def to_dict(self):
+        json_dict = dict()
+        json_dict["labels"] = self.label_to_nodes
+        json_dict["pred_resolution"] = self.pred_resolution
+        json_dict["derivation_score"] = self.derivation_score
+        json_dict["k"] = self.k
+        return json_dict
 
-    def to_file(self, fn):
+    def to_short_json(self):
+        return json.dumps(self.label_to_nodes)
+
+    def to_short_file(self, fn):
         with open(fn, "w") as f:
-            f.write(self.to_json_str())
+            f.write(self.to_short_json())
 
     @staticmethod
-    def from_json_str(json_str):
-        label_to_nodes_dict = json.loads(json_str)
-        return Triplet(label_to_nodes_dict)
-
-    @staticmethod
-    def from_file(fn):
+    def from_short_file(fn):
         label_to_nodes_dict = json.load(open(fn))
         return Triplet(label_to_nodes_dict)
 

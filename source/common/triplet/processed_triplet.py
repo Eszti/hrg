@@ -1,17 +1,14 @@
 import itertools
-import json
-from collections import OrderedDict
 
 from source.common.triplet.triplet import Triplet
 
 
-class PostProcessedTriplet(Triplet):
+class ProcessedTriplet(Triplet):
     def __init__(self, triplet_dict, pos_tags, top_order, label_to_nodes=True):
         super().__init__(triplet_dict, label_to_nodes)
         self.pos_tags = pos_tags
         self.top_order = top_order
 
-        self.pred_resolution = None
         self.__resolve_pred()
 
         self.best_permutation = None
@@ -52,10 +49,8 @@ class PostProcessedTriplet(Triplet):
             ret.append(Triplet(label_dict))
         return ret
 
-    def to_json_str(self):
+    def to_short_json(self):
         if self.best_permutation:
-            return json.dumps(
-                OrderedDict(sorted(self.best_permutation.label_to_nodes.items()))
-            )
+            return self.best_permutation.to_short_json()
         else:
-            return super().to_json_str()
+            return super().to_short_json()
