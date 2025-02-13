@@ -16,16 +16,24 @@ class KbestModel:
         self.subdir = None
 
     def get_derivation_per_model(
-        self, derivation_list, gold_triplets, pos_tags, top_order
+        self, derivation_list, gold_triplets, pos_tags, top_order, sen_id, sen_text
     ):
         if self.kbest:
             return {
                 self.subdir: derivation_list.get_k_best_unique_derivation(
-                    self.k, pos_tags, top_order
+                    sen_id=sen_id,
+                    sen_text=sen_text,
+                    k=self.k,
+                    pos_tags=pos_tags,
+                    top_order=top_order,
                 )
             }
         return derivation_list.get_best_matching_derivations(
-            gold_triplets, pos_tags, top_order
+            sen_id=sen_id,
+            sen_text=sen_text,
+            gold_triplets=gold_triplets,
+            top_order=top_order,
+            pos_tags=pos_tags,
         )
 
 
@@ -87,9 +95,8 @@ class KBest(LoopOnSenDirs):
 
         for model_name in sorted(self.config["models"]):
             model = self.model_name_to_class[model_name]
-            out_dir = self._get_subdir(model.subdir, parent_dir=kbest_dir)
 
-            sen_logger = Logger(f"{out_dir}/sen{sen_idx}.log")
+            sen_logger = Logger(f"{kbest_dir}/sen{sen_idx}_{model_name}.log")
             sen_logger.log(f"Processing {model_name}", to_stdout=True)
 
             filtered_chart = cky_chart
@@ -103,22 +110,24 @@ class KBest(LoopOnSenDirs):
                 "START", logger=sen_logger
             )
             derivations_per_model = model.get_derivation_per_model(
-                derivation_list, gold_triplets, pos_tags, top_order
+                derivation_list=derivation_list,
+                gold_triplets=gold_triplets,
+                pos_tags=pos_tags,
+                top_order=top_order,
+                sen_id=sen_idx,
+                sen_text=sen_text,
             )
 
             for submodel_name, derivations in derivations_per_model.items():
                 derivations.check_score_disorder()
                 sen_logger.log(f"Log derivations for {submodel_name}\n")
                 derivations.log_all_derivations(sen_logger)
-                derivations.save_derivations_as_graph_file(
-                    f"{out_dir}/sen{sen_idx}_{submodel_name}_matches.graph"
-                )
-                triplets_for_sen = derivations.get_triplets_for_sen(sen_idx, sen_text)
+                triplets_for_sen = derivations.triplets_for_sen
                 triplets_for_sen.save_summary(
-                    f"{out_dir}/sen{sen_idx}_{submodel_name}_triplets_summary.txt"
+                    f"{kbest_dir}/sen{sen_idx}_{submodel_name}_triplets_summary.txt"
                 )
                 triplets_for_sen.to_json(
-                    f"{out_dir}/sen{sen_idx}_{submodel_name}_triplets.json"
+                    f"{kbest_dir}/sen{sen_idx}_{submodel_name}_triplets.json"
                 )
 
     @staticmethod

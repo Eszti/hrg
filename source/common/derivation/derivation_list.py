@@ -1,10 +1,10 @@
 import copy
 from collections import defaultdict
 
-from source.common.derivation.post_processed_derivation import PostProcessedDerivation
-from source.common.derivation.post_processed_derivation_list import (
-    PostProcessedDerivationList,
+from source.common.derivation.kbest_derivation_list import (
+    KbestDerivationList,
 )
+from source.common.derivation.processed_derivation import ProcessedDerivation
 from source.common.triplet.triplet_matcher import TripletMatcher
 
 
@@ -12,39 +12,39 @@ class DerivationList:
     def __init__(self, derivation_list):
         self.derivation_list = derivation_list
 
-    def get_k_best_unique_derivation(self, k, pos_tags, top_order):
+    def get_k_best_unique_derivation(self, sen_id, sen_text, k, pos_tags, top_order):
         kbest_unique_nodes = set()
         kbest_unique_derivations = []
         for derivation in self.derivation_list:
-            post_processed_derivation = PostProcessedDerivation(
-                derivation, pos_tags, top_order
-            )
-            nodes_str = " ".join(post_processed_derivation.derived_nodes)
+            processed_derivation = ProcessedDerivation(derivation)
+            nodes_str = " ".join(processed_derivation.derived_nodes)
             if nodes_str not in kbest_unique_nodes:
                 kbest_unique_nodes.add(nodes_str)
-                kbest_unique_derivations.append(post_processed_derivation)
+                processed_derivation.calculate_processed_triplet(pos_tags, top_order)
+                processed_derivation.processed_triplet.triplet_id = (
+                    len(kbest_unique_derivations) + 1
+                )
+                kbest_unique_derivations.append(processed_derivation)
             if len(kbest_unique_derivations) >= k:
                 break
         assert len(kbest_unique_derivations) == len(kbest_unique_nodes)
         if len(kbest_unique_derivations) < k:
             print(f"Found only {len(kbest_unique_derivations)} derivations.")
-        return PostProcessedDerivationList(kbest_unique_derivations)
+        return KbestDerivationList(kbest_unique_derivations, sen_id, sen_text)
 
     def get_best_matching_derivations(
-        self, gold_triplets, top_order, pos_tags, arg_perm=True
+        self, sen_id, sen_text, gold_triplets, top_order, pos_tags, arg_perm=True
     ):
         derivations_to_keep = defaultdict(lambda: [None] * len(gold_triplets))
         max_scores = defaultdict(lambda: [-1.0] * len(gold_triplets))
 
         for derivation in self.derivation_list:
-            postprocessed_derivation = PostProcessedDerivation(
-                derivation, top_order, pos_tags
-            )
-            original_triplet = postprocessed_derivation.processed_triplet
+            processed_derivation = ProcessedDerivation(derivation)
+            processed_derivation.calculate_processed_triplet(pos_tags, top_order)
             permutations = (
-                original_triplet.get_all_permutations()
+                processed_derivation.processed_triplet.get_all_permutations()
                 if arg_perm
-                else [original_triplet]
+                else [processed_derivation.processed_triplet]
             )
 
             for pred in permutations:
@@ -54,9 +54,9 @@ class DerivationList:
                     scores = TripletMatcher(gold, pred).get_scores()
                     for metric, score in scores.items():
                         if score > max_scores[metric][i]:
-                            new_derivation = copy.copy(postprocessed_derivation)
-                            new_derivation.score = score
-                            new_derivation.processed_triplet.best_permutation = pred
+                            new_derivation = copy.copy(processed_derivation)
+                            new_derivation.processed_triplet = copy.copy(pred)
+                            new_derivation.processed_triplet.derivation_score = score
                             new_derivation.score_name = metric
                             derivations_to_keep[metric][i] = new_derivation
                             max_scores[metric][i] = score
@@ -67,10 +67,13 @@ class DerivationList:
                 if derivation is None:
                     assert max_scores[metric][i] == -1.0
                 else:
+                    derivation.processed_triplet.triplet_id = len(ret[metric]) + 1
                     ret[metric].append(derivation)
         ret = {
-            k: PostProcessedDerivationList(
-                sorted(v, key=lambda x: x.score, reverse=True)
+            k: KbestDerivationList(
+                sorted(v, key=lambda x: x.score, reverse=True),
+                sen_id=sen_id,
+                sen_text=sen_text,
             )
             for k, v in ret.items()
         }

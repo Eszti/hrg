@@ -6,13 +6,13 @@ class TripletsForSen:
         super().__init__()
         self.sen_id = sen_id
         self.sen_text = sen_text
-        self.triplets = triplets
+        self.triplets = sorted(triplets, key=lambda x: x.derivation_score, reverse=True)
 
     @staticmethod
     def from_json(fn):
         with open(fn) as f:
             ret = json.load(f)
-        return ret
+        return TripletsForSen(ret["triplets"], ret["sen_id"], ret["sen_text"])
 
     def to_json(self, fn):
         json_dict = dict()

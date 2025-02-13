@@ -1,15 +1,15 @@
+import copy
 from collections import Counter
 
-from source.common.derivation.raw_derivation import RawDerivation
+from source.common.derivation.derivation import Derivation
 from source.common.triplet.triplet import Triplet
 
 
-class ProcessedDerivation(RawDerivation):
+class ProcessedDerivation(Derivation):
 
-    def __init__(self, raw_derivation, score=None, score_name=None):
-        super().__init__(raw_derivation)
-        self.score = self.score if score is None else score
-        self.score_name = "raw_score" if score_name is None else score_name
+    def __init__(self, derivation, score_name=None):
+        super().__init__(derivation)
+        self.score_name = "derivation_score" if score_name is None else score_name
 
         self.derived_nodes = sorted(
             list(self.raw_derivation[1]["START"][0].nodeset),
@@ -23,15 +23,40 @@ class ProcessedDerivation(RawDerivation):
         self.derived_labels = {}
         self.__derive_labels(self.raw_derivation)
 
-        self.raw_triplet = Triplet(self.derived_labels, label_to_nodes=False)
+        self.original_triplet = Triplet(
+            self.derived_labels,
+            derivation_score=self.score,
+            label_to_nodes=False,
+        )
+        self.processed_triplet = None
+
+    def calculate_processed_triplet(self, pos_tags, top_order, score=None):
+        self.processed_triplet = copy.copy(self.original_triplet)
+        self.processed_triplet.derivation_score = (
+            score if score is not None else self.score
+        )
+        self.processed_triplet.resolve_pred(pos_tags, top_order)
 
     def full_log(self, logger, k):
-        self._log_raw_derivation(logger, k)
+        logger.log(
+            f"K{k}\n{self.score_name} score: {self.processed_triplet.derivation_score:g}"
+        )
+        logger.log(f"raw derivation score: {self.score:g}\n")
+        self._log_derivation(logger)
         self.__log_used_rules(logger)
         self.__log_derived_nodes(logger, k)
+        self.__log_triplet(logger)
 
     def __log_derived_nodes(self, logger, k):
         logger.log(f"k{k}:\t{self.derived_nodes} - {len(self.derived_nodes)}\n")
+
+    def __log_triplet(self, logger):
+        logger.log(
+            f"Derived triplet:\n{self.original_triplet.to_short_json()} - # nodes: {self.original_triplet.len()}"
+        )
+        logger.log(
+            f"Processed triplet:\n{self.processed_triplet.to_short_json()} - # nodes: {self.processed_triplet.len()}\n"
+        )
 
     def __get_rules(self):
         def combiner(item, childobjs):
@@ -47,7 +72,7 @@ class ProcessedDerivation(RawDerivation):
             self.rules_counter[rule_id] += 1
             return {rule_id: str(item.rule)}
 
-        return RawDerivation.walk_derivation(self.raw_derivation, combiner, leaf)
+        return Derivation.walk_derivation(self.raw_derivation, combiner, leaf)
 
     def __log_used_rules(self, logger):
         for rule_id in sorted(self.used_rules):

@@ -3,19 +3,19 @@ import re
 from source.common.bolinas.hgraph import Hgraph
 
 
-class RawDerivation:
+class Derivation:
 
     def __init__(self, raw_derivation):
         self.raw_derivation = raw_derivation[1]
         self.score = raw_derivation[0]
 
-    def _log_raw_derivation(self, logger, k):
-        logger.log(f"K{k}")
-        logger.log(f"Raw score: {self.score:g}")
-        logger.log(self.print_shifted())
+    def _log_derivation(self, logger):
+        logger.log("Shifted derivation:")
+        logger.log(self.__print_shifted())
+        logger.log("\nFormat derivation:")
         logger.log(f"{self.__format_derivation()}\n")
 
-    def print_shifted(self):
+    def __print_shifted(self):
         final_item = self.raw_derivation[1]["START"][0]
         node_to_concepts = dict(zip(final_item.nodeset, [""] * len(final_item.nodeset)))
         triples = []
@@ -34,7 +34,7 @@ class RawDerivation:
             item, children = derivation[0], derivation[1]
             childobjs = dict(
                 [
-                    (rel, RawDerivation.walk_derivation(c, combiner, leaf))
+                    (rel, Derivation.walk_derivation(c, combiner, leaf))
                     for (rel, c) in children.items()
                 ]
             )
@@ -56,4 +56,4 @@ class RawDerivation:
         def leaf(item):
             return str(item.rule.rule_id)
 
-        return RawDerivation.walk_derivation(self.raw_derivation, combiner, leaf)
+        return Derivation.walk_derivation(self.raw_derivation, combiner, leaf)
