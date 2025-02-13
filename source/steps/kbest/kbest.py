@@ -5,7 +5,7 @@ from source.common.bolinas.cky_chart import CkyChart
 from source.common.conll import ConllSen
 from source.common.script.logger import Logger
 from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
-from source.common.triplet.triplet import Triplet
+from source.common.triplet.triplets_for_sen import TripletsForSen
 
 
 class KbestModel:
@@ -85,7 +85,9 @@ class KBest(LoopOnSenDirs):
             print("No derivation found")
             return
 
-        gold_triplets = KBest.__get_gold_triplets(preproc_sen_dir)
+        gold_triplets = TripletsForSen.from_json(
+            f"{preproc_sen_dir}/gold_triplets.json"
+        ).triplets
         top_order = json.load(open(f"{preproc_sen_dir}/pos_edge_graph_top_order.json"))
         conll_sen = ConllSen(preproc_sen_dir)
         pos_tags = conll_sen.pos_tags()
@@ -129,15 +131,6 @@ class KBest(LoopOnSenDirs):
                 triplets_for_sen.to_json(
                     f"{kbest_dir}/sen{sen_idx}_{submodel_name}_triplets.json"
                 )
-
-    @staticmethod
-    def __get_gold_triplets(preproc_dir):
-        gold_triplets = []
-        files = [fn for fn in os.listdir(preproc_dir) if fn.endswith("_triplet.json")]
-        for fn in files:
-            with open(f"{preproc_dir}/{fn}") as f:
-                gold_triplets.append(Triplet(json.load(f)))
-        return gold_triplets
 
 
 if __name__ == "__main__":

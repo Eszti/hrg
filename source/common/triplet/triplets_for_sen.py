@@ -1,5 +1,7 @@
 import json
 
+from source.common.triplet.triplet import Triplet
+
 
 class TripletsForSen:
     def __init__(self, triplets, sen_id, sen_text):
@@ -11,13 +13,25 @@ class TripletsForSen:
     @staticmethod
     def from_json(fn):
         with open(fn) as f:
-            ret = json.load(f)
-        return TripletsForSen(ret["triplets"], ret["sen_id"], ret["sen_text"])
+            triplets_for_sen_dict = json.load(f)
+        return TripletsForSen(
+            [
+                Triplet(
+                    t["labels"],
+                    t["triplet_id"],
+                    t.get("pred_resolution"),
+                    t["derivation_score"],
+                )
+                for t in triplets_for_sen_dict["triplets"]
+            ],
+            triplets_for_sen_dict["sen_id"],
+            triplets_for_sen_dict["sen_text"],
+        )
 
     def to_json(self, fn):
         json_dict = dict()
         json_dict["sen_id"] = self.sen_id
-        json_dict["sen_txt"] = self.sen_text
+        json_dict["sen_text"] = self.sen_text
         json_dict["triplets"] = [t.to_dict() for t in self.triplets]
         with open(fn, "w") as f:
             json.dump(json_dict, f, indent=4)

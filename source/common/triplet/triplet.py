@@ -9,7 +9,7 @@ class Triplet:
         triplet_dict,
         triplet_id=None,
         pred_resolution=None,
-        derivation_score=None,
+        derivation_score=0,
         label_to_nodes=True,
     ):
         if label_to_nodes:
