@@ -7,7 +7,7 @@ class Triplet:
     def __init__(
         self,
         triplet_dict,
-        triplet_id=None,
+        triplet_id="",
         pred_resolution=None,
         derivation_score=0,
         label_to_nodes=True,
@@ -24,12 +24,12 @@ class Triplet:
             self.node_to_label = {
                 int(node): label for node, label in triplet_dict.items()
             }
-            self._update_label_to_nodes()
+            self.__update_label_to_nodes()
         self.triplet_id = triplet_id
         self.pred_resolution = pred_resolution
         self.derivation_score = derivation_score
 
-    def _update_label_to_nodes(self):
+    def __update_label_to_nodes(self):
         label_to_nodes_dict = defaultdict(list)
         for node, label in self.node_to_label.items():
             label_to_nodes_dict[label].append(node)
@@ -45,6 +45,11 @@ class Triplet:
                 }.items()
             )
         )
+        self.__assert_labels()
+
+    def __assert_labels(self):
+        for label, nodes in self.label_to_nodes.items():
+            assert label.startswith("P") or label.startswith("A")
 
     def to_dict(self):
         json_dict = dict()
@@ -58,7 +63,7 @@ class Triplet:
         return json_dict
 
     def to_short_json(self):
-        return json.dumps(self.label_to_nodes)
+        return f"{self.triplet_id};{json.dumps(self.label_to_nodes)};{self.derivation_score:g} - len: {self.len()}"
 
     def get_label(self, node):
         return self.node_to_label.get(node)
@@ -69,22 +74,13 @@ class Triplet:
     def predicate(self):
         return self.label_to_nodes["P"]
 
-    def match(self, other):
-        p_match = set(self.label_to_nodes["P"]) & set(other.label_to_nodes["P"])
-        a0_match = set(self.label_to_nodes["A0"]) & set(other.label_to_nodes["A0"])
-        return p_match and a0_match
-
-    def exact_match(self, other):
-        p_same = set(self.label_to_nodes["P"]) == set(other.label_to_nodes["P"])
-        a0_same = set(self.label_to_nodes["A0"]) == set(other.label_to_nodes["A0"])
-        len_same = self.len() == len(other.len())
-        return p_same and a0_same and len_same
+    def a0(self):
+        return self.label_to_nodes["A0"]
 
     def len(self):
         ret = 0
         for label, nodes in self.label_to_nodes.items():
-            if label.startswith("P") or label.startswith("A"):
-                ret += len(nodes)
+            ret += len(nodes)
         return ret
 
     def resolve_pred(self, pos_tags, top_order):
@@ -109,7 +105,7 @@ class Triplet:
             first_verb_node = top_order[first_verb_idx]
             self.node_to_label[first_verb_node] = "P"
             self.pred_resolution = "C"
-        self._update_label_to_nodes()
+        self.__update_label_to_nodes()
 
     def get_all_permutations(self):
         ret = []

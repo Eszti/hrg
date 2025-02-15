@@ -49,10 +49,10 @@ class DerivationList:
 
             for pred in permutations:
                 for i, gold in enumerate(gold_triplets):
-                    if not gold.match(pred):
+                    matcher = TripletMatcher(gold, pred)
+                    if not matcher.match:
                         continue
-                    scores = TripletMatcher(gold, pred).get_scores()
-                    for metric, score in scores.items():
+                    for metric, score in matcher.scores.items():
                         if score > max_scores[metric][i]:
                             new_derivation = copy.copy(processed_derivation)
                             new_derivation.processed_triplet = copy.copy(pred)

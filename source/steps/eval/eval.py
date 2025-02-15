@@ -1,17 +1,27 @@
 import json
+import os
+from collections import defaultdict
 
-from source.common.report import save_pr_curve, find_best_in_column, make_markdown_table
-from source.common.script.loop_on_models import LoopOnModels
+from source.common.report import find_best_in_column, make_markdown_table
+from source.common.scores.sentence_scorer import SentenceScorer
+from source.common.scores.system_scorer import SystemScorer
+from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
+from source.common.triplet.triplets_for_sen import TripletsForSen
 from source.steps.eval.wire_scorer import split_tuples_by_extractor, eval_system, f1
 
 
-class Eval(LoopOnModels):
+class Eval(LoopOnSenDirs):
 
     def __init__(self, config=None):
         super().__init__(
             description="Script to evaluate systems.", script_name="eval", config=config
         )
+        self.models = self.config["models"]
+        self.sentence_scorers = defaultdict(list)
+
         self.report_dir = self._get_subdir("eval")
+        self.report = ""
+        self.triplets = defaultdict(dict)
         self.test = self.config.get("test", False)
         self.pr_curve = self.config.get("pr_curve", False)
         self.debug = self.config.get("debug", False)
@@ -22,6 +32,30 @@ class Eval(LoopOnModels):
 
     def _before_loop(self):
         self.report += "# Evaluation\n"
+
+    def _do_for_sen(self, sen_idx, preproc_sen_dir):
+        sen_dir = f"{self.out_dir}/{str(sen_idx)}"
+        kbest_dir = f"{sen_dir}/kbest"
+        out_dir = self._get_subdir("eval", parent_dir=sen_dir)
+
+        gold_triplets_for_sen = TripletsForSen.from_json(
+            f"{preproc_sen_dir}/gold_triplets.json"
+        )
+
+        for model_file in [
+            fn for fn in os.listdir(kbest_dir) if fn.endswith("_triplets.json")
+        ]:
+            model_name = model_file.split("_")[1]
+            if model_name not in self.models:
+                continue
+            predicted_triplets_for_sen = TripletsForSen.from_json(
+                f"{kbest_dir}/{model_file}"
+            )
+            sentence_scorer = SentenceScorer(
+                gold_triplets_for_sen, predicted_triplets_for_sen
+            )
+            sentence_scorer.to_file(f"{out_dir}/sen{sen_idx}_{model_name}_scores.txt")
+            self.sentence_scorers[model_name].append(sentence_scorer)
 
     def _do_for_model(self, model):
         model_name = model["name"]
@@ -129,17 +163,19 @@ class Eval(LoopOnModels):
         self.report += "\n"
 
     def _after_loop(self):
-        if self.pr_curve and not self.test:
-            save_pr_curve(
-                self.p_list,
-                self.r_list,
-                self.pr_curve_names,
-                f"{self.report_dir}/pr_curve_{self.config_name}.png",
-            )
-            self.report += f"## P-R curve\n![](pr_curve_{self.config_name}.png)"
-
-        with open(f"{self.report_dir}/{self.config_name}.md", "w") as f:
-            f.writelines(self.report)
+        sys_scorer = SystemScorer(self.sentence_scorers)
+        sys_scorer.log_results(self.logger)
+        # if self.pr_curve and not self.test:
+        #     save_pr_curve(
+        #         self.p_list,
+        #         self.r_list,
+        #         self.pr_curve_names,
+        #         f"{self.report_dir}/pr_curve_{self.config_name}.png",
+        #     )
+        #     self.report += f"## P-R curve\n![](pr_curve_{self.config_name}.png)"
+        #
+        # with open(f"{self.report_dir}/{self.config_name}.md", "w") as f:
+        #     f.writelines(self.report)
         super()._after_loop()
 
 

@@ -39,4 +39,4 @@ class TripletsForSen:
     def save_summary(self, fn):
         with open(fn, "w") as f:
             for triplet in self.triplets:
-                f.write(f"{triplet.to_short_json()};{triplet.derivation_score:g}\n")
+                f.write(f"{triplet.to_short_json()}\n")

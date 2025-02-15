@@ -51,12 +51,8 @@ class ProcessedDerivation(Derivation):
         logger.log(f"k{k}:\t{self.derived_nodes} - {len(self.derived_nodes)}\n")
 
     def __log_triplet(self, logger):
-        logger.log(
-            f"Derived triplet:\n{self.original_triplet.to_short_json()} - # nodes: {self.original_triplet.len()}"
-        )
-        logger.log(
-            f"Processed triplet:\n{self.processed_triplet.to_short_json()} - # nodes: {self.processed_triplet.len()}\n"
-        )
+        logger.log(f"Derived triplet:\n{self.original_triplet.to_short_json()}")
+        logger.log(f"Processed triplet:\n{self.processed_triplet.to_short_json()}\n")
 
     def __get_rules(self):
         def combiner(item, childobjs):
