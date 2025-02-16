@@ -1,5 +1,6 @@
-Execution start: 2024-11-14 15:28:44.884347
+Execution start: 2025-02-16 15:53:53.291845
 {
+    "name": "train_pipeline",
     "steps": [
         {
             "step_name": "preproc",
@@ -19,6 +20,7 @@ Execution start: 2024-11-14 15:28:44.884347
     ]
 }
 
-Processing step preproc: 2024-11-14 15:28:44.884523
-Processing step train: 2024-11-14 18:14:33.951502
-Processing step hrg: 2024-11-14 18:15:40.546903
+Script name: pipeline
+
+Processing step preproc: 2025-02-16 15:53:53.292024
+Processing step train: 2025-02-16 19:10:17.176388
