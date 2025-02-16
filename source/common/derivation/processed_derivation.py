@@ -38,9 +38,10 @@ class ProcessedDerivation(Derivation):
         self.processed_triplet.resolve_pred(pos_tags, top_order)
 
     def full_log(self, logger, k):
-        logger.log(
-            f"K{k}\n{self.score_name} score: {self.processed_triplet.derivation_score:g}"
-        )
+        if self.processed_triplet is not None:
+            logger.log(
+                f"K{k}\n{self.score_name} score: {self.processed_triplet.derivation_score:g}"
+            )
         logger.log(f"raw derivation score: {self.score:g}\n")
         self._log_derivation(logger)
         self.__log_used_rules(logger)
@@ -52,7 +53,10 @@ class ProcessedDerivation(Derivation):
 
     def __log_triplet(self, logger):
         logger.log(f"Derived triplet:\n{self.original_triplet.to_short_json()}")
-        logger.log(f"Processed triplet:\n{self.processed_triplet.to_short_json()}\n")
+        if self.processed_triplet is not None:
+            logger.log(
+                f"Processed triplet:\n{self.processed_triplet.to_short_json()}\n"
+            )
 
     def __get_rules(self):
         def combiner(item, childobjs):

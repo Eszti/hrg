@@ -2,7 +2,7 @@ import os
 from abc import abstractmethod
 
 from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
-from source.common.triplet.triplet import Triplet
+from source.common.triplet.triplets_for_sen import TripletsForSen
 
 
 class LoopOnTriplets(LoopOnSenDirs):
@@ -20,7 +20,8 @@ class LoopOnTriplets(LoopOnSenDirs):
             ],
             key=lambda x: int(x.split("/")[-1].split("_")[0].split("sen")[-1]),
         )
-        for graph_file in graph_files:
+        triplets = TripletsForSen.from_json(f"{sen_dir}/gold_triplets.json").triplets
+        for i, graph_file in enumerate(graph_files):
             triplet_idx = int(
                 graph_file.split("/")[-1].split("_triplet.graph")[0].split("sen")[-1]
             )
@@ -33,9 +34,8 @@ class LoopOnTriplets(LoopOnSenDirs):
                 lines = f.readlines()
                 assert len(lines) == 1
                 triplet_graph_str = lines[0].strip()
-            triplet = Triplet.from_short_file(
-                f"{sen_dir}/sen{triplet_idx}_triplet.json"
-            )
+            triplet = triplets[i]
+            assert triplet.triplet_id == triplet_idx
             self._do_for_triplet(sen_dir, triplet_idx, triplet_graph_str, triplet)
             if self.break_loop:
                 break
