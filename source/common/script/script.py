@@ -43,7 +43,7 @@ class Script(ABC):
             self.logger.log(
                 f"Execution start: {datetime.now()}\n{json.dumps(self.config, indent=4)}\n"
             )
-            self.logger.log(f"Script name: {self.script_name}", to_stdout=True)
+            self.logger.log(f"Script name: {self.script_name}\n", to_stdout=True)
 
     def run(self):
         self._before_loop()

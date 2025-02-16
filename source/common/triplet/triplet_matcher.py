@@ -16,7 +16,7 @@ class TripletMatcher:
             metrics["rec"] = g_and_p / float(g_len)
             prec = g_and_p / float(p_len)
             rec = g_and_p / float(g_len)
-            metrics["f1"] = self.__f1(prec, rec)
+            metrics["f1"] = self.f1(prec, rec)
         return metrics
 
     def __calc_p_and_g(self):
@@ -28,7 +28,7 @@ class TripletMatcher:
         return ret
 
     @staticmethod
-    def __f1(prec, rec):
+    def f1(prec, rec):
         try:
             return 2 * prec * rec / (prec + rec)
         except ZeroDivisionError:

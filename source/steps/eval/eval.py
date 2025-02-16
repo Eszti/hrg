@@ -1,13 +1,10 @@
-import json
 import os
 from collections import defaultdict
 
-from source.common.report import find_best_in_column, make_markdown_table
 from source.common.scores.sentence_scorer import SentenceScorer
 from source.common.scores.system_scorer import SystemScorer
 from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
 from source.common.triplet.triplets_for_sen import TripletsForSen
-from source.steps.eval.wire_scorer import split_tuples_by_extractor, eval_system, f1
 
 
 class Eval(LoopOnSenDirs):
@@ -16,166 +13,93 @@ class Eval(LoopOnSenDirs):
         super().__init__(
             description="Script to evaluate systems.", script_name="eval", config=config
         )
+        self.grammar_dirs = self.config["grammar_dirs"]
         self.models = self.config["models"]
-        self.sentence_scorers = defaultdict(list)
-
+        self.sentence_scorers = defaultdict(lambda: defaultdict(list))
+        self.match_ids = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
         self.report_dir = self._get_subdir("eval")
-        self.report = ""
-        self.triplets = defaultdict(dict)
-        self.test = self.config.get("test", False)
-        self.pr_curve = self.config.get("pr_curve", False)
-        self.debug = self.config.get("debug", False)
-        if self.debug:
-            self.temp_dir = self._get_subdir("temp")
-        self.p_list, self.r_list = [], []
-        self.pr_curve_names = []
-
-    def _before_loop(self):
-        self.report += "# Evaluation\n"
 
     def _do_for_sen(self, sen_idx, preproc_sen_dir):
-        sen_dir = f"{self.out_dir}/{str(sen_idx)}"
-        kbest_dir = f"{sen_dir}/kbest"
-        out_dir = self._get_subdir("eval", parent_dir=sen_dir)
+        for grammar_dir in self.grammar_dirs:
+            sen_dir = f"{self.data_dir}/{grammar_dir}/{str(sen_idx)}"
+            kbest_dir = f"{sen_dir}/kbest"
+            out_dir = self._get_subdir("eval", parent_dir=sen_dir)
 
-        gold_triplets_for_sen = TripletsForSen.from_json(
-            f"{preproc_sen_dir}/gold_triplets.json"
+            gold_triplets_for_sen = TripletsForSen.from_json(
+                f"{preproc_sen_dir}/gold_triplets.json"
+            )
+
+            for model_file in [
+                fn for fn in os.listdir(kbest_dir) if fn.endswith("_triplets.json")
+            ]:
+                model_name = model_file.split("_")[1]
+                if model_name not in self.models:
+                    continue
+                predicted_triplets_for_sen = TripletsForSen.from_json(
+                    f"{kbest_dir}/{model_file}"
+                )
+                if model_name == "basic" or model_name == "max":
+                    for k in range(1, 11):
+                        first_k_triplets_for_sen = TripletsForSen(
+                            predicted_triplets_for_sen.triplets[:k],
+                            predicted_triplets_for_sen.sen_id,
+                            predicted_triplets_for_sen.sen_text,
+                        )
+                        self.__calculate_scores(
+                            grammar_dir,
+                            f"{model_name}_{k}",
+                            gold_triplets_for_sen,
+                            first_k_triplets_for_sen,
+                            out_dir,
+                            sen_idx,
+                        )
+                else:
+                    assert (
+                        model_name == "f1"
+                        or model_name == "prec"
+                        or model_name == "rec"
+                    )
+                    self.__calculate_scores(
+                        grammar_dir,
+                        model_name,
+                        gold_triplets_for_sen,
+                        predicted_triplets_for_sen,
+                        out_dir,
+                        sen_idx,
+                    )
+
+    def __calculate_scores(
+        self,
+        grammar_dir,
+        model_name,
+        gold_triplets_for_sen,
+        predicted_triplets_for_sen,
+        out_dir,
+        sen_idx,
+    ):
+        sentence_scorer = SentenceScorer(
+            gold_triplets_for_sen, predicted_triplets_for_sen
         )
-
-        for model_file in [
-            fn for fn in os.listdir(kbest_dir) if fn.endswith("_triplets.json")
-        ]:
-            model_name = model_file.split("_")[1]
-            if model_name not in self.models:
-                continue
-            predicted_triplets_for_sen = TripletsForSen.from_json(
-                f"{kbest_dir}/{model_file}"
-            )
-            sentence_scorer = SentenceScorer(
-                gold_triplets_for_sen, predicted_triplets_for_sen
-            )
-            sentence_scorer.to_file(f"{out_dir}/sen{sen_idx}_{model_name}_scores.txt")
-            self.sentence_scorers[model_name].append(sentence_scorer)
-
-    def _do_for_model(self, model):
-        model_name = model["name"]
-        self.report += f"## {model_name}\n"
-        for chart_filter in sorted(model["bolinas_chart_filters"]):
-            for pp in sorted(model["postprocess"]):
-                print(f"Processing: {model_name} - {chart_filter} - {pp}")
-
-                mode = "k"
-                if self.test:
-                    mode = "test"
-                elif chart_filter in ["prec", "rec", "f1"]:
-                    mode = "all"
-
-                if chart_filter or pp:
-                    self.report += f"### {chart_filter} - {pp}\n"
-
-                in_dir = f"{self.in_dir}/{model['in_dir']}"
-                files = self._get_merged_jsons(
-                    in_dir, chart_filter, pp, only_all=(mode == "all")
-                )
-
-                p, r = [], []
-                self.__calculate_table(files, p, r, mode)
-
-                if len(files) > 1:
-                    self.p_list.append(p)
-                    self.r_list.append(r)
-                    self.pr_curve_names.append(f"{model_name}-{chart_filter}-{pp}")
-
-    def __calculate_table(self, files, p, r, mode):
-        first_col = "k" if mode == "k" else "model"
-        table = [
-            [
-                first_col,
-                "predicted extractions",
-                "gold extractions",
-                "matches",
-                "exact matches",
-                "prec",
-                "rec",
-                "F1",
-            ]
-        ]
-
-        for file in files:
-            all_predictions = json.load(open(file))
-
-            predictions_by_model = split_tuples_by_extractor(
-                self.gold.keys(), all_predictions
-            )
-            for model, system_extractions in sorted(predictions_by_model.items()):
-                metrics, raw_match_scores, exact_matches, matches = eval_system(
-                    self.gold, system_extractions
-                )
-
-                prec, rec = metrics["precision"], metrics["recall"]
-                f1_score = round(f1(prec, rec), 4)
-                prec, rec = round(prec, 4), round(rec, 4)
-                p.append(prec)
-                r.append(rec)
-
-                first_col = model
-                if mode == "k":
-                    first_col = model.split("_")[-1]
-                elif mode == "all":
-                    first_col = "all"
-                pred_extractions = metrics["exactmatches_precision"][1]
-                nr_matches = metrics["matches"]
-                nr_exact_matches = metrics["exactmatches_precision"][0]
-                gold_extractions = metrics["exactmatches_recall"][1]
-
-                table.append(
-                    [
-                        first_col,
-                        pred_extractions,
-                        gold_extractions,
-                        nr_matches,
-                        nr_exact_matches,
-                        prec,
-                        rec,
-                        f1_score,
-                    ]
-                )
-                assert nr_exact_matches == len(exact_matches)
-                assert nr_matches == len(matches)
-
-                if self.debug:
-                    prec_l = [m[2]["prec"] for m in matches]
-                    rec_l = [m[2]["rec"] for m in matches]
-                    print(f"model: {model}")
-                    print(f"avg prec: {sum(prec_l) / len(prec_l)}")
-                    print(f"avg rec: {sum(rec_l) / len(rec_l)}\n")
-                    with open(f"{self.temp_dir}/matches_{file}", "w") as f:
-                        json.dump(matches, f, indent=4)
-                    with open(f"{self.temp_dir}/exact_matches_{file}", "w") as f:
-                        json.dump(exact_matches, f, indent=4)
-                    with open(f"{self.temp_dir}/{model}_prec_scores.dat", "w") as f:
-                        f.write(str(raw_match_scores[0]))
-                    with open(f"{self.temp_dir}/{model}_rec_scores.dat", "w") as f:
-                        f.write(str(raw_match_scores[1]))
-
-        bold = find_best_in_column(table, ["prec", "rec", "F1"])
-        self.report += make_markdown_table(table, bold)
-        self.report += "\n"
+        sentence_scorer.to_file(f"{out_dir}/sen{sen_idx}_{model_name}_scores.txt")
+        self.sentence_scorers[grammar_dir][model_name].append(sentence_scorer)
+        if sentence_scorer.matches:
+            for i in range(len(sentence_scorer.matches)):
+                self.match_ids[grammar_dir][model_name]["matches"].append(sen_idx)
+        if sentence_scorer.exact_matches:
+            for i in range(len(sentence_scorer.exact_matches)):
+                self.match_ids[grammar_dir][model_name]["exact_matches"].append(sen_idx)
 
     def _after_loop(self):
         sys_scorer = SystemScorer(self.sentence_scorers)
         sys_scorer.log_results(self.logger)
-        # if self.pr_curve and not self.test:
-        #     save_pr_curve(
-        #         self.p_list,
-        #         self.r_list,
-        #         self.pr_curve_names,
-        #         f"{self.report_dir}/pr_curve_{self.config_name}.png",
-        #     )
-        #     self.report += f"## P-R curve\n![](pr_curve_{self.config_name}.png)"
-        #
-        # with open(f"{self.report_dir}/{self.config_name}.md", "w") as f:
-        #     f.writelines(self.report)
+        sys_scorer.save_report(f"{self.report_dir}/{self.config_name}.md")
+        with open(f"{self.report_dir}/matches_{self.config_name}.txt", "w") as f:
+            for grammar_dir, matches_for_grammar in sorted(self.match_ids.items()):
+                f.write(f"\n{grammar_dir}\n\n")
+                for model_name, matches in sorted(matches_for_grammar.items()):
+                    f.write(f"\n{model_name}\n")
+                    for match_name, ids in matches.items():
+                        f.write(f"{match_name}\n{ids}\n")
         super()._after_loop()
 
 
