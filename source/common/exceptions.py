@@ -29,7 +29,7 @@ class ParseTooLongException(Exception):
             f"Parse did not finish:\n"
             f"- steps: {self.steps}\n"
             f"- queue len: {self.queue_len}\n"
-            f"- attempted len:{self.attempted_len}\n"
+            f"- attempted len: {self.attempted_len}\n"
         )
 
 

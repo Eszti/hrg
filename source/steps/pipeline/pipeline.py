@@ -5,7 +5,6 @@ from source.steps.eval.eval import Eval
 from source.steps.kbest.kbest import KBest
 from source.steps.parse.parse import Parse
 from source.steps.predict.merge import Merge
-from source.steps.predict.predict import Predict
 from source.steps.preproc.preproc import Preproc
 from source.steps.random.artefacts import Artefacts
 from source.steps.random.random_extractor import Random
@@ -28,7 +27,6 @@ class Pipeline(Script):
             "random": Random,
             "parse": Parse,
             "kbest": KBest,
-            "predict": Predict,
             "merge": Merge,
             "eval": Eval,
             "stat": Stat,

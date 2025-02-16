@@ -1,6 +1,7 @@
 from collections import defaultdict
 
 from source.common.report import find_best_in_column, make_markdown_table
+from source.common.scores.report_scores import ReportScores
 from source.common.scores.scoring_metrics_for_system import ScoringMetricsForSystem
 
 
@@ -16,7 +17,7 @@ class SystemScorer:
         for grammar_dir, scores_for_grammar in self.sys_scores_per_model.items():
             logger.log(f"Grammar dir: {grammar_dir}\n")
             for model_name, scores in scores_for_grammar.items():
-                logger.log(f"{model_name}:\n{scores.to_str()}\n")
+                logger.log(f"{model_name}:\n{scores.to_str()}")
 
     def save_report(self, fn):
         with open(fn, "w") as f:
@@ -74,7 +75,7 @@ class SystemScorer:
                     ),
                 }
                 self.sys_scores_per_model[grammar_dir][model_name] = (
-                    ScoringMetricsForSystem(metrics)
+                    ScoringMetricsForSystem(metrics, model_name)
                 )
 
     def __get_report(self):
@@ -89,19 +90,8 @@ class SystemScorer:
                     if len(table) > 0:
                         self.__add_table_to_report(table)
                     self.report += f"### {current_model_name}\n"
-                    table = [
-                        [
-                            "model_name",
-                            "predicted extractions",
-                            "gold extractions",
-                            "matches",
-                            "exact matches",
-                            "prec",
-                            "rec",
-                            "F1",
-                        ]
-                    ]
-                table.append([model_name_with_k] + scores.get_values_for_report())
+                    table = [ReportScores.header_names]
+                table.append(ReportScores(scores).get_scores())
                 last_model_name = current_model_name
             self.__add_table_to_report(table)
 

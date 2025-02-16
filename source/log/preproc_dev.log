@@ -1,13 +1,15 @@
-Execution start: 2024-12-12 07:48:39.103066
+Execution start: 2025-02-16 13:23:31.469190
 {
     "in_file": "lsoie_data/lsoie_wiki_dev.conll",
     "out_dir": "dev_preproc"
 }
 
+Script name: preproc
+
 
 First sentence to process: 0
 Last sentence to process: 5268
 
-Execution finish: 2024-12-12 08:03:11.004587
-Elapsed time: 15 min 32 sec
+Execution finish: 2025-02-16 13:36:19.479283
+Elapsed time: 13 min 48 sec
 

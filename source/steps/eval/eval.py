@@ -95,7 +95,7 @@ class Eval(LoopOnSenDirs):
         sys_scorer.save_report(f"{self.report_dir}/{self.config_name}.md")
         with open(f"{self.report_dir}/matches_{self.config_name}.txt", "w") as f:
             for grammar_dir, matches_for_grammar in sorted(self.match_ids.items()):
-                f.write(f"\n{grammar_dir}\n\n")
+                f.write(f"\n{grammar_dir}\n")
                 for model_name, matches in sorted(matches_for_grammar.items()):
                     f.write(f"\n{model_name}\n")
                     for match_name, ids in matches.items():
