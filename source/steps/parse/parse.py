@@ -48,7 +48,7 @@ class Parse(LoopOnSenDirs):
 
     def _parse_sen(self, graph_file, chart_file, sen_logger):
         parse_generator = self.parser.parse_graphs(
-            (Hgraph.from_string(x) for x in fileinput.FileInput(graph_file)),
+            (Hgraph.from_string(x) for x in self.__read_graph_file(graph_file)),
             partial=True,
             logger=sen_logger,
         )
@@ -60,6 +60,13 @@ class Parse(LoopOnSenDirs):
                 continue
             else:
                 CkyChart.to_file(cky_chart, chart_file)
+
+    @staticmethod
+    def __read_graph_file(graph_file):
+        lines = []
+        with open(graph_file, "r") as f:
+            lines = f.readlines()
+        return lines
 
     def _after_loop(self):
         self.logger.log(
