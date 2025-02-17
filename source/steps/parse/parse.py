@@ -48,7 +48,7 @@ class Parse(LoopOnSenDirs):
 
     def _parse_sen(self, graph_file, chart_file, sen_logger):
         parse_generator = self.parser.parse_graphs(
-            (Hgraph.from_string(x) for x in fileinput.input(graph_file)),
+            (Hgraph.from_string(x) for x in fileinput.FileInput(graph_file)),
             partial=True,
             logger=sen_logger,
         )
