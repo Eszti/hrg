@@ -21,6 +21,7 @@ class Parse(LoopOnSenDirs):
         self.parser = None
         self.parse_did_not_finish = []
         self.cky_did_not_finish = []
+        self.parse_finished = []
 
     def _before_loop(self):
         self._load_grammar()
@@ -38,6 +39,7 @@ class Parse(LoopOnSenDirs):
                 chart_file=f"{bolinas_dir}/sen{str(sen_idx)}_chart.pickle",
                 sen_logger=sen_logger,
             )
+            self.parse_finished.append(sen_idx)
         except ParseTooLongException as e:
             self.parse_did_not_finish.append(sen_idx)
             sen_logger.log(e.print_message())
@@ -71,11 +73,22 @@ class Parse(LoopOnSenDirs):
         return lines
 
     def _after_loop(self):
+        len_parse_dnf = len(self.parse_did_not_finish)
+        len_cky_dnf = len(self.cky_did_not_finish)
+        len_parse_success = len(self.parse_finished)
+        all_sens = len_parse_success + len_parse_dnf + len_cky_dnf
         self.logger.log(
-            f"\nNumber of parse did not finish: {len(self.parse_did_not_finish)}\n"
+            f"\nNumber of parse did not finish: {len_parse_dnf}\n"
             f"{json.dumps(self.parse_did_not_finish)}"
-            f"\nNumber of cky conversion did not finish: {len(self.cky_did_not_finish)}\n"
-            f"{json.dumps(self.cky_did_not_finish)}",
+            f"\nNumber of cky conversion did not finish: {len_cky_dnf}\n"
+            f"{json.dumps(self.cky_did_not_finish)}"
+            f"\nNumber of parse finished: {len_parse_success}"
+        )
+        self.logger.log(
+            f"\nAll sentences: {all_sens}"
+            f"\nFinished: {round(len_parse_success / all_sens, 2)}"
+            f"\nDNF: {round((len_parse_dnf + len_parse_dnf) / all_sens, 2)}",
+            to_stdout=True,
         )
         super()._after_loop()
 
