@@ -72,10 +72,10 @@ class Triplet:
         return {k: v for k, v in self.label_to_nodes.items() if k.startswith("A")}
 
     def predicate(self):
-        return self.label_to_nodes["P"]
+        return self.label_to_nodes.get("P", [])
 
     def a0(self):
-        return self.label_to_nodes["A0"]
+        return self.label_to_nodes.get("A0", [])
 
     def len(self):
         ret = 0

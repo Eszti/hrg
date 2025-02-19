@@ -91,6 +91,7 @@ class Train(LoopOnTriplets):
             f"{json.dumps(self.parse_did_not_finish)}"
             f"\nNumber of cky conversion did not finish: {len(self.cky_did_not_finish)}\n"
             f"{json.dumps(self.cky_did_not_finish)}",
+            to_stdout=True,
         )
         super()._after_loop()
 
