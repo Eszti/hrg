@@ -193,7 +193,7 @@ class Parser:
 
         elapsed_time = round(time.time() - start_time, 2)
         parsing_time = f"Parsing time: {elapsed_time} sec"
-        parsing_steps = f"Parsing steps: {steps} steps"
+        parsing_steps = f"Parsing steps: {steps}"
         print(f"\nParsing: {elapsed_time} sec, {steps} steps")
         if sen_logger:
             sen_logger.log(f"{parsing_time}")
@@ -216,29 +216,35 @@ class Parser:
             return False
         return len(item.shifted) == graph_size
 
-    def check_membership(self, bolinas_graph, logger):
+    def check_membership(self, bolinas_graph, sen_logger, global_logger):
         processed_derivation = None
-        logger.log("\nVALIDATION:\n")
+        sen_logger.log("\nVALIDATION:\n")
         input_graph = Hgraph.from_string(bolinas_graph)
         orig_nodes = sorted(
             list(input_graph.get_nodes().keys()), key=lambda node: int(node[1:])
         )
         parse_generator = self.parse_graphs(
-            [input_graph], partial=False, sen_logger=logger
+            [input_graph],
+            partial=False,
+            sen_logger=sen_logger,
+            global_logger=global_logger,
         )
 
         for i, cky_chart in enumerate(parse_generator):
             assert i == 0
             if cky_chart.no_derivation():
-                logger.log("No derivation found\n")
+                sen_logger.log("No derivation found\n")
             else:
                 derivation_list = cky_chart.search_derivations(
-                    "START", only_first=True, logger=logger
+                    "START",
+                    only_first=True,
+                    sen_logger=sen_logger,
+                    global_logger=global_logger,
                 )
                 processed_derivation = ProcessedDerivation(
                     derivation_list.derivation_list[0]
                 )
-                processed_derivation.full_log(logger=logger, k=1)
+                processed_derivation.full_log(logger=sen_logger, k=1)
 
                 not_covered_nodes = sorted(
                     set(orig_nodes) - set(processed_derivation.derived_nodes),
@@ -325,11 +331,11 @@ def get_cky_chart(chart, permutations, sen_logger=None, global_logger=None):
     cky_chart = CkyChart(cky_chart_dict)
     elapsed_time = round(time.time() - start_time, 2)
     cky_time_log = f"Cky conversion time: {elapsed_time} sec"
-    cky_steps_log = f"Cky conversion steps: {cky_steps} steps"
+    cky_steps_log = f"Cky conversion steps: {cky_steps}"
     print(f"Cky conversion: {elapsed_time} sec, {cky_steps} steps")
     if sen_logger:
         sen_logger.log(f"\n{cky_time_log}")
-        sen_logger.log(f"\n{cky_steps_log}")
+        sen_logger.log(f"{cky_steps_log}")
         sen_logger.log(cky_chart.log_length())
     if global_logger:
         global_logger.log(f"{cky_steps_log}")

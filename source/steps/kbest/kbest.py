@@ -71,20 +71,30 @@ class KBest(LoopOnSenDirs):
             "max": MaxModel(),
             "pr_best": PRModel(),
         }
+        self.no_chart = 0
+        self.no_derivation_found = 0
+        self.successful_derivation = 0
+        self.all_sens = 0
 
     def _do_for_sen(self, sen_idx, preproc_sen_dir):
         sen_dir = f"{self.out_dir}/{str(sen_idx)}"
         chart_file = f"{sen_dir}/parse/sen{sen_idx}_chart.pickle"
+        self.logger.log(f"Parsing sen {sen_idx}")
+        self.all_sens += 1
+
         if not os.path.exists(chart_file):
-            print("Chart file path does not exist.")
+            self.logger.log("Chart file path does not exist.", to_stdout=True)
+            self.no_chart += 1
             return
 
         cky_chart = CkyChart.from_pickle(chart_file)
 
         if cky_chart.no_derivation():
-            print("No derivation found")
+            self.logger.log("No derivation found", to_stdout=True)
+            self.no_derivation_found += 1
             return
 
+        self.successful_derivation += 1
         gold_triplets = TripletsForSen.from_json(
             f"{preproc_sen_dir}/gold_triplets.json"
         ).triplets
@@ -109,7 +119,7 @@ class KBest(LoopOnSenDirs):
                 sen_logger.log(filtered_chart.log_length())
 
             derivation_list = filtered_chart.search_derivations(
-                "START", logger=sen_logger
+                "START", sen_logger=sen_logger, global_logger=self.logger
             )
             derivations_per_model = model.get_derivation_per_model(
                 derivation_list=derivation_list,
@@ -131,6 +141,16 @@ class KBest(LoopOnSenDirs):
                 triplets_for_sen.to_json(
                     f"{kbest_dir}/sen{sen_idx}_{submodel_name}_triplets.json"
                 )
+
+    def _after_loop(self):
+        self.logger.log(
+            f"\nNumber of no chart: {self.no_chart}"
+            f"\nNumber of no derivation found: {self.no_derivation_found}"
+            f"\nNumber of successful derivation: {self.successful_derivation}"
+            f"\nNumber of all sentences: {self.all_sens}",
+            to_stdout=True,
+        )
+        super()._after_loop()
 
 
 if __name__ == "__main__":

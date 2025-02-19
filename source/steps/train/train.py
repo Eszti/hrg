@@ -24,20 +24,23 @@ class Train(LoopOnTriplets):
             config=config,
         )
         self.method = self.config["method"]
-        self.validate = self.config.get("validate", False)
+        self.validate = self.config.get("validate", True)
         self.out_dir += f"_{self.method}"
         self.no_rule = []
         self.not_validated = []
+        self.validated = []
         self.not_all_rules_used = []
         self.not_all_nodes_covered = []
         self.parse_did_not_finish = []
         self.cky_did_not_finish = []
+        self.all_sens = 0
 
     def _do_for_triplet(self, sen_dir, triplet_idx, triplet_graph_str, triplet):
         hrg_dir = self._get_subdir(str(triplet_idx), self.out_dir)
         triplet_logger = Logger(f"{hrg_dir}/sen{triplet_idx}.log")
         triplet_graph = Graph.from_bolinas(triplet_graph_str)
 
+        self.all_sens += 1
         initial_rule = ""
         rules = []
         if self.method == "per_word":
@@ -58,12 +61,17 @@ class Train(LoopOnTriplets):
                 )
                 parser = Parser(grammar, stop_at_first=True, permutations=False)
 
+                self.logger.log(f"Parsing sen {triplet_idx}")
                 try:
                     derivation = parser.check_membership(
-                        triplet_graph_str, triplet_logger
+                        triplet_graph_str,
+                        sen_logger=triplet_logger,
+                        global_logger=self.logger,
                     )
                     if derivation is None:
                         self.not_validated.append(triplet_idx)
+                    else:
+                        self.validated.append(triplet_idx)
                     number_of_used_rule = len(derivation.rules_counter.keys())
                     if number_of_used_rule != len(grammar):
                         triplet_logger.log(
@@ -96,7 +104,9 @@ class Train(LoopOnTriplets):
                 f"\nNumber of parse did not finish: {len(self.parse_did_not_finish)}\n"
                 f"{json.dumps(self.parse_did_not_finish)}"
                 f"\nNumber of cky conversion did not finish: {len(self.cky_did_not_finish)}\n"
-                f"{json.dumps(self.cky_did_not_finish)}",
+                f"{json.dumps(self.cky_did_not_finish)}"
+                f"\nNumber of validated: {len(self.validated)}"
+                f"\nNumber of all sentences: {self.all_sens}\n",
                 to_stdout=True,
             )
         super()._after_loop()

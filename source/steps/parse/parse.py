@@ -1,4 +1,3 @@
-import fileinput
 import json
 
 from source.common.bolinas.cky_chart import CkyChart

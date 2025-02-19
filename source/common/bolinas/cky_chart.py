@@ -51,7 +51,13 @@ class CkyChart:
         return new_chart
 
     def search_derivations(
-        self, item="START", only_first=False, max_steps=None, k_best=None, logger=None
+        self,
+        item="START",
+        only_first=False,
+        max_steps=None,
+        k_best=None,
+        sen_logger=None,
+        global_logger=None,
     ):
         start_time = time.time()
         if only_first:
@@ -60,10 +66,19 @@ class CkyChart:
         else:
             derivations, steps = self._derivations(item, 0, max_steps, k_best)
         elapsed_time = round(time.time() - start_time, 2)
-        search_summary = f"Search: {elapsed_time} sec, {steps} steps"
-        print(search_summary)
-        if logger:
-            logger.log(f"{search_summary}\n")
+        search_time = f"Search time: {elapsed_time} sec"
+        search_steps = f"Search steps: {steps}"
+        nr_derivations = f"Number of derivations: {len(derivations)}"
+        print(
+            f"Search: {elapsed_time} sec, {steps} steps, {len(derivations)} derivation(s)"
+        )
+        if sen_logger:
+            sen_logger.log(f"\n{search_time}")
+            sen_logger.log(f"{search_steps}")
+            sen_logger.log(f"{nr_derivations}\n")
+        if global_logger:
+            global_logger.log(f"{search_steps}")
+            global_logger.log(f"{nr_derivations}\n")
         return DerivationList(derivations)
 
     def _derivations(self, item, done_steps, max_steps, k_best):
@@ -157,9 +172,12 @@ class CkyChart:
                 length += len(item_dict.values())
         return length
 
+    def log_items_len(self):
+        return f"Chart items len: {self.items_length()}"
+
     def log_length(self):
         return (
             f"Chart START items len: {len(self.chart['START']) if 'START' in self.chart else 0}\n"
             f"Chart keys len: {len(self.chart)}\n"
-            f"Chart items len: {self.items_length()}\n"
+            f"Chart items len: {self.items_length()}"
         )
