@@ -1,4 +1,5 @@
 import os
+import time
 from abc import abstractmethod
 
 from source.common.bolinas.grammar import Grammar
@@ -43,6 +44,8 @@ class LoopOnSenDirs(Script):
         grammar_file = (
             f"{self._get_subdir('grammar', create=False)}/{self.config['grammar_file']}"
         )
+        self.logger.log(f"Loading grammar from {grammar_file}")
+        self.logger.log(f"Last modified: {time.ctime(os.path.getmtime(grammar_file))}")
 
         with open(grammar_file) as f:
             self.grammar = Grammar.load_from_file(
@@ -51,5 +54,5 @@ class LoopOnSenDirs(Script):
 
         rhs2_type = f"-to-{self.grammar.rhs2_type}" if self.grammar.rhs2_type else ""
         self.logger.log(
-            f"\nLoaded {self.grammar.rhs1_type}{rhs2_type} grammar with {len(self.grammar)} rules."
+            f"\nLoaded {self.grammar.rhs1_type}{rhs2_type} grammar with {len(self.grammar)} rules.\n"
         )

@@ -31,17 +31,29 @@ class Parser:
         self.stop_at_first = stop_at_first
         self.permutations = permutations
 
-    def parse_graphs(self, graph_iterator, partial=False, logger=None):
+    def parse_graphs(
+        self, graph_iterator, partial=False, sen_logger=None, global_logger=None
+    ):
         """
         Parse all the graphs in graph_iterator.
         This is a generator.
         """
         for graph in graph_iterator:
-            raw_chart = self.parse(graph, partial=partial, logger=logger)
-            chart = get_cky_chart(raw_chart, self.permutations, logger=logger)
+            raw_chart = self.parse(
+                graph,
+                partial=partial,
+                sen_logger=sen_logger,
+                global_logger=global_logger,
+            )
+            chart = get_cky_chart(
+                raw_chart,
+                self.permutations,
+                sen_logger=sen_logger,
+                global_logger=global_logger,
+            )
             yield chart
 
-    def parse(self, graph, partial=False, logger=None):
+    def parse(self, graph, partial=False, sen_logger=None, global_logger=None):
         """
         Parses the given string and/or graph.
         """
@@ -180,14 +192,18 @@ class Parser:
                         max_queue_diff_shift = after - before
 
         elapsed_time = round(time.time() - start_time, 2)
-        parsing_summary = f"Parsing: {elapsed_time} sec, {steps} steps"
-        print(f"\n{parsing_summary}")
-        if logger:
-            logger.log(f"{parsing_summary}")
-            logger.log(f"Max queue size: {max_queue_size}")
-            logger.log(f"Max queue diff comp: {max_queue_diff_comp}")
-            logger.log(f"Max queue diff outside nt: {max_queue_diff_outside_nt}")
-            logger.log(f"Max queue diff shift: {max_queue_diff_shift}")
+        parsing_time = f"Parsing time: {elapsed_time} sec"
+        parsing_steps = f"Parsing steps: {steps} steps"
+        print(f"\nParsing: {elapsed_time} sec, {steps} steps")
+        if sen_logger:
+            sen_logger.log(f"{parsing_time}")
+            sen_logger.log(f"{parsing_steps}")
+            sen_logger.log(f"Max queue size: {max_queue_size}")
+            sen_logger.log(f"Max queue diff comp: {max_queue_diff_comp}")
+            sen_logger.log(f"Max queue diff outside nt: {max_queue_diff_outside_nt}")
+            sen_logger.log(f"Max queue diff shift: {max_queue_diff_shift}")
+        if global_logger:
+            global_logger.log(f"{parsing_steps}")
 
         return chart
 
@@ -207,7 +223,9 @@ class Parser:
         orig_nodes = sorted(
             list(input_graph.get_nodes().keys()), key=lambda node: int(node[1:])
         )
-        parse_generator = self.parse_graphs([input_graph], partial=False, logger=logger)
+        parse_generator = self.parse_graphs(
+            [input_graph], partial=False, sen_logger=logger
+        )
 
         for i, cky_chart in enumerate(parse_generator):
             assert i == 0
@@ -239,7 +257,7 @@ class Parser:
 cky_steps = 0
 
 
-def get_cky_chart(chart, permutations, logger=None):
+def get_cky_chart(chart, permutations, sen_logger=None, global_logger=None):
     """
     Convert the chart returned by the parser into a standard parse chart.
     """
@@ -306,11 +324,16 @@ def get_cky_chart(chart, permutations, logger=None):
                 cky_chart_dict[item] = unique_prods
     cky_chart = CkyChart(cky_chart_dict)
     elapsed_time = round(time.time() - start_time, 2)
-    cky_summary = f"Cky conversion: {elapsed_time} sec, {cky_steps} steps"
-    print(cky_summary)
-    if logger:
-        logger.log(f"\n{cky_summary}")
-        logger.log(cky_chart.log_length())
+    cky_time_log = f"Cky conversion time: {elapsed_time} sec"
+    cky_steps_log = f"Cky conversion steps: {cky_steps} steps"
+    print(f"Cky conversion: {elapsed_time} sec, {cky_steps} steps")
+    if sen_logger:
+        sen_logger.log(f"\n{cky_time_log}")
+        sen_logger.log(f"\n{cky_steps_log}")
+        sen_logger.log(cky_chart.log_length())
+    if global_logger:
+        global_logger.log(f"{cky_steps_log}")
+        global_logger.log(cky_chart.log_length())
     return cky_chart
 
 

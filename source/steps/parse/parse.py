@@ -24,15 +24,14 @@ class Parse(LoopOnSenDirs):
 
     def _before_loop(self):
         self._load_grammar()
-        self.parser = Parser(
-            self.grammar, max_steps=self.config.get("max_steps", 10000)
-        )
+        self.parser = Parser(self.grammar, max_steps=self.config.get("max_steps"))
 
     def _do_for_sen(self, sen_idx, sen_dir):
         bolinas_dir = self._get_subdir(
             "parse", parent_dir=f"{self.out_dir}/{str(sen_idx)}"
         )
         sen_logger = Logger(f"{bolinas_dir}/sen{str(sen_idx)}_parse.log")
+        self.logger.log(f"Parsing sen {sen_idx}")
         try:
             self._parse_sen(
                 graph_file=f"{sen_dir}/pos_edge.graph",
@@ -42,15 +41,18 @@ class Parse(LoopOnSenDirs):
         except ParseTooLongException as e:
             self.parse_did_not_finish.append(sen_idx)
             sen_logger.log(e.print_message())
+            self.logger.log(e.print_message())
         except CkyTooLongException as e:
             self.cky_did_not_finish.append(sen_idx)
             sen_logger.log(e.print_message())
+            self.logger.log(e.print_message())
 
     def _parse_sen(self, graph_file, chart_file, sen_logger):
         parse_generator = self.parser.parse_graphs(
             (Hgraph.from_string(x) for x in self.__read_graph_file(graph_file)),
             partial=True,
-            logger=sen_logger,
+            sen_logger=sen_logger,
+            global_logger=self.logger,
         )
 
         for i, cky_chart in enumerate(parse_generator):
