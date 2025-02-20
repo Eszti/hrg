@@ -23,14 +23,16 @@ class Validate(LoopOnTriplets):
 
     def _before_loop(self):
         self._load_grammar()
-        self.parser = Parser(self.grammar, stop_at_first=True, max_steps=1000)
+        self.parser = Parser(self.grammar, stop_at_first=True)
 
     def _do_for_triplet(self, sen_dir, triplet_idx, triplet_graph_str, triplet):
         self.all_dev_triplets += 1
         hrg_dir = self._get_subdir(str(triplet_idx), self.out_dir)
         triplet_logger = Logger(f"{hrg_dir}/sen{triplet_idx}.log")
         try:
-            derivation = self.parser.check_membership(triplet_graph_str, triplet_logger)
+            derivation = self.parser.check_membership(
+                triplet_graph_str, sen_logger=triplet_logger, global_logger=self.logger
+            )
             if derivation is None:
                 self.not_validated.append(triplet_idx)
             else:

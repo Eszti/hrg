@@ -10,12 +10,16 @@ class LoopOnConll(Script):
     def __init__(self, description, script_name, log=True, config=None):
         super().__init__(description, log=log, script_name=script_name, config=config)
         self.conll_file = f"{self.data_dir}/{self.config['in_file']}"
+        self.sens = self.config.get("sens", None)
 
     def _run_loop(self):
         last_sen_txt = ""
         sen_dir = ""
 
         for sen_idx, sen in enumerate(gen_tsv_sens(open(self.conll_file))):
+            if self.sens is not None:
+                if sen_idx not in self.sens:
+                    continue
             if self.first_sen_to_proc is None:
                 self.first_sen_to_proc = sen_idx
             if self.first is not None and sen_idx < self.first:

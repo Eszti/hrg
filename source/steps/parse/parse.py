@@ -86,7 +86,7 @@ class Parse(LoopOnSenDirs):
         self.logger.log(
             f"\nAll sentences: {all_sens}"
             f"\nFinished: {round(len_parse_success / all_sens, 2)}"
-            f"\nDNF: {round((len_parse_dnf + len_parse_dnf) / all_sens, 2)}",
+            f"\nDNF: {round((len_parse_dnf + len_cky_dnf) / all_sens, 2)}",
             to_stdout=True,
         )
         super()._after_loop()
