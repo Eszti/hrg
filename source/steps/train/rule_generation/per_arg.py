@@ -3,7 +3,11 @@ import re
 import networkx as nx
 import penman as pn
 
-from source.common.io import save_bolinas_str, save_as_dot
+
+def save_bolinas_str(fn, graph, add_names=False):
+    bolinas_graph = graph.to_bolinas(add_names=add_names)
+    with open(fn, "w") as f:
+        f.write(f"{bolinas_graph}\n")
 
 
 def get_argument_graphs(triplet_graph, arguments, log):

@@ -98,7 +98,7 @@ class KBest(LoopOnSenDirs):
         gold_triplets = TripletsForSen.from_json(
             f"{preproc_sen_dir}/gold_triplets.json"
         ).triplets
-        top_order = json.load(open(f"{preproc_sen_dir}/pos_edge_graph_top_order.json"))
+        top_order = json.load(open(f"{preproc_sen_dir}/graph_top_order.json"))
         conll_sen = ConllSen(preproc_sen_dir)
         pos_tags = conll_sen.pos_tags()
         sen_text = conll_sen.sen_text()
