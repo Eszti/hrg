@@ -3,6 +3,8 @@ import re
 import networkx as nx
 import penman as pn
 
+from source.steps.preproc.preproc import Preproc
+
 
 def save_bolinas_str(fn, graph, add_names=False):
     bolinas_graph = graph.to_bolinas(add_names=add_names)
@@ -163,7 +165,7 @@ def get_rules_per_arg(sen_idx, ud_graph, pred, args, arg_graphs, log, out_dir):
     log.write(f"wrote grammar to test{sen_idx}.hrg\n")
 
     bolinas_graph = get_pred_arg_subgraph(ud_graph, pred, args, log)
-    save_as_dot(f"{out_dir}/sen{sen_idx}_graph.dot", bolinas_graph, log)
+    Preproc.save_as_dot(f"{out_dir}/sen{sen_idx}_graph.dot", bolinas_graph, log)
     save_bolinas_str(f"{out_dir}/sen{sen_idx}.graph", bolinas_graph, log)
 
 

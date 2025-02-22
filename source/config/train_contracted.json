@@ -1,0 +1,5 @@
+{
+    "in_dir": "train_contracted_preproc",
+    "out_dir": "hrg_contracted",
+    "validate": false
+}

@@ -1,0 +1,5 @@
+{
+    "in_dir": "train_complete_preproc",
+    "method": "per_word",
+    "out_dir": "hrg_complete"
+}
