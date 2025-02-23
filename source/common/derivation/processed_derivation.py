@@ -16,16 +16,13 @@ class ProcessedDerivation(Derivation):
             list(self.final_item.nodeset),
             key=lambda node: int(node[1:]),
         )
+        self.pos_tag_resolution = pos_tag_resolution
 
         self.rules_counter = Counter()
         self.used_rules = self.__get_rules()
 
-        self.arg_counter = -1
         self.derived_labels = {}
-        if pos_tag_resolution:
-            self.__derive_pos_tag_labels()
-        else:
-            self.__derive_labels(self.raw_derivation)
+        self.__derive_labels()
 
         self.original_triplet = Triplet(
             self.derived_labels,
@@ -39,7 +36,9 @@ class ProcessedDerivation(Derivation):
         self.processed_triplet.derivation_score = (
             score if score is not None else self.score
         )
-        self.processed_triplet.resolve_pred(pos_tags, top_order)
+        self.processed_triplet.resolve_pred(
+            pos_tags, top_order, self.pos_tag_resolution
+        )
 
     def full_log(self, logger, k):
         if self.processed_triplet is not None:
@@ -91,6 +90,13 @@ class ProcessedDerivation(Derivation):
         logger.log(f"Number of different used rules: {len(self.rules_counter.keys())}")
         logger.log(f"Total number of used rules: {sum(self.rules_counter.values())}\n")
 
+    def __derive_labels(self):
+        if self.pos_tag_resolution:
+            self.__derive_pos_tag_labels()
+        else:
+            self.arg_counter = -1
+            self.__derive_labels_from_nt(self.raw_derivation)
+
     def __derive_pos_tag_labels(self):
         for u, e, v in self.final_item.shifted:
             label = None
@@ -103,7 +109,7 @@ class ProcessedDerivation(Derivation):
                 assert node not in self.derived_labels
                 self.derived_labels[node] = label
 
-    def __derive_labels(self, derivation, parent_label="S"):
+    def __derive_labels_from_nt(self, derivation, parent_label="S"):
         if type(derivation) is not tuple:
             self.__add_label(derivation, parent_label)
         else:
@@ -114,7 +120,7 @@ class ProcessedDerivation(Derivation):
                 key=lambda x: self.__child_item_sort_criteria(x),
             )
             for child_item in items:
-                self.__derive_labels(child_item, item_label)
+                self.__derive_labels_from_nt(child_item, item_label)
 
     @staticmethod
     def __child_item_sort_criteria(child_item):

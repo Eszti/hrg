@@ -3,9 +3,10 @@ from source.common.triplet.triplet_matcher import TripletMatcher
 
 
 class SentenceScorer:
-    def __init__(self, gold, pred, arg_perm=False):
+    def __init__(self, gold, pred, arg_perm=False, strict=True):
         self.gold = gold.triplets
         self.pred = pred.triplets
+        self.strict = strict
         if arg_perm:
             self.__use_best_permutations()
         self.exact_match_scores = [[None for _ in self.pred] for __ in self.gold]
@@ -36,7 +37,7 @@ class SentenceScorer:
             permutations = orig_p.get_all_permutations()
             for g in self.gold:
                 for p in permutations:
-                    matcher = TripletMatcher(g, p)
+                    matcher = TripletMatcher(g, p, self.strict)
                     if matcher.match:
                         matches.append((p, matcher.scores["f1"]))
             if len(matches) >= 1:
@@ -49,7 +50,7 @@ class SentenceScorer:
     def __get_scores(self):
         for i, gt in enumerate(self.gold):
             for j, pt in enumerate(self.pred):
-                matcher = TripletMatcher(gt, pt)
+                matcher = TripletMatcher(gt, pt, self.strict)
                 self.exact_match_scores[i][j] = matcher.exact_match
                 if matcher.exact_match:
                     self.exact_matches.append(

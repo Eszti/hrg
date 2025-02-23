@@ -1,7 +1,8 @@
 class TripletMatcher:
-    def __init__(self, gold, predicted):
+    def __init__(self, gold, predicted, strict=True):
         self.gold = gold
         self.predicted = predicted
+        self.strict = strict
         self.exact_match = self.__exact_match()
         self.match = self.__match()
         self.scores = self.__get_scores()
@@ -36,7 +37,10 @@ class TripletMatcher:
 
     def __match(self):
         p_match = self.gold.predicate() == self.predicted.predicate()
-        a0_match = self.gold.a0() == self.predicted.a0()
+        if self.strict:
+            a0_match = self.gold.a0() == self.predicted.a0()
+        else:
+            a0_match = len(set(self.gold.a0()) & set(self.predicted.a0())) > 0
         return p_match and a0_match
 
     def __exact_match(self):

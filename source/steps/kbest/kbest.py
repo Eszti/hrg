@@ -16,7 +16,14 @@ class KbestModel:
         self.subdir = None
 
     def get_derivation_per_model(
-        self, derivation_list, gold_triplets, pos_tags, top_order, sen_id, sen_text
+        self,
+        derivation_list,
+        gold_triplets,
+        pos_tags,
+        top_order,
+        sen_id,
+        sen_text,
+        pos_tag_resolution,
     ):
         if self.kbest:
             return {
@@ -26,6 +33,7 @@ class KbestModel:
                     k=self.k,
                     pos_tags=pos_tags,
                     top_order=top_order,
+                    pos_tag_resolution=pos_tag_resolution,
                 )
             }
         return derivation_list.get_best_matching_derivations(
@@ -59,10 +67,14 @@ class PRModel(KbestModel):
 
 class KBest(LoopOnSenDirs):
 
-    def __init__(self, config=None):
+    def __init__(self, description=None, script_name=None, config=None):
+        if description is None:
+            description = "Script to search k best derivations in parsed charts."
+        if script_name is None:
+            script_name = "kbest"
         super().__init__(
-            description="Script to search k best derivations in parsed charts.",
-            script_name="kbest",
+            description=description,
+            script_name=script_name,
             config=config,
         )
         self.logprob = True
@@ -71,6 +83,7 @@ class KBest(LoopOnSenDirs):
             "max": MaxModel(),
             "pr_best": PRModel(),
         }
+        self.pos_tag_resolution = False
         self.no_chart = 0
         self.no_derivation_found = 0
         self.successful_derivation = 0
@@ -78,6 +91,8 @@ class KBest(LoopOnSenDirs):
 
     def _do_for_sen(self, sen_idx, preproc_sen_dir):
         sen_dir = f"{self.out_dir}/{str(sen_idx)}"
+        kbest_dir = self._get_subdir("kbest", parent_dir=sen_dir)
+
         chart_file = f"{sen_dir}/parse/sen{sen_idx}_chart.pickle"
         self.logger.log(f"Parsing sen {sen_idx}")
         self.all_sens += 1
@@ -103,8 +118,6 @@ class KBest(LoopOnSenDirs):
         pos_tags = conll_sen.pos_tags()
         sen_text = conll_sen.sen_text()
 
-        kbest_dir = self._get_subdir("kbest", parent_dir=sen_dir)
-
         for model_name in sorted(self.config["models"]):
             model = self.model_name_to_class[model_name]
 
@@ -128,6 +141,7 @@ class KBest(LoopOnSenDirs):
                 top_order=top_order,
                 sen_id=sen_idx,
                 sen_text=sen_text,
+                pos_tag_resolution=self.pos_tag_resolution,
             )
 
             for submodel_name, derivations in derivations_per_model.items():

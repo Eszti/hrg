@@ -27,9 +27,11 @@ class Preproc(LoopOnConll):
 
     def _do_for_sen(self, sen_idx, sen, sen_txt, last_sen_txt, sen_dir):
         self._save_conll(sen, f"{sen_dir}/sen{sen_idx}.conll")
-        parsed_doc = self._parse_doc(sen, sen_dir, save=sen_txt != last_sen_txt)
+        parsed_doc = self._parse_doc(
+            sen, sen_dir, save=(sen_txt != last_sen_txt) or self.folder_per_sen
+        )
 
-        if sen_txt != last_sen_txt:
+        if sen_txt != last_sen_txt or self.folder_per_sen:
             ud_graph = UDGraph(parsed_doc.sentences[0])
             json.dump(
                 [n for n in nx.topological_sort(ud_graph.G)],
@@ -50,14 +52,14 @@ class Preproc(LoopOnConll):
                 )
 
         triplet = self.__get_triplet(sen, sen_idx)
-        self._do_for_triplet(sen_idx, sen_dir, parsed_doc, triplet)
+        self._do_for_triplet(sen_idx, sen_dir, sen_txt, parsed_doc, triplet)
         if self.gold_sen_id is None:
             self.gold_sen_id = sen_idx
             self.gold_sen_text = sen_txt
         self.gold_triplets.append(triplet)
 
     @abstractmethod
-    def _do_for_triplet(self, sen_idx, sen_dir, parsed_doc, triplet):
+    def _do_for_triplet(self, sen_idx, sen_dir, sen_text, parsed_doc, triplet):
         raise NotImplemented
 
     def _save_bolinas_graph(

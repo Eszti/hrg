@@ -15,11 +15,7 @@ class Triplet:
         if label_to_nodes:
             self.label_to_nodes = triplet_dict
             self.__sort_label_to_nodes()
-            self.node_to_label = {
-                int(n): label
-                for label, nodes in self.label_to_nodes.items()
-                for n in nodes
-            }
+            self.__update_node_to_label()
         else:
             self.node_to_label = {
                 int(node): label for node, label in triplet_dict.items()
@@ -35,6 +31,11 @@ class Triplet:
             label_to_nodes_dict[label].append(node)
         self.label_to_nodes = label_to_nodes_dict
         self.__sort_label_to_nodes()
+
+    def __update_node_to_label(self):
+        self.node_to_label = {
+            int(n): label for label, nodes in self.label_to_nodes.items() for n in nodes
+        }
 
     def __sort_label_to_nodes(self):
         self.label_to_nodes = OrderedDict(
@@ -83,28 +84,36 @@ class Triplet:
             ret += len(nodes)
         return ret
 
-    def resolve_pred(self, pos_tags, top_order):
+    def resolve_pred(self, pos_tags, top_order, pos_tag_resolution=False):
         predicates = [n for n, l in self.node_to_label.items() if l == "P"]
-        if len(predicates) > 0:
+        if (len(predicates) > 0 and not pos_tag_resolution) or (
+            len(predicates) == 1 and pos_tag_resolution
+        ):
             self.pred_resolution = "X"
             return
-        verbs = [n + 1 for n, t in enumerate(pos_tags) if t == "VERB"]
-        if len(verbs) == 0:
-            self.node_to_label[top_order[1]] = "P"
-            self.pred_resolution = "A"
-        elif len(verbs) == 1:
-            self.node_to_label[verbs[0]] = "P"
-            self.pred_resolution = "B"
-        else:
-            assert len(verbs) > 1
-            first_verb_idx = None
-            for v_idx in verbs:
-                idx = top_order.index(int(v_idx))
-                if first_verb_idx is None or idx < first_verb_idx:
-                    first_verb_idx = idx
-            first_verb_node = top_order[first_verb_idx]
-            self.node_to_label[first_verb_node] = "P"
-            self.pred_resolution = "C"
+        if len(predicates) > 1 and pos_tag_resolution:
+            pred_top_order = [n for n in top_order if n in predicates]
+            self.label_to_nodes["P"] = [pred_top_order[0]]
+            self.__update_node_to_label()
+            self.pred_resolution = "D"
+        elif len(predicates) == 0:
+            verbs = [n + 1 for n, t in enumerate(pos_tags) if t == "VERB"]
+            if len(verbs) == 0:
+                self.node_to_label[top_order[1]] = "P"
+                self.pred_resolution = "A"
+            elif len(verbs) == 1:
+                self.node_to_label[verbs[0]] = "P"
+                self.pred_resolution = "B"
+            else:
+                assert len(verbs) > 1
+                first_verb_idx = None
+                for v_idx in verbs:
+                    idx = top_order.index(int(v_idx))
+                    if first_verb_idx is None or idx < first_verb_idx:
+                        first_verb_idx = idx
+                first_verb_node = top_order[first_verb_idx]
+                self.node_to_label[first_verb_node] = "P"
+                self.pred_resolution = "C"
         self.__update_label_to_nodes()
 
     def get_all_permutations(self):

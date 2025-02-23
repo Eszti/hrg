@@ -11,6 +11,7 @@ class LoopOnConll(Script):
         super().__init__(description, log=log, script_name=script_name, config=config)
         self.conll_file = f"{self.data_dir}/{self.config['in_file']}"
         self.sens = self.config.get("sens", None)
+        self.folder_per_sen = self.config.get("folder_per_sen", False)
 
     def _run_loop(self):
         last_sen_txt = ""
@@ -31,7 +32,7 @@ class LoopOnConll(Script):
             sen_txt = " ".join([line[1] for line in sen])
 
             if self.out_dir:
-                if sen_txt != last_sen_txt:
+                if sen_txt != last_sen_txt or self.folder_per_sen:
                     sen_dir = f"{self.out_dir}/{sen_idx}"
                     if not os.path.exists(sen_dir):
                         os.makedirs(sen_dir)

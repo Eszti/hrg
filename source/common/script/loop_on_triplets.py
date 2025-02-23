@@ -37,9 +37,11 @@ class LoopOnTriplets(LoopOnSenDirs):
                 lines = f.readlines()
                 assert len(lines) == 1
                 triplet_graph_str = lines[0].strip()
-            triplet = triplets[i]
-            assert triplet.triplet_id == triplet_idx
-            self._do_for_triplet(sen_dir, triplet_idx, triplet_graph_str, triplet)
+            triplet_candidates = [t for t in triplets if t.triplet_id == triplet_idx]
+            assert len(triplet_candidates) == 1
+            self._do_for_triplet(
+                sen_dir, triplet_idx, triplet_graph_str, triplet_candidates[0]
+            )
             if self.break_loop:
                 break
 

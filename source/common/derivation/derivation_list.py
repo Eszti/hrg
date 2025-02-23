@@ -12,11 +12,15 @@ class DerivationList:
     def __init__(self, derivation_list):
         self.derivation_list = derivation_list
 
-    def get_k_best_unique_derivation(self, sen_id, sen_text, k, pos_tags, top_order):
+    def get_k_best_unique_derivation(
+        self, sen_id, sen_text, k, pos_tags, top_order, pos_tag_resolution
+    ):
         kbest_unique_nodes = set()
         kbest_unique_derivations = []
         for derivation in self.derivation_list:
-            processed_derivation = ProcessedDerivation(derivation)
+            processed_derivation = ProcessedDerivation(
+                derivation, pos_tag_resolution=pos_tag_resolution
+            )
             nodes_str = " ".join(processed_derivation.derived_nodes)
             if nodes_str not in kbest_unique_nodes:
                 kbest_unique_nodes.add(nodes_str)

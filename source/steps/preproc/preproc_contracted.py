@@ -1,8 +1,11 @@
+import copy
 from collections import defaultdict
 
 import networkx as nx
 from tuw_nlp.graph.ud_graph import UDGraph
 
+from source.common.triplet.triplet import Triplet
+from source.common.triplet.triplets_for_sen import TripletsForSen
 from source.steps.preproc.preproc import Preproc
 
 
@@ -18,7 +21,7 @@ class PreprocContracted(Preproc):
         self.out_edge_from_arg = defaultdict(set)
         self.contract_triplet = self.config.get("contract_triplet", False)
 
-    def _do_for_triplet(self, sen_idx, sen_dir, parsed_doc, triplet):
+    def _do_for_triplet(self, sen_idx, sen_dir, sen_text, parsed_doc, triplet):
         triplet_nodes = set(triplet.node_to_label.keys())
         self._save_ud(
             UDGraph(parsed_doc.sentences[0]),
@@ -35,7 +38,25 @@ class PreprocContracted(Preproc):
                 to_stdout=True,
             )
             return
+
         arg_heads = self.__contract_args(sen_idx, ud_graph, arg_graphs, triplet)
+        contracted_label_to_nodes = copy.copy(triplet.label_to_nodes)
+        for l, nodes in contracted_label_to_nodes.items():
+            if l.startswith("A"):
+                kept_nodes = [n for n in nodes if n in arg_heads]
+                assert len(kept_nodes) == 1
+                contracted_label_to_nodes[l] = kept_nodes
+        contracted_triplet = Triplet(contracted_label_to_nodes, triplet_id=sen_idx)
+        contracted_triplets_for_sen = TripletsForSen(
+            [contracted_triplet], sen_idx, sen_text
+        )
+        contracted_triplets_for_sen.save_summary(
+            f"{sen_dir}/sen{sen_idx}_gold_contracted_triplets_summary.txt"
+        )
+        contracted_triplets_for_sen.to_json(
+            f"{sen_dir}/sen{sen_idx}_gold_contracted_triplets.json"
+        )
+
         contracted_triplet_nodes = arg_heads + triplet.predicate()
         self._save_bolinas_graph(
             ud_graph.pos_edge_graph(),

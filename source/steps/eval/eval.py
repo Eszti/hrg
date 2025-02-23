@@ -1,4 +1,5 @@
 import os
+from abc import abstractmethod
 from collections import defaultdict
 
 from source.common.scores.sentence_scorer import SentenceScorer
@@ -8,13 +9,11 @@ from source.common.triplet.triplets_for_sen import TripletsForSen
 
 
 class Eval(LoopOnSenDirs):
-
-    def __init__(self, config=None):
-        super().__init__(
-            description="Script to evaluate systems.", script_name="eval", config=config
-        )
+    def __init__(self, description, script_name, config=None):
+        super().__init__(description, script_name=script_name, config=config)
         self.grammar_dirs = self.config["grammar_dirs"]
         self.models = self.config["models"]
+        self.strict_match = self.config.get("strict_match", True)
         self.sentence_scorers = defaultdict(lambda: defaultdict(list))
         self.match_ids = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
         self.report_dir = self._get_subdir("eval")
@@ -25,9 +24,10 @@ class Eval(LoopOnSenDirs):
             kbest_dir = f"{sen_dir}/kbest"
             out_dir = self._get_subdir("eval", parent_dir=sen_dir)
 
-            gold_triplets_for_sen = TripletsForSen.from_json(
-                f"{preproc_sen_dir}/gold_triplets.json"
-            )
+            triplets_fn = self._get_gold_triplets_fn(preproc_sen_dir)
+            if triplets_fn is None:
+                continue
+            gold_triplets_for_sen = TripletsForSen.from_json(triplets_fn)
 
             for model_file in [
                 fn for fn in os.listdir(kbest_dir) if fn.endswith("_triplets.json")
@@ -73,6 +73,10 @@ class Eval(LoopOnSenDirs):
                             False,
                         )
 
+    @abstractmethod
+    def _get_gold_triplets_fn(self, preproc_sen_dir):
+        raise NotImplemented
+
     def __get_model_names_from_config(self, model_name_form_file):
         model_name_candidates = [model_name_form_file, f"{model_name_form_file}_ap"]
         return [mn for mn in model_name_candidates if mn in self.models]
@@ -88,7 +92,10 @@ class Eval(LoopOnSenDirs):
         arg_perm,
     ):
         sentence_scorer = SentenceScorer(
-            gold_triplets_for_sen, predicted_triplets_for_sen, arg_perm=arg_perm
+            gold_triplets_for_sen,
+            predicted_triplets_for_sen,
+            arg_perm=arg_perm,
+            strict=self.strict_match,
         )
         sentence_scorer.to_file(f"{out_dir}/sen{sen_idx}_{model_name}_scores.txt")
         self.sentence_scorers[grammar_dir][model_name].append(sentence_scorer)
@@ -111,7 +118,3 @@ class Eval(LoopOnSenDirs):
                     for match_name, ids in matches.items():
                         f.write(f"{match_name}\n{ids}\n")
         super()._after_loop()
-
-
-if __name__ == "__main__":
-    Eval().run()

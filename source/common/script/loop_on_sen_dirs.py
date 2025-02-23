@@ -56,3 +56,7 @@ class LoopOnSenDirs(Script):
         self.logger.log(
             f"\nLoaded {self.grammar.rhs1_type}{rhs2_type} grammar with {len(self.grammar)} rules.\n"
         )
+
+    @staticmethod
+    def _get_triplet_id(fn):
+        return int(fn.split("/")[-1].split("_")[0].split("sen")[-1])
