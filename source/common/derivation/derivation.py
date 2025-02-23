@@ -8,6 +8,10 @@ class Derivation:
     def __init__(self, raw_derivation):
         self.raw_derivation = raw_derivation[1]
         self.score = raw_derivation[0]
+        if type(self.raw_derivation[1]["START"]) is tuple:
+            self.final_item = self.raw_derivation[1]["START"][0]
+        else:
+            self.final_item = self.raw_derivation[1]["START"]
 
     def _log_derivation(self, logger):
         logger.log("Shifted derivation:")
@@ -16,10 +20,11 @@ class Derivation:
         logger.log(f"{self.__format_derivation()}\n")
 
     def __print_shifted(self):
-        final_item = self.raw_derivation[1]["START"][0]
-        node_to_concepts = dict(zip(final_item.nodeset, [""] * len(final_item.nodeset)))
+        node_to_concepts = dict(
+            zip(self.final_item.nodeset, [""] * len(self.final_item.nodeset))
+        )
         triples = []
-        for v, l, u in final_item.shifted:
+        for v, l, u in self.final_item.shifted:
             triples.append((v[0], l, u[0][0]))
         graph = Hgraph.from_triples(triples, node_to_concepts)
         return re.sub(r"(\n|\s+)", " ", graph.to_bolinas_str(nodeids=True))

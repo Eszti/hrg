@@ -28,6 +28,7 @@ class Train(LoopOnTriplets):
         self.parse_did_not_finish = []
         self.cky_did_not_finish = []
         self.all_sens = 0
+        self.pos_tag_resolution = False
 
     def _do_for_triplet(self, sen_dir, triplet_idx, triplet_graph_str, triplet):
         hrg_dir = self._get_subdir(str(triplet_idx), self.out_dir)
@@ -58,11 +59,15 @@ class Train(LoopOnTriplets):
                     triplet_graph_str,
                     sen_logger=triplet_logger,
                     global_logger=self.logger,
+                    pos_tag_resolution=self.pos_tag_resolution,
                 )
+
                 if derivation is None:
                     self.not_validated.append(triplet_idx)
-                else:
-                    self.validated.append(triplet_idx)
+                    return
+
+                triplet_logger.log(f"\nGold triplet:\n{triplet.to_short_json()}\n")
+                self.validated.append(triplet_idx)
                 number_of_used_rule = len(derivation.rules_counter.keys())
                 if number_of_used_rule != len(grammar):
                     triplet_logger.log(

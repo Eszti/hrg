@@ -10,6 +10,7 @@ class TrainContracted(Train):
             script_name="train_contracted",
             config=config,
         )
+        self.pos_tag_resolution = True
 
     def _get_rules(self, triplet_graph, triplet):
         return {

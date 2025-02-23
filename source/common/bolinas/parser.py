@@ -216,7 +216,9 @@ class Parser:
             return False
         return len(item.shifted) == graph_size
 
-    def check_membership(self, bolinas_graph, sen_logger, global_logger):
+    def check_membership(
+        self, bolinas_graph, sen_logger, global_logger, pos_tag_resolution=False
+    ):
         processed_derivation = None
         sen_logger.log("\nVALIDATION:\n")
         input_graph = Hgraph.from_string(bolinas_graph)
@@ -242,7 +244,8 @@ class Parser:
                     global_logger=global_logger,
                 )
                 processed_derivation = ProcessedDerivation(
-                    derivation_list.derivation_list[0]
+                    derivation_list.derivation_list[0],
+                    pos_tag_resolution=pos_tag_resolution,
                 )
                 processed_derivation.full_log(logger=sen_logger, k=1)
 

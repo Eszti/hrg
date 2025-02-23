@@ -1,4 +1,5 @@
 import copy
+import re
 from collections import Counter
 
 from source.common.derivation.derivation import Derivation
@@ -7,12 +8,12 @@ from source.common.triplet.triplet import Triplet
 
 class ProcessedDerivation(Derivation):
 
-    def __init__(self, derivation, score_name=None):
+    def __init__(self, derivation, score_name=None, pos_tag_resolution=False):
         super().__init__(derivation)
         self.score_name = "derivation_score" if score_name is None else score_name
 
         self.derived_nodes = sorted(
-            list(self.raw_derivation[1]["START"][0].nodeset),
+            list(self.final_item.nodeset),
             key=lambda node: int(node[1:]),
         )
 
@@ -21,7 +22,10 @@ class ProcessedDerivation(Derivation):
 
         self.arg_counter = -1
         self.derived_labels = {}
-        self.__derive_labels(self.raw_derivation)
+        if pos_tag_resolution:
+            self.__derive_pos_tag_labels()
+        else:
+            self.__derive_labels(self.raw_derivation)
 
         self.original_triplet = Triplet(
             self.derived_labels,
@@ -75,6 +79,7 @@ class ProcessedDerivation(Derivation):
         return Derivation.walk_derivation(self.raw_derivation, combiner, leaf)
 
     def __log_used_rules(self, logger):
+        logger.log(f"Used rules:")
         for rule_id in sorted(self.used_rules):
             rule_str = self.used_rules[rule_id]
             prob = rule_str.split(";")[1].strip()
@@ -85,6 +90,18 @@ class ProcessedDerivation(Derivation):
         logger.log(f"\nUsed rules for derivation: {sorted(self.rules_counter.items())}")
         logger.log(f"Number of different used rules: {len(self.rules_counter.keys())}")
         logger.log(f"Total number of used rules: {sum(self.rules_counter.values())}\n")
+
+    def __derive_pos_tag_labels(self):
+        for u, e, v in self.final_item.shifted:
+            label = None
+            if re.match(r"A\d\d?", e):
+                label = e
+            elif re.match(r"[A-Z_]+", e):
+                label = "P"
+            if label is not None:
+                node = u[0].split("n")[-1]
+                assert node not in self.derived_labels
+                self.derived_labels[node] = label
 
     def __derive_labels(self, derivation, parent_label="S"):
         if type(derivation) is not tuple:
