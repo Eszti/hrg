@@ -16,7 +16,7 @@ class Preproc(LoopOnConll):
 
     def __init__(self, description, script_name, log=True, config=None):
         super().__init__(description, log=log, script_name=script_name, config=config)
-        self.gold_triplets = defaultdict(list)
+        self.gold_sen_text, self.gold_sen_id, self.gold_triplets = None, None, []
 
     def _before_loop(self):
         self.nlp = stanza.Pipeline(
@@ -28,8 +28,6 @@ class Preproc(LoopOnConll):
     def _do_for_sen(self, sen_idx, sen, sen_txt, last_sen_txt, sen_dir):
         self._save_conll(sen, f"{sen_dir}/sen{sen_idx}.conll")
         parsed_doc = self._parse_doc(sen, sen_dir, save=sen_txt != last_sen_txt)
-        triplet = self.__get_triplet(sen, sen_idx)
-        self.gold_triplets[f"{sen_dir.split('/')[-1]}#{sen_txt}"].append(triplet)
 
         if sen_txt != last_sen_txt:
             ud_graph = UDGraph(parsed_doc.sentences[0])
@@ -43,8 +41,20 @@ class Preproc(LoopOnConll):
                 f"{sen_dir}/pos_edge_graph.dot",
             )
             self._save_ud(ud_graph, f"{sen_dir}/general_ud.graph")
+            if self.gold_sen_id is not None:
+                self.__save_gold_triplets()
+                self.gold_sen_text, self.gold_sen_id, self.gold_triplets = (
+                    None,
+                    None,
+                    [],
+                )
 
+        triplet = self.__get_triplet(sen, sen_idx)
         self._do_for_triplet(sen_idx, sen_dir, parsed_doc, triplet)
+        if self.gold_sen_id is None:
+            self.gold_sen_id = sen_idx
+            self.gold_sen_text = sen_txt
+        self.gold_triplets.append(triplet)
 
     @abstractmethod
     def _do_for_triplet(self, sen_idx, sen_dir, parsed_doc, triplet):
@@ -126,12 +136,14 @@ class Preproc(LoopOnConll):
         with open(fn, "w") as f:
             f.write(graph.to_dot(marked_nodes))
 
+    def __save_gold_triplets(self):
+        sen_dir = f"{self.out_dir}/{self.gold_sen_id}"
+        triplets_for_sen = TripletsForSen(
+            self.gold_triplets, self.gold_sen_id, self.gold_sen_text
+        )
+        triplets_for_sen.save_summary(f"{sen_dir}/gold_triplets_summary.txt")
+        triplets_for_sen.to_json(f"{sen_dir}/gold_triplets.json")
+
     def _after_loop(self):
-        for sen_key, triplets in self.gold_triplets.items():
-            sen_id = sen_key.split("#")[0]
-            sen_text = sen_key.split("#")[1]
-            sen_dir = f"{self.out_dir}/{sen_id}"
-            triplets_for_sen = TripletsForSen(triplets, sen_id, sen_text)
-            triplets_for_sen.save_summary(f"{sen_dir}/gold_triplets_summary.txt")
-            triplets_for_sen.to_json(f"{sen_dir}/gold_triplets.json")
+        self.__save_gold_triplets()
         super()._after_loop()
