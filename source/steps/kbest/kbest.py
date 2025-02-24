@@ -85,6 +85,7 @@ class KBest(LoopOnSenDirs):
         }
         self.pos_tag_resolution = False
         self.no_chart = 0
+        self.chart_load_failed = []
         self.no_derivation_found = 0
         self.successful_derivation = 0
         self.all_sens = 0
@@ -102,7 +103,11 @@ class KBest(LoopOnSenDirs):
             self.no_chart += 1
             return
 
-        cky_chart = CkyChart.from_pickle(chart_file)
+        try:
+            cky_chart = CkyChart.from_pickle(chart_file)
+        except KeyError:
+            self.chart_load_failed.append(sen_idx)
+            return
 
         if cky_chart.no_derivation():
             self.logger.log("No derivation found", to_stdout=True)
@@ -159,10 +164,14 @@ class KBest(LoopOnSenDirs):
     def _after_loop(self):
         self.logger.log(
             f"\nNumber of no chart: {self.no_chart}"
+            f"\nNumber of chart load failed: {len(self.chart_load_failed)}"
             f"\nNumber of no derivation found: {self.no_derivation_found}"
             f"\nNumber of successful derivation: {self.successful_derivation}"
             f"\nNumber of all sentences: {self.all_sens}",
             to_stdout=True,
+        )
+        self.logger.log(
+            f"\nChart load failed: {self.chart_load_failed}", to_stdout=True
         )
         super()._after_loop()
 

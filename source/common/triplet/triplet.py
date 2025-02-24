@@ -86,18 +86,26 @@ class Triplet:
 
     def resolve_pred(self, pos_tags, top_order, pos_tag_resolution=False):
         predicates = [n for n, l in self.node_to_label.items() if l == "P"]
+        verbs = [n + 1 for n, t in enumerate(pos_tags) if t == "VERB"]
         if (len(predicates) > 0 and not pos_tag_resolution) or (
             len(predicates) == 1 and pos_tag_resolution
         ):
             self.pred_resolution = "X"
             return
-        if len(predicates) > 1 and pos_tag_resolution:
+        if len(predicates) >= 2 and pos_tag_resolution:
             pred_top_order = [n for n in top_order if n in predicates]
-            self.label_to_nodes["P"] = [pred_top_order[0]]
+            verb_top_order = [n for n in top_order if n in predicates and n in verbs]
+            if len(verb_top_order) == 0:
+                self.label_to_nodes["P"] = [pred_top_order[-1]]
+                self.pred_resolution = "D"
+            elif len(verb_top_order) == 1:
+                self.label_to_nodes["P"] = [verb_top_order[0]]
+                self.pred_resolution = "E"
+            else:
+                self.label_to_nodes["P"] = [verb_top_order[-1]]
+                self.pred_resolution = "F"
             self.__update_node_to_label()
-            self.pred_resolution = "D"
         elif len(predicates) == 0:
-            verbs = [n + 1 for n, t in enumerate(pos_tags) if t == "VERB"]
             if len(verbs) == 0:
                 self.node_to_label[top_order[1]] = "P"
                 self.pred_resolution = "A"

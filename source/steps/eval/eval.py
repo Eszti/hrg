@@ -17,6 +17,7 @@ class Eval(LoopOnSenDirs):
         self.sentence_scorers = defaultdict(lambda: defaultdict(list))
         self.match_ids = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
         self.report_dir = self._get_subdir("eval")
+        self.no_matches = defaultdict(list)
 
     def _do_for_sen(self, sen_idx, preproc_sen_dir):
         for grammar_dir in self.grammar_dirs:
@@ -102,6 +103,8 @@ class Eval(LoopOnSenDirs):
         if sentence_scorer.matches:
             for i in range(len(sentence_scorer.matches)):
                 self.match_ids[grammar_dir][model_name]["matches"].append(sen_idx)
+        else:
+            self.no_matches[model_name].append(sen_idx)
         if sentence_scorer.exact_matches:
             for i in range(len(sentence_scorer.exact_matches)):
                 self.match_ids[grammar_dir][model_name]["exact_matches"].append(sen_idx)
@@ -117,4 +120,10 @@ class Eval(LoopOnSenDirs):
                     f.write(f"\n{model_name}\n")
                     for match_name, ids in matches.items():
                         f.write(f"{match_name}\n{ids}\n")
+        for model_name, no_matches in sorted(self.no_matches.items()):
+            self.logger.log(
+                f"\nNumber of no matches {model_name}: {len(no_matches)}"
+                f"\nNo matches: {no_matches}",
+                to_stdout=True,
+            )
         super()._after_loop()
