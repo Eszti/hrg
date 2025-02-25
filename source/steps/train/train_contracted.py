@@ -11,6 +11,7 @@ class TrainContracted(Train):
             config=config,
         )
         self.pos_tag_resolution = True
+        self.gold_triplets_fn = "gold_contracted_triplets.json"
 
     def _get_rules(self, triplet_graph, triplet):
         return {

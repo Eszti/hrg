@@ -5,7 +5,6 @@ import networkx as nx
 from tuw_nlp.graph.ud_graph import UDGraph
 
 from source.common.triplet.triplet import Triplet
-from source.common.triplet.triplets_for_sen import TripletsForSen
 from source.steps.preproc.preproc import Preproc
 
 
@@ -19,9 +18,11 @@ class PreprocContracted(Preproc):
         )
         self.unconnected_arg = defaultdict(set)
         self.out_edge_from_arg = defaultdict(set)
-        self.contract_triplet = self.config.get("contract_triplet", False)
+        self.gold_c_sen_text, self.gold_c_sen_id, self.gold_c_triplets = None, None, []
 
-    def _do_for_triplet(self, sen_idx, sen_dir, sen_text, parsed_doc, triplet):
+    def _do_for_triplet(
+        self, sen_idx, sen_dir, sen_text, last_sen_text, parsed_doc, triplet
+    ):
         triplet_nodes = set(triplet.node_to_label.keys())
         self._save_ud(
             UDGraph(parsed_doc.sentences[0]),
@@ -40,6 +41,30 @@ class PreprocContracted(Preproc):
             return
 
         arg_heads = self.__contract_args(sen_idx, ud_graph, arg_graphs, triplet)
+        contracted_triplet = self.__get_contracted_triplet(sen_idx, triplet, arg_heads)
+
+        if sen_text != last_sen_text or self.folder_per_sen:
+            if self.gold_c_sen_id is not None:
+                self._save_gold_triplets(
+                    sen_id=self.gold_c_sen_id,
+                    sen_text=self.gold_c_sen_text,
+                    triplets=self.gold_c_triplets,
+                    fn_prefix="gold_contracted_triplets",
+                )
+                self.gold_c_sen_text, self.gold_c_sen_id, self.gold_c_triplets = (
+                    None,
+                    None,
+                    [],
+                )
+        if self.gold_c_sen_id is None:
+            self.gold_c_sen_id = sen_idx
+            self.gold_c_sen_text = sen_text
+        self.gold_c_triplets.append(contracted_triplet)
+
+        self.__save_graphs(sen_idx, sen_dir, triplet, ud_graph, arg_heads)
+
+    @staticmethod
+    def __get_contracted_triplet(sen_idx, triplet, arg_heads):
         contracted_label_to_nodes = copy.copy(triplet.label_to_nodes)
         for l, nodes in contracted_label_to_nodes.items():
             if l.startswith("A"):
@@ -47,16 +72,9 @@ class PreprocContracted(Preproc):
                 assert len(kept_nodes) == 1
                 contracted_label_to_nodes[l] = kept_nodes
         contracted_triplet = Triplet(contracted_label_to_nodes, triplet_id=sen_idx)
-        contracted_triplets_for_sen = TripletsForSen(
-            [contracted_triplet], sen_idx, sen_text
-        )
-        contracted_triplets_for_sen.save_summary(
-            f"{sen_dir}/sen{sen_idx}_gold_contracted_triplets_summary.txt"
-        )
-        contracted_triplets_for_sen.to_json(
-            f"{sen_dir}/sen{sen_idx}_gold_contracted_triplets.json"
-        )
+        return contracted_triplet
 
+    def __save_graphs(self, sen_idx, sen_dir, triplet, ud_graph, arg_heads):
         contracted_triplet_nodes = arg_heads + triplet.predicate()
         self._save_bolinas_graph(
             ud_graph.pos_edge_graph(),
@@ -65,7 +83,6 @@ class PreprocContracted(Preproc):
             triplet=triplet,
             marked_nodes=contracted_triplet_nodes,
         )
-
         triplet_ud = ud_graph.subgraph(
             contracted_triplet_nodes, handle_unconnected="shortest_path"
         )
@@ -76,7 +93,6 @@ class PreprocContracted(Preproc):
             triplet=triplet,
             marked_nodes=contracted_triplet_nodes,
         )
-
         self._save_ud(
             ud_graph,
             f"{sen_dir}/sen{sen_idx}_contracted_ud.dot",
@@ -129,6 +145,12 @@ class PreprocContracted(Preproc):
             f"\nNumber of unconnected arguments: {len(self.unconnected_arg)}"
             f"\nNumber of out edges from argument: {len(self.out_edge_from_arg)}",
             to_stdout=True,
+        )
+        self._save_gold_triplets(
+            sen_id=self.gold_c_sen_id,
+            sen_text=self.gold_c_sen_text,
+            triplets=self.gold_c_triplets,
+            fn_prefix="gold_contracted_triplets",
         )
         super()._after_loop()
 

@@ -44,7 +44,7 @@ class Preproc(LoopOnConll):
             )
             self._save_ud(ud_graph, f"{sen_dir}/general_ud.graph")
             if self.gold_sen_id is not None:
-                self.__save_gold_triplets()
+                self._save_gold_triplets()
                 self.gold_sen_text, self.gold_sen_id, self.gold_triplets = (
                     None,
                     None,
@@ -52,14 +52,18 @@ class Preproc(LoopOnConll):
                 )
 
         triplet = self.__get_triplet(sen, sen_idx)
-        self._do_for_triplet(sen_idx, sen_dir, sen_txt, parsed_doc, triplet)
         if self.gold_sen_id is None:
             self.gold_sen_id = sen_idx
             self.gold_sen_text = sen_txt
         self.gold_triplets.append(triplet)
+        self._do_for_triplet(
+            sen_idx, sen_dir, sen_txt, last_sen_txt, parsed_doc, triplet
+        )
 
     @abstractmethod
-    def _do_for_triplet(self, sen_idx, sen_dir, sen_text, parsed_doc, triplet):
+    def _do_for_triplet(
+        self, sen_idx, sen_dir, sen_text, last_sen_text, parsed_doc, triplet
+    ):
         raise NotImplemented
 
     def _save_bolinas_graph(
@@ -138,14 +142,17 @@ class Preproc(LoopOnConll):
         with open(fn, "w") as f:
             f.write(graph.to_dot(marked_nodes))
 
-    def __save_gold_triplets(self):
-        sen_dir = f"{self.out_dir}/{self.gold_sen_id}"
-        triplets_for_sen = TripletsForSen(
-            self.gold_triplets, self.gold_sen_id, self.gold_sen_text
-        )
-        triplets_for_sen.save_summary(f"{sen_dir}/gold_triplets_summary.txt")
-        triplets_for_sen.to_json(f"{sen_dir}/gold_triplets.json")
+    def _save_gold_triplets(
+        self, sen_id=None, sen_text=None, triplets=None, fn_prefix="gold_triplets"
+    ):
+        gold_triplets = self.gold_triplets if triplets is None else triplets
+        gold_sen_id = self.gold_sen_id if sen_id is None else sen_id
+        gold_sen_text = self.gold_sen_text if sen_text is None else sen_text
+        sen_dir = f"{self.out_dir}/{gold_sen_id}"
+        triplets_for_sen = TripletsForSen(gold_triplets, gold_sen_id, gold_sen_text)
+        triplets_for_sen.save_summary(f"{sen_dir}/{fn_prefix}_summary.txt")
+        triplets_for_sen.to_json(f"{sen_dir}/{fn_prefix}.json")
 
     def _after_loop(self):
-        self.__save_gold_triplets()
+        self._save_gold_triplets()
         super()._after_loop()

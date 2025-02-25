@@ -7,6 +7,7 @@ from tuw_nlp.graph.graph import Graph
 from source.common.bolinas.grammar import Grammar
 from source.common.bolinas.parser import Parser
 from source.common.bolinas.vo_rule import VoRule
+from source.common.conll import ConllSen
 from source.common.exceptions import (
     ParseTooLongException,
     CkyTooLongException,
@@ -14,6 +15,7 @@ from source.common.exceptions import (
 )
 from source.common.script.logger import Logger
 from source.common.script.loop_on_triplets import LoopOnTriplets
+from source.common.triplet.triplet_matcher import TripletMatcher
 
 
 class Train(LoopOnTriplets):
@@ -47,6 +49,9 @@ class Train(LoopOnTriplets):
         with open(f"{hrg_dir}/sen{triplet_idx}.hrg", "w") as f:
             f.writelines(grammar_lines)
 
+        top_order = json.load(open(f"{sen_dir}/graph_top_order.json"))
+        pos_tags = ConllSen(sen_dir).pos_tags()
+
         if self.validate:
             grammar = Grammar.load_from_file(
                 grammar_lines, VoRule, nodelabels=True, logprob=True
@@ -59,6 +64,8 @@ class Train(LoopOnTriplets):
                     triplet_graph_str,
                     sen_logger=triplet_logger,
                     global_logger=self.logger,
+                    pos_tags=pos_tags,
+                    top_order=top_order,
                     pos_tag_resolution=self.pos_tag_resolution,
                 )
 
@@ -67,13 +74,18 @@ class Train(LoopOnTriplets):
                     return
 
                 triplet_logger.log(f"\nGold triplet:\n{triplet.to_short_json()}\n")
-                self.validated.append(triplet_idx)
                 number_of_used_rule = len(derivation.rules_counter.keys())
                 if number_of_used_rule != len(grammar):
                     triplet_logger.log(
                         f"\nNot all rules are used: {number_of_used_rule} of {len(grammar)}\n"
                     )
                     self.not_all_rules_used.append(triplet_idx)
+
+                matcher = TripletMatcher(triplet, derivation.processed_triplet)
+                if matcher.exact_match:
+                    self.validated.append(triplet_idx)
+                else:
+                    self.not_validated.append(triplet_idx)
             except ParseTooLongException as e:
                 self.parse_did_not_finish.append(triplet_idx)
                 triplet_logger.log(e.print_message())

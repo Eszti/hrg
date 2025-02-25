@@ -10,22 +10,28 @@ class LoopOnTriplets(LoopOnSenDirs):
         super().__init__(description, script_name=script_name, log=True, config=config)
         self.first_triplet = self.config.get("first_triplet", None)
         self.last_triplet = self.config.get("last_triplet", None)
-        self.triplet_file_suffix = "_triplet.graph"
+        self.graph_file_suffix = "_triplet.graph"
+        self.gold_triplets_fn = "gold_triplets.json"
 
     def _do_for_sen(self, sen_idx, sen_dir):
         graph_files = sorted(
             [
                 f"{sen_dir}/{fn}"
                 for fn in os.listdir(sen_dir)
-                if fn.endswith(self.triplet_file_suffix)
+                if fn.endswith(self.graph_file_suffix)
             ],
             key=lambda x: int(x.split("/")[-1].split("_")[0].split("sen")[-1]),
         )
-        triplets = TripletsForSen.from_json(f"{sen_dir}/gold_triplets.json").triplets
+        if not graph_files:
+            return
+
+        triplets = TripletsForSen.from_json(
+            f"{sen_dir}/{self.gold_triplets_fn}"
+        ).triplets
         for i, graph_file in enumerate(graph_files):
             triplet_idx = int(
                 graph_file.split("/")[-1]
-                .split(self.triplet_file_suffix)[0]
+                .split(self.graph_file_suffix)[0]
                 .split("sen")[-1]
             )
             if self.first_triplet is not None and triplet_idx < self.first_triplet:

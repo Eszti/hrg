@@ -12,7 +12,9 @@ class PreprocComplete(Preproc):
             config=config,
         )
 
-    def _do_for_triplet(self, sen_idx, sen_dir, sen_text, parsed_doc, triplet):
+    def _do_for_triplet(
+        self, sen_idx, sen_dir, sen_text, last_sen_text, parsed_doc, triplet
+    ):
         ud_graph = UDGraph(parsed_doc.sentences[0])
         triplet_nodes = triplet.node_to_label.keys()
         triplet_ud = ud_graph.subgraph(
