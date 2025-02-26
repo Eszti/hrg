@@ -10,7 +10,6 @@ class LoopOnConll(Script):
     def __init__(self, description, script_name, log=True, config=None):
         super().__init__(description, log=log, script_name=script_name, config=config)
         self.conll_file = f"{self.data_dir}/{self.config['in_file']}"
-        self.sens = self.config.get("sens", None)
         self.folder_per_sen = self.config.get("folder_per_sen", False)
 
     def _run_loop(self):

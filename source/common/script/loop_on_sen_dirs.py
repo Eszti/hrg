@@ -27,6 +27,9 @@ class LoopOnSenDirs(Script):
 
     def _run_loop(self):
         for sen_idx in self.__get_range():
+            if self.sens is not None:
+                if sen_idx not in self.sens:
+                    continue
             if self.first_sen_to_proc is None:
                 self.first_sen_to_proc = sen_idx
             print(f"\nProcessing folder {sen_idx}")

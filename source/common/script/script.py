@@ -33,6 +33,7 @@ class Script(ABC):
         )
         self.first = self.config.get("first", None)
         self.last = self.config.get("last", None)
+        self.sens = self.config.get("sens", None)
 
     def _setup_logger(self, log):
         if log:

@@ -1,4 +1,5 @@
 {
   "in_file": "lsoie_data/lsoie_wiki_train.conll",
-  "out_dir": "train_contracted_preproc"
+  "out_dir": "train_contracted_preproc",
+  "folder_per_sen": true
 }
