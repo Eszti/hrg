@@ -31,6 +31,7 @@ class PreprocContracted(Preproc):
             marked_nodes=triplet_nodes,
         )
 
+        contracted_triplet = None
         ud_graph = UDGraph(parsed_doc.sentences[0])
         arg_graphs = self.__get_argument_graphs(sen_idx, ud_graph, triplet)
         if sen_idx in self.unconnected_arg:
@@ -38,10 +39,12 @@ class PreprocContracted(Preproc):
                 f"Unconnected arg: {sen_idx}:{self.unconnected_arg[sen_idx]}",
                 to_stdout=True,
             )
-            return
-
-        arg_heads = self.__contract_args(sen_idx, ud_graph, arg_graphs, triplet)
-        contracted_triplet = self.__get_contracted_triplet(sen_idx, triplet, arg_heads)
+        else:
+            arg_heads = self.__contract_args(sen_idx, ud_graph, arg_graphs, triplet)
+            contracted_triplet = self.__get_contracted_triplet(
+                sen_idx, triplet, arg_heads
+            )
+            self.__save_graphs(sen_idx, sen_dir, triplet, ud_graph, arg_heads)
 
         if sen_text != last_sen_text or self.folder_per_sen:
             if self.gold_c_sen_id is not None:
@@ -59,9 +62,8 @@ class PreprocContracted(Preproc):
         if self.gold_c_sen_id is None:
             self.gold_c_sen_id = sen_idx
             self.gold_c_sen_text = sen_text
-        self.gold_c_triplets.append(contracted_triplet)
-
-        self.__save_graphs(sen_idx, sen_dir, triplet, ud_graph, arg_heads)
+        if contracted_triplet is not None:
+            self.gold_c_triplets.append(contracted_triplet)
 
     @staticmethod
     def __get_contracted_triplet(sen_idx, triplet, arg_heads):
