@@ -1,0 +1,5 @@
+{
+    "in_dir": "dev_contracted_preproc",
+    "grammar_file": "hrg_contracted.hrg",
+    "out_dir": "dev_contracted"
+}

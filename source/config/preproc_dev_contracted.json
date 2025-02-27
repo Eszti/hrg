@@ -1,0 +1,5 @@
+{
+  "in_file": "lsoie_data/lsoie_wiki_dev.conll",
+  "out_dir": "dev_contracted_preproc",
+  "folder_per_sen": true
+}

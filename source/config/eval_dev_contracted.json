@@ -1,0 +1,9 @@
+{
+  "in_dir": "dev_contracted_preproc",
+  "grammar_dirs": [
+    "dev_contracted"
+  ],
+  "models": [
+    "basic"
+  ]
+}

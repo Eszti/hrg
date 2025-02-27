@@ -1,0 +1,8 @@
+{
+    "in_dir": "dev_contracted_preproc",
+    "out_dir": "dev_contracted",
+    "models":
+    [
+        "basic"
+    ]
+}
