@@ -1,0 +1,9 @@
+{
+  "in_dir": "train_contracted_preproc",
+  "grammar_dirs": [
+    "train_contracted_validation"
+  ],
+  "models": [
+    "basic"
+  ]
+}
