@@ -1,0 +1,31 @@
+Execution start: 2025-02-27 08:03:18.106902
+{
+    "in_dir": "hrg_contracted",
+    "sizes": [
+        100,
+        300,
+        500
+    ]
+}
+
+Script name: hrg
+
+
+Unique rules for hrg_contracted: 9868
+S: 9868	(1.0)
+
+Unique rules for hrg_contracted_100: 100
+S: 100	(1.0)
+
+Unique rules for hrg_contracted_300: 300
+S: 300	(1.0)
+
+Unique rules for hrg_contracted_500: 500
+S: 500	(1.0)
+
+First sentence to process: 0
+Last sentence to process: 46015
+
+Execution finish: 2025-02-27 08:03:20.387987
+Elapsed time: 0 min 2 sec
+

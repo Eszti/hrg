@@ -1,0 +1,300 @@
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A1 .));	2202
+S -> (. :VERB . :obj (. :A0 .));	1467
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 .));	1250
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A1 .));	1145
+S -> (. :VERB . :ccomp (. :A1 .) :nsubj (. :A0 .));	1033
+S -> (. :A0 . :amod (. :VERB .));	868
+S -> (. :VERB . :nsubj (. :A0 .));	813
+S -> (. :A0 . :acl (. :obl (. :A1 .) :VERB .));	722
+S -> (. :VERB . :nsubj_pass (. :A0 .));	704
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :A1 .));	623
+S -> (. :VERB . :obl (. :A0 .));	510
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A1 .) :obl (. :A2 .));	444
+S -> (. :A0 . :acl_relcl (. :obj (. :A1 .) :VERB .));	374
+S -> (. :A0 . :acl_relcl (. :obl (. :A1 .) :VERB .));	310
+S -> (. :A0 . :case (. :VERB .));	305
+S -> (. :A0 . :acl (. :VERB .));	293
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A2 .) :obl (. :A1 .));	293
+S -> (. :VERB . :nsubj_pass (. :A0 .) :xcomp (. :A1 .));	276
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl_agent (. :A1 .));	245
+S -> (. :VERB . :obj (. :A0 .) :obl (. :A1 .));	229
+S -> (. :VERB . :advcl (. :A1 .) :nsubj_pass (. :A0 .));	221
+S -> (. :A0 . :acl (. :obj (. :A1 .) :VERB .));	220
+S -> (. :VERB . :advcl (. :obj (. :A1 .) :VERB .) :nsubj (. :A0 .));	202
+S -> (. :VERB . :xcomp (. :A0 .));	199
+S -> (. :VERB . :ccomp (. :A0 .));	182
+S -> (. :VERB . :conj (. :obj (. :A1 .) :VERB .) :nsubj (. :A0 .));	158
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB . :obj (. :A1 .)));	156
+S -> (. :VERB . :advcl (. :A2 .) :nsubj (. :A0 .) :obj (. :A1 .));	154
+S -> (. :VERB . :advcl (. :A1 .) :nsubj (. :A0 .));	147
+S -> (. :A1 . :acl (. :obl_agent (. :A0 .) :VERB .));	140
+S -> (. :A0 . :acl_relcl (. :VERB .));	138
+S -> (. :A0 . :acl (. :obl_agent (. :A1 .) :VERB .));	135
+S -> (. :A0 . :acl (. :xcomp (. :A1 .) :VERB .));	127
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 .) :obl (. :A2 .));	125
+S -> (. :A0 . :nmod (. :A1 . :case (. :VERB .)));	124
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A2 .) :obl (. :A1 .));	116
+S -> (. :VERB . :advmod (. :A1 .) :nsubj (. :A0 .));	108
+S -> (. :A0 . :compound (. :NOUN .));	106
+S -> (. :VERB . :advmod (. :A1 .) :nsubj_pass (. :A0 .));	105
+S -> (. :VERB . :aux (. :AUX .) :nsubj (. :A0 .) :obj (. :A1 .));	102
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A1 . :nmod (. :A2 .)));	102
+S -> (. :VERB . :advcl (. :obl (. :A1 .) :VERB .) :nsubj (. :A0 .));	100
+S -> (. :A0 . :obl (. :A1 . :case (. :VERB .)));	99
+S -> (. :VERB . :advcl (. :obj (. :A1 .) :VERB .) :obj (. :A0 .));	97
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A1 .) :obl (. :A2 .));	96
+S -> (. :A0 . :acl_relcl (. :xcomp (. :A1 .) :VERB .));	95
+S -> (. :VERB . :nsubj_pass (. :A1 .) :obl_agent (. :A0 .));	94
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A2 .) :obl (. :A1 .));	82
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB . :obl (. :A1 .)));	82
+S -> (. :VERB . :conj (. :obl (. :A1 .) :VERB .) :nsubj_pass (. :A0 .));	76
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB .));	75
+S -> (. :VERB . :conj (. :obl (. :A1 .) :VERB .) :nsubj (. :A0 .));	71
+S -> (. :VERB . :advcl (. :obj (. :A1 .) :VERB .) :nsubj_pass (. :A0 .));	70
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 .) :xcomp (. :A2 .));	68
+S -> (. :VERB . :advmod (. :A0 .));	67
+S -> (. :VERB . :advcl (. :A2 .) :nsubj (. :A0 .) :obl (. :A1 .));	65
+S -> (. :VERB . :advcl (. :ccomp (. :A1 .) :VERB .) :nsubj (. :A0 .));	64
+S -> (. :VERB . :aux (. :AUX .) :nsubj (. :A0 .));	63
+S -> (. :A0 . :amod (. :ADJ .));	62
+S -> (. :VERB . :advcl (. :A2 .) :nsubj_pass (. :A0 .) :obl (. :A1 .));	60
+S -> (. :A1 . :advcl (. :obj (. :A0 .) :VERB .));	60
+S -> (. :VERB . :advcl (. :A0 .));	56
+S -> (. :VERB . :obl_agent (. :A0 .));	55
+S -> (. :VERB . :advmod (. :A2 .) :nsubj (. :A0 .) :obl (. :A1 .));	55
+S -> (. :VERB . :ccomp (. :A1 .) :nsubj (. :A0 .) :obl (. :A2 .));	54
+S -> (. :A0 . :advcl (. :obj (. :A1 .) :VERB .));	53
+S -> (. :VERB . :advcl (. :VERB .) :nsubj (. :A0 .));	53
+S -> (. :VERB . :obj (. :A0 .) :xcomp (. :VERB . :obj (. :A1 .)));	53
+S -> (. :A0 . :amod (. :VERB . :advmod (. :A1 .)));	52
+S -> (. :A0 . :acl_relcl (. :obj (. :A1 .) :obl (. :A2 .) :VERB .));	52
+S -> (. :A1 . :acl_relcl (. :nsubj (. :A0 .) :VERB .));	52
+S -> (. :VERB . :nsubj_pass (. :A0 .) :xcomp (. :VERB . :obl (. :A1 .)));	52
+S -> (. :A0 . :acl (. :advcl (. :A1 .) :VERB .));	52
+S -> (. :VERB . :nsubj (. :A1 .) :obj (. :A0 .));	51
+S -> (. :VERB . :advcl (. :A1 .) :obj (. :A0 .));	51
+S -> (. :VERB . :aux (. :AUX .) :nsubj (. :A0 .) :obl (. :A1 .));	51
+S -> (. :VERB . :conj (. :VERB . :ccomp (. :A1 .)) :nsubj (. :A0 .));	50
+S -> (. :VERB . :obj (. :A1 .) :obl (. :A0 .));	48
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :A1 . :obl (. :A2 .)));	48
+S -> (. :VERB . :obj (. :A0 . :nmod (. :A1 .)));	47
+S -> (. :VERB . :advmod (. :A2 .) :nsubj (. :A0 .) :obj (. :A1 .));	47
+S -> (. :VERB . :ccomp (. :A2 .) :nsubj (. :A0 .) :obl (. :A1 .));	46
+S -> (. :A0 . :amod (. :VERB .) :nmod (. :A1 .));	45
+S -> (. :VERB . :advcl (. :A1 .) :nsubj (. :A0 .) :obj (. :A2 .));	44
+S -> (. :NOUN . :nmod (. :A0 .));	44
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A2 .) :obl_unmarked (. :A1 .));	44
+S -> (. :VERB . :advcl (. :A1 .) :nsubj (. :A0 .) :obl (. :A2 .));	44
+S -> (. :VERB . :nsubj_pass (. :A1 .) :obl (. :A2 .) :obl_agent (. :A0 .));	42
+S -> (. :A0 . :acl_relcl (. :ccomp (. :A1 .) :VERB .));	42
+S -> (. :VERB . :obj (. :A0 .) :xcomp (. :VERB .));	41
+S -> (. :VERB . :conj (. :VERB .) :nsubj (. :A0 .));	41
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A2 .) :obl (. :A1 .) :obl (. :A3 .));	41
+S -> (. :VERB . :advcl (. :obl (. :A1 .) :VERB .) :nsubj_pass (. :A0 .));	40
+S -> (. :VERB . :advmod (. :A1 .) :nsubj (. :A0 .) :obj (. :A2 .));	40
+S -> (. :VERB . :obj (. :A0 .) :xcomp (. :VERB . :obl (. :A1 .)));	39
+S -> (. :VERB . :conj (. :VERB .) :obj (. :A0 .));	39
+S -> (. :VERB . :advmod (. :A2 .) :nsubj_pass (. :A0 .) :obl (. :A1 .));	39
+S -> (. :VERB . :ccomp (. :obj (. :A1 .) :VERB .) :nsubj (. :A0 .));	38
+S -> (. :VERB . :nsubj_pass (. :A0 .) :xcomp (. :VERB . :obj (. :A1 .)));	38
+S -> (. :VERB . :advmod (. :A1 .) :nsubj (. :A0 .) :obl (. :A2 .));	38
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A1 .) :obl_agent (. :A2 .));	38
+S -> (. :VERB . :nsubj_pass (. :A0 .) :xcomp (. :VERB .));	37
+S -> (. :VERB . :aux (. :AUX .) :nsubj (. :A0 .) :xcomp (. :A1 .));	36
+S -> (. :VERB . :conj (. :xcomp (. :A1 .) :VERB .) :nsubj (. :A0 .));	35
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :NOUN . :acl (. :obj (. :A1 .) :VERB .)));	35
+S -> (. :VERB . :ccomp (. :A1 .) :iobj (. :A2 .) :nsubj (. :A0 .));	34
+S -> (. :A1 . :nmod (. :A0 . :case (. :VERB .)));	34
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :A1 . :advcl (. :A2 .)));	33
+S -> (. :VERB . :advcl (. :obj (. :A1 .) :obl (. :A2 .) :VERB .) :nsubj (. :A0 .));	32
+S -> (. :VERB . :advcl (. :obl (. :A1 .) :VERB .) :obj (. :A0 .));	32
+S -> (. :VERB . :nsubj (. :A0 .) :obl_unmarked (. :A1 .));	32
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :A2 . :obl (. :A1 .)));	32
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A2 .) :obl_unmarked (. :A1 .));	32
+S -> (. :A0 . :advcl (. :VERB .));	32
+S -> (. :VERB . :obl (. :A1 .) :obl (. :A0 .));	31
+S -> (. :VERB . :advcl (. :VERB .) :obl (. :A0 .));	30
+S -> (. :VERB . :advmod (. :A1 .) :nsubj_pass (. :A0 .) :obl (. :A2 .));	30
+S -> (. :VERB . :conj (. :VERB .) :nsubj_pass (. :A0 .));	30
+S -> (. :VERB . :advcl (. :xcomp (. :A1 .) :VERB .) :nsubj (. :A0 .));	30
+S -> (. :VERB . :conj (. :obj (. :A1 .) :obl (. :A2 .) :VERB .) :nsubj (. :A0 .));	29
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB . :obj (. :A1 .) :obl (. :A2 .)));	28
+S -> (. :VERB . :advcl (. :obj (. :A1 .) :VERB .) :obl (. :A0 .));	28
+S -> (. :A0 . :advcl (. :obl (. :A1 .) :VERB .));	28
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB . :advcl (. :A2 .) :obj (. :A1 .)));	27
+S -> (. :ADJ . :nsubj (. :A0 .) :xcomp (. :VERB . :obj (. :A1 .)));	27
+S -> (. :VERB . :iobj (. :A0 .) :xcomp (. :VERB . :obj (. :A1 .)));	27
+S -> (. :VERB . :ccomp (. :A2 .) :nsubj (. :A0 .) :obl_unmarked (. :A1 .));	26
+S -> (. :A0 . :acl (. :obl (. :A2 .) :obl (. :A1 .) :VERB .));	26
+S -> (. :VERB . :aux (. :AUX .) :nsubj (. :A0 .) :obj (. :A1 .) :obl (. :A2 .));	26
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A1 .) :xcomp (. :A2 .));	26
+S -> (. :VERB . :obj (. :A0 .) :xcomp (. :A1 .));	26
+S -> (. :VERB . :advcl (. :A1 .) :nsubj_pass (. :A0 .) :obl (. :A2 .));	26
+S -> (. :A0 . :acl_relcl (. :advcl (. :A1 .) :VERB .));	26
+S -> (. :VERB . :advcl (. :A3 .) :nsubj (. :A0 .) :obj (. :A2 .) :obl (. :A1 .));	25
+S -> (. :VERB . :advcl (. :VERB .) :nsubj_pass (. :A0 .));	25
+S -> (. :NOUN . :acl (. :obl (. :A1 .) :VERB .) :nsubj (. :A0 .));	25
+S -> (. :A0 . :acl_relcl (. :obl_agent (. :A1 .) :VERB .));	25
+S -> (. :VERB . :advcl (. :VERB .) :obj (. :A0 .));	25
+S -> (. :A1 . :acl_relcl (. :nsubj_pass (. :A0 .) :VERB .));	24
+S -> (. :A0 . :acl (. :advcl (. :obj (. :A1 .) :VERB .) :VERB .));	24
+S -> (. :VERB . :conj (. :obj (. :A1 .) :VERB .) :nsubj_pass (. :A0 .));	24
+S -> (. :VERB . :advmod (. :A1 .) :obj (. :A0 .));	24
+S -> (. :ADJ . :nsubj (. :A0 .) :xcomp (. :VERB . :obl (. :A1 .)));	24
+S -> (. :VERB . :advcl (. :obj (. :A1 .) :VERB .) :nsubj (. :A0 .) :obl (. :A2 .));	23
+S -> (. :A0 . :acl_relcl (. :xcomp (. :VERB . :obj (. :A1 .)) :VERB .));	23
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A2 .) :obl_unmarked (. :A1 .));	22
+S -> (. :ADJ . :advcl (. :obj (. :A1 .) :VERB .) :nsubj (. :A0 .));	22
+S -> (. :VERB . :obl (. :A0 .) :obl (. :A1 .));	22
+S -> (. :VERB . :nsubj_pass (. :A0 .) :xcomp (. :A2 . :obl (. :A1 .)));	21
+S -> (. :VERB . :conj (. :VERB .) :nsubj (. :A0 .) :obj (. :A1 .));	21
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl_unmarked (. :A1 .));	21
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A1 .) :xcomp (. :A2 .));	21
+S -> (. :A2 . :advcl (. :obj (. :A1 .) :VERB .) :nsubj (. :A0 .));	21
+S -> (. :A1 . :acl (. :obj (. :A0 .) :VERB .));	20
+S -> (. :A0 . :acl (. :advmod (. :A1 .) :VERB .));	20
+S -> (. :A0 . :acl_relcl (. :advmod (. :A1 .) :VERB .));	20
+S -> (. :VERB . :advcl (. :obj (. :A0 .) :VERB .) :obl (. :A1 .));	20
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A2 .) :obl (. :A3 .) :obl (. :A1 .));	20
+S -> (. :A1 . :acl (. :obl (. :A2 .) :obl_agent (. :A0 .) :VERB .));	20
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A1 .) :obl (. :A2 .) :obl (. :A3 .));	20
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obj (. :A1 .));	19
+S -> (. :VERB . :advcl (. :conj (. :obj (. :A1 .) :VERB .) :VERB .) :nsubj (. :A0 .));	19
+S -> (. :NOUN . :compound (. :A0 .));	19
+S -> (. :A1 . :parataxis (. :VERB . :nsubj (. :A0 .)));	18
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 . :case (. :VERB .)));	18
+S -> (. :VERB . :ccomp (. :xcomp (. :A1 .) :VERB .) :nsubj (. :A0 .));	18
+S -> (. :A1 . :obl (. :A0 . :case (. :VERB .)));	18
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB . :advcl (. :obj (. :A1 .) :VERB .)));	18
+S -> (. :A1 . :aux (. :AUX .) :nsubj (. :A0 .));	18
+S -> (. :A1 . :acl_relcl (. :obj (. :A0 .) :VERB .));	18
+S -> (. :VERB . :advcl (. :A0 .) :obj (. :A1 .));	18
+S -> (. :VERB . :advcl (. :obl (. :A1 .) :VERB .) :obl (. :A0 .));	18
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A2 .) :obl (. :A3 .) :obl_unmarked (. :A1 .));	18
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 . :nmod (. :A2 .)));	17
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A1 . :acl (. :A2 .)));	17
+S -> (. :VERB . :nsubj (. :A0 . :nmod (. :A2 .)) :obj (. :A1 .));	17
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A2 .) :xcomp (. :A1 .));	17
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB . :ccomp (. :A1 .)));	17
+S -> (. :A0 . :acl_relcl (. :conj (. :obj (. :A1 .) :VERB .) :VERB .));	17
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :NOUN . :acl (. :obj (. :A1 .) :VERB .)));	17
+S -> (. :VERB . :conj (. :xcomp (. :VERB . :obj (. :A1 .)) :VERB .) :nsubj (. :A0 .));	16
+S -> (. :A0 . :acl (. :obl_unmarked (. :A1 .) :VERB .));	16
+S -> (. :ADJ . :nsubj (. :A0 .) :obl (. :A1 .));	16
+S -> (. :A0 . :conj (. :obl (. :A1 .) :VERB .));	16
+S -> (. :VERB . :nsubj (. :A0 . :nmod (. :A2 .)) :obl (. :A1 .));	16
+S -> (. :VERB . :conj (. :xcomp (. :A1 .) :VERB .) :nsubj_pass (. :A0 .));	16
+S -> (. :ADJ . :advcl (. :obl (. :A1 .) :VERB .) :nsubj (. :A0 .));	16
+S -> (. :ADJ . :nsubj (. :A0 .) :xcomp (. :VERB .));	16
+S -> (. :A0 . :acl_relcl (. :obj (. :A2 .) :obl (. :A1 .) :VERB .));	16
+S -> (. :NOUN . :acl_relcl (. :obj (. :A1 .) :VERB .) :nsubj (. :A0 .));	16
+S -> (. :A0 . :acl_relcl (. :aux (. :AUX .) :obj (. :A1 .) :VERB .));	15
+S -> (. :VERB . :obj (. :A0 .) :obl (. :A1 . :case (. :VERB .)));	15
+S -> (. :VERB . :nsubj_pass (. :A0 .) :xcomp (. :A1 . :obl (. :A2 .)));	15
+S -> (. :A0 . :acl_relcl (. :xcomp (. :VERB . :obl (. :A1 .)) :VERB .));	15
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A1 . :nmod (. :A2 .)));	15
+S -> (. :VERB . :nsubj (. :A0 . :nmod (. :A1 .)));	15
+S -> (. :VERB . :advcl (. :A1 .) :nsubj (. :A0 .) :xcomp (. :A2 .));	15
+S -> (. :A0 . :acl (. :obj (. :A1 .) :obl (. :A2 .) :VERB .));	15
+S -> (. :ADJ . :conj (. :obl (. :A1 .) :VERB .) :nsubj (. :A0 .));	15
+S -> (. :VERB . :advcl (. :A1 .) :aux (. :AUX .) :nsubj (. :A0 .));	14
+S -> (. :A0 . :acl (. :xcomp (. :VERB . :obj (. :A1 .)) :VERB .));	14
+S -> (. :VERB . :conj (. :obj (. :A2 .) :VERB .) :nsubj (. :A0 .) :obl (. :A1 .));	14
+S -> (. :A0 . :acl_relcl (. :obj (. :A1 . :nmod (. :A2 .)) :VERB .));	14
+S -> (. :VERB . :conj (. :VERB . :advcl (. :obj (. :A1 .) :VERB .)) :nsubj (. :A0 .));	14
+S -> (. :VERB . :advcl (. :obj (. :A1 .) :VERB .) :obj (. :NOUN . :nmod (. :A0 .)));	14
+S -> (. :A0 . :advmod (. :ADV .) :nmod (. :A1 .));	14
+S -> (. :VERB . :conj (. :VERB .) :nsubj (. :A0 .) :obl (. :A1 .));	14
+S -> (. :VERB . :nsubj_pass (. :A1 .) :obl (. :A0 .));	14
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A2 . :nmod (. :A3 .)) :obl (. :A1 .));	14
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 .) :xcomp (. :VERB . :obj (. :A2 .)));	14
+S -> (. :VERB . :conj (. :obl_agent (. :A0 .) :VERB .) :nsubj_pass (. :A1 .));	14
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A2 . :nmod (. :A1 .)));	14
+S -> (. :A1 . :acl_relcl (. :nsubj (. :A0 .) :obl (. :A2 .) :VERB .));	14
+S -> (. :VERB . :conj (. :obj (. :A1 .) :VERB .) :nsubj (. :A0 .) :obl (. :A2 .));	14
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB . :conj (. :obj (. :A1 .) :VERB .)));	14
+S -> (. :VERB . :ccomp (. :obl (. :A1 .) :VERB .) :nsubj (. :A0 .));	13
+S -> (. :VERB . :ccomp (. :ccomp (. :A1 .) :VERB .) :nsubj (. :A0 .));	13
+S -> (. :NOUN . :acl (. :obj (. :A1 .) :VERB .) :nsubj (. :A0 .));	13
+S -> (. :VERB . :advcl (. :obj (. :A0 .) :VERB .) :obj (. :A1 .));	13
+S -> (. :VERB . :conj (. :VERB . :advcl (. :A1 .)) :nsubj_pass (. :A0 .));	13
+S -> (. :VERB . :advcl (. :nsubj (. :A0 .) :obj (. :A2 .) :VERB .) :obl (. :A1 .));	13
+S -> (. :VERB . :advmod (. :A0 .) :obl (. :A1 .));	13
+S -> (. :VERB . :advmod (. :A1 .) :nsubj (. :A0 .) :xcomp (. :A2 .));	13
+S -> (. :A1 . :advcl (. :nsubj (. :A0 .) :VERB .));	13
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A2 .) :obl_agent (. :A1 .));	13
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A2 .) :xcomp (. :A1 .));	13
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A2 . :nmod (. :A1 .)));	13
+S -> (. :VERB . :advcl (. :nsubj (. :A0 .) :VERB .) :obl (. :A1 .));	13
+S -> (. :A0 . :acl_relcl (. :advcl (. :obj (. :A1 .) :VERB .) :VERB .));	13
+S -> (. :A0 . :acl (. :obl (. :A1 .) :obl (. :A2 .) :VERB .));	12
+S -> (. :A0 . :acl (. :obl (. :A1 .) :obl_agent (. :A2 .) :VERB .));	12
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB . :advcl (. :A1 .)));	12
+S -> (. :A0 . :acl (. :ccomp (. :A1 .) :VERB .));	12
+S -> (. :VERB . :obl_unmarked (. :A0 .));	12
+S -> (. :VERB . :advcl (. :A0 .) :obl (. :A1 .));	12
+S -> (. :A0 . :acl_relcl (. :advcl (. :A2 .) :obl (. :A1 .) :VERB .));	12
+S -> (. :VERB . :iobj (. :A0 .) :xcomp (. :VERB . :obl (. :A1 .)));	12
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :NOUN . :acl (. :obl (. :A1 .) :VERB .)));	12
+S -> (. :VERB . :conj (. :obl_agent (. :A1 .) :VERB .) :nsubj_pass (. :A0 .));	12
+S -> (. :A0 . :acl_relcl (. :obl (. :A2 .) :obl (. :A1 .) :VERB .));	12
+S -> (. :VERB . :aux (. :AUX .) :obj (. :A0 .));	12
+S -> (. :VERB . :conj (. :xcomp (. :A2 .) :VERB .) :nsubj (. :A0 .) :obl (. :A1 .));	12
+S -> (. :VERB . :conj (. :VERB .) :nsubj_pass (. :A0 .) :obl (. :A1 .));	12
+S -> (. :A0 . :acl_relcl (. :xcomp (. :VERB .) :VERB .));	11
+S -> (. :A0 . :xcomp (. :VERB . :obj (. :A1 .)));	11
+S -> (. :VERB . :advmod (. :A1 .) :ccomp (. :A2 .) :nsubj (. :A0 .));	11
+S -> (. :VERB . :nsubj_pass (. :A0 . :nmod (. :A2 .)) :obl (. :A1 .));	11
+S -> (. :A0 . :obl (. :NOUN . :case (. :VERB .)));	11
+S -> (. :VERB . :obl (. :A1 .) :obl_agent (. :A0 .));	11
+S -> (. :A1 . :acl_relcl (. :obl_agent (. :A0 .) :VERB .));	11
+S -> (. :VERB . :nsubj (. :A0 .) :parataxis (. :VERB . :obl (. :A1 .)));	11
+S -> (. :NOUN . :acl_relcl (. :obl (. :A1 .) :VERB .) :nsubj (. :A0 .));	11
+S -> (. :VERB . :ccomp (. :A1 .) :nsubj (. :NOUN . :appos (. :A0 .)));	11
+S -> (. :VERB . :advmod (. :A1 .) :obl (. :A0 .));	11
+S -> (. :VERB . :obj (. :A0 .) :xcomp (. :VERB . :obj (. :A1 .) :obl (. :A2 .)));	11
+S -> (. :VERB . :iobj (. :A1 .) :nsubj (. :A0 .));	11
+S -> (. :A1 . :acl (. :obl (. :A0 .) :VERB .));	11
+S -> (. :VERB . :nsubj_outer (. :A0 .) :obj (. :A1 .));	11
+S -> (. :A0 . :acl_relcl (. :advcl (. :A2 .) :obj (. :A1 .) :VERB .));	11
+S -> (. :VERB . :conj (. :obj (. :A1 .) :VERB . :advcl (. :A2 .)) :nsubj (. :A0 .));	11
+S -> (. :VERB . :advcl (. :A2 .) :nsubj (. :A0 .) :xcomp (. :A1 .));	11
+S -> (. :A0 . :conj (. :obj (. :A1 .) :VERB .));	11
+S -> (. :VERB . :ccomp (. :obl (. :A2 .) :A1 .) :nsubj (. :A0 .));	10
+S -> (. :A0 . :acl (. :conj (. :obl (. :A1 .) :VERB .) :VERB .));	10
+S -> (. :NOUN . :acl (. :obj (. :A1 .) :VERB .) :nmod_poss (. :A0 .));	10
+S -> (. :VERB . :aux (. :AUX .) :nsubj (. :A0 .) :obj (. :A2 .) :obl (. :A1 .));	10
+S -> (. :VERB . :advcl (. :obj (. :A2 .) :VERB .) :nsubj (. :A0 .) :obl (. :A1 .));	10
+S -> (. :VERB . :conj (. :obj (. :A2 .) :obl (. :A1 .) :VERB .) :nsubj (. :A0 .));	10
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A1 .) :obl_unmarked (. :A2 .));	10
+S -> (. :VERB . :advcl (. :A3 .) :nsubj (. :A0 .) :obj (. :A1 .) :obl (. :A2 .));	10
+S -> (. :VERB . :advcl (. :xcomp (. :A1 .) :VERB .) :obl (. :A0 .));	10
+S -> (. :VERB . :advcl (. :advcl (. :A2 .) :obj (. :A1 .) :VERB .) :nsubj (. :A0 .));	10
+S -> (. :VERB . :iobj (. :A0 .) :xcomp (. :VERB .));	10
+S -> (. :NOUN . :acl (. :VERB .) :nmod (. :A0 .));	10
+S -> (. :VERB . :obl (. :A1 . :nmod (. :A0 .)));	10
+S -> (. :VERB . :obj (. :NOUN .) :obl (. :A0 .));	10
+S -> (. :VERB . :advcl (. :advcl (. :obj (. :A1 .) :VERB .) :VERB .) :nsubj (. :A0 .));	10
+S -> (. :VERB . :ccomp (. :VERB . :advcl (. :obj (. :A1 .) :VERB .)) :nsubj (. :A0 .));	10
+S -> (. :A0 . :acl_relcl (. :obl (. :A1 .) :obl (. :A2 .) :VERB .));	10
+S -> (. :VERB . :obj (. :A0 .) :xcomp (. :xcomp (. :A1 .) :VERB .));	10
+S -> (. :VERB . :advmod (. :A0 .) :obj (. :A1 .));	10
+S -> (. :NOUN . :acl (. :obj (. :A1 .) :VERB .) :nmod (. :A0 .));	10
+S -> (. :VERB . :nsubj_pass (. :A0 .) :xcomp (. :A2 . :obl_unmarked (. :A1 .)));	10
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB . :advmod (. :A1 .)));	10
+S -> (. :A0 . :acl (. :obl (. :A1 . :nmod (. :A2 .)) :VERB .));	10
+S -> (. :A0 . :appos (. :NOUN . :acl (. :obl (. :A1 .) :VERB .)));	10
+S -> (. :VERB . :nsubj (. :A1 .) :obl (. :A0 .));	10
+S -> (. :VERB . :advcl (. :obl (. :A2 .) :obl (. :A1 .) :VERB .) :nsubj (. :A0 .));	10
+S -> (. :VERB . :advcl (. :obj (. :A2 .) :obl (. :A1 .) :VERB .) :nsubj (. :A0 .));	10
+S -> (. :ADJ . :conj (. :obj (. :A1 .) :VERB .) :nsubj (. :A0 .));	10
+S -> (. :VERB . :csubj_pass (. :A0 .));	10
+S -> (. :VERB . :ccomp (. :A1 .) :nsubj (. :NOUN . :flat (. :A0 .)));	9
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB . :obl (. :A1 .) :obl (. :A2 .)));	9
+S -> (. :VERB . :ccomp (. :A1 . :advcl (. :A2 .)) :nsubj (. :A0 .));	9
+S -> (. :VERB . :conj (. :xcomp (. :VERB . :obl (. :A1 .)) :VERB .) :nsubj (. :A0 .));	9
+S -> (. :VERB . :conj (. :obl (. :A1 .) :VERB .) :obj (. :A0 .));	9
+S -> (. :VERB . :ccomp (. :obj (. :A1 .) :obl (. :A2 .) :VERB .) :nsubj (. :A0 .));	9
+S -> (. :A0 . :advcl (. :xcomp (. :A1 .) :VERB .));	9
+S -> (. :VERB . :advcl (. :VERB .) :nsubj (. :A0 .) :obl (. :A1 .));	9
+S -> (. :VERB . :advcl (. :A1 .) :nsubj (. :A0 .) :obj (. :A2 .) :obl (. :A3 .));	9

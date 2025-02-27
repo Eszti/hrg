@@ -1,0 +1,100 @@
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A1 .));	0.11
+S -> (. :VERB . :obj (. :A0 .));	0.07
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 .));	0.06
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A1 .));	0.06
+S -> (. :VERB . :ccomp (. :A1 .) :nsubj (. :A0 .));	0.05
+S -> (. :A0 . :amod (. :VERB .));	0.04
+S -> (. :VERB . :nsubj (. :A0 .));	0.04
+S -> (. :A0 . :acl (. :obl (. :A1 .) :VERB .));	0.04
+S -> (. :VERB . :nsubj_pass (. :A0 .));	0.03
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :A1 .));	0.03
+S -> (. :VERB . :obl (. :A0 .));	0.02
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A1 .) :obl (. :A2 .));	0.02
+S -> (. :A0 . :acl_relcl (. :obj (. :A1 .) :VERB .));	0.02
+S -> (. :A0 . :acl_relcl (. :obl (. :A1 .) :VERB .));	0.02
+S -> (. :A0 . :case (. :VERB .));	0.01
+S -> (. :A0 . :acl (. :VERB .));	0.01
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A2 .) :obl (. :A1 .));	0.01
+S -> (. :VERB . :nsubj_pass (. :A0 .) :xcomp (. :A1 .));	0.01
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl_agent (. :A1 .));	0.01
+S -> (. :VERB . :obj (. :A0 .) :obl (. :A1 .));	0.01
+S -> (. :VERB . :advcl (. :A1 .) :nsubj_pass (. :A0 .));	0.01
+S -> (. :A0 . :acl (. :obj (. :A1 .) :VERB .));	0.01
+S -> (. :VERB . :advcl (. :obj (. :A1 .) :VERB .) :nsubj (. :A0 .));	0.01
+S -> (. :VERB . :xcomp (. :A0 .));	0.01
+S -> (. :VERB . :ccomp (. :A0 .));	0.01
+S -> (. :VERB . :conj (. :obj (. :A1 .) :VERB .) :nsubj (. :A0 .));	0.01
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB . :obj (. :A1 .)));	0.01
+S -> (. :VERB . :advcl (. :A2 .) :nsubj (. :A0 .) :obj (. :A1 .));	0.01
+S -> (. :VERB . :advcl (. :A1 .) :nsubj (. :A0 .));	0.01
+S -> (. :A1 . :acl (. :obl_agent (. :A0 .) :VERB .));	0.01
+S -> (. :A0 . :acl_relcl (. :VERB .));	0.01
+S -> (. :A0 . :acl (. :obl_agent (. :A1 .) :VERB .));	0.01
+S -> (. :A0 . :acl (. :xcomp (. :A1 .) :VERB .));	0.01
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 .) :obl (. :A2 .));	0.01
+S -> (. :A0 . :nmod (. :A1 . :case (. :VERB .)));	0.01
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A2 .) :obl (. :A1 .));	0.01
+S -> (. :VERB . :advmod (. :A1 .) :nsubj (. :A0 .));	0.01
+S -> (. :A0 . :compound (. :NOUN .));	0.01
+S -> (. :VERB . :advmod (. :A1 .) :nsubj_pass (. :A0 .));	0.01
+S -> (. :VERB . :aux (. :AUX .) :nsubj (. :A0 .) :obj (. :A1 .));	0.01
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A1 . :nmod (. :A2 .)));	0.01
+S -> (. :VERB . :advcl (. :obl (. :A1 .) :VERB .) :nsubj (. :A0 .));	0.01
+S -> (. :A0 . :obl (. :A1 . :case (. :VERB .)));	0.01
+S -> (. :VERB . :advcl (. :obj (. :A1 .) :VERB .) :obj (. :A0 .));	0.01
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A1 .) :obl (. :A2 .));	0.01
+S -> (. :A0 . :acl_relcl (. :xcomp (. :A1 .) :VERB .));	0.01
+S -> (. :VERB . :nsubj_pass (. :A1 .) :obl_agent (. :A0 .));	0.01
+S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A2 .) :obl (. :A1 .));	0.01
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB . :obl (. :A1 .)));	0.01
+S -> (. :VERB . :conj (. :obl (. :A1 .) :VERB .) :nsubj_pass (. :A0 .));	0.01
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB .));	0.01
+S -> (. :VERB . :conj (. :obl (. :A1 .) :VERB .) :nsubj (. :A0 .));	0.01
+S -> (. :VERB . :advcl (. :obj (. :A1 .) :VERB .) :nsubj_pass (. :A0 .));	0.01
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 .) :xcomp (. :A2 .));	0.01
+S -> (. :VERB . :advmod (. :A0 .));	0.01
+S -> (. :VERB . :advcl (. :A2 .) :nsubj (. :A0 .) :obl (. :A1 .));	0.01
+S -> (. :VERB . :advcl (. :ccomp (. :A1 .) :VERB .) :nsubj (. :A0 .));	0.01
+S -> (. :VERB . :aux (. :AUX .) :nsubj (. :A0 .));	0.01
+S -> (. :A0 . :amod (. :ADJ .));	0.01
+S -> (. :VERB . :advcl (. :A2 .) :nsubj_pass (. :A0 .) :obl (. :A1 .));	0.01
+S -> (. :A1 . :advcl (. :obj (. :A0 .) :VERB .));	0.01
+S -> (. :VERB . :advcl (. :A0 .));	0.01
+S -> (. :VERB . :obl_agent (. :A0 .));	0.01
+S -> (. :VERB . :advmod (. :A2 .) :nsubj (. :A0 .) :obl (. :A1 .));	0.01
+S -> (. :VERB . :ccomp (. :A1 .) :nsubj (. :A0 .) :obl (. :A2 .));	0.01
+S -> (. :A0 . :advcl (. :obj (. :A1 .) :VERB .));	0.01
+S -> (. :VERB . :advcl (. :VERB .) :nsubj (. :A0 .));	0.01
+S -> (. :VERB . :obj (. :A0 .) :xcomp (. :VERB . :obj (. :A1 .)));	0.01
+S -> (. :A0 . :amod (. :VERB . :advmod (. :A1 .)));	0.01
+S -> (. :A0 . :acl_relcl (. :obj (. :A1 .) :obl (. :A2 .) :VERB .));	0.01
+S -> (. :A1 . :acl_relcl (. :nsubj (. :A0 .) :VERB .));	0.01
+S -> (. :VERB . :nsubj_pass (. :A0 .) :xcomp (. :VERB . :obl (. :A1 .)));	0.01
+S -> (. :A0 . :acl (. :advcl (. :A1 .) :VERB .));	0.01
+S -> (. :VERB . :nsubj (. :A1 .) :obj (. :A0 .));	0.01
+S -> (. :VERB . :advcl (. :A1 .) :obj (. :A0 .));	0.01
+S -> (. :VERB . :aux (. :AUX .) :nsubj (. :A0 .) :obl (. :A1 .));	0.01
+S -> (. :VERB . :conj (. :VERB . :ccomp (. :A1 .)) :nsubj (. :A0 .));	0.01
+S -> (. :VERB . :obj (. :A1 .) :obl (. :A0 .));	0.01
+S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :A1 . :obl (. :A2 .)));	0.01
+S -> (. :VERB . :obj (. :A0 . :nmod (. :A1 .)));	0.01
+S -> (. :VERB . :advmod (. :A2 .) :nsubj (. :A0 .) :obj (. :A1 .));	0.01
+S -> (. :VERB . :ccomp (. :A2 .) :nsubj (. :A0 .) :obl (. :A1 .));	0.01
+S -> (. :A0 . :amod (. :VERB .) :nmod (. :A1 .));	0.01
+S -> (. :VERB . :advcl (. :A1 .) :nsubj (. :A0 .) :obj (. :A2 .));	0.01
+S -> (. :NOUN . :nmod (. :A0 .));	0.01
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A2 .) :obl_unmarked (. :A1 .));	0.01
+S -> (. :VERB . :advcl (. :A1 .) :nsubj (. :A0 .) :obl (. :A2 .));	0.01
+S -> (. :VERB . :nsubj_pass (. :A1 .) :obl (. :A2 .) :obl_agent (. :A0 .));	0.01
+S -> (. :A0 . :acl_relcl (. :ccomp (. :A1 .) :VERB .));	0.01
+S -> (. :VERB . :obj (. :A0 .) :xcomp (. :VERB .));	0.01
+S -> (. :VERB . :conj (. :VERB .) :nsubj (. :A0 .));	0.01
+S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A2 .) :obl (. :A1 .) :obl (. :A3 .));	0.01
+S -> (. :VERB . :advcl (. :obl (. :A1 .) :VERB .) :nsubj_pass (. :A0 .));	0.01
+S -> (. :VERB . :advmod (. :A1 .) :nsubj (. :A0 .) :obj (. :A2 .));	0.01
+S -> (. :VERB . :obj (. :A0 .) :xcomp (. :VERB . :obl (. :A1 .)));	0.01
+S -> (. :VERB . :conj (. :VERB .) :obj (. :A0 .));	0.01
+S -> (. :VERB . :advmod (. :A2 .) :nsubj_pass (. :A0 .) :obl (. :A1 .));	0.01
+S -> (. :VERB . :ccomp (. :obj (. :A1 .) :VERB .) :nsubj (. :A0 .));	0.01
+S -> (. :VERB . :nsubj_pass (. :A0 .) :xcomp (. :VERB . :obj (. :A1 .)));	0.01
+S -> (. :VERB . :advmod (. :A1 .) :nsubj (. :A0 .) :obl (. :A2 .));	0.01
