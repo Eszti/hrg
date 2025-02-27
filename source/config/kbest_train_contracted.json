@@ -1,0 +1,8 @@
+{
+    "in_dir": "train_contracted_preproc",
+    "out_dir": "train_contracted_validation",
+    "models":
+    [
+        "basic"
+    ]
+}
