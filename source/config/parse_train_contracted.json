@@ -1,0 +1,5 @@
+{
+    "in_dir": "train_contracted_preproc",
+    "grammar_file": "hrg_contracted.hrg",
+    "out_dir": "train_contracted_validation"
+}
