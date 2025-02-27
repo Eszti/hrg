@@ -15,23 +15,30 @@ class DerivationList:
     def get_k_best_unique_derivation(
         self, sen_id, sen_text, k, pos_tags, top_order, pos_tag_resolution
     ):
-        kbest_unique_nodes = set()
+        unique_triplets = set()
         kbest_unique_derivations = []
         for derivation in self.derivation_list:
             processed_derivation = ProcessedDerivation(
                 derivation, pos_tag_resolution=pos_tag_resolution
             )
-            nodes_str = " ".join(processed_derivation.derived_nodes)
-            if nodes_str not in kbest_unique_nodes:
-                kbest_unique_nodes.add(nodes_str)
-                processed_derivation.calculate_processed_triplet(pos_tags, top_order)
+            processed_derivation.calculate_processed_triplet(pos_tags, top_order)
+            triplet_dict = " ".join(
+                [
+                    f"{n}:{l}"
+                    for n, l in sorted(
+                        processed_derivation.processed_triplet.node_to_label.items()
+                    )
+                ]
+            )
+            if triplet_dict not in unique_triplets:
+                unique_triplets.add(triplet_dict)
                 processed_derivation.processed_triplet.triplet_id = (
                     len(kbest_unique_derivations) + 1
                 )
                 kbest_unique_derivations.append(processed_derivation)
             if len(kbest_unique_derivations) >= k:
                 break
-        assert len(kbest_unique_derivations) == len(kbest_unique_nodes)
+        assert len(kbest_unique_derivations) == len(unique_triplets)
         if len(kbest_unique_derivations) < k:
             print(f"Found only {len(kbest_unique_derivations)} derivations.")
         return KbestDerivationList(kbest_unique_derivations, sen_id, sen_text)

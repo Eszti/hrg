@@ -163,15 +163,13 @@ class KBest(LoopOnSenDirs):
 
     def _after_loop(self):
         self.logger.log(
-            f"\nNumber of no chart: {self.no_chart}"
-            f"\nNumber of chart load failed: {len(self.chart_load_failed)}"
+            f"\nNumber of no chart: {self.no_chart}\n"
+            f"\nNumber of chart load failed: {len(self.chart_load_failed)}\n"
+            f"{json.dumps(self.chart_load_failed)}\n"
             f"\nNumber of no derivation found: {self.no_derivation_found}"
             f"\nNumber of successful derivation: {self.successful_derivation}"
             f"\nNumber of all sentences: {self.all_sens}",
             to_stdout=True,
-        )
-        self.logger.log(
-            f"\nChart load failed: {self.chart_load_failed}", to_stdout=True
         )
         super()._after_loop()
 

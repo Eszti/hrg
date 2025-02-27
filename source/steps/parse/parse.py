@@ -17,6 +17,7 @@ class Parse(LoopOnSenDirs):
         self.parse_did_not_finish = []
         self.cky_did_not_finish = []
         self.parse_finished = []
+        self.no_derivation = []
 
     @abstractmethod
     def _get_triplet_input(self, sen_idx, sen_dir):
@@ -35,6 +36,7 @@ class Parse(LoopOnSenDirs):
             self.logger.log(f"\nParsing sen {triplet_id}")
             try:
                 self._parse_sen(
+                    triplet_id=triplet_id,
                     graph_file=f"{graph_file}",
                     chart_file=f"{bolinas_dir}/sen{str(triplet_id)}_chart.pickle",
                     sen_logger=sen_logger,
@@ -49,7 +51,7 @@ class Parse(LoopOnSenDirs):
                 sen_logger.log(e.print_message())
                 self.logger.log(e.print_message())
 
-    def _parse_sen(self, graph_file, chart_file, sen_logger):
+    def _parse_sen(self, triplet_id, graph_file, chart_file, sen_logger):
         parse_generator = self.parser.parse_graphs(
             (Hgraph.from_string(x) for x in self.__read_graph_file(graph_file)),
             partial=True,
@@ -61,6 +63,7 @@ class Parse(LoopOnSenDirs):
             assert i == 0
             if cky_chart.no_derivation():
                 sen_logger.log("\nNo derivation found")
+                self.no_derivation.append(triplet_id)
                 continue
             else:
                 CkyChart.to_file(cky_chart, chart_file)
@@ -81,9 +84,9 @@ class Parse(LoopOnSenDirs):
             f"{json.dumps(self.parse_did_not_finish)}"
             f"\nNumber of cky conversion did not finish: {len_cky_dnf}\n"
             f"{json.dumps(self.cky_did_not_finish)}"
-            f"\nNumber of parse finished: {len_parse_success}"
-        )
-        self.logger.log(
+            f"\nNumber of parse finished: {len_parse_success}\n"
+            f"\nNumber of no derivation found: {len(self.no_derivation)}\n"
+            f"{json.dumps(self.no_derivation)}\n"
             f"\nAll sentences: {all_sens}"
             f"\nFinished: {round(len_parse_success / all_sens, 2)}"
             f"\nDNF: {round((len_parse_dnf + len_cky_dnf) / all_sens, 2)}",
