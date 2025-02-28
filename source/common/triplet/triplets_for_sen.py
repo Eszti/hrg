@@ -36,7 +36,12 @@ class TripletsForSen:
         with open(fn, "w") as f:
             json.dump(json_dict, f, indent=4)
 
+    def to_short_json(self):
+        ret = ""
+        for triplet in self.triplets:
+            ret += f"{triplet.to_short_json()}\n"
+        return ret
+
     def save_summary(self, fn):
         with open(fn, "w") as f:
-            for triplet in self.triplets:
-                f.write(f"{triplet.to_short_json()}\n")
+            f.write(self.to_short_json())

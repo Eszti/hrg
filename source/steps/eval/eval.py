@@ -112,8 +112,10 @@ class Eval(LoopOnSenDirs):
             self.no_exact_matches[model_name].append(sen_idx)
 
     @staticmethod
-    def __get_k_from_model_name(model_name):
-        return int(model_name.split("_")[1])
+    def __get_sort_key_for_model_name(full_model_name):
+        split = full_model_name.split("_")
+        k = int(split[1]) if len(split) > 1 else 0
+        return split[0], k
 
     def _after_loop(self):
         sys_scorer = SystemScorer(self.sentence_scorers)
@@ -127,7 +129,8 @@ class Eval(LoopOnSenDirs):
                     for match_name, ids in matches.items():
                         f.write(f"{match_name}\n{ids}\n")
         for model_name, no_matches in sorted(
-            self.no_matches.items(), key=lambda x: self.__get_k_from_model_name(x[0])
+            self.no_matches.items(),
+            key=lambda x: self.__get_sort_key_for_model_name(x[0]),
         ):
             self.logger.log(
                 f"\nNumber of no matches {model_name}: {len(no_matches)}"
@@ -136,7 +139,7 @@ class Eval(LoopOnSenDirs):
             )
         for model_name, no_exact_matches in sorted(
             self.no_exact_matches.items(),
-            key=lambda x: self.__get_k_from_model_name(x[0]),
+            key=lambda x: self.__get_sort_key_for_model_name(x[0]),
         ):
             no_matches = self.no_matches[model_name]
             no_exact_matches_diff = sorted(set(no_exact_matches) - set(no_matches))

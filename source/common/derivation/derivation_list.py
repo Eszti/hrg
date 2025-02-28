@@ -44,13 +44,22 @@ class DerivationList:
         return KbestDerivationList(kbest_unique_derivations, sen_id, sen_text)
 
     def get_best_matching_derivations(
-        self, sen_id, sen_text, gold_triplets, top_order, pos_tags, arg_perm=True
+        self,
+        sen_id,
+        sen_text,
+        gold_triplets,
+        top_order,
+        pos_tags,
+        pos_tag_resolution,
+        arg_perm=True,
     ):
         derivations_to_keep = defaultdict(lambda: [None] * len(gold_triplets))
         max_scores = defaultdict(lambda: [-1.0] * len(gold_triplets))
 
         for derivation in self.derivation_list:
-            processed_derivation = ProcessedDerivation(derivation)
+            processed_derivation = ProcessedDerivation(
+                derivation, pos_tag_resolution=pos_tag_resolution
+            )
             processed_derivation.calculate_processed_triplet(pos_tags, top_order)
             permutations = (
                 processed_derivation.processed_triplet.get_all_permutations()

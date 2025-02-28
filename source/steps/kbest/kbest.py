@@ -42,6 +42,7 @@ class KbestModel:
             gold_triplets=gold_triplets,
             top_order=top_order,
             pos_tags=pos_tags,
+            pos_tag_resolution=pos_tag_resolution,
         )
 
 
@@ -83,6 +84,7 @@ class KBest(LoopOnSenDirs):
             "max": MaxModel(),
             "pr_best": PRModel(),
         }
+        self.gold_triplets_fn = "gold_triplets.json"
         self.pos_tag_resolution = False
         self.no_chart = 0
         self.chart_load_failed = []
@@ -115,9 +117,10 @@ class KBest(LoopOnSenDirs):
             return
 
         self.successful_derivation += 1
-        gold_triplets = TripletsForSen.from_json(
-            f"{preproc_sen_dir}/gold_triplets.json"
-        ).triplets
+        gold_triplets_for_sen = TripletsForSen.from_json(
+            f"{preproc_sen_dir}/{self.gold_triplets_fn}"
+        )
+        gold_triplets = gold_triplets_for_sen.triplets
         top_order = json.load(open(f"{preproc_sen_dir}/graph_top_order.json"))
         conll_sen = ConllSen(preproc_sen_dir)
         pos_tags = conll_sen.pos_tags()
@@ -128,9 +131,10 @@ class KBest(LoopOnSenDirs):
 
             sen_logger = Logger(f"{kbest_dir}/sen{sen_idx}_{model_name}.log")
             sen_logger.log(f"Processing {model_name}", to_stdout=True)
+            sen_logger.log(f"\nGold triplets:\n{gold_triplets_for_sen.to_short_json()}")
 
             filtered_chart = cky_chart
-            sen_logger.log(f"\n{filtered_chart.log_length()}")
+            sen_logger.log(f"{filtered_chart.log_length()}")
             if model.max_filter:
                 sen_logger.log("Apply max size filter")
                 filtered_chart = cky_chart.chart_with_only_max_size()

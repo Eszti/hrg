@@ -10,6 +10,7 @@ class KBestContracted(KBest):
             config=config,
         )
         self.pos_tag_resolution = True
+        self.gold_triplets_fn = "gold_contracted_triplets.json"
 
 
 if __name__ == "__main__":
