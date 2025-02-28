@@ -21,7 +21,9 @@ class DerivationList:
             processed_derivation = ProcessedDerivation(
                 derivation, pos_tag_resolution=pos_tag_resolution
             )
-            processed_derivation.calculate_processed_triplet(pos_tags, top_order)
+            processed_derivation.calculate_processed_triplet_from_tree_structure(
+                pos_tags, top_order
+            )
             triplet_dict = " ".join(
                 [
                     f"{n}:{l}"
@@ -60,7 +62,9 @@ class DerivationList:
             processed_derivation = ProcessedDerivation(
                 derivation, pos_tag_resolution=pos_tag_resolution
             )
-            processed_derivation.calculate_processed_triplet(pos_tags, top_order)
+            processed_derivation.calculate_processed_triplet_from_tree_structure(
+                pos_tags, top_order
+            )
             permutations = (
                 processed_derivation.processed_triplet.get_all_permutations()
                 if arg_perm

@@ -35,10 +35,9 @@ class Train(LoopOnTriplets):
     def _do_for_triplet(self, sen_dir, triplet_idx, triplet_graph_str, triplet):
         hrg_dir = self._get_subdir(str(triplet_idx), self.out_dir)
         triplet_logger = Logger(f"{hrg_dir}/sen{triplet_idx}.log")
-        triplet_graph = Graph.from_bolinas(triplet_graph_str)
 
         self.all_sens += 1
-        rules = self._get_rules(triplet_graph, triplet)
+        rules = self._get_rules(triplet_graph_str, triplet, triplet_logger)
         if not rules:
             self.no_rule.append(triplet_idx)
             return
@@ -97,7 +96,7 @@ class Train(LoopOnTriplets):
                 triplet_logger.log(e.print_message())
 
     @abstractmethod
-    def _get_rules(self, triplet_graph, triplet):
+    def _get_rules(self, triplet_graph_str, triplet, triplet_logger):
         raise NotImplemented
 
     def _after_loop(self):

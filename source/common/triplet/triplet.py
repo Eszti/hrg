@@ -124,6 +124,10 @@ class Triplet:
                 self.pred_resolution = "C"
         self.__update_label_to_nodes()
 
+    def set_pred_ids(self, pred_ids):
+        self.label_to_nodes["P"] = sorted(pred_ids)
+        self.__update_node_to_label()
+
     def get_all_permutations(self):
         ret = []
         args = self.arguments()

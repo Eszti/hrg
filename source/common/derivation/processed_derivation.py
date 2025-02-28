@@ -31,7 +31,9 @@ class ProcessedDerivation(Derivation):
         )
         self.processed_triplet = None
 
-    def calculate_processed_triplet(self, pos_tags, top_order, score=None):
+    def calculate_processed_triplet_from_tree_structure(
+        self, pos_tags, top_order, score=None
+    ):
         self.processed_triplet = copy.copy(self.original_triplet)
         self.processed_triplet.derivation_score = (
             score if score is not None else self.score
@@ -39,6 +41,20 @@ class ProcessedDerivation(Derivation):
         self.processed_triplet.resolve_pred(
             pos_tags, top_order, self.pos_tag_resolution
         )
+
+    def calculate_processed_triplet_from_rule(self, score=None):
+        self.processed_triplet = copy.copy(self.original_triplet)
+        self.processed_triplet.derivation_score = (
+            score if score is not None else self.score
+        )
+        self.final_item.rule.rhs1.fill_node_order()
+        order_to_node_id = self.final_item.rule.rhs1.order_to_node
+        pred_order_ids = [
+            order_to_node_id[int(p)] for p in self.final_item.rule.predicates.split("_")
+        ]
+        pred_node_ids = [self.final_item.mapping[p] for p in pred_order_ids]
+        pred_ids = [int(p.split("n")[-1]) for p in pred_node_ids]
+        self.processed_triplet.set_pred_ids(pred_ids)
 
     def full_log(self, logger, k):
         if self.processed_triplet is not None:

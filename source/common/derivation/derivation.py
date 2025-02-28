@@ -1,5 +1,3 @@
-import re
-
 from source.common.bolinas.hgraph import Hgraph
 
 
@@ -27,7 +25,7 @@ class Derivation:
         for v, l, u in self.final_item.shifted:
             triples.append((v[0], l, u[0][0]))
         graph = Hgraph.from_triples(triples, node_to_concepts)
-        return re.sub(r"(\n|\s+)", " ", graph.to_bolinas_str(nodeids=True))
+        return graph.to_bolinas_str(nodeids=True)
 
     @staticmethod
     def walk_derivation(derivation, combiner, leaf):

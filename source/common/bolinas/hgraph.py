@@ -105,6 +105,10 @@ class Hgraph(defaultdict):
         self.__cached_triples = None
         self.node_to_concepts = {}
 
+        self.node_order_count = 0
+        self.node_to_order = {}
+        self.order_to_node = {}
+
     def __reduce__(self):
         t = defaultdict.__reduce__(self)
         return (t[0], ()) + (self.__dict__,) + t[3:]
@@ -474,10 +478,10 @@ class Hgraph(defaultdict):
 
         return triples
 
-    def __str__(self):
-        return self.to_bolinas_str()
+    def __str__(self, nodeids=False, newline=False):
+        return self.to_bolinas_str(nodeids=nodeids, newline=newline)
 
-    def to_bolinas_str(self, nodeids=False):
+    def to_bolinas_str(self, nodeids=False, newline=False):
 
         nodeids_to_print = self.get_reentrant_nodes()
         if nodeids:
@@ -556,13 +560,25 @@ class Hgraph(defaultdict):
         def hedgecombiner(nodes):
             return " ".join(nodes)
 
-        return " ".join(self.dfs(extractor, combiner, hedgecombiner))
+        ret = " ".join(self.dfs(extractor, combiner, hedgecombiner))
+        if newline:
+            return ret
+        else:
+            return re.sub(r"(\n|\s+)", " ", ret)
 
     def to_string(self, newline=False):
         if newline:
             return str(self)
         else:
             return re.sub(r"(\n|\s+)", " ", str(self))
+
+    def fill_node_order(self):
+        def extractor(node, firsthit, leaf):
+            self.node_to_order[node] = self.node_order_count
+            self.order_to_node[self.node_order_count] = node
+            self.node_order_count += 1
+
+        return self.dfs(extractor)
 
     def _add_triple(self, parent, relation, child, warn=sys.stderr):
         """

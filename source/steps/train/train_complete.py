@@ -2,6 +2,7 @@ import logging
 from collections import defaultdict
 
 import networkx as nx
+from tuw_nlp.graph.graph import Graph
 
 from source.steps.train.train import Train
 
@@ -16,8 +17,9 @@ class TrainComplete(Train):
         self.method = self.config["method"]
         self.out_dir += f"_{self.method}"
 
-    def _get_rules(self, triplet_graph, triplet):
+    def _get_rules(self, triplet_graph_str, triplet, triplet_logger):
         rules_dict = {}
+        triplet_graph = Graph.from_bolinas(triplet_graph_str)
         if self.method == "per_word":
             initial_rule, rules = self.__get_rules_per_word(triplet_graph, triplet)
             rules_dict["initial_rule"] = initial_rule

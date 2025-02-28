@@ -13,6 +13,7 @@ class VoRule(Rule):
         rule_id,
         symbol,
         weight,
+        predicates,
         rhs1,
         rhs2,
         rhs1_visit_order=None,
@@ -24,6 +25,7 @@ class VoRule(Rule):
         self.rule_id = rule_id
         self.symbol = symbol
         self.weight = weight
+        self.predicates = predicates
         self.rhs1 = rhs1
         self.rhs2 = rhs2
         self.nodelabels = nodelabels
@@ -68,7 +70,7 @@ class VoRule(Rule):
             self.original_index = None
 
     def __repr__(self):
-        return "VoRule(%d,%s)" % (self.rule_id, self.symbol)
+        return str(self)
 
     def __hash__(self):
         return self.rule_id

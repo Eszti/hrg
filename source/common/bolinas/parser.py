@@ -253,7 +253,7 @@ class Parser:
                     derivation_list.derivation_list[0],
                     pos_tag_resolution=pos_tag_resolution,
                 )
-                processed_derivation.calculate_processed_triplet(pos_tags, top_order)
+                processed_derivation.calculate_processed_triplet_from_rule()
                 processed_derivation.full_log(logger=sen_logger, k=1)
 
                 not_covered_nodes = sorted(
