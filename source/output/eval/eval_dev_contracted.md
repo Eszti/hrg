@@ -1,5 +1,12 @@
 # Evaluation
 ## dev_contracted
+### f1
+
+|  model_name | predicted extractions | gold extractions | matches | exact matches | prec of matches | rec of matches | prec (only exact) | rec (only exact) | f1 (only exact) | prec | rec | F1 |
+|-------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | 
+| f1 | 3484 | 3484 | 3484 | 3007 | 1.0000 | 0.9540 | 0.8631 | 0.8631 | 0.8631 | **1.0000** | **0.9540** | **0.9765** | 
+
+
 ### basic
 
 |  model_name | predicted extractions | gold extractions | matches | exact matches | prec of matches | rec of matches | prec (only exact) | rec (only exact) | f1 (only exact) | prec | rec | F1 |

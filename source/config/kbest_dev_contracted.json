@@ -3,6 +3,7 @@
     "out_dir": "dev_contracted",
     "models":
     [
-        "basic"
+        "basic",
+	"pr_best"
     ]
 }
