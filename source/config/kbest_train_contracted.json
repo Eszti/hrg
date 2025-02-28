@@ -3,6 +3,7 @@
     "out_dir": "train_contracted_validation",
     "models":
     [
-        "basic"
+        "basic",
+        "pr_best"
     ]
 }

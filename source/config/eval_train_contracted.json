@@ -4,6 +4,7 @@
     "train_contracted_validation"
   ],
   "models": [
-    "basic"
+    "basic",
+    "f1"
   ]
 }

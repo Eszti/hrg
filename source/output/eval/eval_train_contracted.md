@@ -1,5 +1,12 @@
 # Evaluation
 ## train_contracted_validation
+### f1
+
+|  model_name | predicted extractions | gold extractions | matches | exact matches | prec of matches | rec of matches | prec (only exact) | rec (only exact) | f1 (only exact) | prec | rec | F1 |
+|-------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | 
+| f1 | 32259 | 32259 | 32259 | 31625 | 1.0000 | 0.9931 | 0.9803 | 0.9803 | 0.9803 | **1.0000** | **0.9931** | **0.9966** | 
+
+
 ### basic
 
 |  model_name | predicted extractions | gold extractions | matches | exact matches | prec of matches | rec of matches | prec (only exact) | rec (only exact) | f1 (only exact) | prec | rec | F1 |
