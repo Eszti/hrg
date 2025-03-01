@@ -105,10 +105,6 @@ class Hgraph(defaultdict):
         self.__cached_triples = None
         self.node_to_concepts = {}
 
-        self.node_order_count = 0
-        self.node_to_order = {}
-        self.order_to_node = {}
-
     def __reduce__(self):
         t = defaultdict.__reduce__(self)
         return (t[0], ()) + (self.__dict__,) + t[3:]
@@ -481,10 +477,10 @@ class Hgraph(defaultdict):
     def __str__(self, nodeids=False, newline=False):
         return self.to_bolinas_str(nodeids=nodeids, newline=newline)
 
-    def to_bolinas_str(self, nodeids=False, newline=False):
+    def to_bolinas_str(self, nodeids=False, orderids=False, newline=False):
 
         nodeids_to_print = self.get_reentrant_nodes()
-        if nodeids:
+        if nodeids or orderids:
             nodeids_to_print = self.get_nodes()
 
         def extractor(node, firsthit, leaf):
@@ -515,27 +511,35 @@ class Hgraph(defaultdict):
                             concept = self.node_to_concepts[node]
                             if node in self.external_nodes:
                                 return "%s%s*%i " % (
-                                    "%s." % node if node in nodeids_to_print else "",
+                                    __get_node_name(node),
                                     concept,
                                     self.external_nodes[node],
                                 )
                             else:
                                 return "%s%s " % (
-                                    "%s." % node if node in nodeids_to_print else "",
+                                    __get_node_name(node),
                                     concept,
                                 )
                         else:
                             if node in self.external_nodes:
                                 return "%s.*%i " % (
-                                    node if node in nodeids_to_print else "",
+                                    __get_node_name(node),
                                     self.external_nodes[node],
                                 )
                             else:
-                                return "%s." % (
-                                    node if node in nodeids_to_print else ""
-                                )
+                                return "%s." % (__get_node_name(node))
                     else:
-                        return "%s." % (node if node in nodeids_to_print else "")
+                        return "%s." % (__get_node_name(node))
+
+        def __get_node_name(node):
+            node_print_name = ""
+            if nodeids or orderids:
+                if node in self.node_to_concepts:
+                    if orderids:
+                        node_print_name = nodeids_to_print[node]
+                    else:
+                        node_print_name = node
+            return node_print_name
 
         def combiner(nodestr, childmap, depth):
             nt_children = sorted(
@@ -571,14 +575,6 @@ class Hgraph(defaultdict):
             return str(self)
         else:
             return re.sub(r"(\n|\s+)", " ", str(self))
-
-    def fill_node_order(self):
-        def extractor(node, firsthit, leaf):
-            self.node_to_order[node] = self.node_order_count
-            self.order_to_node[self.node_order_count] = node
-            self.node_order_count += 1
-
-        return self.dfs(extractor)
 
     def _add_triple(self, parent, relation, child, warn=sys.stderr):
         """

@@ -8,7 +8,6 @@ from source.steps.preproc.preproc import Preproc
 from source.steps.random.artefacts import Artefacts
 from source.steps.random.random_extractor import Random
 from source.steps.stat.run_all_stat import Stat
-from source.steps.train.hrg import Hrg
 from source.steps.train.train import Train
 
 
@@ -21,7 +20,6 @@ class Pipeline(Script):
         self.name_to_class = {
             "preproc": Preproc,
             "train": Train,
-            "hrg": Hrg,
             "artefacts": Artefacts,
             "random": Random,
             "parse": Parse,

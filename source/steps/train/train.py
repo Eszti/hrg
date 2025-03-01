@@ -1,8 +1,5 @@
 import json
-import logging
 from abc import abstractmethod
-
-from tuw_nlp.graph.graph import Graph
 
 from source.common.bolinas.grammar import Grammar
 from source.common.bolinas.parser import Parser
@@ -13,6 +10,7 @@ from source.common.exceptions import (
     CkyTooLongException,
     NotAllNodesCoveredException,
 )
+from source.common.rules.hrg_for_dataset import HRGForDataset
 from source.common.script.logger import Logger
 from source.common.script.loop_on_triplets import LoopOnTriplets
 from source.common.triplet.triplet_matcher import TripletMatcher
@@ -22,6 +20,7 @@ class Train(LoopOnTriplets):
     def __init__(self, description, script_name, config=None):
         super().__init__(description, script_name=script_name, config=config)
         self.validate = self.config.get("validate", True)
+
         self.no_rule = []
         self.not_validated = []
         self.validated = []
@@ -29,31 +28,44 @@ class Train(LoopOnTriplets):
         self.not_all_nodes_covered = []
         self.parse_did_not_finish = []
         self.cky_did_not_finish = []
+        self.predicate_mapping_failed = []
         self.all_sens = 0
+
         self.pos_tag_resolution = False
+        self.pred_resolution_from_rule = False
+
+        self.grammar_cuts = self.config.get("grammar_cuts", None)
+        self.hrgs = []
+        self.grammar_fn_prefix = f"hrg_{self.config_json.split('/')[-1].split('.json')[0].split('train_')[-1]}"
 
     def _do_for_triplet(self, sen_dir, triplet_idx, triplet_graph_str, triplet):
         hrg_dir = self._get_subdir(str(triplet_idx), self.out_dir)
         triplet_logger = Logger(f"{hrg_dir}/sen{triplet_idx}.log")
 
         self.all_sens += 1
-        rules = self._get_rules(triplet_graph_str, triplet, triplet_logger)
-        if not rules:
+        hrg_for_triplet = self._get_hrg_for_triplet(
+            triplet_graph_str, triplet_idx, triplet, triplet_logger
+        )
+        if not hrg_for_triplet.all_rules:
             self.no_rule.append(triplet_idx)
             return
-        grammar_lines = [f"{rules['initial_rule']}"]
-        for rule in sorted(rules["rules"]):
-            grammar_lines.append(f"{rule}")
-        triplet_logger.log(f"Grammar length: {len(grammar_lines)}")
-        with open(f"{hrg_dir}/sen{triplet_idx}.hrg", "w") as f:
-            f.writelines(grammar_lines)
+
+        self.hrgs.append(hrg_for_triplet)
+        if hrg_for_triplet.failed_predicate_mapping:
+            self.predicate_mapping_failed.append(triplet_idx)
+
+        hrg_for_triplet.save_grammar_lines(f"{hrg_dir}/sen{triplet_idx}.hrg")
+        triplet_logger.log(f"\nGrammar:\n{hrg_for_triplet.print_grammar_lines()}\n")
 
         top_order = json.load(open(f"{sen_dir}/graph_top_order.json"))
         pos_tags = ConllSen(sen_dir).pos_tags()
 
         if self.validate:
             grammar = Grammar.load_from_file(
-                grammar_lines, VoRule, nodelabels=True, logprob=True
+                hrg_for_triplet.get_grammar_lines(),
+                VoRule,
+                nodelabels=True,
+                logprob=True,
             )
             parser = Parser(grammar, stop_at_first=True, permutations=False)
 
@@ -66,6 +78,7 @@ class Train(LoopOnTriplets):
                     pos_tags=pos_tags,
                     top_order=top_order,
                     pos_tag_resolution=self.pos_tag_resolution,
+                    pred_resolution_from_rule=self.pred_resolution_from_rule,
                 )
 
                 if derivation is None:
@@ -96,7 +109,9 @@ class Train(LoopOnTriplets):
                 triplet_logger.log(e.print_message())
 
     @abstractmethod
-    def _get_rules(self, triplet_graph_str, triplet, triplet_logger):
+    def _get_hrg_for_triplet(
+        self, triplet_graph_str, triplet_id, triplet, triplet_logger
+    ):
         raise NotImplemented
 
     def _after_loop(self):
@@ -118,9 +133,23 @@ class Train(LoopOnTriplets):
                 f"\nNumber of all sentences: {self.all_sens}\n",
                 to_stdout=True,
             )
+        self.__save_merged_hrg()
         super()._after_loop()
 
+    def __save_merged_hrg(self):
+        self.grammar_dir = self._get_subdir("grammar")
 
-if __name__ == "__main__":
-    logging.getLogger("penman").setLevel(logging.ERROR)
-    Train().run()
+        hrg_for_dataset = HRGForDataset(self.hrgs)
+        self.logger.log(
+            f"\nDuplicated rules with different predicate ids: (len: {len(hrg_for_dataset.duplicate_rules)})\n"
+            f"\n{hrg_for_dataset.log_duplicates_with_different_predicates()}"
+        )
+        self.__save_hrg(hrg_for_dataset, f"{self.grammar_fn_prefix}")
+
+        cuts = hrg_for_dataset.get_cuts(self.grammar_cuts)
+        for size, hrg_cut in cuts.items():
+            self.__save_hrg(hrg_cut, f"{self.grammar_fn_prefix}_{size}")
+
+    def __save_hrg(self, hrg, fn_prefix):
+        hrg.save_hrg(self.grammar_dir, fn_prefix)
+        self.logger.log(f"\nUnique rules for {fn_prefix}: {hrg.all_rules}")

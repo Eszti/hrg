@@ -47,8 +47,8 @@ class ProcessedDerivation(Derivation):
         self.processed_triplet.derivation_score = (
             score if score is not None else self.score
         )
-        self.final_item.rule.rhs1.fill_node_order()
-        order_to_node_id = self.final_item.rule.rhs1.order_to_node
+        node_to_order = self.final_item.rule.rhs1.get_nodes()
+        order_to_node_id = {o: n for n, o in node_to_order.items()}
         pred_order_ids = [
             order_to_node_id[int(p)] for p in self.final_item.rule.predicates.split("_")
         ]

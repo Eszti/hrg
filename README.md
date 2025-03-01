@@ -34,12 +34,6 @@ python steps/preproc/preproc.py  -d $DATA_DIR -c config/preproc_train.json
 python steps/train/train.py -d $DATA_DIR -c config/train_per_word.json
 ```
 
-We [create](source/steps/train/hrg.py) different cuts of this grammar using the top 100, 200 and 300 rules by keeping the original distribution of nonterminals and norming the weighs per nonterminal.
-
-```bash
-python steps/train/hrg.py -d $DATA_DIR -c config/hrg.json
-```
-
 #### Run the whole train pipeline
 
 ```bash

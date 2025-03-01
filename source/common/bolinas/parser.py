@@ -224,9 +224,10 @@ class Parser:
         pos_tags,
         top_order,
         pos_tag_resolution=False,
+        pred_resolution_from_rule=False,
     ):
         processed_derivation = None
-        sen_logger.log("\nVALIDATION:\n")
+        sen_logger.log("VALIDATION:\n")
         input_graph = Hgraph.from_string(bolinas_graph)
         orig_nodes = sorted(
             list(input_graph.get_nodes().keys()), key=lambda node: int(node[1:])
@@ -253,7 +254,12 @@ class Parser:
                     derivation_list.derivation_list[0],
                     pos_tag_resolution=pos_tag_resolution,
                 )
-                processed_derivation.calculate_processed_triplet_from_rule()
+                if pred_resolution_from_rule:
+                    processed_derivation.calculate_processed_triplet_from_rule()
+                else:
+                    processed_derivation.calculate_processed_triplet_from_tree_structure(
+                        pos_tags, top_order
+                    )
                 processed_derivation.full_log(logger=sen_logger, k=1)
 
                 not_covered_nodes = sorted(

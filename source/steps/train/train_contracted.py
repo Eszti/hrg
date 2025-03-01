@@ -1,7 +1,7 @@
-import json
 import logging
 
-from source.common.bolinas.hgraph import Hgraph
+from source.common.rules.hrg_for_triplet import HRGForTriplet
+from source.common.rules.hrg_rule import HRGRule
 from source.steps.train.train import Train
 
 
@@ -13,27 +13,21 @@ class TrainContracted(Train):
             config=config,
         )
         self.pos_tag_resolution = True
+        self.pred_resolution_from_rule = True
         self.gold_triplets_fn = "gold_contracted_triplets.json"
 
-    def _get_rules(self, triplet_graph_str, triplet, triplet_logger):
-        rhs = Hgraph.from_string(triplet_graph_str)
-        rhs_to_save = Hgraph.from_string(rhs.to_bolinas_str(nodeids=True))
-        rhs_to_save.fill_node_order()
-        predicates = "_".join(
-            [str(rhs_to_save.node_to_order[f"n{p}"]) for p in triplet.predicate()]
+    def _get_hrg_for_triplet(
+        self, triplet_graph_str, triplet_id, triplet, triplet_logger
+    ):
+        hrg_rule = HRGRule(
+            lhs="S",
+            rhs_string=triplet_graph_str,
+            triplet=triplet,
+            triplet_id=triplet_id,
+            predicate_info=True,
         )
-        initial_rule = f"S -> {rhs_to_save.to_string()};{predicates};"
-        triplet_logger.log(
-            f"Rule rhs with ids:\n{rhs_to_save.to_bolinas_str(nodeids=True)}"
-            f"\nNodes to order:\n{json.dumps(rhs_to_save.node_to_order)}"
-            f"\nPredicate nodes: {triplet.predicate()}"
-            f"\nPredicate node orders: {predicates}\n"
-            f"\nInitial rule:\n{initial_rule}\n"
-        )
-        return {
-            "initial_rule": initial_rule,
-            "rules": [],
-        }
+        triplet_logger.log(hrg_rule.log_hrg_rule())
+        return HRGForTriplet([hrg_rule], triplet_id)
 
 
 if __name__ == "__main__":
