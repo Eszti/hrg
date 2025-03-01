@@ -58,11 +58,15 @@ class Hrg(LoopOnSenDirs):
             rule, predicates, _ = prod.split(";", maxsplit=3)
             rule_map[rule].append(predicates)
         lines_to_log = ""
+        cnt = 0
         for rule, predicates in rule_map.items():
             if len(predicates) > 1:
                 for predicate in predicates:
                     lines_to_log += f"{rule};{predicate}\n"
-        self.logger.log(f"Duplicated rules with different predicates:\n{lines_to_log}")
+                    cnt += 1
+        self.logger.log(
+            f"Duplicated rules with different predicates: {cnt}\n{lines_to_log}"
+        )
 
     @staticmethod
     def __get_total_number_of_rules(grammar):
