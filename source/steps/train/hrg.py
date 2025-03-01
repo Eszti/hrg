@@ -27,6 +27,7 @@ class Hrg(LoopOnSenDirs):
                 self.grammar["all"][nt][rule] += 1
 
     def _after_loop(self):
+        self.__log_duplicated_rules_with_different_predicates()
         self.__cut_grammar()
         self.__add_weights()
         grammar_dir = self._get_subdir("grammar")
@@ -47,6 +48,21 @@ class Hrg(LoopOnSenDirs):
                     f"{nt}: {len(prods)}\t({round(len(prods) / self.__get_total_number_of_rules(grammar), 3)})"
                 )
         super()._after_loop()
+
+    def __log_duplicated_rules_with_different_predicates(self):
+        all_rules = []
+        for nt, prods in self.grammar["all"].items():
+            all_rules += prods
+        rule_map = defaultdict(list)
+        for prod in all_rules:
+            rule, predicates, _ = prod.split(";", maxsplit=3)
+            rule_map[rule].append(predicates)
+        lines_to_log = ""
+        for rule, predicates in rule_map.items():
+            if len(predicates) > 1:
+                for predicate in predicates:
+                    lines_to_log += f"{rule};{predicate}\n"
+        self.logger.log(f"Duplicated rules with different predicates:\n{lines_to_log}")
 
     @staticmethod
     def __get_total_number_of_rules(grammar):
