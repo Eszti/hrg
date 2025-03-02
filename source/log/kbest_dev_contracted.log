@@ -1,4 +1,4 @@
-Execution start: 2025-02-28 16:18:09.460333
+Execution start: 2025-03-02 21:12:38.606255
 {
     "in_dir": "dev_contracted_preproc",
     "out_dir": "dev_contracted",
@@ -65,11 +65,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 16
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 17
 Chart file path does not exist.
@@ -153,11 +153,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 30
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 31
 Search steps: 3
@@ -243,36 +243,36 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 45
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 46
 Chart file path does not exist.
 Parsing sen 47
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 48
 Chart file path does not exist.
 Parsing sen 49
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 50
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 51
 Search steps: 7
@@ -305,11 +305,11 @@ Number of derivations: 2
 Parsing sen 55
 Chart file path does not exist.
 Parsing sen 56
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 57
 Search steps: 3
@@ -347,18 +347,18 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 62
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 63
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 64
 Search steps: 4
@@ -382,11 +382,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 67
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 68
 Chart file path does not exist.
@@ -407,25 +407,25 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 72
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 73
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 74
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 75
 Search steps: 5
@@ -470,18 +470,18 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 81
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 82
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 83
 Chart file path does not exist.
@@ -507,18 +507,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 87
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 88
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 89
 Chart file path does not exist.
@@ -597,11 +597,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 102
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 103
 Search steps: 7
@@ -619,11 +619,11 @@ Number of derivations: 3
 
 Parsing sen 105
 Parsing sen 106
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 107
 Chart file path does not exist.
@@ -637,11 +637,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 110
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 111
 Search steps: 4
@@ -687,18 +687,18 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 120
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 121
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 122
 Search steps: 7
@@ -715,11 +715,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 124
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 125
 Search steps: 4
@@ -803,11 +803,11 @@ Number of derivations: 2
 Parsing sen 143
 Chart file path does not exist.
 Parsing sen 144
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 145
 Search steps: 2
@@ -858,11 +858,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 154
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 155
 Search steps: 4
@@ -872,11 +872,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 156
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 157
 Search steps: 4
@@ -900,11 +900,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 160
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 161
 Search steps: 8
@@ -942,11 +942,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 169
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 170
 Search steps: 6
@@ -1456,20 +1456,20 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 268
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 269
 Chart file path does not exist.
 Parsing sen 270
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 271
 Chart file path does not exist.
@@ -1488,11 +1488,11 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 274
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 275
 Search steps: 5
@@ -1509,34 +1509,34 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 277
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 278
-Search steps: 10
-Number of derivations: 9
+Search steps: 14
+Number of derivations: 13
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 14
+Number of derivations: 13
 
 Parsing sen 279
 Chart file path does not exist.
 Parsing sen 280
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 281
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 282
 Search steps: 5
@@ -1546,11 +1546,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 283
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 284
 Search steps: 3
@@ -1623,11 +1623,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 297
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 298
 Chart file path does not exist.
@@ -1748,11 +1748,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 317
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 318
 Search steps: 5
@@ -1806,11 +1806,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 326
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 327
 Search steps: 2
@@ -1870,18 +1870,18 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 338
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 339
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 340
 Parsing sen 341
@@ -1960,11 +1960,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 357
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 358
 Search steps: 3
@@ -1974,11 +1974,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 359
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 360
 Chart file path does not exist.
@@ -2006,20 +2006,20 @@ Number of derivations: 3
 Parsing sen 367
 Chart file path does not exist.
 Parsing sen 368
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 369
 Chart file path does not exist.
 Parsing sen 370
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 371
 Search steps: 3
@@ -2071,11 +2071,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 381
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 382
 Search steps: 5
@@ -2155,11 +2155,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 393
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 394
 Chart file path does not exist.
@@ -2171,18 +2171,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 396
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
 Parsing sen 397
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
 Parsing sen 398
 Parsing sen 399
@@ -2248,11 +2248,11 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 410
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 411
 Search steps: 6
@@ -2262,11 +2262,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 412
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 413
 Search steps: 5
@@ -2343,11 +2343,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 428
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 429
 Parsing sen 430
@@ -2476,20 +2476,20 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 454
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 455
 Chart file path does not exist.
 Parsing sen 456
-Search steps: 7
-Number of derivations: 6
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 457
 Chart file path does not exist.
@@ -2554,11 +2554,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 471
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 472
 Chart file path does not exist.
@@ -2591,11 +2591,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 477
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 478
 Search steps: 5
@@ -2637,11 +2637,11 @@ Number of derivations: 4
 Parsing sen 484
 Chart file path does not exist.
 Parsing sen 485
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 486
 Chart file path does not exist.
@@ -2682,25 +2682,25 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 493
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 494
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 495
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 496
 Search steps: 5
@@ -2764,18 +2764,18 @@ Parsing sen 510
 Chart file path does not exist.
 Parsing sen 511
 Parsing sen 512
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 513
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 514
 Search steps: 6
@@ -2865,18 +2865,18 @@ Chart file path does not exist.
 Parsing sen 529
 Chart file path does not exist.
 Parsing sen 530
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 531
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 532
 Search steps: 6
@@ -2888,11 +2888,11 @@ Number of derivations: 5
 Parsing sen 533
 Chart file path does not exist.
 Parsing sen 534
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 535
 Search steps: 3
@@ -2916,25 +2916,25 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 538
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 539
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 540
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 541
 Search steps: 2
@@ -2944,18 +2944,18 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 542
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 543
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 544
 Search steps: 5
@@ -2965,11 +2965,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 545
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 546
 Chart file path does not exist.
@@ -2981,25 +2981,25 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 548
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 549
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 550
-Search steps: 7
-Number of derivations: 6
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 551
 Search steps: 8
@@ -3011,11 +3011,11 @@ Number of derivations: 7
 Parsing sen 552
 Chart file path does not exist.
 Parsing sen 553
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 554
 Search steps: 8
@@ -3057,18 +3057,18 @@ Chart file path does not exist.
 Parsing sen 560
 Chart file path does not exist.
 Parsing sen 561
-Search steps: 12
-Number of derivations: 11
+Search steps: 15
+Number of derivations: 14
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 15
+Number of derivations: 14
 
 Parsing sen 562
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 563
 Chart file path does not exist.
@@ -3103,18 +3103,18 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 569
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
 Parsing sen 570
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 571
 Chart file path does not exist.
@@ -3172,11 +3172,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 585
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 586
 Chart file path does not exist.
@@ -3188,25 +3188,25 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 588
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 589
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 590
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 591
 Search steps: 4
@@ -3362,11 +3362,11 @@ Number of derivations: 2
 Parsing sen 619
 Chart file path does not exist.
 Parsing sen 620
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 621
 Search steps: 4
@@ -3438,11 +3438,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 633
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 634
 Search steps: 5
@@ -3512,11 +3512,11 @@ Chart file path does not exist.
 Parsing sen 649
 Chart file path does not exist.
 Parsing sen 650
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 651
 Chart file path does not exist.
@@ -3556,11 +3556,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 657
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 658
 Search steps: 3
@@ -3609,11 +3609,11 @@ Chart file path does not exist.
 Parsing sen 668
 Chart file path does not exist.
 Parsing sen 669
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 670
 Search steps: 3
@@ -3660,11 +3660,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 677
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 678
 Search steps: 6
@@ -3752,11 +3752,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 693
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 694
 Search steps: 3
@@ -3785,11 +3785,11 @@ Parsing sen 698
 Parsing sen 699
 Chart file path does not exist.
 Parsing sen 700
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 701
 Search steps: 6
@@ -3799,11 +3799,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 702
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 703
 Chart file path does not exist.
@@ -3868,11 +3868,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 714
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 715
 Chart file path does not exist.
@@ -3927,11 +3927,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 724
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 725
 Chart file path does not exist.
@@ -3945,11 +3945,11 @@ Number of derivations: 4
 Parsing sen 727
 Chart file path does not exist.
 Parsing sen 728
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 729
 Search steps: 3
@@ -3980,18 +3980,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 733
-Search steps: 4
-Number of derivations: 3
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 734
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 735
 Search steps: 3
@@ -4029,18 +4029,18 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 740
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 741
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 742
 Search steps: 3
@@ -4173,11 +4173,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 765
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 766
 Search steps: 4
@@ -4205,18 +4205,18 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 771
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 772
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 773
 Search steps: 3
@@ -4226,11 +4226,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 774
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 775
 Search steps: 4
@@ -4247,18 +4247,18 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 777
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 778
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 779
 Search steps: 5
@@ -4282,11 +4282,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 782
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 783
 Search steps: 4
@@ -4326,20 +4326,20 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 789
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 790
 Chart file path does not exist.
 Parsing sen 791
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 792
 Search steps: 4
@@ -4349,11 +4349,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 793
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 794
 Search steps: 5
@@ -4363,11 +4363,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 795
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 796
 Search steps: 3
@@ -4379,18 +4379,18 @@ Number of derivations: 2
 Parsing sen 797
 Chart file path does not exist.
 Parsing sen 798
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 799
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 800
 Search steps: 5
@@ -4491,22 +4491,22 @@ Parsing sen 815
 Chart file path does not exist.
 Parsing sen 816
 Parsing sen 817
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 818
 Chart file path does not exist.
 Parsing sen 819
 Chart file path does not exist.
 Parsing sen 820
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 821
 Chart file path does not exist.
@@ -4525,11 +4525,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 824
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 825
 Search steps: 5
@@ -4554,25 +4554,25 @@ Number of derivations: 4
 
 Parsing sen 828
 Parsing sen 829
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 830
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 831
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 832
 Search steps: 3
@@ -4700,11 +4700,11 @@ Number of derivations: 6
 
 Parsing sen 852
 Parsing sen 853
-Search steps: 7
-Number of derivations: 6
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 854
 Search steps: 3
@@ -4728,11 +4728,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 857
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 858
 Search steps: 3
@@ -4742,11 +4742,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 859
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 860
 Parsing sen 861
@@ -4990,32 +4990,32 @@ Chart file path does not exist.
 Parsing sen 904
 Chart file path does not exist.
 Parsing sen 905
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 906
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 907
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 908
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 909
 Search steps: 3
@@ -5069,18 +5069,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 917
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 918
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 919
 Search steps: 3
@@ -5103,11 +5103,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 924
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 925
 Search steps: 6
@@ -5145,25 +5145,25 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 930
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 931
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 932
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 933
 Search steps: 3
@@ -5173,18 +5173,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 934
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 935
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 936
 Parsing sen 937
@@ -5238,11 +5238,11 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 947
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 948
 Search steps: 6
@@ -5253,18 +5253,18 @@ Number of derivations: 5
 
 Parsing sen 949
 Parsing sen 950
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 951
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 952
 Chart file path does not exist.
@@ -5313,18 +5313,18 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 960
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 961
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 962
 Search steps: 3
@@ -5410,27 +5410,27 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 976
-Search steps: 11
-Number of derivations: 10
+Search steps: 13
+Number of derivations: 12
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 13
+Number of derivations: 12
 
 Parsing sen 977
 Parsing sen 978
 Parsing sen 979
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 980
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 981
 Search steps: 3
@@ -5447,11 +5447,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 983
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 984
 Search steps: 3
@@ -5477,11 +5477,11 @@ Number of derivations: 3
 Parsing sen 987
 Chart file path does not exist.
 Parsing sen 988
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 989
 Search steps: 7
@@ -5505,18 +5505,18 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 992
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 993
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 994
 Search steps: 6
@@ -5702,18 +5702,18 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 1024
-Search steps: 14
-Number of derivations: 13
+Search steps: 16
+Number of derivations: 15
 
-Search steps: 14
-Number of derivations: 13
+Search steps: 16
+Number of derivations: 15
 
 Parsing sen 1025
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1026
 Search steps: 2
@@ -5790,11 +5790,11 @@ Number of derivations: 2
 Parsing sen 1040
 Chart file path does not exist.
 Parsing sen 1041
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1042
 Search steps: 3
@@ -5813,11 +5813,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 1045
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1046
 Chart file path does not exist.
@@ -5866,11 +5866,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 1054
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 1055
 Search steps: 3
@@ -5928,28 +5928,28 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1065
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1066
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 1067
 Chart file path does not exist.
 Parsing sen 1068
 Parsing sen 1069
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 1070
 Parsing sen 1071
@@ -6028,11 +6028,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1086
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1087
 Search steps: 5
@@ -6271,11 +6271,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 1134
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1135
 Search steps: 5
@@ -6359,11 +6359,11 @@ Parsing sen 1150
 Chart file path does not exist.
 Parsing sen 1151
 Parsing sen 1152
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 1153
 Search steps: 2
@@ -6382,22 +6382,22 @@ Number of derivations: 4
 Parsing sen 1155
 Chart file path does not exist.
 Parsing sen 1156
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1157
 Chart file path does not exist.
 Parsing sen 1158
 Chart file path does not exist.
 Parsing sen 1159
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 1160
 Search steps: 3
@@ -6446,11 +6446,11 @@ Number of derivations: 2
 Parsing sen 1167
 Chart file path does not exist.
 Parsing sen 1168
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1169
 Search steps: 5
@@ -6474,11 +6474,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1172
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1173
 Chart file path does not exist.
@@ -6490,11 +6490,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1175
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1176
 Search steps: 7
@@ -6678,11 +6678,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 1214
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1215
 Search steps: 4
@@ -6710,11 +6710,11 @@ Number of derivations: 2
 Parsing sen 1219
 Chart file path does not exist.
 Parsing sen 1220
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1221
 Search steps: 2
@@ -6733,11 +6733,11 @@ Number of derivations: 2
 Parsing sen 1223
 Chart file path does not exist.
 Parsing sen 1224
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 1225
 Search steps: 3
@@ -6747,11 +6747,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1226
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 1227
 Search steps: 3
@@ -6788,11 +6788,11 @@ Number of derivations: 4
 Parsing sen 1233
 Chart file path does not exist.
 Parsing sen 1234
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1235
 Search steps: 3
@@ -6832,18 +6832,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1241
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 1242
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1243
 Search steps: 4
@@ -6905,18 +6905,18 @@ Chart file path does not exist.
 Parsing sen 1254
 Chart file path does not exist.
 Parsing sen 1255
-Search steps: 8
-Number of derivations: 7
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 1256
-Search steps: 9
-Number of derivations: 8
+Search steps: 13
+Number of derivations: 12
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 13
+Number of derivations: 12
 
 Parsing sen 1257
 Search steps: 3
@@ -6949,11 +6949,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1262
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
 Parsing sen 1263
 Search steps: 4
@@ -7007,11 +7007,11 @@ Parsing sen 1272
 Parsing sen 1273
 Parsing sen 1274
 Parsing sen 1275
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1276
 Search steps: 7
@@ -7028,11 +7028,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 1278
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1279
 Search steps: 4
@@ -7257,11 +7257,11 @@ Number of derivations: 6
 Parsing sen 1320
 Chart file path does not exist.
 Parsing sen 1321
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1322
 Search steps: 4
@@ -7374,11 +7374,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 1342
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1343
 Search steps: 3
@@ -7398,11 +7398,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1347
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1348
 Search steps: 8
@@ -7412,11 +7412,11 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 1349
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1350
 Search steps: 5
@@ -7426,11 +7426,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1351
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 1352
 Search steps: 2
@@ -7479,11 +7479,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 1363
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1364
 Parsing sen 1365
@@ -7526,18 +7526,18 @@ Number of derivations: 2
 
 Parsing sen 1372
 Parsing sen 1373
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
 Parsing sen 1374
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 1375
 Search steps: 3
@@ -7551,11 +7551,11 @@ Chart file path does not exist.
 Parsing sen 1377
 Chart file path does not exist.
 Parsing sen 1378
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1379
 Search steps: 3
@@ -7565,18 +7565,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1380
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1381
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1382
 Search steps: 4
@@ -7586,11 +7586,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 1383
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1384
 Search steps: 11
@@ -7623,11 +7623,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1389
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1390
 Search steps: 4
@@ -7702,11 +7702,11 @@ Number of derivations: 2
 
 Parsing sen 1403
 Parsing sen 1404
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 1405
 Search steps: 4
@@ -7718,18 +7718,18 @@ Number of derivations: 3
 Parsing sen 1406
 Chart file path does not exist.
 Parsing sen 1407
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1408
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1409
 Search steps: 3
@@ -7825,11 +7825,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 1423
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1424
 Search steps: 6
@@ -7839,11 +7839,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 1425
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1426
 Search steps: 5
@@ -7892,11 +7892,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 1434
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1435
 Chart file path does not exist.
@@ -7919,25 +7919,25 @@ Chart file path does not exist.
 Parsing sen 1439
 Chart file path does not exist.
 Parsing sen 1440
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1441
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1442
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 1443
 Search steps: 3
@@ -7947,11 +7947,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1444
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1445
 Chart file path does not exist.
@@ -7987,11 +7987,11 @@ Chart file path does not exist.
 Parsing sen 1453
 Parsing sen 1454
 Parsing sen 1455
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1456
 Search steps: 7
@@ -8001,11 +8001,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 1457
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 1458
 Search steps: 5
@@ -8057,19 +8057,19 @@ Number of derivations: 5
 
 Parsing sen 1467
 Parsing sen 1468
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 1469
 Parsing sen 1470
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1471
 Search steps: 5
@@ -8079,11 +8079,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1472
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1473
 Search steps: 4
@@ -8109,11 +8109,11 @@ Number of derivations: 4
 Parsing sen 1476
 Chart file path does not exist.
 Parsing sen 1477
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1478
 Search steps: 3
@@ -8146,18 +8146,18 @@ Number of derivations: 2
 Parsing sen 1482
 Chart file path does not exist.
 Parsing sen 1483
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 1484
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1485
 Search steps: 5
@@ -8213,11 +8213,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 1494
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 1495
 Search steps: 3
@@ -8308,11 +8308,11 @@ Search steps: 9
 Number of derivations: 8
 
 Parsing sen 1509
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1510
 Chart file path does not exist.
@@ -8414,11 +8414,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 1530
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1531
 Search steps: 2
@@ -8471,11 +8471,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1539
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1540
 Search steps: 3
@@ -8492,11 +8492,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 1542
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1543
 Chart file path does not exist.
@@ -8557,11 +8557,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1552
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 1553
 Search steps: 4
@@ -8587,11 +8587,11 @@ Number of derivations: 2
 Parsing sen 1556
 Chart file path does not exist.
 Parsing sen 1557
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1558
 Search steps: 6
@@ -8601,25 +8601,25 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 1559
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1560
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 1561
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
 Parsing sen 1562
 Search steps: 2
@@ -8638,11 +8638,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1565
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1566
 Search steps: 2
@@ -8709,20 +8709,20 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1578
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1579
 Chart file path does not exist.
 Parsing sen 1580
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1581
 Search steps: 5
@@ -8732,11 +8732,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1582
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1583
 Search steps: 5
@@ -8746,11 +8746,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1584
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1585
 Search steps: 2
@@ -8826,11 +8826,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 1597
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1598
 Chart file path does not exist.
@@ -8874,11 +8874,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 1606
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 1607
 Search steps: 2
@@ -8888,11 +8888,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 1608
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1609
 Search steps: 2
@@ -8926,18 +8926,18 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1617
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1618
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1619
 Parsing sen 1620
@@ -8950,11 +8950,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 1622
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1623
 Search steps: 3
@@ -8980,11 +8980,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 1628
-Search steps: 11
-Number of derivations: 10
+Search steps: 13
+Number of derivations: 12
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 13
+Number of derivations: 12
 
 Parsing sen 1629
 Chart file path does not exist.
@@ -9048,11 +9048,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 1640
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1641
 Chart file path does not exist.
@@ -9114,11 +9114,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 1651
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 1652
 Parsing sen 1653
@@ -9129,27 +9129,27 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1654
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1655
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1656
 Chart file path does not exist.
 Parsing sen 1657
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1658
 Search steps: 4
@@ -9166,18 +9166,18 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 1660
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1661
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 1662
 Search steps: 2
@@ -9187,11 +9187,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 1663
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 1664
 Chart file path does not exist.
@@ -9332,11 +9332,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 1688
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 1689
 Parsing sen 1690
@@ -9362,19 +9362,19 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 1694
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1695
 Parsing sen 1696
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1697
 Search steps: 3
@@ -9386,11 +9386,11 @@ Number of derivations: 2
 Parsing sen 1698
 Chart file path does not exist.
 Parsing sen 1699
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1700
 Search steps: 4
@@ -9483,25 +9483,25 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1716
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1717
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1718
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1719
 Search steps: 3
@@ -9682,11 +9682,11 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 1748
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1749
 Chart file path does not exist.
@@ -9721,11 +9721,11 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 1755
-Search steps: 11
-Number of derivations: 10
+Search steps: 15
+Number of derivations: 14
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 15
+Number of derivations: 14
 
 Parsing sen 1756
 Search steps: 6
@@ -9760,11 +9760,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 1762
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1763
 Search steps: 3
@@ -9774,11 +9774,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1764
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 1765
 Search steps: 3
@@ -9788,27 +9788,27 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1766
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 1767
-Search steps: 8
-Number of derivations: 7
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 1768
 Chart file path does not exist.
 Parsing sen 1769
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1770
 Parsing sen 1771
@@ -9835,11 +9835,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1775
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1776
 Parsing sen 1777
@@ -9922,11 +9922,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 1794
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1795
 Search steps: 3
@@ -9936,11 +9936,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1796
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1797
 Chart file path does not exist.
@@ -9978,11 +9978,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 1806
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1807
 Chart file path does not exist.
@@ -10022,11 +10022,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 1813
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1814
 Parsing sen 1815
@@ -10073,25 +10073,25 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 1822
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1823
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1824
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1825
 Search steps: 10
@@ -10101,11 +10101,11 @@ Search steps: 10
 Number of derivations: 9
 
 Parsing sen 1826
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 1827
 Search steps: 5
@@ -10117,11 +10117,11 @@ Number of derivations: 4
 Parsing sen 1828
 Chart file path does not exist.
 Parsing sen 1829
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1830
 Search steps: 3
@@ -10199,20 +10199,20 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1843
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 1844
 Chart file path does not exist.
 Parsing sen 1845
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 1846
 Chart file path does not exist.
@@ -10226,11 +10226,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1849
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1850
 Search steps: 3
@@ -10265,34 +10265,34 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1856
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1857
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 1858
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1859
 Chart file path does not exist.
 Parsing sen 1860
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 1861
 Search steps: 4
@@ -10302,11 +10302,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 1862
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 1863
 Search steps: 5
@@ -10339,11 +10339,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 1868
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1869
 Parsing sen 1870
@@ -10404,25 +10404,25 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 1881
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1882
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 1883
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1884
 Chart file path does not exist.
@@ -10463,11 +10463,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1891
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1892
 Chart file path does not exist.
@@ -10497,32 +10497,32 @@ Number of derivations: 4
 Parsing sen 1897
 Chart file path does not exist.
 Parsing sen 1898
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1899
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 1900
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 1901
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1902
 Search steps: 4
@@ -10532,18 +10532,18 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 1903
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 1904
-Search steps: 4
-Number of derivations: 3
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1905
 Search steps: 5
@@ -10567,11 +10567,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1908
-Search steps: 12
-Number of derivations: 11
+Search steps: 15
+Number of derivations: 14
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 15
+Number of derivations: 14
 
 Parsing sen 1909
 Search steps: 2
@@ -10703,11 +10703,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 1931
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 1932
 Search steps: 5
@@ -10738,11 +10738,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1936
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1937
 Search steps: 6
@@ -10756,11 +10756,11 @@ Chart file path does not exist.
 Parsing sen 1939
 Chart file path does not exist.
 Parsing sen 1940
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 1941
 Search steps: 3
@@ -10770,11 +10770,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 1942
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 1943
 Chart file path does not exist.
@@ -11001,11 +11001,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 1984
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 1985
 Chart file path does not exist.
@@ -11024,11 +11024,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 1988
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 1989
 Search steps: 5
@@ -11075,11 +11075,11 @@ Number of derivations: 5
 Parsing sen 1995
 Chart file path does not exist.
 Parsing sen 1996
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 1997
 Chart file path does not exist.
@@ -11128,11 +11128,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 2005
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2006
 Search steps: 10
@@ -11190,38 +11190,38 @@ Number of derivations: 4
 Parsing sen 2015
 Chart file path does not exist.
 Parsing sen 2016
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2017
 Chart file path does not exist.
 Parsing sen 2018
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2019
 Chart file path does not exist.
 Parsing sen 2020
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2021
 Chart file path does not exist.
 Parsing sen 2022
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2023
 Search steps: 7
@@ -11246,34 +11246,34 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2027
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2028
 Chart file path does not exist.
 Parsing sen 2029
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2030
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2031
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2032
 Chart file path does not exist.
@@ -11292,26 +11292,26 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 2035
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2036
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2037
 Parsing sen 2038
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2039
 Search steps: 3
@@ -11342,18 +11342,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2043
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2044
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2045
 Search steps: 2
@@ -11363,11 +11363,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 2046
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2047
 Search steps: 4
@@ -11377,11 +11377,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2048
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2049
 Search steps: 3
@@ -11398,18 +11398,18 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 2051
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2052
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2053
 Search steps: 9
@@ -11456,11 +11456,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 2060
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2061
 Search steps: 2
@@ -11498,18 +11498,18 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2066
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2067
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2068
 Chart file path does not exist.
@@ -11521,11 +11521,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 2070
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 2071
 Search steps: 5
@@ -11613,11 +11613,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2086
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 2087
 Search steps: 8
@@ -11655,11 +11655,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2092
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2093
 Search steps: 3
@@ -11692,11 +11692,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 2098
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2099
 Search steps: 5
@@ -11784,18 +11784,18 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2112
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2113
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 2114
 Search steps: 6
@@ -11812,18 +11812,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2116
-Search steps: 11
-Number of derivations: 10
+Search steps: 15
+Number of derivations: 14
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 15
+Number of derivations: 14
 
 Parsing sen 2117
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 2118
 Chart file path does not exist.
@@ -11835,11 +11835,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 2120
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 2121
 Search steps: 2
@@ -11925,11 +11925,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 2135
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2136
 Search steps: 6
@@ -11969,11 +11969,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 2142
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2143
 Chart file path does not exist.
@@ -11985,11 +11985,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 2145
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2146
 Search steps: 2
@@ -12013,11 +12013,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2149
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 2150
 Search steps: 7
@@ -12027,11 +12027,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 2151
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 2152
 Search steps: 4
@@ -12048,11 +12048,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2154
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2155
 Search steps: 3
@@ -12076,11 +12076,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2158
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 2159
 Search steps: 3
@@ -12120,11 +12120,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2165
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 2166
 Search steps: 3
@@ -12215,11 +12215,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2180
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2181
 Search steps: 3
@@ -12260,18 +12260,18 @@ Number of derivations: 7
 
 Parsing sen 2187
 Parsing sen 2188
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2189
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2190
 Search steps: 8
@@ -12327,18 +12327,18 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 2199
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2200
-Search steps: 12
-Number of derivations: 11
+Search steps: 14
+Number of derivations: 13
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 14
+Number of derivations: 13
 
 Parsing sen 2201
 Search steps: 6
@@ -12348,11 +12348,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 2202
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 2203
 Search steps: 5
@@ -12362,11 +12362,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 2204
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 2205
 Search steps: 4
@@ -12399,11 +12399,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2210
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 2211
 Search steps: 3
@@ -12448,18 +12448,18 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 2217
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 2218
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 2219
 Search steps: 3
@@ -12603,11 +12603,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 2242
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 2243
 Search steps: 6
@@ -12654,18 +12654,18 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 2250
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2251
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2252
 Search steps: 3
@@ -12682,11 +12682,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2254
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 2255
 Chart file path does not exist.
@@ -12846,11 +12846,11 @@ Number of derivations: 2
 Parsing sen 2286
 Chart file path does not exist.
 Parsing sen 2287
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2288
 Search steps: 4
@@ -12860,18 +12860,18 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2289
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 2290
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2291
 Search steps: 7
@@ -12954,11 +12954,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 2304
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2305
 Search steps: 3
@@ -12975,11 +12975,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2307
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 2308
 Search steps: 3
@@ -12989,11 +12989,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2309
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 2310
 Parsing sen 2311
@@ -13011,18 +13011,18 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2313
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2314
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2315
 Search steps: 5
@@ -13071,19 +13071,19 @@ Chart file path does not exist.
 Parsing sen 2325
 Chart file path does not exist.
 Parsing sen 2326
-Search steps: 11
-Number of derivations: 10
+Search steps: 14
+Number of derivations: 13
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 14
+Number of derivations: 13
 
 Parsing sen 2327
 Parsing sen 2328
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 2329
 Search steps: 10
@@ -13178,11 +13178,11 @@ Chart file path does not exist.
 Parsing sen 2344
 Chart file path does not exist.
 Parsing sen 2345
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2346
 Search steps: 3
@@ -13217,11 +13217,11 @@ Number of derivations: 3
 Parsing sen 2351
 Chart file path does not exist.
 Parsing sen 2352
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2353
 Search steps: 4
@@ -13233,25 +13233,25 @@ Number of derivations: 3
 Parsing sen 2354
 Chart file path does not exist.
 Parsing sen 2355
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 2356
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2357
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2358
 Search steps: 7
@@ -13261,11 +13261,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 2359
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2360
 Search steps: 6
@@ -13328,11 +13328,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 2370
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2371
 Search steps: 8
@@ -13342,11 +13342,11 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 2372
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2373
 Search steps: 5
@@ -13363,11 +13363,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2375
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2376
 Search steps: 7
@@ -13386,11 +13386,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2379
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 2380
 Search steps: 3
@@ -13549,11 +13549,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2403
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2404
 Search steps: 5
@@ -13572,25 +13572,25 @@ Number of derivations: 5
 Parsing sen 2406
 Chart file path does not exist.
 Parsing sen 2407
-Search steps: 13
-Number of derivations: 12
+Search steps: 16
+Number of derivations: 15
 
-Search steps: 13
-Number of derivations: 12
+Search steps: 16
+Number of derivations: 15
 
 Parsing sen 2408
-Search steps: 11
-Number of derivations: 10
+Search steps: 14
+Number of derivations: 13
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 14
+Number of derivations: 13
 
 Parsing sen 2409
-Search steps: 11
-Number of derivations: 10
+Search steps: 14
+Number of derivations: 13
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 14
+Number of derivations: 13
 
 Parsing sen 2410
 Search steps: 4
@@ -13600,11 +13600,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2411
-Search steps: 15
-Number of derivations: 14
+Search steps: 18
+Number of derivations: 17
 
-Search steps: 15
-Number of derivations: 14
+Search steps: 18
+Number of derivations: 17
 
 Parsing sen 2412
 Chart file path does not exist.
@@ -13680,11 +13680,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2427
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 2428
 Search steps: 4
@@ -13779,32 +13779,32 @@ Chart file path does not exist.
 Parsing sen 2443
 Chart file path does not exist.
 Parsing sen 2444
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 2445
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 2446
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2447
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2448
 Chart file path does not exist.
@@ -13886,11 +13886,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 2460
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 2461
 Search steps: 7
@@ -13914,11 +13914,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2464
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2465
 Search steps: 6
@@ -13928,11 +13928,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 2466
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2467
 Chart file path does not exist.
@@ -14091,11 +14091,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2501
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2502
 Search steps: 3
@@ -14157,11 +14157,11 @@ Number of derivations: 1
 
 Parsing sen 2511
 Parsing sen 2512
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2513
 Search steps: 5
@@ -14222,18 +14222,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2522
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 2523
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2524
 Search steps: 3
@@ -14271,18 +14271,18 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2529
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2530
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
 Parsing sen 2531
 Chart file path does not exist.
@@ -14308,11 +14308,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2535
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2536
 Chart file path does not exist.
@@ -14341,18 +14341,18 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2542
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2543
-Search steps: 11
-Number of derivations: 10
+Search steps: 13
+Number of derivations: 12
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 13
+Number of derivations: 12
 
 Parsing sen 2544
 Search steps: 3
@@ -14394,11 +14394,11 @@ Chart file path does not exist.
 Parsing sen 2550
 Chart file path does not exist.
 Parsing sen 2551
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 2552
 Search steps: 3
@@ -14435,11 +14435,11 @@ Chart file path does not exist.
 Parsing sen 2558
 Chart file path does not exist.
 Parsing sen 2559
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2560
 Search steps: 5
@@ -14467,11 +14467,11 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 2565
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2566
 Chart file path does not exist.
@@ -14514,11 +14514,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 2574
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2575
 Search steps: 4
@@ -14566,11 +14566,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 2584
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2585
 Search steps: 4
@@ -14580,11 +14580,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2586
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2587
 Search steps: 6
@@ -14608,11 +14608,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2590
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 2591
 Search steps: 5
@@ -14738,11 +14738,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2610
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2611
 Search steps: 5
@@ -14769,11 +14769,11 @@ Number of derivations: 1
 Parsing sen 2615
 Chart file path does not exist.
 Parsing sen 2616
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2617
 Search steps: 4
@@ -14797,11 +14797,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2620
-Search steps: 13
-Number of derivations: 12
+Search steps: 14
+Number of derivations: 13
 
-Search steps: 13
-Number of derivations: 12
+Search steps: 14
+Number of derivations: 13
 
 Parsing sen 2621
 Search steps: 6
@@ -14811,11 +14811,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 2622
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2623
 Search steps: 2
@@ -15038,25 +15038,25 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 2664
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2665
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 2666
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2667
 Search steps: 7
@@ -15066,11 +15066,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 2668
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 2669
 Search steps: 3
@@ -15103,11 +15103,11 @@ Search steps: 12
 Number of derivations: 11
 
 Parsing sen 2675
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2676
 Parsing sen 2677
@@ -15187,11 +15187,11 @@ Number of derivations: 4
 Parsing sen 2689
 Chart file path does not exist.
 Parsing sen 2690
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2691
 Search steps: 6
@@ -15217,11 +15217,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2695
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2696
 Search steps: 3
@@ -15240,11 +15240,11 @@ Number of derivations: 2
 Parsing sen 2698
 Chart file path does not exist.
 Parsing sen 2699
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2700
 Search steps: 7
@@ -15254,11 +15254,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 2701
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2702
 Search steps: 3
@@ -15298,11 +15298,11 @@ Number of derivations: 5
 Parsing sen 2707
 Chart file path does not exist.
 Parsing sen 2708
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 13
+Number of derivations: 12
 
 Parsing sen 2709
 Search steps: 4
@@ -15409,18 +15409,18 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 2726
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2727
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2728
 Chart file path does not exist.
@@ -15558,18 +15558,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2753
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2754
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 2755
 Chart file path does not exist.
@@ -15610,11 +15610,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 2762
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2763
 Search steps: 7
@@ -15665,20 +15665,20 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2772
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2773
 Chart file path does not exist.
 Parsing sen 2774
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2775
 Search steps: 6
@@ -15702,11 +15702,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 2778
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2779
 Search steps: 5
@@ -15787,11 +15787,11 @@ Number of derivations: 2
 Parsing sen 2792
 Chart file path does not exist.
 Parsing sen 2793
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2794
 Search steps: 3
@@ -15856,11 +15856,11 @@ Number of derivations: 2
 Parsing sen 2804
 Chart file path does not exist.
 Parsing sen 2805
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2806
 Search steps: 2
@@ -15877,11 +15877,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 2808
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2809
 Chart file path does not exist.
@@ -15895,11 +15895,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2812
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2813
 Search steps: 5
@@ -15967,11 +15967,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2823
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2824
 Parsing sen 2825
@@ -16000,11 +16000,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2830
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2831
 Search steps: 4
@@ -16095,11 +16095,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 2845
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2846
 Search steps: 5
@@ -16213,11 +16213,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2867
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2868
 Search steps: 3
@@ -16290,11 +16290,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 2878
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2879
 Search steps: 7
@@ -16339,25 +16339,25 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2885
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 2886
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2887
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 2888
 Search steps: 5
@@ -16390,11 +16390,11 @@ Number of derivations: 3
 Parsing sen 2892
 Chart file path does not exist.
 Parsing sen 2893
-Search steps: 12
-Number of derivations: 11
+Search steps: 14
+Number of derivations: 13
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 14
+Number of derivations: 13
 
 Parsing sen 2894
 Chart file path does not exist.
@@ -16422,11 +16422,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2899
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2900
 Search steps: 4
@@ -16485,11 +16485,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2908
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2909
 Search steps: 6
@@ -16545,11 +16545,11 @@ Number of derivations: 5
 Parsing sen 2917
 Chart file path does not exist.
 Parsing sen 2918
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2919
 Search steps: 7
@@ -16648,25 +16648,25 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 2938
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2939
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2940
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 2941
 Search steps: 7
@@ -16683,11 +16683,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2943
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 2944
 Search steps: 2
@@ -16697,11 +16697,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 2945
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 2946
 Search steps: 4
@@ -16729,11 +16729,11 @@ Chart file path does not exist.
 Parsing sen 2950
 Chart file path does not exist.
 Parsing sen 2951
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 2952
 Search steps: 4
@@ -16781,11 +16781,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 2960
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 2961
 Search steps: 2
@@ -16816,11 +16816,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 2965
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 2966
 Chart file path does not exist.
@@ -16874,11 +16874,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 2977
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 2978
 Search steps: 6
@@ -16909,11 +16909,11 @@ Chart file path does not exist.
 Parsing sen 2984
 Chart file path does not exist.
 Parsing sen 2985
-Search steps: 12
-Number of derivations: 11
+Search steps: 14
+Number of derivations: 13
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 14
+Number of derivations: 13
 
 Parsing sen 2986
 Search steps: 2
@@ -16932,25 +16932,25 @@ Number of derivations: 5
 Parsing sen 2988
 Chart file path does not exist.
 Parsing sen 2989
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 2990
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2991
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 2992
 Search steps: 5
@@ -17004,11 +17004,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 3000
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 3001
 Search steps: 2
@@ -17025,11 +17025,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 3003
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3004
 Chart file path does not exist.
@@ -17078,18 +17078,18 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 3012
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3013
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 3014
 Search steps: 3
@@ -17106,11 +17106,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 3016
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 3017
 Search steps: 5
@@ -17225,11 +17225,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3041
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3042
 Chart file path does not exist.
@@ -17374,18 +17374,18 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 3067
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3068
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 3069
 Search steps: 3
@@ -17453,25 +17453,25 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 3079
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 3080
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3081
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 3082
 Chart file path does not exist.
@@ -17511,20 +17511,20 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 3091
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3092
 Chart file path does not exist.
 Parsing sen 3093
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 3094
 Search steps: 5
@@ -17567,11 +17567,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 3102
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 3103
 Chart file path does not exist.
@@ -17606,20 +17606,20 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 3109
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 3110
 Parsing sen 3111
 Parsing sen 3112
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 3113
 Search steps: 2
@@ -17629,20 +17629,20 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 3114
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3115
 Chart file path does not exist.
 Parsing sen 3116
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 3117
 Search steps: 7
@@ -17778,11 +17778,11 @@ Number of derivations: 3
 Parsing sen 3146
 Chart file path does not exist.
 Parsing sen 3147
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3148
 Chart file path does not exist.
@@ -17808,18 +17808,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3152
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 3153
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3154
 Search steps: 4
@@ -17871,26 +17871,26 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3161
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3162
 Parsing sen 3163
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 3164
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 3165
 Search steps: 4
@@ -17900,11 +17900,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 3166
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3167
 Chart file path does not exist.
@@ -17973,11 +17973,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 3180
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 3181
 Search steps: 10
@@ -18058,11 +18058,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 3193
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 3194
 Chart file path does not exist.
@@ -18134,11 +18134,11 @@ Number of derivations: 3
 Parsing sen 3208
 Chart file path does not exist.
 Parsing sen 3209
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3210
 Search steps: 8
@@ -18183,11 +18183,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3216
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 3217
 Chart file path does not exist.
@@ -18277,26 +18277,26 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 3235
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 3236
 Parsing sen 3237
-Search steps: 11
-Number of derivations: 10
+Search steps: 13
+Number of derivations: 12
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 13
+Number of derivations: 12
 
 Parsing sen 3238
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 3239
 Search steps: 3
@@ -18443,18 +18443,18 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 3261
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3262
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 3263
 Search steps: 4
@@ -18466,11 +18466,11 @@ Number of derivations: 3
 Parsing sen 3264
 Chart file path does not exist.
 Parsing sen 3265
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3266
 Search steps: 4
@@ -18494,11 +18494,11 @@ Search steps: 9
 Number of derivations: 8
 
 Parsing sen 3269
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3270
 Chart file path does not exist.
@@ -18644,11 +18644,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3301
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3302
 Chart file path does not exist.
@@ -18751,11 +18751,11 @@ Chart file path does not exist.
 Parsing sen 3319
 Chart file path does not exist.
 Parsing sen 3320
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3321
 Search steps: 8
@@ -18811,11 +18811,11 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 3331
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3332
 Search steps: 3
@@ -18902,27 +18902,27 @@ Search steps: 9
 Number of derivations: 8
 
 Parsing sen 3347
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3348
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 3349
 Chart file path does not exist.
 Parsing sen 3350
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 3351
 Chart file path does not exist.
@@ -18941,32 +18941,32 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 3354
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 3355
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 3356
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 3357
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 3358
 Chart file path does not exist.
@@ -18994,11 +18994,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 3363
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 3364
 Chart file path does not exist.
@@ -19017,11 +19017,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 3367
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3368
 Search steps: 6
@@ -19038,11 +19038,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 3370
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 3371
 Search steps: 2
@@ -19193,11 +19193,11 @@ Parsing sen 3399
 Parsing sen 3400
 Chart file path does not exist.
 Parsing sen 3401
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 3402
 Chart file path does not exist.
@@ -19279,11 +19279,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3414
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3415
 Search steps: 4
@@ -19297,11 +19297,11 @@ Chart file path does not exist.
 Parsing sen 3417
 Chart file path does not exist.
 Parsing sen 3418
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3419
 Search steps: 4
@@ -19370,11 +19370,11 @@ Search steps: 10
 Number of derivations: 9
 
 Parsing sen 3431
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 3432
 Search steps: 9
@@ -19442,20 +19442,20 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3442
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3443
 Chart file path does not exist.
 Parsing sen 3444
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 3445
 Search steps: 3
@@ -19465,18 +19465,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3446
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 3447
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 3448
 Search steps: 3
@@ -20081,11 +20081,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 3557
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3558
 Search steps: 5
@@ -20110,11 +20110,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3562
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 3563
 Chart file path does not exist.
@@ -20133,11 +20133,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 3566
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 3567
 Search steps: 4
@@ -20184,11 +20184,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3574
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 3575
 Search steps: 3
@@ -20198,11 +20198,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3576
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 3577
 Search steps: 5
@@ -20364,18 +20364,18 @@ Number of derivations: 2
 Parsing sen 3601
 Chart file path does not exist.
 Parsing sen 3602
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 3603
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3604
 Parsing sen 3605
@@ -20498,11 +20498,11 @@ Number of derivations: 1
 
 Parsing sen 3632
 Parsing sen 3633
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3634
 Search steps: 3
@@ -20654,11 +20654,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 3656
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3657
 Search steps: 3
@@ -20704,18 +20704,18 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 3664
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3665
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 3666
 Chart file path does not exist.
@@ -20769,11 +20769,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3678
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 3679
 Chart file path does not exist.
@@ -21097,11 +21097,11 @@ Number of derivations: 2
 Parsing sen 3736
 Chart file path does not exist.
 Parsing sen 3737
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3738
 Chart file path does not exist.
@@ -21209,18 +21209,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3756
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3757
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 3758
 Search steps: 3
@@ -21244,11 +21244,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3761
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 3762
 Search steps: 2
@@ -21295,11 +21295,11 @@ Search steps: 9
 Number of derivations: 8
 
 Parsing sen 3769
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3770
 Search steps: 3
@@ -21325,11 +21325,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 3774
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3775
 Search steps: 5
@@ -21569,11 +21569,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 3811
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3812
 Search steps: 3
@@ -21594,11 +21594,11 @@ Chart file path does not exist.
 Parsing sen 3815
 Chart file path does not exist.
 Parsing sen 3816
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3817
 Chart file path does not exist.
@@ -21639,11 +21639,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 3826
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 3827
 Search steps: 2
@@ -21737,11 +21737,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3840
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 3841
 Parsing sen 3842
@@ -21810,11 +21810,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 3852
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 3853
 Search steps: 5
@@ -21945,11 +21945,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 3876
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3877
 Search steps: 7
@@ -21959,11 +21959,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 3878
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3879
 Search steps: 4
@@ -22072,11 +22072,11 @@ Number of derivations: 3
 Parsing sen 3897
 Chart file path does not exist.
 Parsing sen 3898
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3899
 Search steps: 6
@@ -22334,11 +22334,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 3945
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 3946
 Search steps: 3
@@ -22381,18 +22381,18 @@ Parsing sen 3952
 Parsing sen 3953
 Chart file path does not exist.
 Parsing sen 3954
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 3955
-Search steps: 12
-Number of derivations: 11
+Search steps: 14
+Number of derivations: 13
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 14
+Number of derivations: 13
 
 Parsing sen 3956
 Search steps: 3
@@ -22413,11 +22413,11 @@ Chart file path does not exist.
 Parsing sen 3959
 Chart file path does not exist.
 Parsing sen 3960
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 3961
 Search steps: 6
@@ -22490,11 +22490,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 3976
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 3977
 Search steps: 5
@@ -22504,11 +22504,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 3978
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 3979
 Chart file path does not exist.
@@ -22527,11 +22527,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 3982
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 3983
 Search steps: 3
@@ -22628,11 +22628,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4001
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 4002
 Search steps: 4
@@ -22656,11 +22656,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 4005
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4006
 Chart file path does not exist.
@@ -22716,18 +22716,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4015
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 4016
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4017
 Chart file path does not exist.
@@ -22787,11 +22787,11 @@ Chart file path does not exist.
 Parsing sen 4027
 Chart file path does not exist.
 Parsing sen 4028
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 4029
 Search steps: 4
@@ -22902,11 +22902,11 @@ Number of derivations: 3
 Parsing sen 4047
 Chart file path does not exist.
 Parsing sen 4048
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4049
 Search steps: 3
@@ -23023,11 +23023,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 4069
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 4070
 Search steps: 4
@@ -23082,11 +23082,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 4081
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4082
 Search steps: 3
@@ -23143,11 +23143,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 4092
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4093
 Search steps: 8
@@ -23214,11 +23214,11 @@ Chart file path does not exist.
 Parsing sen 4104
 Chart file path does not exist.
 Parsing sen 4105
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4106
 Search steps: 5
@@ -23368,18 +23368,18 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 4130
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4131
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4132
 Search steps: 8
@@ -23541,20 +23541,20 @@ Number of derivations: 1
 Parsing sen 4158
 Chart file path does not exist.
 Parsing sen 4159
-Search steps: 9
-Number of derivations: 8
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 4160
 Chart file path does not exist.
 Parsing sen 4161
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4162
 Search steps: 3
@@ -23654,11 +23654,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 4180
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4181
 Search steps: 4
@@ -23677,36 +23677,36 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4184
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4185
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4186
 Parsing sen 4187
 Parsing sen 4188
 Chart file path does not exist.
 Parsing sen 4189
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4190
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4191
 Search steps: 3
@@ -23732,11 +23732,11 @@ Number of derivations: 4
 Parsing sen 4199
 Chart file path does not exist.
 Parsing sen 4200
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4201
 Chart file path does not exist.
@@ -23877,11 +23877,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4225
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4226
 Search steps: 6
@@ -23937,11 +23937,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4235
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 4236
 Search steps: 2
@@ -23989,11 +23989,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 4244
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4245
 Search steps: 3
@@ -24132,11 +24132,11 @@ Number of derivations: 4
 Parsing sen 4267
 Chart file path does not exist.
 Parsing sen 4268
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 4269
 Search steps: 3
@@ -24164,18 +24164,18 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 4274
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4275
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4276
 Search steps: 3
@@ -24408,11 +24408,11 @@ Number of derivations: 4
 
 Parsing sen 4317
 Parsing sen 4318
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 4319
 Chart file path does not exist.
@@ -24447,11 +24447,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 4325
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4326
 Chart file path does not exist.
@@ -24465,11 +24465,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 4329
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 4330
 Search steps: 4
@@ -24479,11 +24479,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 4331
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 4332
 Search steps: 4
@@ -24518,11 +24518,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 4338
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 4339
 Search steps: 4
@@ -24532,11 +24532,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 4340
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 4341
 Search steps: 2
@@ -24580,11 +24580,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 4349
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4350
 Parsing sen 4351
@@ -24618,18 +24618,18 @@ Parsing sen 4357
 Parsing sen 4358
 Parsing sen 4359
 Parsing sen 4360
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4361
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4362
 Search steps: 2
@@ -24683,11 +24683,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 4370
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 4371
 Search steps: 4
@@ -24795,11 +24795,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4393
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4394
 Search steps: 5
@@ -24865,11 +24865,11 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 4406
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 4407
 Parsing sen 4408
@@ -25003,18 +25003,18 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 4429
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 11
-Number of derivations: 10
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 4430
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 4431
 Search steps: 10
@@ -25062,11 +25062,11 @@ Number of derivations: 2
 Parsing sen 4438
 Chart file path does not exist.
 Parsing sen 4439
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4440
 Search steps: 3
@@ -25090,18 +25090,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4443
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4444
-Search steps: 13
-Number of derivations: 12
+Search steps: 16
+Number of derivations: 15
 
-Search steps: 13
-Number of derivations: 12
+Search steps: 16
+Number of derivations: 15
 
 Parsing sen 4445
 Parsing sen 4446
@@ -25243,11 +25243,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4471
-Search steps: 12
-Number of derivations: 11
+Search steps: 14
+Number of derivations: 13
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 14
+Number of derivations: 13
 
 Parsing sen 4472
 Search steps: 3
@@ -25271,18 +25271,18 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 4475
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 4476
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 4477
 Chart file path does not exist.
@@ -25364,46 +25364,46 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 4489
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 4490
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 4491
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 4492
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4493
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4494
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4495
 Search steps: 4
@@ -25427,11 +25427,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4498
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 4499
 Search steps: 4
@@ -25505,18 +25505,18 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 4512
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 4513
-Search steps: 12
-Number of derivations: 11
+Search steps: 14
+Number of derivations: 13
 
-Search steps: 12
-Number of derivations: 11
+Search steps: 14
+Number of derivations: 13
 
 Parsing sen 4514
 Search steps: 5
@@ -25619,11 +25619,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 4529
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4530
 Search steps: 7
@@ -25712,32 +25712,32 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 4543
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4544
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4545
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4546
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 4547
 Search steps: 6
@@ -25754,11 +25754,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 4549
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4550
 Search steps: 5
@@ -25786,11 +25786,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4555
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 4556
 Chart file path does not exist.
@@ -25902,11 +25902,11 @@ Chart file path does not exist.
 Parsing sen 4580
 Chart file path does not exist.
 Parsing sen 4581
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 4582
 Search steps: 2
@@ -25946,11 +25946,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 4588
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 4589
 Search steps: 4
@@ -25995,11 +25995,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 4595
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 4596
 Search steps: 5
@@ -26023,11 +26023,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4599
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4600
 Search steps: 4
@@ -26037,11 +26037,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 4601
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4602
 Search steps: 6
@@ -26085,11 +26085,11 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 4610
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 4611
 Chart file path does not exist.
@@ -26129,11 +26129,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 4617
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 4618
 Chart file path does not exist.
@@ -26161,25 +26161,25 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 4623
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 4624
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 4625
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4626
 Chart file path does not exist.
@@ -26280,11 +26280,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 4643
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4644
 Search steps: 3
@@ -26350,11 +26350,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 4658
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 4659
 Search steps: 3
@@ -26387,11 +26387,11 @@ Number of derivations: 2
 Parsing sen 4663
 Chart file path does not exist.
 Parsing sen 4664
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4665
 Search steps: 3
@@ -26409,11 +26409,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 4668
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 4669
 Search steps: 4
@@ -26501,11 +26501,11 @@ Number of derivations: 6
 Parsing sen 4683
 Chart file path does not exist.
 Parsing sen 4684
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 4685
 Search steps: 4
@@ -26528,18 +26528,18 @@ Chart file path does not exist.
 Parsing sen 4689
 Chart file path does not exist.
 Parsing sen 4690
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 4691
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4692
 Search steps: 2
@@ -26574,11 +26574,11 @@ Number of derivations: 2
 Parsing sen 4697
 Chart file path does not exist.
 Parsing sen 4698
-Search steps: 9
-Number of derivations: 8
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 4699
 Search steps: 4
@@ -26741,18 +26741,18 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 4724
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4725
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 4726
 Search steps: 3
@@ -26799,36 +26799,36 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 4733
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 4734
-Search steps: 9
-Number of derivations: 8
+Search steps: 12
+Number of derivations: 11
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 12
+Number of derivations: 11
 
 Parsing sen 4735
 Chart file path does not exist.
 Parsing sen 4736
 Chart file path does not exist.
 Parsing sen 4737
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4738
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 4739
 Search steps: 5
@@ -26909,11 +26909,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 4753
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 4754
 Search steps: 6
@@ -27255,11 +27255,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4813
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4814
 Chart file path does not exist.
@@ -27271,11 +27271,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 4816
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4817
 Search steps: 6
@@ -27306,11 +27306,11 @@ Parsing sen 4822
 Parsing sen 4823
 Chart file path does not exist.
 Parsing sen 4824
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
-Search steps: 3
-Number of derivations: 2
+Search steps: 4
+Number of derivations: 3
 
 Parsing sen 4825
 Search steps: 4
@@ -27355,11 +27355,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 4831
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 4832
 Chart file path does not exist.
@@ -27589,11 +27589,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 4871
-Search steps: 7
-Number of derivations: 6
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4872
 Parsing sen 4873
@@ -27663,11 +27663,11 @@ Number of derivations: 6
 Parsing sen 4885
 Chart file path does not exist.
 Parsing sen 4886
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 4887
 Search steps: 4
@@ -27706,11 +27706,11 @@ Chart file path does not exist.
 Parsing sen 4894
 Chart file path does not exist.
 Parsing sen 4895
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4896
 Search steps: 3
@@ -27771,25 +27771,25 @@ Number of derivations: 5
 Parsing sen 4904
 Chart file path does not exist.
 Parsing sen 4905
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 4906
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4907
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4908
 Chart file path does not exist.
@@ -27801,11 +27801,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 4910
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4911
 Search steps: 5
@@ -27822,11 +27822,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 4913
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4914
 Search steps: 4
@@ -27866,11 +27866,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4920
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 4921
 Search steps: 3
@@ -27880,11 +27880,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4922
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 4923
 Search steps: 3
@@ -27908,11 +27908,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 4926
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4927
 Search steps: 4
@@ -27974,11 +27974,11 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 4939
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4940
 Search steps: 5
@@ -28016,11 +28016,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 4945
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4946
 Search steps: 2
@@ -28053,11 +28053,11 @@ Number of derivations: 5
 Parsing sen 4950
 Chart file path does not exist.
 Parsing sen 4951
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 4952
 Search steps: 8
@@ -28202,11 +28202,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 4980
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4981
 Search steps: 4
@@ -28290,11 +28290,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 4994
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 4995
 Search steps: 3
@@ -28325,18 +28325,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 4999
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 5000
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 5001
 Search steps: 6
@@ -28346,11 +28346,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 5002
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 5003
 Parsing sen 5004
@@ -28414,11 +28414,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 5014
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
-Search steps: 4
-Number of derivations: 3
+Search steps: 5
+Number of derivations: 4
 
 Parsing sen 5015
 Search steps: 6
@@ -28470,11 +28470,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 5022
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 5023
 Search steps: 6
@@ -28484,11 +28484,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 5024
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 5025
 Chart file path does not exist.
@@ -28510,11 +28510,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 5030
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 5031
 Search steps: 3
@@ -28584,18 +28584,18 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 5042
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 5043
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 5044
 Search steps: 8
@@ -28605,18 +28605,18 @@ Search steps: 8
 Number of derivations: 7
 
 Parsing sen 5045
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 5046
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 5047
 Search steps: 3
@@ -28651,11 +28651,11 @@ Number of derivations: 4
 Parsing sen 5052
 Chart file path does not exist.
 Parsing sen 5053
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 5054
 Search steps: 6
@@ -28704,11 +28704,11 @@ Search steps: 5
 Number of derivations: 4
 
 Parsing sen 5062
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 5063
 Search steps: 3
@@ -28778,11 +28778,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 5074
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 5075
 Search steps: 3
@@ -28896,11 +28896,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 5093
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 10
+Number of derivations: 9
 
 Parsing sen 5094
 Search steps: 4
@@ -28917,11 +28917,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 5096
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 5097
 Search steps: 6
@@ -28975,11 +28975,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 5105
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 5106
 Chart file path does not exist.
@@ -28991,11 +28991,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 5108
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 5109
 Parsing sen 5110
@@ -29060,11 +29060,11 @@ Parsing sen 5122
 Chart file path does not exist.
 Parsing sen 5123
 Parsing sen 5124
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 5125
 Search steps: 6
@@ -29081,11 +29081,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 5127
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 5128
 Search steps: 3
@@ -29115,11 +29115,11 @@ Number of derivations: 4
 Parsing sen 5133
 Chart file path does not exist.
 Parsing sen 5134
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 5135
 Search steps: 3
@@ -29143,11 +29143,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 5138
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 5139
 Chart file path does not exist.
@@ -29350,18 +29350,18 @@ Number of derivations: 2
 
 Parsing sen 5176
 Parsing sen 5177
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 5178
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 10
-Number of derivations: 9
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 5179
 Chart file path does not exist.
@@ -29442,26 +29442,26 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 5193
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 5194
 Parsing sen 5195
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 5196
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
-Search steps: 7
-Number of derivations: 6
+Search steps: 8
+Number of derivations: 7
 
 Parsing sen 5197
 Search steps: 3
@@ -29496,11 +29496,11 @@ Search steps: 3
 Number of derivations: 2
 
 Parsing sen 5203
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
-Search steps: 9
-Number of derivations: 8
+Search steps: 11
+Number of derivations: 10
 
 Parsing sen 5204
 Search steps: 3
@@ -29547,11 +29547,11 @@ Search steps: 4
 Number of derivations: 3
 
 Parsing sen 5211
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 6
+Number of derivations: 5
 
 Parsing sen 5212
 Search steps: 2
@@ -29663,11 +29663,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 5233
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 5
-Number of derivations: 4
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 5234
 Search steps: 2
@@ -29698,11 +29698,11 @@ Search steps: 7
 Number of derivations: 6
 
 Parsing sen 5238
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
-Search steps: 6
-Number of derivations: 5
+Search steps: 7
+Number of derivations: 6
 
 Parsing sen 5239
 Search steps: 6
@@ -29801,11 +29801,11 @@ Search steps: 6
 Number of derivations: 5
 
 Parsing sen 5255
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
-Search steps: 8
-Number of derivations: 7
+Search steps: 9
+Number of derivations: 8
 
 Parsing sen 5256
 Search steps: 5
@@ -29894,6 +29894,6 @@ Number of all sentences: 5269
 First sentence to process: 0
 Last sentence to process: 5268
 
-Execution finish: 2025-02-28 16:18:32.836813
-Elapsed time: 0 min 23 sec
+Execution finish: 2025-03-02 21:13:04.448978
+Elapsed time: 0 min 26 sec
 
