@@ -13,7 +13,14 @@ class DerivationList:
         self.derivation_list = derivation_list
 
     def get_k_best_unique_derivation(
-        self, sen_id, sen_text, k, pos_tags, top_order, pos_tag_resolution
+        self,
+        sen_id,
+        sen_text,
+        k,
+        pos_tags,
+        top_order,
+        pos_tag_resolution,
+        pred_resolution_from_rule,
     ):
         unique_triplets = set()
         kbest_unique_derivations = []
@@ -21,9 +28,12 @@ class DerivationList:
             processed_derivation = ProcessedDerivation(
                 derivation, pos_tag_resolution=pos_tag_resolution
             )
-            processed_derivation.calculate_processed_triplet_from_tree_structure(
-                pos_tags, top_order
-            )
+            if pred_resolution_from_rule:
+                processed_derivation.calculate_processed_triplet_from_rule()
+            else:
+                processed_derivation.calculate_processed_triplet_from_tree_structure(
+                    pos_tags, top_order
+                )
             triplet_dict = " ".join(
                 [
                     f"{n}:{l}"
@@ -53,6 +63,7 @@ class DerivationList:
         top_order,
         pos_tags,
         pos_tag_resolution,
+        pred_resolution_from_rule,
         arg_perm=True,
     ):
         derivations_to_keep = defaultdict(lambda: [None] * len(gold_triplets))
@@ -62,9 +73,12 @@ class DerivationList:
             processed_derivation = ProcessedDerivation(
                 derivation, pos_tag_resolution=pos_tag_resolution
             )
-            processed_derivation.calculate_processed_triplet_from_tree_structure(
-                pos_tags, top_order
-            )
+            if pred_resolution_from_rule:
+                processed_derivation.calculate_processed_triplet_from_rule()
+            else:
+                processed_derivation.calculate_processed_triplet_from_tree_structure(
+                    pos_tags, top_order
+                )
             permutations = (
                 processed_derivation.processed_triplet.get_all_permutations()
                 if arg_perm
