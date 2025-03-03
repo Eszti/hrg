@@ -11,6 +11,7 @@ class KBestContracted(KBest):
         )
         self.pos_tag_resolution = True
         self.pred_resolution_from_rule = True
+        self.arg_perm = False
         self.gold_triplets_fn = "gold_contracted_triplets.json"
 
 

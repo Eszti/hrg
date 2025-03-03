@@ -64,7 +64,7 @@ class DerivationList:
         pos_tags,
         pos_tag_resolution,
         pred_resolution_from_rule,
-        arg_perm=True,
+        arg_perm,
     ):
         derivations_to_keep = defaultdict(lambda: [None] * len(gold_triplets))
         max_scores = defaultdict(lambda: [-1.0] * len(gold_triplets))

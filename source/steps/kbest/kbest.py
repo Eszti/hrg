@@ -25,6 +25,7 @@ class KbestModel:
         sen_text,
         pos_tag_resolution,
         pred_resolution_from_rule,
+        arg_perm,
     ):
         if self.kbest:
             return {
@@ -46,6 +47,7 @@ class KbestModel:
             pos_tags=pos_tags,
             pos_tag_resolution=pos_tag_resolution,
             pred_resolution_from_rule=pred_resolution_from_rule,
+            arg_perm=arg_perm,
         )
 
 
@@ -90,6 +92,8 @@ class KBest(LoopOnSenDirs):
         self.gold_triplets_fn = "gold_triplets.json"
         self.pos_tag_resolution = False
         self.pred_resolution_from_rule = False
+        self.arg_perm = True
+
         self.no_chart = 0
         self.chart_load_failed = []
         self.no_derivation_found = 0
@@ -156,6 +160,7 @@ class KBest(LoopOnSenDirs):
                 sen_text=sen_text,
                 pos_tag_resolution=self.pos_tag_resolution,
                 pred_resolution_from_rule=self.pred_resolution_from_rule,
+                arg_perm=self.arg_perm,
             )
 
             for submodel_name, derivations in derivations_per_model.items():
