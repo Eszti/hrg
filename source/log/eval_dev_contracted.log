@@ -1,4 +1,4 @@
-Execution start: 2025-03-02 21:44:41.041661
+Execution start: 2025-03-03 12:58:53.783430
 {
     "in_dir": "dev_contracted_preproc",
     "grammar_dirs": [
@@ -95,6 +95,6 @@ No exact matches: [8, 9, 10, 30, 33, 60, 64, 66, 69, 77, 78, 79, 80, 85, 86, 94,
 First sentence to process: 0
 Last sentence to process: 5268
 
-Execution finish: 2025-03-02 21:44:46.389990
+Execution finish: 2025-03-03 12:58:58.691299
 Elapsed time: 0 min 5 sec
 

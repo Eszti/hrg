@@ -1,4 +1,4 @@
-Execution start: 2025-03-02 21:44:07.802875
+Execution start: 2025-03-03 12:58:01.232406
 {
     "in_dir": "dev_contracted_preproc",
     "out_dir": "dev_contracted",
@@ -29894,6 +29894,6 @@ Number of all sentences: 5269
 First sentence to process: 0
 Last sentence to process: 5268
 
-Execution finish: 2025-03-02 21:44:35.817122
-Elapsed time: 0 min 28 sec
+Execution finish: 2025-03-03 12:58:27.925185
+Elapsed time: 0 min 27 sec
 
