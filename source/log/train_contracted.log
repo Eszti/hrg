@@ -1,4 +1,4 @@
-Execution start: 2025-03-01 21:48:27.825352
+Execution start: 2025-03-04 22:38:18.185444
 {
     "in_dir": "train_contracted_preproc",
     "out_dir": "hrg_contracted"
@@ -2590,7 +2590,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 357
-Parsing steps: 30
+Parsing steps: 31
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -2599,7 +2599,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 358
-Parsing steps: 30
+Parsing steps: 31
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -3391,7 +3391,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 482
-Parsing steps: 18
+Parsing steps: 17
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -13282,7 +13282,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 1848
-Parsing steps: 28
+Parsing steps: 26
 Cky conversion steps: 19
 Chart START items len: 1
 Chart keys len: 1
@@ -14155,7 +14155,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 1960
-Parsing steps: 19
+Parsing steps: 18
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -14164,7 +14164,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 1961
-Parsing steps: 17
+Parsing steps: 16
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -23794,7 +23794,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 3302
-Parsing steps: 25
+Parsing steps: 24
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -36763,7 +36763,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 5156
-Parsing steps: 14
+Parsing steps: 13
 Cky conversion steps: 9
 Chart START items len: 1
 Chart keys len: 1
@@ -36826,7 +36826,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 5165
-Parsing steps: 17
+Parsing steps: 16
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -43729,7 +43729,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 6114
-Parsing steps: 17
+Parsing steps: 16
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -46951,7 +46951,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 6554
-Parsing steps: 32
+Parsing steps: 31
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -48022,7 +48022,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 6708
-Parsing steps: 12
+Parsing steps: 11
 Cky conversion steps: 9
 Chart START items len: 1
 Chart keys len: 1
@@ -51316,7 +51316,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 7184
-Parsing steps: 24
+Parsing steps: 25
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -53827,7 +53827,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 7516
-Parsing steps: 26
+Parsing steps: 25
 Cky conversion steps: 17
 Chart START items len: 1
 Chart keys len: 1
@@ -55114,7 +55114,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 7686
-Parsing steps: 19
+Parsing steps: 18
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -61504,7 +61504,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 8582
-Parsing steps: 15
+Parsing steps: 14
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -61729,7 +61729,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 8617
-Parsing steps: 20
+Parsing steps: 19
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -83779,7 +83779,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 11696
-Parsing steps: 22
+Parsing steps: 21
 Cky conversion steps: 15
 Chart START items len: 1
 Chart keys len: 1
@@ -87766,7 +87766,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 12239
-Parsing steps: 19
+Parsing steps: 18
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -88918,7 +88918,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 12397
-Parsing steps: 31
+Parsing steps: 32
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -95272,7 +95272,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 13281
-Parsing steps: 19
+Parsing steps: 18
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -105037,7 +105037,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 14643
-Parsing steps: 20
+Parsing steps: 19
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -112921,7 +112921,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 15708
-Parsing steps: 14
+Parsing steps: 13
 Cky conversion steps: 9
 Chart START items len: 1
 Chart keys len: 1
@@ -115414,7 +115414,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 16050
-Parsing steps: 26
+Parsing steps: 25
 Cky conversion steps: 19
 Chart START items len: 1
 Chart keys len: 1
@@ -122110,7 +122110,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 17030
-Parsing steps: 12
+Parsing steps: 11
 Cky conversion steps: 9
 Chart START items len: 1
 Chart keys len: 1
@@ -122182,7 +122182,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 17042
-Parsing steps: 17
+Parsing steps: 16
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -122785,7 +122785,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 17127
-Parsing steps: 14
+Parsing steps: 13
 Cky conversion steps: 9
 Chart START items len: 1
 Chart keys len: 1
@@ -127843,7 +127843,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 17866
-Parsing steps: 54
+Parsing steps: 51
 Cky conversion steps: 17
 Chart START items len: 1
 Chart keys len: 1
@@ -130120,7 +130120,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 18172
-Parsing steps: 21
+Parsing steps: 19
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -133144,7 +133144,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 18583
-Parsing steps: 17
+Parsing steps: 16
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -133603,7 +133603,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 18654
-Parsing steps: 12
+Parsing steps: 11
 Cky conversion steps: 9
 Chart START items len: 1
 Chart keys len: 1
@@ -170089,7 +170089,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 23692
-Parsing steps: 17
+Parsing steps: 16
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -172861,7 +172861,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 24077
-Parsing steps: 39
+Parsing steps: 38
 Cky conversion steps: 15
 Chart START items len: 1
 Chart keys len: 1
@@ -178180,7 +178180,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 24818
-Parsing steps: 17
+Parsing steps: 16
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -181582,7 +181582,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 25275
-Parsing steps: 25
+Parsing steps: 24
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -186721,7 +186721,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 25995
-Parsing steps: 20
+Parsing steps: 19
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -188044,7 +188044,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 26175
-Parsing steps: 33
+Parsing steps: 34
 Cky conversion steps: 15
 Chart START items len: 1
 Chart keys len: 1
@@ -209644,7 +209644,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 29085
-Parsing steps: 31
+Parsing steps: 30
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -212443,7 +212443,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 29473
-Parsing steps: 16
+Parsing steps: 15
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -217438,7 +217438,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 30170
-Parsing steps: 17
+Parsing steps: 16
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -220669,7 +220669,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 30600
-Parsing steps: 14
+Parsing steps: 13
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -221371,7 +221371,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 30693
-Parsing steps: 12
+Parsing steps: 11
 Cky conversion steps: 9
 Chart START items len: 1
 Chart keys len: 1
@@ -221677,7 +221677,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 30733
-Parsing steps: 14
+Parsing steps: 13
 Cky conversion steps: 9
 Chart START items len: 1
 Chart keys len: 1
@@ -221920,7 +221920,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 30766
-Parsing steps: 33
+Parsing steps: 31
 Cky conversion steps: 17
 Chart START items len: 1
 Chart keys len: 1
@@ -223720,7 +223720,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 31012
-Parsing steps: 31
+Parsing steps: 30
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -223837,7 +223837,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 31027
-Parsing steps: 14
+Parsing steps: 13
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -227752,7 +227752,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 31558
-Parsing steps: 12
+Parsing steps: 11
 Cky conversion steps: 9
 Chart START items len: 1
 Chart keys len: 1
@@ -238579,7 +238579,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 33041
-Parsing steps: 19
+Parsing steps: 18
 Cky conversion steps: 15
 Chart START items len: 1
 Chart keys len: 1
@@ -245878,7 +245878,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 34006
-Parsing steps: 14
+Parsing steps: 13
 Cky conversion steps: 9
 Chart START items len: 1
 Chart keys len: 1
@@ -246265,7 +246265,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 34067
-Parsing steps: 14
+Parsing steps: 13
 Cky conversion steps: 9
 Chart START items len: 1
 Chart keys len: 1
@@ -247003,7 +247003,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 34172
-Parsing steps: 18
+Parsing steps: 17
 Cky conversion steps: 15
 Chart START items len: 1
 Chart keys len: 1
@@ -250189,7 +250189,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 34619
-Parsing steps: 20
+Parsing steps: 18
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -254788,7 +254788,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 35273
-Parsing steps: 14
+Parsing steps: 13
 Cky conversion steps: 9
 Chart START items len: 1
 Chart keys len: 1
@@ -271681,7 +271681,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 37599
-Parsing steps: 24
+Parsing steps: 23
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -271690,7 +271690,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 37600
-Parsing steps: 24
+Parsing steps: 23
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -273958,7 +273958,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 37898
-Parsing steps: 19
+Parsing steps: 17
 Cky conversion steps: 15
 Chart START items len: 1
 Chart keys len: 1
@@ -274390,7 +274390,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 37954
-Parsing steps: 14
+Parsing steps: 13
 Cky conversion steps: 9
 Chart START items len: 1
 Chart keys len: 1
@@ -279979,7 +279979,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 38740
-Parsing steps: 14
+Parsing steps: 13
 Cky conversion steps: 9
 Chart START items len: 1
 Chart keys len: 1
@@ -282607,7 +282607,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 39119
-Parsing steps: 16
+Parsing steps: 15
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -287863,7 +287863,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 39818
-Parsing steps: 17
+Parsing steps: 16
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -304180,7 +304180,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 42083
-Parsing steps: 17
+Parsing steps: 16
 Cky conversion steps: 13
 Chart START items len: 1
 Chart keys len: 1
@@ -313639,7 +313639,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 43406
-Parsing steps: 35
+Parsing steps: 34
 Cky conversion steps: 17
 Chart START items len: 1
 Chart keys len: 1
@@ -316591,7 +316591,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 43806
-Parsing steps: 23
+Parsing steps: 22
 Cky conversion steps: 17
 Chart START items len: 1
 Chart keys len: 1
@@ -321550,7 +321550,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 44525
-Parsing steps: 30
+Parsing steps: 29
 Cky conversion steps: 15
 Chart START items len: 1
 Chart keys len: 1
@@ -321559,7 +321559,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 44526
-Parsing steps: 32
+Parsing steps: 31
 Cky conversion steps: 17
 Chart START items len: 1
 Chart keys len: 1
@@ -328813,7 +328813,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 45516
-Parsing steps: 16
+Parsing steps: 15
 Cky conversion steps: 11
 Chart START items len: 1
 Chart keys len: 1
@@ -328822,7 +328822,7 @@ Search steps: 2
 Number of derivations: 1
 
 Parsing sen 45517
-Parsing steps: 21
+Parsing steps: 20
 Cky conversion steps: 15
 Chart START items len: 1
 Chart keys len: 1
@@ -332541,8 +332541,8 @@ Number of derivations: 1
 
 Number of no rules: 0
 []
-Number of not validated: 253
-[95, 353, 482, 955, 1749, 1808, 1814, 1830, 1848, 1892, 1960, 1961, 2107, 2173, 2399, 2545, 3103, 3242, 3544, 3699, 3865, 4389, 4895, 4897, 5142, 5156, 5165, 6114, 6417, 6418, 6708, 6730, 7068, 7184, 7247, 7248, 7473, 7536, 7888, 7923, 7925, 8582, 8884, 8892, 9079, 9741, 9743, 10161, 10223, 10327, 10947, 11104, 11252, 11389, 11696, 11972, 12236, 12239, 12279, 12283, 12312, 12397, 12509, 12639, 12969, 12972, 13081, 13234, 13281, 13444, 13660, 13768, 13899, 14271, 14303, 14444, 14643, 14728, 15033, 15357, 15364, 15669, 15822, 15841, 15866, 15935, 16032, 16223, 16364, 16837, 16908, 17030, 17042, 17127, 17709, 17747, 17866, 17867, 18172, 18363, 18503, 18549, 18583, 18654, 18756, 18788, 19100, 19356, 19766, 20367, 20507, 20708, 20710, 20918, 21059, 21093, 22040, 22305, 22344, 22558, 22680, 23061, 23182, 23188, 23692, 23747, 23822, 23987, 24125, 24534, 24912, 24913, 25232, 25275, 25500, 25666, 25961, 25992, 25995, 26164, 26175, 26543, 26809, 26881, 27029, 27165, 27335, 27496, 27507, 27833, 27926, 28678, 28995, 29031, 29054, 29368, 29475, 29506, 29556, 30170, 30289, 30396, 30598, 30601, 30693, 30733, 30766, 30767, 31027, 31324, 31558, 31572, 31779, 32328, 32505, 32745, 32814, 33320, 33493, 33885, 33988, 34006, 34067, 34189, 34501, 34619, 34757, 34981, 34990, 35049, 35191, 35273, 35685, 35784, 35788, 36098, 36486, 36487, 36648, 36904, 37210, 37353, 37826, 37827, 37954, 38142, 38143, 38218, 38219, 38220, 38221, 38222, 38223, 38224, 38351, 38423, 38714, 38717, 38739, 38788, 38995, 39119, 39895, 40299, 40548, 40549, 40764, 40924, 41955, 41985, 42190, 42422, 42505, 42869, 43477, 43700, 43736, 43806, 44050, 44147, 44419, 44709, 44753, 44755, 44827, 44841, 44958, 45004, 45023, 45103, 45157, 45578, 45980]
+Number of not validated: 241
+[353, 482, 609, 952, 955, 1223, 1830, 1848, 1897, 1960, 1961, 2107, 2173, 2399, 2545, 3103, 3242, 3518, 3699, 3865, 4389, 4895, 4899, 4962, 5142, 5156, 5165, 6114, 6412, 6417, 6418, 6708, 6730, 6771, 6801, 7068, 7144, 7184, 7247, 7248, 7281, 7282, 7473, 7536, 7888, 8155, 8552, 8582, 8884, 8892, 9316, 9455, 9883, 10135, 10223, 10327, 11252, 11465, 11696, 11854, 11866, 11867, 12236, 12239, 12279, 12283, 12312, 12370, 12397, 12639, 12969, 12972, 13081, 13281, 13292, 13361, 13444, 13460, 13671, 13768, 13899, 14271, 14303, 14444, 14540, 14643, 14685, 15357, 15822, 15841, 15866, 16032, 16223, 16334, 16364, 16908, 17030, 17042, 17127, 17301, 17683, 18023, 18172, 18458, 18459, 18460, 18549, 18583, 18654, 18756, 18803, 18854, 18855, 19100, 19409, 19411, 19662, 19766, 20367, 20507, 20708, 20710, 21093, 21599, 21696, 21759, 21952, 21953, 21954, 22040, 22305, 22344, 22680, 23061, 23174, 23182, 23188, 23490, 23692, 23987, 24818, 24912, 24913, 25500, 25666, 25961, 25991, 25995, 26164, 26175, 26543, 26579, 27029, 27335, 27496, 27507, 27833, 28995, 29031, 29054, 29368, 29473, 29556, 29770, 30066, 30170, 30281, 30289, 30598, 30601, 30733, 30767, 31027, 31324, 31780, 31786, 32505, 32745, 32814, 32954, 33224, 33320, 33493, 33885, 34006, 34098, 34211, 34501, 34619, 34757, 35188, 35273, 35338, 35339, 35820, 36140, 36486, 36487, 36648, 36859, 36904, 37826, 37827, 37898, 37952, 38218, 38219, 38220, 38221, 38222, 38223, 38224, 38351, 38739, 38788, 39119, 39818, 40924, 41289, 41955, 42184, 42289, 43004, 43274, 43464, 43806, 43873, 44050, 44281, 44419, 44709, 44841, 44958, 45004, 45024, 45103, 45157, 45516, 45517, 45578, 45980]
 Number of not all rules used: 0
 []
 Number of not all nodes covered: 0
@@ -332551,11 +332551,11 @@ Number of parse did not finish: 0
 []
 Number of cky conversion did not finish: 0
 []
-Number of validated: 36695
+Number of validated: 36707
 Number of all sentences: 36948
 
 
-Duplicated rules with different predicate ids: (len: 326)
+Duplicated rules with different predicate ids: (len: 318)
 
 S -> (. :VERB . :conj (. :VERB . :obl (. :A1 .)) :nsubj (. :A0 .));2; [19, 1386, 2021, 2290, 3263, 4283, 5279, 5623, 5648, 5685, 6152, 8540, 9061, 9233, 9781, 9886, 11391, 11669, 11686, 12521, 13649, 14149, 16021, 20994, 21185, 21232, 21419, 21450, 22367, 24002, 24138, 24518, 24538, 24837, 25156, 25657, 25658, 27123, 29210, 29767, 31058, 31382, 31630, 31719, 31838, 32613, 33777, 34093, 34215, 35146, 35241, 35796, 36428, 36533, 37372, 38151, 39213, 39517, 39676, 40307, 41287, 41352, 41816, 42644, 43054, 43410, 43709, 45239, 45858]
 S -> (. :VERB . :conj (. :VERB . :obl (. :A1 .)) :nsubj (. :A0 .));0; [22368, 31629]
@@ -332651,16 +332651,16 @@ S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB . :obl (. :A1 .)));3; [1612, 16
 S -> (. :VERB . :nsubj (. :A0 .) :xcomp (. :VERB . :obl (. :A1 .)));0; [20482, 30645, 33808, 36474]
 S -> (. :ADJ . :nsubj (. :A0 .) :xcomp (. :VERB . :obl (. :A1 .)));3; [1752, 4974, 8798, 9198, 11727, 14891, 15102, 16400, 16643, 16941, 16956, 18226, 19278, 20856, 20909, 22333, 22451, 23676, 23681, 27708, 28309, 30805]
 S -> (. :ADJ . :nsubj (. :A0 .) :xcomp (. :VERB . :obl (. :A1 .)));0; [14890, 27399]
-S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 .) :obl (. :NOUN .));4; [1814, 11252, 12279, 12283]
-S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 .) :obl (. :NOUN .));3; [4962, 12370]
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 .) :obl (. :NOUN .));4; [1814]
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 .) :obl (. :NOUN .));3; [4962, 11252, 12279, 12283, 12370]
 S -> (. :VERB . :nsubj (. :A0 .) :parataxis (. :VERB . :obl (. :A1 .)));3; [1858, 10847, 19041, 23553, 24415, 24716, 25809, 38506, 42053, 42453]
 S -> (. :VERB . :nsubj (. :A0 .) :parataxis (. :VERB . :obl (. :A1 .)));0; [8220]
 S -> (. :ADJ . :advcl (. :VERB . :nsubj (. :A0 .)) :xcomp (. :VERB . :obj (. :A1 .)));3; [1895]
 S -> (. :ADJ . :advcl (. :VERB . :nsubj (. :A0 .)) :xcomp (. :VERB . :obj (. :A1 .)));2; [9945]
 S -> (. :VERB . :advcl (. :VERB . :conj (. :VERB . :obj (. :A1 .))) :nsubj (. :A0 .));5; [1899, 7060, 10116, 24291, 24949, 25093, 25700, 26829, 27957, 30595, 31004, 32541, 33015, 34679, 35979, 35990, 36542]
 S -> (. :VERB . :advcl (. :VERB . :conj (. :VERB . :obj (. :A1 .))) :nsubj (. :A0 .));2; [26827, 39814]
-S -> (. :VERB . :obl (. :A0 . :case (. :VERB .)) :obl (. :A1 .));6; [1926, 17157, 42799]
-S -> (. :VERB . :obl (. :A0 . :case (. :VERB .)) :obl (. :A1 .));5; [3242, 7473, 21093, 28995]
+S -> (. :VERB . :obl (. :A0 . :case (. :VERB .)) :obl (. :A1 .));5; [1926, 17157, 42799]
+S -> (. :VERB . :obl (. :A0 . :case (. :VERB .)) :obl (. :A1 .));6; [3242, 7473, 21093, 28995]
 S -> (. :VERB . :obl (. :A1 .) :parataxis (. :VERB . :nsubj (. :A0 .) :obj (. :A2 .)));0; [1952]
 S -> (. :VERB . :obl (. :A1 .) :parataxis (. :VERB . :nsubj (. :A0 .) :obj (. :A2 .)));3; [21668, 26091]
 S -> (. :VERB . :advcl (. :VERB . :nsubj_pass (. :A0 .)) :obl (. :A1 .));2; [2071, 18002, 23601, 30247]
@@ -332689,8 +332689,6 @@ S -> (. :VERB . :nsubj (. :A0 .) :parataxis (. :VERB . :ccomp (. :A1 .)));3; [37
 S -> (. :VERB . :nsubj (. :A0 .) :parataxis (. :VERB . :ccomp (. :A1 .)));0; [5889, 16368]
 S -> (. :VERB . :conj (. :VERB . :aux (. :AUX .)) :nsubj (. :A0 .));5_2; [3987]
 S -> (. :VERB . :conj (. :VERB . :aux (. :AUX .)) :nsubj (. :A0 .));5; [28412]
-S -> (. :VERB . :obl (. :A0 .) :obl (. :A1 . :case (. :VERB .)));5; [4006, 6952, 10103, 11206, 30796]
-S -> (. :VERB . :obl (. :A0 .) :obl (. :A1 . :case (. :VERB .)));6; [18503, 27165, 39895]
 S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A1 .) :parataxis (. :VERB . :obl (. :A2 .)));0; [4052]
 S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A1 .) :parataxis (. :VERB . :obl (. :A2 .)));4; [4053]
 S -> (. :VERB . :conj (. :VERB . :obl_agent (. :A0 .)) :nsubj_pass (. :A1 .) :obl (. :A2 .));2; [4065]
@@ -332705,8 +332703,8 @@ S -> (. :VERB . :advcl (. :VERB . :obj (. :A0 .)) :nsubj_pass (. :A1 .));2; [434
 S -> (. :VERB . :advcl (. :VERB . :obj (. :A0 .)) :nsubj_pass (. :A1 .));0; [35428]
 S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A1 . :amod (. :VERB .)));6; [4368, 5478, 25730, 32875, 39054, 39096, 44674]
 S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A1 . :amod (. :VERB .)));0_6; [11803]
-S -> (. :VERB . :conj (. :A0 .) :conj (. :VERB .));3; [4389]
-S -> (. :VERB . :conj (. :A0 .) :conj (. :VERB .));2; [40758]
+S -> (. :VERB . :conj (. :A0 .) :conj (. :VERB .));2; [4389]
+S -> (. :VERB . :conj (. :A0 .) :conj (. :VERB .));3; [40758]
 S -> (. :VERB . :conj (. :VERB . :obl (. :A2 . :nmod (. :A1 .))) :nsubj_pass (. :A0 .));2; [4461]
 S -> (. :VERB . :conj (. :VERB . :obl (. :A2 . :nmod (. :A1 .))) :nsubj_pass (. :A0 .));0; [14443]
 S -> (. :VERB . :nsubj (. :A0 .) :obl (. :NOUN . :compound (. :A1 .)));0; [4570, 42824]
@@ -332729,8 +332727,6 @@ S -> (. :VERB . :advcl (. :VERB . :obl (. :A1 .)) :nsubj_pass (. :A0 .) :obl (. 
 S -> (. :VERB . :advcl (. :VERB . :obl (. :A1 .)) :nsubj_pass (. :A0 .) :obl (. :A2 .));2; [17319, 32895]
 S -> (. :VERB . :nsubj_pass (. :A1 .) :obl_agent (. :A0 . :acl_relcl (. :VERB . :obl (. :A2 .))));6; [7188, 33556]
 S -> (. :VERB . :nsubj_pass (. :A1 .) :obl_agent (. :A0 . :acl_relcl (. :VERB . :obl (. :A2 .))));0; [24095]
-S -> (. :VERB . :nsubj (. :A0 . :acl (. :VERB . :obl (. :A1 .))) :nsubj (. :A2 .));6; [7282]
-S -> (. :VERB . :nsubj (. :A0 . :acl (. :VERB . :obl (. :A1 .))) :nsubj (. :A2 .));5; [32745]
 S -> (. :VERB . :advcl (. :VERB . :obj (. :NOUN . :conj (. :A1 .))) :nsubj (. :A0 .));2; [7416]
 S -> (. :VERB . :advcl (. :VERB . :obj (. :NOUN . :conj (. :A1 .))) :nsubj (. :A0 .));0; [17773, 17775]
 S -> (. :VERB . :aux (. :AUX .) :nsubj (. :A0 .) :obl_unmarked (. :A1 .));2_0; [7454, 9194, 12067]
@@ -332741,6 +332737,8 @@ S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A1 . :acl_relcl (. :VERB . :obl (. :A2
 S -> (. :VERB . :nsubj (. :A0 .) :obj (. :A1 . :acl_relcl (. :VERB . :obl (. :A2 .))));6; [15108, 25636, 28572]
 S -> (. :VERB . :obl (. :A1 .) :parataxis (. :VERB . :nsubj (. :A0 .)));0; [8231, 27822]
 S -> (. :VERB . :obl (. :A1 .) :parataxis (. :VERB . :nsubj (. :A0 .)));3; [23544]
+S -> (. :VERB . :obl (. :A0 . :amod (. :VERB .)) :obl (. :A1 .));5; [8257, 11920]
+S -> (. :VERB . :obl (. :A0 . :amod (. :VERB .)) :obl (. :A1 .));6; [9883, 31786]
 S -> (. :VERB . :advcl (. :VERB . :obj (. :A1 .)) :nsubj (. :A0 .) :obj (. :A2 .));2; [8330, 8497, 13432, 22814, 28494]
 S -> (. :VERB . :advcl (. :VERB . :obj (. :A1 .)) :nsubj (. :A0 .) :obj (. :A2 .));0; [28062]
 S -> (. :VERB . :advcl (. :VERB . :obl (. :A0 .)) :obl (. :A1 .));2; [8785, 21909, 23197, 23648, 41081, 41762]
@@ -332757,6 +332755,8 @@ S -> (. :VERB . :advcl (. :VERB . :obl (. :A2 .)) :nsubj (. :A0 .) :obj (. :A1 .
 S -> (. :VERB . :advcl (. :VERB . :obl (. :A2 .)) :nsubj (. :A0 .) :obj (. :A1 .) :obl (. :A3 .));2; [32325]
 S -> (. :VERB . :advcl (. :VERB . :ccomp (. :VERB . :advcl (. :A1 .))) :nsubj (. :A0 .));5; [9873]
 S -> (. :VERB . :advcl (. :VERB . :ccomp (. :VERB . :advcl (. :A1 .))) :nsubj (. :A0 .));2; [16982]
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 .) :obl (. :A2 . :case (. :VERB .)));8; [10161]
+S -> (. :VERB . :nsubj (. :A0 .) :obl (. :A1 .) :obl (. :A2 . :case (. :VERB .)));7; [16908]
 S -> (. :VERB . :advcl (. :VERB . :obj (. :A2 .) :obl (. :A1 .)) :nsubj (. :A0 .));2; [10269, 11259, 12244, 16269, 18454, 21718, 28751, 35189, 38248]
 S -> (. :VERB . :advcl (. :VERB . :obj (. :A2 .) :obl (. :A1 .)) :nsubj (. :A0 .));0; [20487]
 S -> (. :VERB . :obj (. :A1 .) :parataxis (. :VERB . :nsubj (. :A0 .)));3; [10443]
@@ -332769,12 +332769,8 @@ S -> (. :VERB . :conj (. :VERB . :obl (. :A1 .)) :obl (. :A0 .));0; [11007]
 S -> (. :VERB . :conj (. :VERB . :obl (. :A1 .)) :obl (. :A0 .));2; [22648, 26399, 30331, 30332, 43802]
 S -> (. :VERB . :advcl (. :VERB . :obl (. :A3 .)) :nsubj (. :A0 .) :obl (. :A1 .) :obl (. :A2 .));0; [11031]
 S -> (. :VERB . :advcl (. :VERB . :obl (. :A3 .)) :nsubj (. :A0 .) :obl (. :A1 .) :obl (. :A2 .));2; [15387, 25080, 34808]
-S -> (. :A0 . :obl (. :A1 .) :obl (. :A2 . :case (. :VERB .)));6; [11104, 44827]
-S -> (. :A0 . :obl (. :A1 .) :obl (. :A2 . :case (. :VERB .)));5; [11456, 26172]
-S -> (. :VERB . :obl (. :A0 . :amod (. :ADJ .)) :obl (. :A1 .));5; [11389]
-S -> (. :VERB . :obl (. :A0 . :amod (. :ADJ .)) :obl (. :A1 .));6; [39035]
-S -> (. :VERB . :advcl (. :A0 .) :advcl (. :VERB .));2; [11465, 25906, 32058]
-S -> (. :VERB . :advcl (. :A0 .) :advcl (. :VERB .));3; [32328, 45157]
+S -> (. :VERB . :advcl (. :A0 .) :advcl (. :VERB .));2; [11465, 45157]
+S -> (. :VERB . :advcl (. :A0 .) :advcl (. :VERB .));3; [25906, 32058, 32328]
 S -> (. :VERB . :advcl (. :VERB . :advcl (. :A1 .)) :nsubj (. :A0 .));2; [11532, 11910, 12882, 21248]
 S -> (. :VERB . :advcl (. :VERB . :advcl (. :A1 .)) :nsubj (. :A0 .));0; [45888]
 S -> (. :VERB . :conj (. :VERB . :advcl (. :A1 .)) :nsubj (. :A0 .) :obl (. :A2 .));0; [11611, 40349]
@@ -332795,8 +332791,6 @@ S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A1 .) :obl (. :NOUN . :nmod (. :A
 S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A1 .) :obl (. :NOUN . :nmod (. :A2 .)));0; [16026, 37598, 41733]
 S -> (. :VERB . :conj (. :VERB . :obl (. :A2 .)) :nsubj_pass (. :A0 .) :obl (. :A1 .));2; [15314, 23159, 24686, 31796, 37557, 39304, 43008]
 S -> (. :VERB . :conj (. :VERB . :obl (. :A2 .)) :nsubj_pass (. :A0 .) :obl (. :A1 .));0; [43009]
-S -> (. :VERB . :obl (. :A0 .) :obl (. :NOUN .));3; [15822, 20367]
-S -> (. :VERB . :obl (. :A0 .) :obl (. :NOUN .));2; [21759]
 S -> (. :VERB . :conj (. :ADJ . :xcomp (. :VERB . :conj (. :VERB . :obj (. :A1 .)))) :nsubj (. :A0 .));5; [15971]
 S -> (. :VERB . :conj (. :ADJ . :xcomp (. :VERB . :conj (. :VERB . :obj (. :A1 .)))) :nsubj (. :A0 .));8; [15972]
 S -> (. :VERB . :nsubj (. :A0 .) :obl (. :NOUN . :nmod (. :NOUN . :nmod (. :A1 .))));6; [16067]
@@ -332827,10 +332821,10 @@ S -> (. :NOUN . :acl (. :VERB . :advcl (. :VERB . :obl (. :A1 .))) :nsubj (. :A0
 S -> (. :NOUN . :acl (. :VERB . :advcl (. :VERB . :obl (. :A1 .))) :nsubj (. :A0 .));2; [44524]
 S -> (. :VERB . :nsubj_pass (. :A0 .) :parataxis (. :VERB . :obl (. :A1 .)));3; [19576]
 S -> (. :VERB . :nsubj_pass (. :A0 .) :parataxis (. :VERB . :obl (. :A1 .)));0; [20691]
+S -> (. :VERB . :obl (. :A0 . :acl (. :VERB .)) :obl (. :A1 .));6; [20507, 33885, 44419]
+S -> (. :VERB . :obl (. :A0 . :acl (. :VERB .)) :obl (. :A1 .));5; [36098]
 S -> (. :VERB . :conj (. :VERB . :advcl (. :A1 .)) :obl (. :A0 .));2; [20624]
 S -> (. :VERB . :conj (. :VERB . :advcl (. :A1 .)) :obl (. :A0 .));0; [42837]
-S -> (. :VERB . :advcl (. :A1 .) :advcl (. :VERB . :obj (. :A0 .)));3; [20918, 44755]
-S -> (. :VERB . :advcl (. :A1 .) :advcl (. :VERB . :obj (. :A0 .)));2; [24911]
 S -> (. :VERB . :ccomp (. :VERB . :nsubj (. :A0 .)) :parataxis (. :VERB . :obj (. :A1 .)));3; [21051]
 S -> (. :VERB . :ccomp (. :VERB . :nsubj (. :A0 .)) :parataxis (. :VERB . :obj (. :A1 .)));2; [34780]
 S -> (. :A0 . :acl_relcl (. :VERB . :xcomp (. :ADJ . :obl (. :A1 .))));4; [21144]
@@ -332839,6 +332833,8 @@ S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A2 .) :xcomp (. :VERB . :obl (. :
 S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :A2 .) :xcomp (. :VERB . :obl (. :A1 .)));0; [21399]
 S -> (. :VERB . :nsubj_pass (. :NOUN . :nmod (. :NOUN . :acl (. :VERB . :obj (. :A0 .)))) :obl (. :A1 .));0; [22256]
 S -> (. :VERB . :nsubj_pass (. :NOUN . :nmod (. :NOUN . :acl (. :VERB . :obj (. :A0 .)))) :obl (. :A1 .));8; [36949]
+S -> (. :A0 . :amod (. :A1 .) :amod (. :VERB .));3; [22308, 43749]
+S -> (. :A0 . :amod (. :A1 .) :amod (. :VERB .));2; [42184]
 S -> (. :VERB . :nsubj_pass (. :NOUN . :acl (. :VERB . :obj (. :A0 .))) :obl (. :A1 .));0; [22466]
 S -> (. :VERB . :nsubj_pass (. :NOUN . :acl (. :VERB . :obj (. :A0 .))) :obl (. :A1 .));5; [43908]
 S -> (. :VERB . :advcl (. :VERB . :nsubj_pass (. :A1 .)) :nsubj (. :A0 .));0; [23167]
@@ -332859,14 +332855,10 @@ S -> (. :VERB . :advcl (. :VERB . :obl_agent (. :A0 .)) :obl (. :A1 .));2; [3002
 S -> (. :VERB . :advcl (. :VERB . :obl_agent (. :A0 .)) :obl (. :A1 .));0; [39391]
 S -> (. :VERB . :conj (. :VERB . :obl (. :A1 .) :obl (. :A3 .)) :nsubj (. :A0 .) :obj (. :A2 .));2; [30152]
 S -> (. :VERB . :conj (. :VERB . :obl (. :A1 .) :obl (. :A3 .)) :nsubj (. :A0 .) :obj (. :A2 .));0; [35413]
-S -> (. :VERB . :obl (. :A0 . :acl_relcl (. :VERB . :obj (. :A2 .))) :obl (. :A1 .));5; [30767]
-S -> (. :VERB . :obl (. :A0 . :acl_relcl (. :VERB . :obj (. :A2 .))) :obl (. :A1 .));6; [42289]
 S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :NOUN . :nmod (. :NOUN . :acl (. :VERB . :obl (. :A1 .)))));8; [32303]
 S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :NOUN . :nmod (. :NOUN . :acl (. :VERB . :obl (. :A1 .)))));0; [39662]
 S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :NOUN . :acl (. :VERB . :obl (. :A1 .))));0; [33124]
 S -> (. :VERB . :nsubj_pass (. :A0 .) :obl (. :NOUN . :acl (. :VERB . :obl (. :A1 .))));6; [36378]
-S -> (. :VERB . :advcl (. :VERB . :obj (. :A0 .)) :advcl (. :VERB .));3; [34067]
-S -> (. :VERB . :advcl (. :VERB . :obj (. :A0 .)) :advcl (. :VERB .));2; [38740]
 S -> (. :VERB . :conj (. :VERB . :obl (. :A2 .)) :nsubj_pass (. :A1 .) :obl_agent (. :A0 .));2; [34412]
 S -> (. :VERB . :conj (. :VERB . :obl (. :A2 .)) :nsubj_pass (. :A1 .) :obl_agent (. :A0 .));0; [39851]
 S -> (. :VERB . :conj (. :VERB . :obl (. :NOUN . :acl_relcl (. :VERB . :obl (. :A1 .)))) :nsubj_pass (. :A0 .));8; [34948]
@@ -332875,21 +332867,21 @@ S -> (. :VERB . :advcl (. :VERB . :conj (. :VERB . :obl (. :A1 .))) :obj (. :A0 
 S -> (. :VERB . :advcl (. :VERB . :conj (. :VERB . :obl (. :A1 .))) :obj (. :A0 .));2; [43439]
 S -> (. :VERB . :advcl (. :VERB . :ccomp (. :A1 .)) :obl (. :A0 .));2; [37384, 42278]
 S -> (. :VERB . :advcl (. :VERB . :ccomp (. :A1 .)) :obl (. :A0 .));0; [39366, 39367]
-S -> (. :VERB . :advcl (. :VERB . :nsubj (. :A0 .)) :advcl (. :VERB . :obj (. :A1 .)));2; [37906]
-S -> (. :VERB . :advcl (. :VERB . :nsubj (. :A0 .)) :advcl (. :VERB . :obj (. :A1 .)));3; [44147]
 S -> (. :A0 . :acl (. :VERB . :conj (. :VERB . :obl_agent (. :A1 .))));4; [39121, 40301, 45614]
 S -> (. :A0 . :acl (. :VERB . :conj (. :VERB . :obl_agent (. :A1 .))));2; [45612]
 S -> (. :A1 . :acl (. :VERB . :conj (. :VERB . :obl (. :A2 .) :obl_agent (. :A0 .))));2; [40081]
 S -> (. :A1 . :acl (. :VERB . :conj (. :VERB . :obl (. :A2 .) :obl_agent (. :A0 .))));4; [40082]
 S -> (. :NOUN . :nmod (. :PROPN . :acl (. :VERB . :obl_agent (. :A0 . :acl_relcl (. :VERB . :obl (. :A1 .))))) :nsubj (. :A2 .));10; [42607]
 S -> (. :NOUN . :nmod (. :PROPN . :acl (. :VERB . :obl_agent (. :A0 . :acl_relcl (. :VERB . :obl (. :A1 .))))) :nsubj (. :A2 .));5; [42608]
+S -> (. :VERB . :obl (. :A1 . :acl (. :VERB . :obl_agent (. :A0 .))) :obl (. :A2 .));5; [43805]
+S -> (. :VERB . :obl (. :A1 . :acl (. :VERB . :obl_agent (. :A0 .))) :obl (. :A2 .));6; [43873]
 
 
-Unique rules for hrg_contracted: 9959
+Unique rules for hrg_contracted: 9955
 
 First sentence to process: 0
 Last sentence to process: 46015
 
-Execution finish: 2025-03-01 21:50:58.820945
-Elapsed time: 3 min 31 sec
+Execution finish: 2025-03-04 22:40:47.944058
+Elapsed time: 2 min 30 sec
 
