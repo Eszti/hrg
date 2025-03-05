@@ -449,9 +449,7 @@ class Hgraph(defaultdict):
             node, depth = queue.pop(0)
             if not node in tabu:
                 tabu.add(node)
-                for rel, child in sorted(
-                    self[node].items(), key=lambda x: self.__get_str_for_triplet_sort(x)
-                ):
+                for rel, child in sorted(self[node].items(), key=lambda x: str(x[0])):
                     if nodelabels:
                         newchild = tuple([(n, self.node_to_concepts[n]) for n in child])
                         newnode = (node, self.node_to_concepts[node])
@@ -475,15 +473,6 @@ class Hgraph(defaultdict):
             self.__nodelabels = nodelabels
 
         return triples
-
-    @staticmethod
-    def __get_str_for_triplet_sort(x):
-        str2 = ""
-        if type(x[1]) is tuple and type(x[1][0]) is str:
-            if x[1][0].startswith("n") or x[1][0].startswith("_"):
-                int_val = int(x[1][0][1:])
-                str2 += chr(int_val)
-        return str(x[0]) + str2
 
     def __str__(self, nodeids=False, newline=False):
         return self.to_bolinas_str(nodeids=nodeids, newline=newline)
