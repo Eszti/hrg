@@ -1,8 +1,6 @@
-import json
 from abc import abstractmethod
 from collections import defaultdict
 
-import networkx as nx
 import stanza
 from stanza.utils.conll import CoNLL
 from tuw_nlp.graph.ud_graph import UDGraph
@@ -33,10 +31,6 @@ class Preproc(LoopOnConll):
 
         if sen_txt != last_sen_txt or self.folder_per_sen:
             ud_graph = UDGraph(parsed_doc.sentences[0])
-            json.dump(
-                [n for n in nx.topological_sort(ud_graph.G)],
-                open(f"{sen_dir}/graph_top_order.json", "w"),
-            )
             self._save_bolinas_graph(
                 ud_graph.pos_edge_graph(),
                 f"{sen_dir}/pos_edge.graph",

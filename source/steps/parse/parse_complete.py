@@ -1,6 +1,12 @@
 from source.steps.parse.parse import Parse
 
 
+class ParseCompleteStep:
+    @staticmethod
+    def get_triplet_input(sen_idx, sen_dir):
+        return [(sen_idx, f"{sen_dir}/pos_edge.graph")]
+
+
 class ParseComplete(Parse):
 
     def __init__(self, config=None):
@@ -11,7 +17,7 @@ class ParseComplete(Parse):
         )
 
     def _get_triplet_input(self, sen_idx, sen_dir):
-        return [(sen_idx, f"{sen_dir}/pos_edge.graph")]
+        return ParseCompleteStep.get_triplet_input(sen_idx, sen_dir)
 
 
 if __name__ == "__main__":

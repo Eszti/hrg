@@ -61,5 +61,5 @@ class LoopOnSenDirs(Script):
         )
 
     @staticmethod
-    def _get_triplet_id(fn):
+    def get_triplet_id(fn):
         return int(fn.split("/")[-1].split("_")[0].split("sen")[-1])
