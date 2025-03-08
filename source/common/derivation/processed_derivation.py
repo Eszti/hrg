@@ -129,7 +129,11 @@ class ProcessedDerivation(Derivation):
             item = child_item
         else:
             item = child_item[0]
-        return int(item.mapping["_1"].split("n")[1])
+        if "_1" in item.mapping:
+            idx = "_1"
+        else:
+            idx = "_0"
+        return int(item.mapping[idx].split("n")[1])
 
     def __add_label(self, item, parent_label):
         item_label = ""
