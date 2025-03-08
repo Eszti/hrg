@@ -12,28 +12,13 @@ class DerivationList:
     def __init__(self, derivation_list):
         self.derivation_list = derivation_list
 
-    def get_k_best_unique_derivation(
-        self,
-        sen_id,
-        sen_text,
-        k,
-        pos_tags,
-        top_order,
-        pos_tag_resolution,
-        pred_resolution_from_rule,
-    ):
+    def get_k_best_unique_derivation(self, sen_id, sen_text, k, pos_tag_resolution):
         unique_triplets = set()
         kbest_unique_derivations = []
         for derivation in self.derivation_list:
-            processed_derivation = ProcessedDerivation(
-                derivation, pos_tag_resolution=pos_tag_resolution
+            processed_derivation = self.__get_processed_derivation(
+                derivation, pos_tag_resolution
             )
-            if pred_resolution_from_rule:
-                processed_derivation.calculate_processed_triplet_from_rule()
-            else:
-                processed_derivation.calculate_processed_triplet_from_tree_structure(
-                    pos_tags, top_order
-                )
             triplet_dict = " ".join(
                 [
                     f"{n}:{l}"
@@ -56,29 +41,15 @@ class DerivationList:
         return KbestDerivationList(kbest_unique_derivations, sen_id, sen_text)
 
     def get_best_matching_derivations(
-        self,
-        sen_id,
-        sen_text,
-        gold_triplets,
-        top_order,
-        pos_tags,
-        pos_tag_resolution,
-        pred_resolution_from_rule,
-        arg_perm,
+        self, sen_id, sen_text, gold_triplets, pos_tag_resolution, arg_perm
     ):
         derivations_to_keep = defaultdict(lambda: [None] * len(gold_triplets))
         max_scores = defaultdict(lambda: [-1.0] * len(gold_triplets))
 
         for derivation in self.derivation_list:
-            processed_derivation = ProcessedDerivation(
-                derivation, pos_tag_resolution=pos_tag_resolution
+            processed_derivation = self.__get_processed_derivation(
+                derivation, pos_tag_resolution
             )
-            if pred_resolution_from_rule:
-                processed_derivation.calculate_processed_triplet_from_rule()
-            else:
-                processed_derivation.calculate_processed_triplet_from_tree_structure(
-                    pos_tags, top_order
-                )
             permutations = (
                 processed_derivation.processed_triplet.get_all_permutations()
                 if arg_perm
@@ -116,3 +87,11 @@ class DerivationList:
             for k, v in ret.items()
         }
         return ret
+
+    @staticmethod
+    def __get_processed_derivation(derivation, pos_tag_resolution):
+        processed_derivation = ProcessedDerivation(
+            derivation, pos_tag_resolution=pos_tag_resolution
+        )
+        processed_derivation.calculate_processed_triplet()
+        return processed_derivation

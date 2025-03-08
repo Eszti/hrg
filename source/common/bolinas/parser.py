@@ -217,14 +217,7 @@ class Parser:
         return len(item.shifted) == graph_size
 
     def check_membership(
-        self,
-        bolinas_graph,
-        sen_logger,
-        global_logger,
-        pos_tags,
-        top_order,
-        pos_tag_resolution=False,
-        pred_resolution_from_rule=False,
+        self, bolinas_graph, sen_logger, global_logger, pos_tag_resolution=False
     ):
         processed_derivation = None
         sen_logger.log("VALIDATION:\n")
@@ -254,12 +247,7 @@ class Parser:
                     derivation_list.derivation_list[0],
                     pos_tag_resolution=pos_tag_resolution,
                 )
-                if pred_resolution_from_rule:
-                    processed_derivation.calculate_processed_triplet_from_rule()
-                else:
-                    processed_derivation.calculate_processed_triplet_from_tree_structure(
-                        pos_tags, top_order
-                    )
+                processed_derivation.calculate_processed_triplet()
                 processed_derivation.full_log(logger=sen_logger, k=1)
 
                 not_covered_nodes = sorted(

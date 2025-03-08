@@ -4,7 +4,6 @@ from collections import defaultdict, Counter
 class HRGForDataset:
     def __init__(self, hrgs):
         self.hrgs = hrgs
-        self.duplicate_rules = []
         self.nt_to_rules = defaultdict(lambda: defaultdict(list))
         self.nt_to_rules_counter = defaultdict(Counter)
         self.weighted_grammar_lines = defaultdict(list)
@@ -12,21 +11,11 @@ class HRGForDataset:
         self.__calculate_variables()
 
     def __calculate_variables(self):
-        duplicate_collector = defaultdict(lambda: defaultdict(list))
         for hrg_for_triplet in self.hrgs:
             for hrg_rule in hrg_for_triplet.all_rules:
-                self.nt_to_rules[hrg_rule.lhs][
-                    hrg_rule.get_rule_and_predicate_ids()
-                ].append(hrg_for_triplet)
-                duplicate_collector[hrg_rule.get_rule_string()][
-                    hrg_rule.get_predicate_ids()
-                ].append(hrg_rule.triplet_id)
-        for rule, predicates in duplicate_collector.items():
-            if len(predicates) > 1:
-                for predicate_ids, triplet_ids in predicates.items():
-                    self.duplicate_rules.append(
-                        f"{rule};{predicate_ids}; {triplet_ids}"
-                    )
+                self.nt_to_rules[hrg_rule.lhs][hrg_rule.get_rule_string()].append(
+                    hrg_for_triplet
+                )
         for nt, unique_rule_strings_dict in self.nt_to_rules.items():
             for (
                 unique_rule_string,
@@ -40,12 +29,6 @@ class HRGForDataset:
                     w = 0.01
                 self.weighted_grammar_lines[nt].append((unique_rule_string, cnt, w))
                 self.all_rules += 1
-
-    def log_duplicates_with_different_predicates(self):
-        ret = ""
-        for line in self.duplicate_rules:
-            ret += f"{line}\n"
-        return ret
 
     def save_hrg(self, grammar_dir, grammar_fn_prefix):
         lines = self.__get_grammar_lines()

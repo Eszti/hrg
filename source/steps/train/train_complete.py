@@ -2,7 +2,6 @@ import logging
 from collections import defaultdict
 
 import networkx as nx
-from tuw_nlp.graph.graph import Graph
 
 from source.common.rules.hrg_for_triplet import HRGForTriplet
 from source.common.rules.hrg_rule import HRGRule
@@ -20,16 +19,15 @@ class TrainComplete(Train):
         self.out_dir += f"_{self.method}"
 
     def _get_hrg_for_triplet(
-        self, triplet_graph_str, triplet_id, triplet, triplet_logger
+        self, triplet_graph_str, triplet_graph, triplet_id, triplet, triplet_logger
     ):
-        triplet_graph = Graph.from_bolinas(triplet_graph_str)
         hrg_for_triplet = None
         if self.method == "per_word":
             hrg_for_triplet = self.__get_rules_per_word(
                 triplet_graph, triplet, triplet_id
             )
             for hrg_rule in hrg_for_triplet.all_rules:
-                triplet_logger.log(hrg_rule.log_hrg_rule())
+                triplet_logger.log(hrg_rule.print_rule())
         return hrg_for_triplet
 
     def __get_rules_per_word(self, triplet_graph, triplet, triplet_id):
@@ -72,7 +70,7 @@ class TrainComplete(Train):
                     rule += " " + " ".join(
                         f":{non_term}$" for _ in next_edges[non_term]
                     )
-                rule += f" :{root_pos} .));\n"
+                rule += f" :{root_pos} .))"
                 yield HRGRule(lhs, rule, triplet, triplet_id)
 
                 yield from self.__gen_subseq_rules(G, next_edges, triplet, triplet_id)
@@ -84,7 +82,7 @@ class TrainComplete(Train):
         rule = "(."
         for lhs in sorted(next_edges.keys()):
             rule += " " + " ".join(f":{lhs}$" for _ in next_edges[lhs])
-        rule += f" :{root_pos} .);\n"
+        rule += f" :{root_pos} .)"
         return HRGRule("S", rule, triplet, triplet_id)
 
 

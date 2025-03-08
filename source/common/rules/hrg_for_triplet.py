@@ -5,7 +5,6 @@ class HRGForTriplet:
         self.initial_rules = []
         self.other_rules = []
         self.__fill_split_rules()
-        self.__set_predicate_mapping_failure()
 
     def __fill_split_rules(self):
         for rule in self.all_rules:
@@ -13,13 +12,6 @@ class HRGForTriplet:
                 self.initial_rules.append(rule)
             else:
                 self.other_rules.append(rule)
-
-    def __set_predicate_mapping_failure(self):
-        self.failed_predicate_mapping = False
-        for rule in self.all_rules:
-            if rule.failed_predicate_mapping:
-                self.failed_predicate_mapping = True
-                return
 
     def get_grammar_lines(self):
         ret = []

@@ -31,30 +31,14 @@ class ProcessedDerivation(Derivation):
         )
         self.processed_triplet = None
 
-    def calculate_processed_triplet_from_tree_structure(
-        self, pos_tags, top_order, score=None
-    ):
+    def calculate_processed_triplet(self, score=None):
         self.processed_triplet = copy.copy(self.original_triplet)
         self.processed_triplet.derivation_score = (
             score if score is not None else self.score
         )
-        self.processed_triplet.resolve_pred(
-            pos_tags, top_order, self.pos_tag_resolution
-        )
-
-    def calculate_processed_triplet_from_rule(self, score=None):
-        self.processed_triplet = copy.copy(self.original_triplet)
-        self.processed_triplet.derivation_score = (
-            score if score is not None else self.score
-        )
-        node_to_order = self.final_item.rule.rhs1.get_nodes()
-        order_to_node_id = {o: n for n, o in node_to_order.items()}
-        pred_order_ids = [
-            order_to_node_id[int(p)] for p in self.final_item.rule.predicates.split("_")
-        ]
-        pred_node_ids = [self.final_item.mapping[p] for p in pred_order_ids]
-        pred_ids = [int(p.split("n")[-1]) for p in pred_node_ids]
-        self.processed_triplet.set_pred_ids(pred_ids)
+        if not self.processed_triplet.predicate():
+            pred_ids = [int(self.final_item.mapping["_0"].split("n")[-1])]
+            self.processed_triplet.set_pred_ids(pred_ids)
 
     def full_log(self, logger, k):
         if self.processed_triplet is not None:
@@ -109,34 +93,35 @@ class ProcessedDerivation(Derivation):
     def __derive_labels(self):
         if self.pos_tag_resolution:
             self.__derive_pos_tag_labels()
+            self.__derive_labels_from_nt(
+                self.raw_derivation, add_label_fn=self.__add_pred_label
+            )
         else:
             self.arg_counter = -1
-            self.__derive_labels_from_nt(self.raw_derivation)
+            self.__derive_labels_from_nt(
+                self.raw_derivation, add_label_fn=self.__add_label
+            )
 
     def __derive_pos_tag_labels(self):
         for u, e, v in self.final_item.shifted:
-            label = None
             if re.match(r"A\d\d?", e):
                 label = e
-            elif re.match(r"[A-Z_]+", e):
-                label = "P"
-            if label is not None:
                 node = u[0].split("n")[-1]
                 assert node not in self.derived_labels
                 self.derived_labels[node] = label
 
-    def __derive_labels_from_nt(self, derivation, parent_label="S"):
+    def __derive_labels_from_nt(self, derivation, add_label_fn, parent_label="S"):
         if type(derivation) is not tuple:
-            self.__add_label(derivation, parent_label)
+            add_label_fn(derivation, parent_label)
         else:
             item = derivation[0]
-            item_label = self.__add_label(item, parent_label)
+            item_label = add_label_fn(item, parent_label)
             items = sorted(
                 [c for (_, c) in derivation[1].items()],
                 key=lambda x: self.__child_item_sort_criteria(x),
             )
             for child_item in items:
-                self.__derive_labels_from_nt(child_item, item_label)
+                self.__derive_labels_from_nt(child_item, add_label_fn, item_label)
 
     @staticmethod
     def __child_item_sort_criteria(child_item):
@@ -158,4 +143,16 @@ class ProcessedDerivation(Derivation):
             self.derived_labels[item.mapping["_1"].split("n")[1]] = (
                 f"A{self.arg_counter}"
             )
+        return item_label
+
+    def __add_pred_label(self, item, parent_label):
+        item_label = ""
+        if item != "START":
+            item_label = item.rule.symbol
+        if item_label.startswith("P"):
+            pred_nodes = [
+                n.split("n")[-1] for n in item.nodeset if int(n.split("n")[-1]) < 1000
+            ]
+            for pred_node in pred_nodes:
+                self.derived_labels[pred_node] = item_label
         return item_label

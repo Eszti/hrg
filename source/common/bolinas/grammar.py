@@ -96,7 +96,7 @@ class Grammar(dict):
                 if ";" in content:
                     rulestring = buf.getvalue()
                     try:
-                        content, predicates, weights = rulestring.split(";", 2)
+                        content, weights = rulestring.split(";", 2)
                         weight = (
                             0.0
                             if not weights
@@ -216,7 +216,6 @@ class Grammar(dict):
                                 rule_count,
                                 lhs,
                                 weight,
-                                predicates,
                                 r1,
                                 r2,
                                 nodelabels=nodelabels,

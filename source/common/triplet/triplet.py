@@ -84,46 +84,6 @@ class Triplet:
             ret += len(nodes)
         return ret
 
-    def resolve_pred(self, pos_tags, top_order, pos_tag_resolution=False):
-        predicates = [n for n, l in self.node_to_label.items() if l == "P"]
-        verbs = [n + 1 for n, t in enumerate(pos_tags) if t == "VERB"]
-        if (len(predicates) > 0 and not pos_tag_resolution) or (
-            len(predicates) == 1 and pos_tag_resolution
-        ):
-            self.pred_resolution = "X"
-            return
-        if len(predicates) >= 2 and pos_tag_resolution:
-            pred_top_order = [n for n in top_order if n in predicates]
-            verb_top_order = [n for n in top_order if n in predicates and n in verbs]
-            if len(verb_top_order) == 0:
-                self.label_to_nodes["P"] = [pred_top_order[-1]]
-                self.pred_resolution = "D"
-            elif len(verb_top_order) == 1:
-                self.label_to_nodes["P"] = [verb_top_order[0]]
-                self.pred_resolution = "E"
-            else:
-                self.label_to_nodes["P"] = [verb_top_order[-1]]
-                self.pred_resolution = "F"
-            self.__update_node_to_label()
-        elif len(predicates) == 0:
-            if len(verbs) == 0:
-                self.node_to_label[top_order[1]] = "P"
-                self.pred_resolution = "A"
-            elif len(verbs) == 1:
-                self.node_to_label[verbs[0]] = "P"
-                self.pred_resolution = "B"
-            else:
-                assert len(verbs) > 1
-                first_verb_idx = None
-                for v_idx in verbs:
-                    idx = top_order.index(int(v_idx))
-                    if first_verb_idx is None or idx < first_verb_idx:
-                        first_verb_idx = idx
-                first_verb_node = top_order[first_verb_idx]
-                self.node_to_label[first_verb_node] = "P"
-                self.pred_resolution = "C"
-        self.__update_label_to_nodes()
-
     def set_pred_ids(self, pred_ids):
         self.label_to_nodes["P"] = sorted(pred_ids)
         self.__update_node_to_label()

@@ -19,12 +19,9 @@ class KbestModel:
         self,
         derivation_list,
         gold_triplets,
-        pos_tags,
-        top_order,
         sen_id,
         sen_text,
         pos_tag_resolution,
-        pred_resolution_from_rule,
         arg_perm,
     ):
         if self.kbest:
@@ -33,20 +30,14 @@ class KbestModel:
                     sen_id=sen_id,
                     sen_text=sen_text,
                     k=self.k,
-                    pos_tags=pos_tags,
-                    top_order=top_order,
                     pos_tag_resolution=pos_tag_resolution,
-                    pred_resolution_from_rule=pred_resolution_from_rule,
                 )
             }
         return derivation_list.get_best_matching_derivations(
             sen_id=sen_id,
             sen_text=sen_text,
             gold_triplets=gold_triplets,
-            top_order=top_order,
-            pos_tags=pos_tags,
             pos_tag_resolution=pos_tag_resolution,
-            pred_resolution_from_rule=pred_resolution_from_rule,
             arg_perm=arg_perm,
         )
 
@@ -129,9 +120,7 @@ class KBest(LoopOnSenDirs):
             f"{preproc_sen_dir}/{self.gold_triplets_fn}"
         )
         gold_triplets = gold_triplets_for_sen.triplets
-        top_order = json.load(open(f"{preproc_sen_dir}/graph_top_order.json"))
         conll_sen = ConllSen(preproc_sen_dir)
-        pos_tags = conll_sen.pos_tags()
         sen_text = conll_sen.sen_text()
 
         for model_name in sorted(self.config["models"]):
@@ -154,12 +143,9 @@ class KBest(LoopOnSenDirs):
             derivations_per_model = model.get_derivation_per_model(
                 derivation_list=derivation_list,
                 gold_triplets=gold_triplets,
-                pos_tags=pos_tags,
-                top_order=top_order,
                 sen_id=sen_idx,
                 sen_text=sen_text,
                 pos_tag_resolution=self.pos_tag_resolution,
-                pred_resolution_from_rule=self.pred_resolution_from_rule,
                 arg_perm=self.arg_perm,
             )
 
