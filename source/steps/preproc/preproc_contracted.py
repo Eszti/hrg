@@ -1,4 +1,5 @@
 import copy
+import json
 from collections import defaultdict
 
 import networkx as nx
@@ -145,6 +146,7 @@ class PreprocContracted(Preproc):
     def _after_loop(self):
         self.logger.log(
             f"\nNumber of unconnected arguments: {len(self.unconnected_arg)}"
+            f"\n{json.dumps(sorted(list(self.unconnected_arg.keys())))}"
             f"\nNumber of out edges from argument: {len(self.out_edge_from_arg)}",
             to_stdout=True,
         )
