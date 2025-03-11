@@ -1,5 +1,6 @@
 import json
 import os.path
+from collections import defaultdict
 
 from source.common.bolinas.cky_chart import CkyChart
 from source.common.conll import ConllSen
@@ -24,6 +25,7 @@ class KBestStep:
         }
 
         self.no_derivation_found = []
+        self.no_matching_derivation_found = defaultdict(list)
         self.successful_derivation = 0
         self.all_sens = 0
 
@@ -68,6 +70,11 @@ class KBestStep:
                 arg_perm=self.arg_perm,
             )
 
+            if model_name == "pr_best":
+                for submodel in ["prec", "rec", "f1"]:
+                    if submodel not in derivations_per_model.keys():
+                        self.no_matching_derivation_found[submodel].append(sen_idx)
+
             for submodel_name, derivations in derivations_per_model.items():
                 derivations.check_score_disorder()
                 sen_logger.log(f"Log derivations for {submodel_name}\n")
@@ -81,6 +88,12 @@ class KBestStep:
                 )
 
     def log_kbest_step(self):
+        for submodel_name, no_derivation in self.no_matching_derivation_found.items():
+            self.logger.log(
+                f"\nNumber of no matching derivation ({submodel_name}): {len(no_derivation)}\n"
+                f"{json.dumps(no_derivation)}",
+                to_stdout=True,
+            )
         self.logger.log(
             f"\nNumber of no derivation found: {len(self.no_derivation_found)}\n"
             f"{json.dumps(self.no_derivation_found)}"
