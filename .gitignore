@@ -5,3 +5,6 @@ __pycache__/
 # Local tests
 *_local/
 *_local*.*
+
+graphs/
+train_out/
