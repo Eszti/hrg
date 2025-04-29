@@ -16,6 +16,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--inp", type=str)
     parser.add_argument("--out", type=str)
+    parser.add_argument("--debug_out", type=str, default="train_out")
     return parser.parse_args()
 
 
@@ -53,7 +54,6 @@ def train(inp, out):
 
         # Contract
         contracted_ud = UDGraph(parsed_doc.sentences[0])
-        arg_heads = {}
         try:
             arg_heads = contract_args(
                 contracted_ud,
@@ -81,8 +81,7 @@ def train(inp, out):
             f.write(triplet_graph.to_dot(marked_nodes=arg_heads.values()))
 
         # Create rules
-        rhs = triplet_graph.to_bolinas(keep_node_ids=True, add_n_prefix=False)
-        rhs = re.sub(r"[0-9]*\.", ".", rhs)
+        rhs = triplet_graph.to_bolinas(keep_node_ids=False, add_n_prefix=True)
         rule = f"S -> {rhs}"
         with open(f"train_out/{sen_idx}.hrg", "w") as f:
             f.write(rule)

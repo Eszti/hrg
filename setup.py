@@ -13,6 +13,7 @@ setup(
     license="MIT",
     install_requires=[
         "black",
+        "docopt",
         "matplotlib",
         "networkx",
         "pre-commit",

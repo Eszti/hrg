@@ -220,7 +220,8 @@ class Parser:
         self, bolinas_graph, sen_logger, global_logger, pos_tag_resolution=False
     ):
         processed_derivation = None
-        sen_logger.log("VALIDATION:\n")
+        if sen_logger is not None:
+            sen_logger.log("VALIDATION:\n")
         input_graph = Hgraph.from_string(bolinas_graph)
         orig_nodes = sorted(
             list(input_graph.get_nodes().keys()), key=lambda node: int(node[1:])
@@ -235,7 +236,8 @@ class Parser:
         for i, cky_chart in enumerate(parse_generator):
             assert i == 0
             if cky_chart.no_derivation():
-                sen_logger.log("No derivation found\n")
+                if sen_logger is not None:
+                    sen_logger.log("No derivation found\n")
             else:
                 derivation_list = cky_chart.search_derivations(
                     "START",
@@ -248,7 +250,8 @@ class Parser:
                     pos_tag_resolution=pos_tag_resolution,
                 )
                 processed_derivation.calculate_processed_triplet()
-                processed_derivation.full_log(logger=sen_logger, k=1)
+                if sen_logger is not None:
+                    processed_derivation.full_log(logger=sen_logger, k=1)
 
                 not_covered_nodes = sorted(
                     set(orig_nodes) - set(processed_derivation.derived_nodes),

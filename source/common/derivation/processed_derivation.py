@@ -104,7 +104,7 @@ class ProcessedDerivation(Derivation):
 
     def __derive_pos_tag_labels(self):
         for u, e, v in self.final_item.shifted:
-            if re.match(r"A\d\d?", e):
+            if re.match(r"(A\d?\d?|P)", e):
                 label = e
                 node = u[0].split("n")[-1]
                 assert node not in self.derived_labels
