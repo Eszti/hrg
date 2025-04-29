@@ -159,7 +159,7 @@ def filter_predictions():
     examples = content.split("\n\n")
 
     out_f = open(args.out, "w")
-    log_f = open(f"filter.log", "w")
+    log_f = open(f"openie6/filtered/filter_v2.log", "w")
     sentences = set()
     predictions = set()
 
