@@ -2,7 +2,6 @@ import argparse
 import itertools
 import json
 import os.path
-import re
 from collections import defaultdict, Counter
 
 import stanza

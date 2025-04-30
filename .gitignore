@@ -8,3 +8,4 @@ __pycache__/
 
 graphs/
 train_out/
+filter_debug/

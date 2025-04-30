@@ -1,5 +1,6 @@
 import argparse
 import itertools
+import os
 from itertools import product
 
 import stanza
@@ -14,6 +15,7 @@ from source.common.exceptions import (
     CkyTooLongException,
     NotAllNodesCoveredException,
 )
+from source.iwcs.carb.oie_readers.allennlpReader import AllennlpReader
 from source.iwcs.utils import add_info_to_node, contract_args, OverlappingException
 
 
@@ -151,15 +153,15 @@ def parse_args():
 
 
 def filter_predictions():
+    debug_dir = "filter_debug"
+    if not os.path.exists(debug_dir):
+        os.makedirs(debug_dir)
+
     parser = parse_args()
     args = parser.parse_args()
 
-    in_f = open(args.inp, "r")
-    content = in_f.read()
-    examples = content.split("\n\n")
-
     out_f = open(args.out, "w")
-    log_f = open(f"filter.log", "w")
+    log_f = open(f"filtered.log", "w")
     sentences = set()
     predictions = set()
 
@@ -193,18 +195,18 @@ def filter_predictions():
     validated = 0
     not_validated = []
 
-    for example_id, example in tqdm(enumerate(examples)):
-        print(f"Processing sen {example_id}")
-        lines = example.split("\n")
-        sentence = lines[0]
+    predicted = AllennlpReader(threshold=None)
+    predicted.read(args.inp)
+
+    for sen_id, (sentence, extractions) in tqdm(enumerate(predicted.oie.items())):
+        print(f"Processing sen {sen_id}")
 
         if not sentence:
             continue
-        parsed_doc = nlp(sentence)
 
         sentences.add(sentence)
+        parsed_doc = nlp(sentence)
 
-        extractions = lines[1:]
         for extraction_id, extraction in enumerate(extractions):
             if extraction in predictions:
                 pass
@@ -212,43 +214,40 @@ def filter_predictions():
             all_triplets += 1
 
             predictions.add(extraction)
-            confidence = extraction.split(" ")[0].strip(":")
-            extraction = " ".join(extraction.split(" ")[1:])
-            if "Context" in extraction:
-                extraction = " ".join(extraction.split(":")[1:])
-            fields = extraction.split(";")
-            if len(fields) > 3:
-                arg2plus.append(sentence)
+            confidence = extraction.confidence
+            if len(extraction.args) > 2:
+                arg2plus.append((sentence, extraction_id))
                 # Todo
                 continue
 
             index_dict = {}
 
-            subj = fields[0][1:].strip()  # remove opening bracket
+            subj, relation, obj = "", "", ""
+
+            subj = extraction.args[0].strip()
             subj_idx = words_to_idx(subj, parsed_doc.sentences[0])
             if len(subj_idx) == 0:
-                unconn_span.append((example_id, extraction_id))
+                unconn_span.append((sen_id, extraction_id))
             else:
                 index_dict["subj"] = subj_idx
-            relation = fields[1].strip()
+            relation = extraction.pred.strip()
             rel_idx = words_to_idx(relation, parsed_doc.sentences[0])
             if len(rel_idx) == 0:
-                unconn_span.append((example_id, extraction_id))
+                unconn_span.append((sen_id, extraction_id))
             else:
                 index_dict["rel"] = rel_idx
-            obj = " ".join(fields[2:])[:-1].strip()  # remove closing bracket
-            obj = obj.replace("L:", "")
-            obj = obj.replace("T:", "")
-            obj_idx = words_to_idx(obj, parsed_doc.sentences[0])
-            if len(obj_idx) == 0:
-                unconn_span.append((example_id, extraction_id))
-            else:
-                index_dict["obj"] = obj_idx
+            if len(extraction.args) > 1:
+                obj = extraction.args[1].strip()
+                obj_idx = words_to_idx(obj, parsed_doc.sentences[0])
+                if len(obj_idx) == 0:
+                    unconn_span.append((sen_id, extraction_id))
+                else:
+                    index_dict["obj"] = obj_idx
 
             # Save UD graph
             ud_graph = UDGraph(parsed_doc.sentences[0])
             add_info_to_node(ud_graph, index_dict)
-            with open(f"openie6/graphs/{example_id}_{extraction_id}.dot", "w") as f:
+            with open(f"{debug_dir}/{sen_id}_{extraction_id}.dot", "w") as f:
                 f.write(
                     ud_graph.to_dot(
                         marked_nodes=list(itertools.chain(*index_dict.values()))
@@ -262,13 +261,13 @@ def filter_predictions():
                     contracted_ud, index_dict, {"subj": "A", "rel": "P", "obj": "A"}
                 )
             except OverlappingException:
-                overlapping_subgraph.append((example_id, extraction_id))
+                overlapping_subgraph.append((sen_id, extraction_id))
                 validated = add_validated(
                     validated, out_f, sentence, subj, relation, obj, confidence
                 )
                 continue
             if set(arg_heads.values()) - set(contracted_ud.G):
-                overlapping_subgraph.append((example_id, extraction_id))
+                overlapping_subgraph.append((sen_id, extraction_id))
                 validated = add_validated(
                     validated, out_f, sentence, subj, relation, obj, confidence
                 )
@@ -286,14 +285,10 @@ def filter_predictions():
 
             # Save graphs
             add_info_to_node(contracted_ud)
-            with open(
-                f"openie6/graphs/{example_id}_{extraction_id}_contracted.dot", "w"
-            ) as f:
+            with open(f"{debug_dir}/{sen_id}_{extraction_id}_contracted.dot", "w") as f:
                 f.write(contracted_ud.to_dot(marked_nodes=arg_heads.values()))
             add_info_to_node(triplet_graph)
-            with open(
-                f"openie6/graphs/{example_id}_{extraction_id}_triplet.dot", "w"
-            ) as f:
+            with open(f"{debug_dir}/{sen_id}_{extraction_id}_triplet.dot", "w") as f:
                 f.write(triplet_graph.to_dot(marked_nodes=arg_heads.values()))
 
             # Validate
@@ -306,20 +301,20 @@ def filter_predictions():
                 )
 
                 if derivation is None:
-                    not_validated.append((example_id, extraction_id))
+                    not_validated.append((sen_id, extraction_id))
                     continue
 
                 validated = add_validated(
                     validated, out_f, sentence, subj, relation, obj, confidence
                 )
             except ParseTooLongException as e:
-                parse_error.append((example_id, extraction_id))
+                parse_error.append((sen_id, extraction_id))
             except CkyTooLongException as e:
-                cky_error.append((example_id, extraction_id))
+                cky_error.append((sen_id, extraction_id))
             except NotAllNodesCoveredException as e:
-                deriv_error.append((example_id, extraction_id))
+                deriv_error.append((sen_id, extraction_id))
 
-        # if example_id > 20:
+        # if sen_id > 20:
         #     break
 
     out_f.close()
