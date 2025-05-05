@@ -1,7 +1,6 @@
 import argparse
 import itertools
 import os
-from itertools import product
 
 import stanza
 from tqdm import tqdm
@@ -16,132 +15,12 @@ from source.common.exceptions import (
     NotAllNodesCoveredException,
 )
 from source.iwcs.carb.oie_readers.allennlpReader import AllennlpReader
-from source.iwcs.utils import add_info_to_node, contract_args, OverlappingException
-
-
-def words_to_idx(arg, parsed_sen):
-    tokens = [w.text for w in parsed_sen.words]
-    words = arg.split(" ")
-    len_arg = len(words)
-    arg_idx = []
-    for i in range(len(tokens) - len_arg):
-        if " ".join(tokens[i : i + len_arg]) == arg:
-            arg_idx.append([j for j in range(i, i + len_arg)])
-    if len(arg_idx) == 0:
-        all_matches = []
-        for word in words:
-            new_idx = [j for j, t in enumerate(tokens) if t == word]
-            all_matches.append(new_idx)
-
-        # Roll span forwards
-        for k in range(1, len(all_matches)):
-            if len(all_matches[k]) > 1 and len(all_matches[k - 1]) == 1:
-                if all_matches[k - 1][0] + 1 in all_matches[k]:
-                    all_matches[k] = [all_matches[k - 1][0] + 1]
-        # Roll span backwards
-        for k in range(1, len(all_matches)):
-            if len(all_matches[-k]) == 1 and len(all_matches[-k - 1]) > 1:
-                if all_matches[-k][0] - 1 in all_matches[-k - 1]:
-                    all_matches[-k - 1] = [all_matches[-k][0] - 1]
-
-        # Find span in multi-option ranges in between
-        for k in range(len(all_matches)):
-            if len(all_matches[k]) > 1:
-                l = k + 1
-                while l < len(all_matches) and len(all_matches[l]) > 1:
-                    l += 1
-                if l > k + 1:
-                    for idx in all_matches[k]:
-                        next_idx = idx + 1
-                        found = True
-                        for m in range(k + 1, l):
-                            if next_idx in all_matches[m]:
-                                next_idx += 1
-                            else:
-                                found = False
-                                break
-                        if found:
-                            new_idx = idx
-                            for m in range(k, l):
-                                assert new_idx in all_matches[m]
-                                all_matches[m] = [new_idx]
-                                new_idx += 1
-                            break
-
-        # Remove uniques from multi-options
-        uniques = set()
-        multiples = []
-        for k in range(len(all_matches)):
-            if len(all_matches[k]) == 1:
-                uniques.add(all_matches[k][0])
-            elif len(all_matches[k]) > 1:
-                multiples.append(k)
-        for k in multiples:
-            new_idx_l = list(set(all_matches[k]) - uniques)
-            assert len(new_idx_l) > 0
-            all_matches[k] = new_idx_l
-            if len(new_idx_l) == 1:
-                uniques.add(new_idx_l[0])
-
-        # Take closest in single multi-options - first
-        if len(all_matches[0]) > 1 and len(all_matches[1]) == 1:
-            sorted_idx = sorted(all_matches[0], reverse=True)
-            for idx in sorted_idx:
-                if idx < all_matches[1][0]:
-                    all_matches[0] = [idx]
-                    break
-        # Take closest in single multi-options - last
-        if len(all_matches[-1]) > 1 and len(all_matches[-2]) == 1:
-            sorted_idx = sorted(all_matches[-1])
-            for idx in sorted_idx:
-                if idx > all_matches[-2][0]:
-                    all_matches[-1] = [idx]
-                    break
-        # Take closest in single multi-options - middle
-        for k in range(1, len(all_matches) - 1):
-            if (
-                len(all_matches[k]) > 1
-                and len(all_matches[k - 1]) == 1
-                and len(all_matches[k + 1]) == 1
-            ):
-                for idx in all_matches[k]:
-                    if all_matches[k - 1][0] < idx < all_matches[k + 1][0]:
-                        all_matches[k] = [idx]
-
-        # Take one-one for duplicates after each other
-        for k in range(len(all_matches) - 1):
-            if len(all_matches[k]) > 1 and sorted(all_matches[k]) == sorted(
-                all_matches[k + 1]
-            ):
-                sorted_duplicates = sorted(all_matches[k])
-                all_matches[k] = [sorted_duplicates[0]]
-                all_matches[k + 1] = [sorted_duplicates[1]]
-
-        # Backprop from first single
-        first_single = 0
-        for k in range(len(all_matches)):
-            if len(all_matches[k]) == 1:
-                first_single = k
-                break
-        if first_single > 0:
-            highest_idx = all_matches[first_single][0]
-            for k in sorted(range(first_single), reverse=True):
-                for candidate in sorted(all_matches[k], reverse=True):
-                    if candidate < highest_idx:
-                        all_matches[k] = [candidate]
-                        highest_idx = candidate
-                        break
-
-        arg_idx = list(product(*all_matches))
-    # Check unique indices
-    if len(arg_idx) > 1:
-        arg_idx = [arg_idx[0]]
-    if len(arg_idx) == 0:
-        return []
-
-    assert len(arg_idx) == 1
-    arg_idx = [idx + 1 for idx in arg_idx[0]]
-    return arg_idx
+from source.iwcs.utils import (
+    add_info_to_node,
+    contract_triplet_elements,
+    OverlappingException,
+    words_to_idx,
+)
 
 
 def parse_args():
@@ -153,7 +32,7 @@ def parse_args():
 
 
 def filter_predictions():
-    debug_dir = "filter_debug"
+    debug_dir = "filter_openie6_debug"
     if not os.path.exists(debug_dir):
         os.makedirs(debug_dir)
 
@@ -213,6 +92,10 @@ def filter_predictions():
             print(f"Processing triplet {extraction_id}")
             all_triplets += 1
 
+            with open(f"{debug_dir}/{sen_id}_{extraction_id}.txt", "w") as f:
+                f.write(f"{sentence}\n")
+                f.write(str(extraction))
+
             predictions.add(extraction)
             confidence = extraction.confidence
             if len(extraction.args) > 2:
@@ -257,7 +140,7 @@ def filter_predictions():
             # Contracted graph
             contracted_ud = UDGraph(parsed_doc.sentences[0])
             try:
-                arg_heads = contract_args(
+                heads = contract_triplet_elements(
                     contracted_ud, index_dict, {"subj": "A", "rel": "P", "obj": "A"}
                 )
             except OverlappingException:
@@ -266,7 +149,7 @@ def filter_predictions():
                     validated, out_f, sentence, subj, relation, obj, confidence
                 )
                 continue
-            if set(arg_heads.values()) - set(contracted_ud.G):
+            if set(heads.values()) - set(contracted_ud.G):
                 overlapping_subgraph.append((sen_id, extraction_id))
                 validated = add_validated(
                     validated, out_f, sentence, subj, relation, obj, confidence
@@ -275,7 +158,7 @@ def filter_predictions():
 
             # Triplet graph
             triplet_graph = contracted_ud.subgraph(
-                arg_heads.values(), handle_unconnected="shortest_path"
+                heads.values(), handle_unconnected="shortest_path"
             ).pos_edge_graph()
 
             # Bolinas graph
@@ -286,10 +169,10 @@ def filter_predictions():
             # Save graphs
             add_info_to_node(contracted_ud)
             with open(f"{debug_dir}/{sen_id}_{extraction_id}_contracted.dot", "w") as f:
-                f.write(contracted_ud.to_dot(marked_nodes=arg_heads.values()))
+                f.write(contracted_ud.to_dot(marked_nodes=heads.values()))
             add_info_to_node(triplet_graph)
             with open(f"{debug_dir}/{sen_id}_{extraction_id}_triplet.dot", "w") as f:
-                f.write(triplet_graph.to_dot(marked_nodes=arg_heads.values()))
+                f.write(triplet_graph.to_dot(marked_nodes=heads.values()))
 
             # Validate
             try:

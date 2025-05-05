@@ -1,7 +1,5 @@
-from oie_readers.oieReader import OieReader
-from oie_readers.extraction import Extraction
-from _collections import defaultdict
-import ipdb
+from source.iwcs.carb.oie_readers.extraction import Extraction
+from source.iwcs.carb.oie_readers.oieReader import OieReader
 
 
 class GoldReader(OieReader):

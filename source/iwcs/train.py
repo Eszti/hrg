@@ -8,7 +8,11 @@ import stanza
 from tuw_nlp.graph.ud_graph import UDGraph
 from tuw_nlp.text.utils import gen_tsv_sens
 
-from source.iwcs.utils import add_info_to_node, contract_args, OverlappingException
+from source.iwcs.utils import (
+    add_info_to_node,
+    contract_triplet_elements,
+    OverlappingException,
+)
 
 
 def parse_args():
@@ -54,7 +58,7 @@ def train(inp, out):
         # Contract
         contracted_ud = UDGraph(parsed_doc.sentences[0])
         try:
-            arg_heads = contract_args(
+            heads = contract_triplet_elements(
                 contracted_ud,
                 index_dict,
                 {arg_name: arg_name[0] for arg_name in index_dict},
@@ -62,22 +66,22 @@ def train(inp, out):
         except OverlappingException:
             overlapping_subgraph.append(sen_idx)
             continue
-        if set(arg_heads.values()) - set(contracted_ud.G):
+        if set(heads.values()) - set(contracted_ud.G):
             overlapping_subgraph.append(sen_idx)
             continue
 
         # Triplet graph
         triplet_graph = contracted_ud.subgraph(
-            arg_heads.values(), handle_unconnected="shortest_path"
+            heads.values(), handle_unconnected="shortest_path"
         ).pos_edge_graph()
 
         # Save graphs
         add_info_to_node(contracted_ud)
         with open(f"train_out/{sen_idx}_ud_cont.dot", "w") as f:
-            f.write(contracted_ud.to_dot(marked_nodes=arg_heads.values()))
+            f.write(contracted_ud.to_dot(marked_nodes=heads.values()))
         add_info_to_node(triplet_graph)
         with open(f"train_out/{sen_idx}_triplet.dot", "w") as f:
-            f.write(triplet_graph.to_dot(marked_nodes=arg_heads.values()))
+            f.write(triplet_graph.to_dot(marked_nodes=heads.values()))
 
         # Create rules
         rhs = triplet_graph.to_bolinas(keep_node_ids=False, add_n_prefix=True)
