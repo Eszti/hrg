@@ -13,7 +13,7 @@ def parse_args():
 
 
 def merge(inp, sen_out, gold_out):
-    sens = set()
+    sens = list()
     tuples = 0
 
     gold_f = open(gold_out, "w")
@@ -33,13 +33,14 @@ def merge(inp, sen_out, gold_out):
 
             if p and len(args.keys()) >= 2:
                 if sen_txt not in sens:
-                    sens.add(sen_txt)
+                    sens.append(sen_txt)
                 tuples += 1
                 pred_txt = " ".join([sen[i - 1][1] for i in p])
-                arg_txt = "\t".join(
+                arg_txt = " ".join([sen[i - 1][1] for i in args["0"]]) + "\t"
+                arg_txt += " ".join(
                     [
                         " ".join(sen[i - 1][1] for i in args[l])
-                        for l in sorted(args.keys(), key=lambda x: int(x))
+                        for l in sorted(args.keys(), key=lambda x: int(x))[1:]
                     ]
                 )
                 gold_f.write(f"{sen_txt}\t{pred_txt}\t{arg_txt}\n")

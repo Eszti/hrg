@@ -145,15 +145,15 @@ def filter_predictions():
                 )
             except OverlappingException:
                 overlapping_subgraph.append((sen_id, extraction_id))
-                validated = add_validated(
-                    validated, out_f, sentence, subj, relation, obj, confidence
-                )
+                # validated = add_validated(
+                #     validated, out_f, sentence, subj, relation, obj, confidence
+                # )
                 continue
             if set(heads.values()) - set(contracted_ud.G):
                 overlapping_subgraph.append((sen_id, extraction_id))
-                validated = add_validated(
-                    validated, out_f, sentence, subj, relation, obj, confidence
-                )
+                # validated = add_validated(
+                #     validated, out_f, sentence, subj, relation, obj, confidence
+                # )
                 continue
 
             # Triplet graph
@@ -187,8 +187,20 @@ def filter_predictions():
                     not_validated.append((sen_id, extraction_id))
                     continue
 
+                assert len(derivation.used_rules.values()) == 1
+                r_id = list(derivation.used_rules.keys())[0]
+                rule = list(derivation.used_rules.values())[0]
+                rule_str = f"{r_id}: {rule}"
                 validated = add_validated(
-                    validated, out_f, sentence, subj, relation, obj, confidence
+                    validated,
+                    out_f,
+                    sentence,
+                    subj,
+                    relation,
+                    obj,
+                    confidence,
+                    rule_str,
+                    f"{sen_id}_{extraction_id}",
                 )
             except ParseTooLongException as e:
                 parse_error.append((sen_id, extraction_id))
@@ -219,10 +231,14 @@ def filter_predictions():
     log_f.write(f"{arg2plus}\n")
 
 
-def add_validated(validated, out_f, sentence, subj, relation, obj, confidence):
+def add_validated(
+    validated, out_f, sentence, subj, relation, obj, confidence, rule, id_str
+):
     validated += 1
     out_f.write(
-        f"{sentence}\t<arg1> {subj} </arg1> <rel> {relation} </rel> <arg2> {obj} </arg2>\t{confidence}\n"
+        f"{sentence}\t"
+        f"<arg1> {subj} </arg1> <rel> {relation} </rel> <arg2> {obj} </arg2> <id> {id_str} </id> <rule> {rule} </rule>\t"
+        f"{confidence}\n"
     )
     return validated
 
