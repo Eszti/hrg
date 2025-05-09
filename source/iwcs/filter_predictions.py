@@ -146,15 +146,28 @@ def filter_predictions():
             except OverlappingException:
                 overlapping_subgraph.append((sen_id, extraction_id))
                 # validated = add_validated(
-                #     validated, out_f, sentence, subj, relation, obj, confidence
+                #     validated, out_f, sentence, subj, relation, obj, confidence, "overlapping", f"{sen_id}_{extraction_id}"
                 # )
                 continue
             if set(heads.values()) - set(contracted_ud.G):
                 overlapping_subgraph.append((sen_id, extraction_id))
                 # validated = add_validated(
-                #     validated, out_f, sentence, subj, relation, obj, confidence
+                #     validated, out_f, sentence, subj, relation, obj, confidence, "overlapping", f"{sen_id}_{extraction_id}"
                 # )
                 continue
+
+            validated = add_validated(
+                validated,
+                out_f,
+                sentence,
+                subj,
+                relation,
+                obj,
+                confidence,
+                "not_overlapping",
+                f"{sen_id}_{extraction_id}",
+            )
+            continue
 
             # Triplet graph
             triplet_graph = contracted_ud.subgraph(
