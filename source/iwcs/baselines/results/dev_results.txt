@@ -1,4 +1,4 @@
-DetIE - LSOIE
+DetIE - LSOIE - exact match
 
 === original ===
 (openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/lsoie_dev.tsv --allennlp ../hrg/source/iwcs/baselines/detie_lsoie_dev.lsoie --out detie_eval.dat
@@ -46,6 +46,19 @@ auc is 0.0
 DetIE - CaRB
 
 === original ===
+(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/carb_dev.tsv --allennlp ../hrg/source/iwcs/baselines/detie_lsoie_dev.carb --out detie_eval.dat
+INFO:root:Writing PR curve of Allennlp to detie_eval.dat
+the number of unmatched is:  2459
+TP: 89
+FN: 2459
+FP: 921
+total gold (TP + FN): 2548 - 2548
+total predict (TP + FP): 1010 - 1010
+total unmatched: 2459
+my F1:  0.05002810567734682 my AUC:  0.5
+precision:  0.08811881188118811 recall 0.034929356357927786
+max f1 is 0.16124627802313793
+auc is 0.0
 
 
 === filter overlapping + rules ===
