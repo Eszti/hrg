@@ -12,7 +12,7 @@ class DerivationList:
     def __init__(self, derivation_list):
         self.derivation_list = derivation_list
 
-    def get_k_best_unique_derivation(self, sen_id, sen_text, k, pos_tag_resolution):
+    def get_k_best_unique_derivation(self, k, pos_tag_resolution):
         unique_triplets = set()
         kbest_unique_derivations = []
         for derivation in self.derivation_list:
@@ -38,7 +38,7 @@ class DerivationList:
         assert len(kbest_unique_derivations) == len(unique_triplets)
         if len(kbest_unique_derivations) < k:
             print(f"Found only {len(kbest_unique_derivations)} derivations.")
-        return KbestDerivationList(kbest_unique_derivations, sen_id, sen_text)
+        return kbest_unique_derivations
 
     def get_best_matching_derivations(
         self, sen_id, sen_text, gold_triplets, pos_tag_resolution, arg_perm

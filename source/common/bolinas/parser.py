@@ -266,6 +266,38 @@ class Parser:
 
         return processed_derivation
 
+    def get_top_k_derivations(
+        self, bolinas_graph, k_best, sen_logger, global_logger, pos_tag_resolution=False
+    ):
+        if sen_logger is not None:
+            sen_logger.log("VALIDATION:\n")
+        input_graph = Hgraph.from_string(bolinas_graph)
+        parse_generator = self.parse_graphs(
+            [input_graph],
+            partial=False,
+            sen_logger=sen_logger,
+            global_logger=global_logger,
+        )
+
+        k_best_derivations = []
+
+        for i, cky_chart in enumerate(parse_generator):
+            assert i == 0
+            if cky_chart.no_derivation():
+                if sen_logger is not None:
+                    sen_logger.log("No derivation found\n")
+            else:
+                derivation_list = cky_chart.search_derivations(
+                    "START",
+                    sen_logger=sen_logger,
+                    global_logger=global_logger,
+                )
+                k_best_derivations = derivation_list.get_k_best_unique_derivation(
+                    k_best, pos_tag_resolution
+                )
+
+        return k_best_derivations
+
 
 cky_steps = 0
 

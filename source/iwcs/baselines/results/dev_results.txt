@@ -1,3 +1,11 @@
+=== Summary ===
+
+
+
+=== Summary ===
+
+
+
 DetIE - LSOIE - exact match
 
 === original ===
@@ -65,6 +73,35 @@ auc is 0.0
 
 
 === not overlapping ===
+
+
+ONLY OVERLAPPING (only with error)
+
+=== DetIE LSOIE ===
+TP: 4
+FN: 4313
+FP: 999
+total gold (TP + FN): 4317 - 4317
+total predict (TP + FP): 1003 - 1003
+total unmatched: 4313
+
+=== DetIE CaRB ===
+TP: 1
+FN: 2547
+FP: 306
+total gold (TP + FN): 2548 - 2548
+total predict (TP + FP): 307 - 307
+total unmatched: 2547
+
+ONLY OVERLAPPING (correct)
+
+=== DetIE LSOIE ===
+TP: 183
+FN: 4134
+FP: 1849
+total gold (TP + FN): 4317 - 4317
+total predict (TP + FP): 2032 - 2032
+total unmatched: 4134
 
 
 

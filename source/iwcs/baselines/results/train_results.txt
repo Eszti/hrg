@@ -1,0 +1,31 @@
+DetIE
+
+=== original ===
+(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/lsoie_train.tsv --allennlp ../hrg/source/iwcs/baselines/detie_lsoie_train.lsoie --out detie_eval.dat
+the number of unmatched is:  74372
+TP: 26507
+FN: 74372
+FP: 27520
+total gold (TP + FN): 100879 - 100879
+total predict (TP + FP): 54027 - 54027
+total unmatched: 74372
+multiple rules: 0
+my F1:  0.342233354421391 my AUC:  0.5
+precision:  0.49062505784144966 recall 0.26276033664092624
+
+
+
+=== filtered (only rules) ===
+(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/lsoie_train.tsv --allennlp ../hrg/source/iwcs/baselines/filtered/detie_lsoie_train_filtered_rules.lsoie --out detie_eval.dat
+the number of unmatched is:  74749
+TP: 26130
+FN: 74749
+FP: 14156
+total gold (TP + FN): 100879 - 100879
+total predict (TP + FP): 40286 - 40286
+total unmatched: 74749
+multiple rules: 0
+my F1:  0.37020507916268197 my AUC:  0.5
+precision:  0.6486124211885023 recall 0.25902318619336034
+
+

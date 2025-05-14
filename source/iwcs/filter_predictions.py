@@ -1,6 +1,8 @@
 import argparse
 import itertools
+import json
 import os
+from collections import defaultdict
 
 import stanza
 from tqdm import tqdm
@@ -27,17 +29,19 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--inp", type=str)
     parser.add_argument("--out", type=str)
+    parser.add_argument("--debug-dir", type=str)
     parser.add_argument("--gr", type=str)
     return parser
 
 
 def filter_predictions():
-    debug_dir = "filter_openie6_debug"
-    if not os.path.exists(debug_dir):
-        os.makedirs(debug_dir)
 
     parser = parse_args()
     args = parser.parse_args()
+
+    debug_dir = args.debug_dir
+    if debug_dir and not os.path.exists(debug_dir):
+        os.makedirs(debug_dir)
 
     out_f = open(args.out, "w")
     log_f = open(f"filtered.log", "w")
@@ -69,6 +73,9 @@ def filter_predictions():
     cky_error = []
     deriv_error = []
 
+    # Validation stat
+    multiple_derivations = defaultdict(list)
+
     # Filter stat
     all_triplets = 0
     validated = 0
@@ -78,6 +85,9 @@ def filter_predictions():
     predicted.read(args.inp)
 
     for sen_id, (sentence, extractions) in tqdm(enumerate(predicted.oie.items())):
+        if sen_id >= 26450 or sen_id < 5244:
+            continue
+
         print(f"Processing sen {sen_id}")
 
         if not sentence:
@@ -92,9 +102,10 @@ def filter_predictions():
             print(f"Processing triplet {extraction_id}")
             all_triplets += 1
 
-            with open(f"{debug_dir}/{sen_id}_{extraction_id}.txt", "w") as f:
-                f.write(f"{sentence}\n")
-                f.write(str(extraction))
+            if debug_dir:
+                with open(f"{debug_dir}/{sen_id}_{extraction_id}.txt", "w") as f:
+                    f.write(f"{sentence}\n")
+                    f.write(str(extraction))
 
             predictions.add(extraction)
             confidence = extraction.confidence
@@ -128,14 +139,18 @@ def filter_predictions():
                     index_dict["obj"] = obj_idx
 
             # Save UD graph
-            ud_graph = UDGraph(parsed_doc.sentences[0])
-            add_info_to_node(ud_graph, index_dict)
-            with open(f"{debug_dir}/{sen_id}_{extraction_id}.dot", "w") as f:
-                f.write(
-                    ud_graph.to_dot(
-                        marked_nodes=list(itertools.chain(*index_dict.values()))
+            if debug_dir:
+                ud_graph = UDGraph(parsed_doc.sentences[0])
+                add_info_to_node(ud_graph, index_dict)
+                with open(f"{debug_dir}/{sen_id}_{extraction_id}.dot", "w") as f:
+                    f.write(
+                        ud_graph.to_dot(
+                            marked_nodes=list(itertools.chain(*index_dict.values()))
+                        )
                     )
-                )
+
+            if len(index_dict) == 0:
+                continue
 
             # Contracted graph
             contracted_ud = UDGraph(parsed_doc.sentences[0])
@@ -145,31 +160,32 @@ def filter_predictions():
                 )
             except OverlappingException:
                 overlapping_subgraph.append((sen_id, extraction_id))
-                validated = add_validated(
-                    validated,
-                    out_f,
-                    sentence,
-                    subj,
-                    relation,
-                    obj,
-                    confidence,
-                    "overlapping",
-                    f"{sen_id}_{extraction_id}",
-                )
+                # validated = add_validated(
+                #     validated,
+                #     out_f,
+                #     sentence,
+                #     subj,
+                #     relation,
+                #     obj,
+                #     confidence,
+                #     "overlapping",
+                #     f"{sen_id}_{extraction_id}",
+                # )
                 continue
             if set(heads.values()) - set(contracted_ud.G):
+                # if len(set(heads.values())) != len(extraction.args) + 1 or set(heads.values()) - set(contracted_ud.G):
                 overlapping_subgraph.append((sen_id, extraction_id))
-                validated = add_validated(
-                    validated,
-                    out_f,
-                    sentence,
-                    subj,
-                    relation,
-                    obj,
-                    confidence,
-                    "overlapping",
-                    f"{sen_id}_{extraction_id}",
-                )
+                # validated = add_validated(
+                #     validated,
+                #     out_f,
+                #     sentence,
+                #     subj,
+                #     relation,
+                #     obj,
+                #     confidence,
+                #     "overlapping",
+                #     f"{sen_id}_{extraction_id}",
+                # )
                 continue
 
             # validated = add_validated(
@@ -183,7 +199,7 @@ def filter_predictions():
             #     "not_overlapping",
             #     f"{sen_id}_{extraction_id}",
             # )
-            continue
+            # continue
 
             # Triplet graph
             triplet_graph = contracted_ud.subgraph(
@@ -196,30 +212,44 @@ def filter_predictions():
             )
 
             # Save graphs
-            add_info_to_node(contracted_ud)
-            with open(f"{debug_dir}/{sen_id}_{extraction_id}_contracted.dot", "w") as f:
-                f.write(contracted_ud.to_dot(marked_nodes=heads.values()))
-            add_info_to_node(triplet_graph)
-            with open(f"{debug_dir}/{sen_id}_{extraction_id}_triplet.dot", "w") as f:
-                f.write(triplet_graph.to_dot(marked_nodes=heads.values()))
+            if debug_dir:
+                add_info_to_node(contracted_ud)
+                with open(
+                    f"{debug_dir}/{sen_id}_{extraction_id}_contracted.dot", "w"
+                ) as f:
+                    f.write(contracted_ud.to_dot(marked_nodes=heads.values()))
+                add_info_to_node(triplet_graph)
+                with open(
+                    f"{debug_dir}/{sen_id}_{extraction_id}_triplet.dot", "w"
+                ) as f:
+                    f.write(triplet_graph.to_dot(marked_nodes=heads.values()))
 
             # Validate
             try:
-                derivation = parser.check_membership(
+                derivations = parser.get_top_k_derivations(
                     triplet_graph_str,
+                    k_best=10,
                     sen_logger=None,
                     global_logger=None,
                     pos_tag_resolution=True,
                 )
 
-                if derivation is None:
+                if not derivations:
                     not_validated.append((sen_id, extraction_id))
                     continue
 
-                assert len(derivation.used_rules.values()) == 1
-                r_id = list(derivation.used_rules.keys())[0]
-                rule = list(derivation.used_rules.values())[0]
-                rule_str = f"{r_id}: {rule}"
+                if len(derivations) > 1:
+                    multiple_derivations[len(derivations)].append(
+                        f"{sen_id}_{extraction_id}"
+                    )
+
+                rules = []
+                for derivation in derivations:
+                    assert len(derivation.used_rules.values()) == 1
+                    r_id = list(derivation.used_rules.keys())[0]
+                    rule = list(derivation.used_rules.values())[0]
+                    rule_str = f"{r_id}: {rule}"
+                    rules.append(rule_str)
                 validated = add_validated(
                     validated,
                     out_f,
@@ -228,8 +258,9 @@ def filter_predictions():
                     relation,
                     obj,
                     confidence,
-                    rule_str,
+                    "#".join(rules),
                     f"{sen_id}_{extraction_id}",
+                    f"{debug_dir}/{sen_id}_{extraction_id}_extraction.allennlp",
                 )
             except ParseTooLongException as e:
                 parse_error.append((sen_id, extraction_id))
@@ -258,17 +289,34 @@ def filter_predictions():
     log_f.write(f"{unconn_span}\n")
     log_f.write(f"Arg2+: {len(arg2plus)}\n")
     log_f.write(f"{arg2plus}\n")
+    log_f.write(f"Multiple derivations:\n")
+    for num, derivs in multiple_derivations.items():
+        log_f.write(f"\n{num}: {len(derivs)}\n")
+        log_f.write(f"{json.dumps(derivs)}\n")
 
 
 def add_validated(
-    validated, out_f, sentence, subj, relation, obj, confidence, rule, id_str
+    validated,
+    out_f,
+    sentence,
+    subj,
+    relation,
+    obj,
+    confidence,
+    rule,
+    id_str,
+    debug_fn=None,
 ):
     validated += 1
-    out_f.write(
+    filtered_allennlp = (
         f"{sentence}\t"
         f"<arg1> {subj} </arg1> <rel> {relation} </rel> <arg2> {obj} </arg2> <id> {id_str} </id> <rule> {rule} </rule>\t"
         f"{confidence}\n"
     )
+    out_f.write(filtered_allennlp)
+    if debug_fn:
+        with open(debug_fn, "w") as f:
+            f.write(filtered_allennlp)
     return validated
 
 

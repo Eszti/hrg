@@ -4,6 +4,7 @@ from collections import defaultdict
 
 from source.common.bolinas.cky_chart import CkyChart
 from source.common.conll import ConllSen
+from source.common.derivation.kbest_derivation_list import KbestDerivationList
 from source.common.script.logger import Logger
 from source.common.script.loop_on_sen_dirs import LoopOnSenDirs
 from source.common.triplet.triplets_for_sen import TripletsForSen
@@ -121,11 +122,13 @@ class KbestModel:
     ):
         if self.kbest:
             return {
-                self.subdir: derivation_list.get_k_best_unique_derivation(
+                self.subdir: KbestDerivationList(
+                    derivation_list.get_k_best_unique_derivation(
+                        k=self.k,
+                        pos_tag_resolution=pos_tag_resolution,
+                    ),
                     sen_id=sen_id,
                     sen_text=sen_text,
-                    k=self.k,
-                    pos_tag_resolution=pos_tag_resolution,
                 )
             }
         return derivation_list.get_best_matching_derivations(
