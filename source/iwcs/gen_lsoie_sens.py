@@ -14,9 +14,8 @@ def parse_args():
 
 def merge(inp, sen_out, gold_out):
     sens = list()
+    gold = list()
     tuples = 0
-
-    gold_f = open(gold_out, "w")
 
     for fn in inp:
         for sen_idx, sen in enumerate(gen_tsv_sens(open(fn))):
@@ -43,7 +42,9 @@ def merge(inp, sen_out, gold_out):
                         for l in sorted(args.keys(), key=lambda x: int(x))[1:]
                     ]
                 )
-                gold_f.write(f"{sen_txt}\t{pred_txt}\t{arg_txt}\n")
+                gold_line = f"{sen_txt}\t{pred_txt}\t{arg_txt}\n"
+                if gold_line not in gold:
+                    gold.append(gold_line)
 
     print(f"# sentences: {len(sens)}")
     print(f"# tuples: {tuples}")
@@ -51,6 +52,9 @@ def merge(inp, sen_out, gold_out):
     with open(sen_out, "w") as f:
         for sen_txt in sens:
             f.write(sen_txt + "\n")
+
+    with open(gold_out, "w") as f:
+        f.writelines(gold)
 
 
 if __name__ == "__main__":

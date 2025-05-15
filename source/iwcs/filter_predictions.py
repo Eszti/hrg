@@ -64,6 +64,7 @@ def filter_predictions():
     # Index mapping errors
     arg2plus = []
     unconn_span = []
+    duplicate_index = []
 
     # Triplet contraction
     overlapping_subgraph = []
@@ -85,8 +86,8 @@ def filter_predictions():
     predicted.read(args.inp)
 
     for sen_id, (sentence, extractions) in tqdm(enumerate(predicted.oie.items())):
-        if sen_id >= 26450 or sen_id < 5244:
-            continue
+        # if sen_id >= 26450 or sen_id < 5244:
+        #     continue
 
         print(f"Processing sen {sen_id}")
 
@@ -138,6 +139,28 @@ def filter_predictions():
                 else:
                     index_dict["obj"] = obj_idx
 
+            if len(list(itertools.chain(*index_dict.values()))) != len(
+                set(itertools.chain(*index_dict.values()))
+            ):
+                duplicate_index.append(
+                    (
+                        sentence,
+                        extraction_id,
+                    )
+                )
+                # validated = add_validated(
+                #     validated,
+                #     out_f,
+                #     sentence,
+                #     subj,
+                #     relation,
+                #     obj,
+                #     confidence,
+                #     "duplicated_idx",
+                #     f"{sen_id}_{extraction_id}",
+                # )
+                continue
+
             # Save UD graph
             if debug_dir:
                 ud_graph = UDGraph(parsed_doc.sentences[0])
@@ -188,18 +211,18 @@ def filter_predictions():
                 # )
                 continue
 
-            # validated = add_validated(
-            #     validated,
-            #     out_f,
-            #     sentence,
-            #     subj,
-            #     relation,
-            #     obj,
-            #     confidence,
-            #     "not_overlapping",
-            #     f"{sen_id}_{extraction_id}",
-            # )
-            # continue
+            validated = add_validated(
+                validated,
+                out_f,
+                sentence,
+                subj,
+                relation,
+                obj,
+                confidence,
+                "not_overlapping",
+                f"{sen_id}_{extraction_id}",
+            )
+            continue
 
             # Triplet graph
             triplet_graph = contracted_ud.subgraph(

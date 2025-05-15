@@ -74,16 +74,37 @@ auc is 0.0
 
 === not overlapping ===
 
+DUPLICATED IDX
 
-ONLY OVERLAPPING (only with error)
+=== DetIE LSOIE ===
+TP: 0
+FN: 4314
+FP: 977
+total gold (TP + FN): 4314 - 4314
+total predict (TP + FP): 977 - 977
+total unmatched: 4314
+
+
+OVERLAPPING (after duplicated idx)
+
+=== DetIE ===
+TP: 4
+FN: 4310
+FP: 77
+total gold (TP + FN): 4314 - 4314
+total predict (TP + FP): 81 - 81
+total unmatched: 4310
+
+
+OVERLAPPING (only with error)
 
 === DetIE LSOIE ===
 TP: 4
-FN: 4313
+FN: 4310
 FP: 999
-total gold (TP + FN): 4317 - 4317
+total gold (TP + FN): 4314 - 4314
 total predict (TP + FP): 1003 - 1003
-total unmatched: 4313
+total unmatched: 4310
 
 === DetIE CaRB ===
 TP: 1
@@ -93,7 +114,7 @@ total gold (TP + FN): 2548 - 2548
 total predict (TP + FP): 307 - 307
 total unmatched: 2547
 
-ONLY OVERLAPPING (correct)
+OVERLAPPING (all cases)
 
 === DetIE LSOIE ===
 TP: 183
