@@ -211,18 +211,18 @@ def filter_predictions():
                 # )
                 continue
 
-            validated = add_validated(
-                validated,
-                out_f,
-                sentence,
-                subj,
-                relation,
-                obj,
-                confidence,
-                "not_overlapping",
-                f"{sen_id}_{extraction_id}",
-            )
-            continue
+            # validated = add_validated(
+            #     validated,
+            #     out_f,
+            #     sentence,
+            #     subj,
+            #     relation,
+            #     obj,
+            #     confidence,
+            #     "not_overlapping",
+            #     f"{sen_id}_{extraction_id}",
+            # )
+            # continue
 
             # Triplet graph
             triplet_graph = contracted_ud.subgraph(

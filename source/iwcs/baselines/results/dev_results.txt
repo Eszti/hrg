@@ -24,30 +24,32 @@ auc is 0.0
 
 === filter overlapping + rules ===
 (openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/lsoie_dev.tsv --allennlp ../hrg/source/iwcs/baselines/filtered/detie_lsoie_dev_filtered.lsoie --out detie_eval.dat
-the number of unmatched is:  3629
+the number of unmatched is:  3626
 TP: 688
-FN: 3629
+FN: 3626
 FP: 1752
-total gold (TP + FN): 4317 - 4317
+total gold (TP + FN): 4314 - 4314
 total predict (TP + FP): 2440 - 2440
-total unmatched: 3629
-my F1:  0.20364066893591828 my AUC:  0.5
-precision:  0.2819672131147541 recall 0.15936993282372017
-max f1 is 0.4175151424872912
+total unmatched: 3626
+multiple rules: 0
+my F1:  0.20373112229789753 my AUC:  0.5
+precision:  0.2819672131147541 recall 0.15948076031525266
+max f1 is 0.41749676639062
 auc is 0.0
 
 === not overlapping ===
-(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/lsoie_dev.tsv --allennlp ../hrg/source/iwcs/baselines/filtered/detie_lsoie_dev_not_overlapping.lsoie --out detie_eval.dat
-the number of unmatched is:  3608
+(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/lsoie_dev.tsv --allennlp ../hrg/source/iwcs/baselines/filtered/detie_lsoie_dev_basic.lsoie --out detie_eval.dat
+the number of unmatched is:  3605
 TP: 709
-FN: 3608
-FP: 1887
-total gold (TP + FN): 4317 - 4317
-total predict (TP + FP): 2596 - 2596
-total unmatched: 3608
-my F1:  0.2051207869231882 my AUC:  0.5
-precision:  0.2731124807395994 recall 0.16423442205235117
-max f1 is 0.4108433870551235
+FN: 3605
+FP: 1832
+total gold (TP + FN): 4314 - 4314
+total predict (TP + FP): 2541 - 2541
+total unmatched: 3605
+multiple rules: 0
+my F1:  0.20685630926331147 my AUC:  0.5
+precision:  0.2790240062967336 recall 0.1643486323597589
+max f1 is 0.4158746746383549
 auc is 0.0
 
 
