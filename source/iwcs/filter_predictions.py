@@ -4,6 +4,7 @@ import json
 import os
 from collections import defaultdict
 
+import spacy
 import stanza
 from tqdm import tqdm
 from tuw_nlp.graph.ud_graph import UDGraph
@@ -50,9 +51,13 @@ def filter_predictions():
 
     nlp = stanza.Pipeline(
         lang="en",
-        processors="tokenize,mwt,pos,lemma,depparse",
+        processors="tokenize,mwt,pos,lemma,depparse,constituency",
         tokenize_pretokenized=True,
     )
+
+    spacy_nlp = spacy.load("en_core_web_sm")
+
+    # np_chunker = stanza.Pipeline(lang="en", processors="tokenize,mwt,pos,constituency")
 
     with open(args.gr) as f:
         grammar = Grammar.load_from_file(
@@ -65,6 +70,10 @@ def filter_predictions():
     arg2plus = []
     unconn_span = []
     duplicate_index = []
+
+    # Argument not NP
+    subj_not_np = []
+    obj_not_np = []
 
     # Triplet contraction
     overlapping_subgraph = []
@@ -86,8 +95,10 @@ def filter_predictions():
     predicted.read(args.inp)
 
     for sen_id, (sentence, extractions) in tqdm(enumerate(predicted.oie.items())):
-        # if sen_id >= 26450 or sen_id < 5244:
+        # if sen_id < 1420:
         #     continue
+        # if sen_id > 1420:
+        #     break
 
         print(f"Processing sen {sen_id}")
 
@@ -144,7 +155,7 @@ def filter_predictions():
             ):
                 duplicate_index.append(
                     (
-                        sentence,
+                        sen_id,
                         extraction_id,
                     )
                 )
@@ -160,6 +171,76 @@ def filter_predictions():
                 #     f"{sen_id}_{extraction_id}",
                 # )
                 continue
+
+            spacy_doc = spacy_nlp(sentence)
+            np_chunks = {
+                np.text
+                for nc in spacy_doc.noun_chunks
+                for np in [
+                    nc,
+                    spacy_doc[nc.root.left_edge.i : nc.root.right_edge.i + 1],
+                ]
+            }
+
+            if debug_dir:
+                with open(
+                    f"{debug_dir}/{sen_id}_{extraction_id}_np_chunks.txt", "w"
+                ) as f:
+                    f.write(str(np_chunks))
+                sen_const_tree = parsed_doc.sentences[0].constituency
+                if debug_dir:
+                    with open(
+                        f"{debug_dir}/{sen_id}_{extraction_id}_sen_const.txt", "w"
+                    ) as f:
+                        f.write(str(sen_const_tree))
+
+            if subj:
+                # subj_doc = np_chunker(subj)
+                # subj_const_tree = subj_doc.sentences[0].constituency
+                # if debug_dir:
+                #     with open(f"{debug_dir}/{sen_id}_{extraction_id}_subj_const.txt", "w") as f:
+                #         f.write(str(subj_const_tree))
+
+                # if subj_const_tree.children[0].label != "NP":
+                if subj not in np_chunks:
+                    subj_not_np.append((sen_id, extraction_id))
+                    validated = add_validated(
+                        validated,
+                        out_f,
+                        sentence,
+                        subj,
+                        relation,
+                        obj,
+                        confidence,
+                        "subj_not_np",
+                        f"{sen_id}_{extraction_id}",
+                    )
+                    continue
+
+            if obj:
+                # obj_doc = np_chunker(obj)
+                # obj_const_tree = obj_doc.sentences[0].constituency
+                # if debug_dir:
+                #     with open(
+                #         f"{debug_dir}/{sen_id}_{extraction_id}_obj_const.txt", "w"
+                #     ) as f:
+                #         f.write(str(obj_const_tree))
+
+                # if obj_const_tree.children[0].label != "NP":
+                if obj not in np_chunks:
+                    obj_not_np.append((sen_id, extraction_id))
+                    validated = add_validated(
+                        validated,
+                        out_f,
+                        sentence,
+                        subj,
+                        relation,
+                        obj,
+                        confidence,
+                        "obj_not_np",
+                        f"{sen_id}_{extraction_id}",
+                    )
+                    continue
 
             # Save UD graph
             if debug_dir:
@@ -222,7 +303,7 @@ def filter_predictions():
             #     "not_overlapping",
             #     f"{sen_id}_{extraction_id}",
             # )
-            # continue
+            continue
 
             # Triplet graph
             triplet_graph = contracted_ud.subgraph(
@@ -300,18 +381,24 @@ def filter_predictions():
     log_f.write(f"Validated triplets: {validated}\n")
     log_f.write(f"Not validated: {len(not_validated)}\n")
     log_f.write(f"{not_validated}\n")
+    log_f.write(f"Arg2+: {len(arg2plus)}\n")
+    log_f.write(f"{arg2plus}\n")
+    log_f.write(f"Unconnected span: {len(unconn_span)}\n")
+    log_f.write(f"{unconn_span}\n")
+    log_f.write(f"Duplicate index: {len(duplicate_index)}\n")
+    log_f.write(f"{duplicate_index}\n")
+    log_f.write(f"Subject not NP: {len(subj_not_np)}\n")
+    log_f.write(f"{subj_not_np}\n")
+    log_f.write(f"Object not NP: {len(obj_not_np)}\n")
+    log_f.write(f"{obj_not_np}\n")
+    log_f.write(f"Overlapping subgraph: {len(overlapping_subgraph)}\n")
+    log_f.write(f"{overlapping_subgraph}\n")
     log_f.write(f"Parse error: {len(parse_error)}\n")
     log_f.write(f"{parse_error}\n")
     log_f.write(f"CKY error: {len(cky_error)}\n")
     log_f.write(f"{cky_error}\n")
     log_f.write(f"Deriv error: {len(deriv_error)}\n")
     log_f.write(f"{deriv_error}\n")
-    log_f.write(f"Overlapping subgraph: {len(overlapping_subgraph)}\n")
-    log_f.write(f"{overlapping_subgraph}\n")
-    log_f.write(f"Unconnected span: {len(unconn_span)}\n")
-    log_f.write(f"{unconn_span}\n")
-    log_f.write(f"Arg2+: {len(arg2plus)}\n")
-    log_f.write(f"{arg2plus}\n")
     log_f.write(f"Multiple derivations:\n")
     for num, derivs in multiple_derivations.items():
         log_f.write(f"\n{num}: {len(derivs)}\n")

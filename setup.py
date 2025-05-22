@@ -20,6 +20,7 @@ setup(
         "ordered-set",
         "protobuf==3.20",
         "scikit-learn",
+        "spacy",
         "stanza",
     ],
     packages=find_packages(),
