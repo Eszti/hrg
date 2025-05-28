@@ -2,6 +2,7 @@ import argparse
 import itertools
 import json
 import os
+import re
 from collections import defaultdict
 
 import spacy
@@ -182,52 +183,63 @@ def filter_predictions():
                 ]
             }
 
+            sen_const_tree = parsed_doc.sentences[0].constituency
             if debug_dir:
                 with open(
                     f"{debug_dir}/{sen_id}_{extraction_id}_np_chunks.txt", "w"
                 ) as f:
                     f.write(str(np_chunks))
-                sen_const_tree = parsed_doc.sentences[0].constituency
                 if debug_dir:
                     with open(
                         f"{debug_dir}/{sen_id}_{extraction_id}_sen_const.txt", "w"
                     ) as f:
                         f.write(str(sen_const_tree))
 
-            if subj:
-                # subj_doc = np_chunker(subj)
-                # subj_const_tree = subj_doc.sentences[0].constituency
-                # if debug_dir:
-                #     with open(f"{debug_dir}/{sen_id}_{extraction_id}_subj_const.txt", "w") as f:
-                #         f.write(str(subj_const_tree))
+            subj_np = False
+            obj_np = False
 
-                # if subj_const_tree.children[0].label != "NP":
-                if subj not in np_chunks:
-                    subj_not_np.append((sen_id, extraction_id))
-                    validated = add_validated(
-                        validated,
-                        out_f,
-                        sentence,
-                        subj,
-                        relation,
-                        obj,
-                        confidence,
-                        "subj_not_np",
-                        f"{sen_id}_{extraction_id}",
+            if subj:
+                if subj in np_chunks:
+                    subj_np = True
+                else:
+                    subj_start = subj.split(" ")[0]
+                    subj_tag_search = re.search(
+                        f"\(([A-Z]+) \([A-Z]+ {subj_start}\)", str(sen_const_tree)
                     )
-                    continue
+                    if subj_tag_search:
+                        subj_tag = subj_tag_search.group(1)
+                        if subj_tag == "NP" or subj_tag == "PP":
+                            subj_np = True
+
+            if not subj_np:
+                subj_not_np.append((sen_id, extraction_id))
+                validated = add_validated(
+                    validated,
+                    out_f,
+                    sentence,
+                    subj,
+                    relation,
+                    obj,
+                    confidence,
+                    "subj_not_np",
+                    f"{sen_id}_{extraction_id}",
+                )
+                continue
 
             if obj:
-                # obj_doc = np_chunker(obj)
-                # obj_const_tree = obj_doc.sentences[0].constituency
-                # if debug_dir:
-                #     with open(
-                #         f"{debug_dir}/{sen_id}_{extraction_id}_obj_const.txt", "w"
-                #     ) as f:
-                #         f.write(str(obj_const_tree))
+                if obj in np_chunks:
+                    obj_np = True
+                else:
+                    obj_start = obj.split(" ")[0]
+                    obj_tag_search = re.search(
+                        f"\(([A-Z]+) \([A-Z]+ {obj_start}\)", str(sen_const_tree)
+                    )
+                    if obj_tag_search:
+                        obj_tag = obj_tag_search.group(1)
+                        if obj_tag == "NP" or obj_tag == "PP":
+                            obj_np = True
 
-                # if obj_const_tree.children[0].label != "NP":
-                if obj not in np_chunks:
+                if not obj_np:
                     obj_not_np.append((sen_id, extraction_id))
                     validated = add_validated(
                         validated,
