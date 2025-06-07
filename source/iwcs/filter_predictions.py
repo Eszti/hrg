@@ -38,6 +38,10 @@ def parse_args():
 
 def filter_predictions():
 
+    FILTER_DUPLICATED_IDX = True
+    FILTER_OVERLAPPING_SUBGRAPH = True
+    FILTER_NP_PP = False
+
     parser = parse_args()
     args = parser.parse_args()
 
@@ -160,18 +164,8 @@ def filter_predictions():
                         extraction_id,
                     )
                 )
-                # validated = add_validated(
-                #     validated,
-                #     out_f,
-                #     sentence,
-                #     subj,
-                #     relation,
-                #     obj,
-                #     confidence,
-                #     "duplicated_idx",
-                #     f"{sen_id}_{extraction_id}",
-                # )
-                continue
+                if FILTER_DUPLICATED_IDX:
+                    continue
 
             spacy_doc = spacy_nlp(sentence)
             np_chunks = {
@@ -208,23 +202,14 @@ def filter_predictions():
                     )
                     if subj_tag_search:
                         subj_tag = subj_tag_search.group(1)
+                        # if subj_tag == "NP":
                         if subj_tag == "NP" or subj_tag == "PP":
                             subj_np = True
 
             if not subj_np:
                 subj_not_np.append((sen_id, extraction_id))
-                validated = add_validated(
-                    validated,
-                    out_f,
-                    sentence,
-                    subj,
-                    relation,
-                    obj,
-                    confidence,
-                    "subj_not_np",
-                    f"{sen_id}_{extraction_id}",
-                )
-                continue
+                if FILTER_NP_PP:
+                    continue
 
             if obj:
                 if obj in np_chunks:
@@ -236,23 +221,14 @@ def filter_predictions():
                     )
                     if obj_tag_search:
                         obj_tag = obj_tag_search.group(1)
+                        # if obj_tag == "NP":
                         if obj_tag == "NP" or obj_tag == "PP":
                             obj_np = True
 
                 if not obj_np:
                     obj_not_np.append((sen_id, extraction_id))
-                    validated = add_validated(
-                        validated,
-                        out_f,
-                        sentence,
-                        subj,
-                        relation,
-                        obj,
-                        confidence,
-                        "obj_not_np",
-                        f"{sen_id}_{extraction_id}",
-                    )
-                    continue
+                    if FILTER_NP_PP:
+                        continue
 
             # Save UD graph
             if debug_dir:
@@ -270,51 +246,32 @@ def filter_predictions():
 
             # Contracted graph
             contracted_ud = UDGraph(parsed_doc.sentences[0])
+            heads = {}
             try:
                 heads = contract_triplet_elements(
                     contracted_ud, index_dict, {"subj": "A", "rel": "P", "obj": "A"}
                 )
             except OverlappingException:
                 overlapping_subgraph.append((sen_id, extraction_id))
-                # validated = add_validated(
-                #     validated,
-                #     out_f,
-                #     sentence,
-                #     subj,
-                #     relation,
-                #     obj,
-                #     confidence,
-                #     "overlapping",
-                #     f"{sen_id}_{extraction_id}",
-                # )
-                continue
+                if FILTER_OVERLAPPING_SUBGRAPH:
+                    continue
             if set(heads.values()) - set(contracted_ud.G):
                 # if len(set(heads.values())) != len(extraction.args) + 1 or set(heads.values()) - set(contracted_ud.G):
                 overlapping_subgraph.append((sen_id, extraction_id))
-                # validated = add_validated(
-                #     validated,
-                #     out_f,
-                #     sentence,
-                #     subj,
-                #     relation,
-                #     obj,
-                #     confidence,
-                #     "overlapping",
-                #     f"{sen_id}_{extraction_id}",
-                # )
-                continue
+                if FILTER_OVERLAPPING_SUBGRAPH:
+                    continue
 
-            # validated = add_validated(
-            #     validated,
-            #     out_f,
-            #     sentence,
-            #     subj,
-            #     relation,
-            #     obj,
-            #     confidence,
-            #     "not_overlapping",
-            #     f"{sen_id}_{extraction_id}",
-            # )
+            validated = add_validated(
+                validated,
+                out_f,
+                sentence,
+                subj,
+                relation,
+                obj,
+                confidence,
+                "not_overlapping",
+                f"{sen_id}_{extraction_id}",
+            )
             continue
 
             # Triplet graph
