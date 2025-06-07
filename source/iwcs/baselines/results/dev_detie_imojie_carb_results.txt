@@ -1,0 +1,25 @@
+DetIE - IMoJIE - CaRB - exact match
+
+=== original ===
+(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/carb_dev.tsv --allennlp ../hrg/source/iwcs/baselines/detie_imojie_dev.carb --out detie_eval.dat
+TP: 72
+FN: 2476
+FP: 1183
+my F1:  0.03786484354457008 my AUC:  0.5
+precision:  0.05737051792828685 recall 0.0282574568288854
+
+=== remove duplicated index ===
+(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/carb_dev.tsv --allennlp ../hrg/source/iwcs/baselines/detie_carb/filter_duplicated_idx.carb --out detie_eval.dat
+TP: 72
+FN: 2476
+FP: 963
+my F1:  0.04018978509628803 my AUC:  0.5
+precision:  0.06956521739130435 recall 0.0282574568288854
+
+=== remove duplicated index + overlapping subgraphs ===
+(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/carb_dev.tsv --allennlp ../hrg/source/iwcs/baselines/detie_carb/filter_duplicated_idx_and_overlapping.carb --out detie_eval.dat
+TP: 70
+FN: 2478
+FP: 942
+my F1:  0.03932584269662921 my AUC:  0.5
+precision:  0.0691699604743083 recall 0.027472527472527472

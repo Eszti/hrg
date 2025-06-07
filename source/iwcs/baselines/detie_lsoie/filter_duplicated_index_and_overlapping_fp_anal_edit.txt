@@ -157,15 +157,15 @@ obj tag: VP
 Even plants need oxygen for this purpose .
  need 	 plants 	 oxygen for this purpose 
 
-{'Even plants', 'this purpose', 'oxygen'}
-
-(ROOT (S (NP (RB Even) (NNS plants)) (VP (VBP need) (NP (NN oxygen)) (PP (IN for) (NP (DT this) (NN purpose)))) (. .)))
-obj tag: NP
-
 Gold:
 need	plants	oxygen
 
 Not one tree
+
+{'Even plants', 'this purpose', 'oxygen'}
+
+(ROOT (S (NP (RB Even) (NNS plants)) (VP (VBP need) (NP (NN oxygen)) (PP (IN for) (NP (DT this) (NN purpose)))) (. .)))
+obj tag: NP
 
 28_0
 The atmosphere protects living things from the Suns most harmful rays .
@@ -450,6 +450,11 @@ obj tag: NP
 50_0
 While President Obama expressed condolences regarding the death of Margaret Thatcher upon her death earlier this year , he did not issue an executive order that flags be lowered in her honour .
  lowered 	 flags 	 in her honour 
+ 
+Gold:
+lowered		flags	in her honour he did not issue an executive order
+
+Wrong gold
 
 {'condolences regarding the death of Margaret Thatcher upon her death', 'he', 'the death of Margaret Thatcher upon her death', 'an executive order that flags be lowered in her honour', 'President Obama', 'an executive order', 'her honour', 'condolences', 'Margaret Thatcher', 'her death', 'the death', 'flags'}
 

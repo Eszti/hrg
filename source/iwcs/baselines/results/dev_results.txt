@@ -10,16 +10,17 @@ DetIE - LSOIE - exact match
 
 === original ===
 (openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/lsoie_dev.tsv --allennlp ../hrg/source/iwcs/baselines/detie_lsoie_dev.lsoie --out detie_eval.dat
-the number of unmatched is:  3604
-TP: 713
-FN: 3604
-FP: 2886
-total gold (TP + FN): 4317 - 4317
+the number of unmatched is:  3574
+TP: 740
+FN: 3574
+FP: 2859
+total gold (TP + FN): 4314 - 4314
 total predict (TP + FP): 3599 - 3599
-total unmatched: 3604
-my F1:  0.18014148559878723 my AUC:  0.5
-precision:  0.198110586273965 recall 0.16516099142923327
-max f1 is 0.32946599231501855
+total unmatched: 3574
+multiple rules: 0
+my F1:  0.18703399469227852 my AUC:  0.5
+precision:  0.20561267018616283 recall 0.1715345387111729
+max f1 is 0.3397735648433441
 auc is 0.0
 
 === filter overlapping + rules ===
@@ -37,7 +38,7 @@ precision:  0.2989517819706499 recall 0.16527584608252202
 max f1 is 0.4337230373901818
 auc is 0.0
 
-=== basic filter ===
+=== basic filter (duplicated index + overlapping with error) ===
 (openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/lsoie_dev.tsv --allennlp ../hrg/source/iwcs/baselines/filtered/detie_lsoie_dev_basic.lsoie --out detie_eval.dat
 the number of unmatched is:  3579
 TP: 735
@@ -50,6 +51,21 @@ multiple rules: 0
 my F1:  0.21444201312910285 my AUC:  0.5
 precision:  0.2892561983471074 recall 0.17037552155771907
 max f1 is 0.42713476399014955
+auc is 0.0
+
+=== basic filter + args NP or PP ===
+(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/lsoie_dev.tsv --allennlp ../hrg/source/iwcs/baselines/filtered/detie_lsoie_dev_basic_and_np.lsoie --out detie_eval.dat
+the number of unmatched is:  3732
+TP: 582
+FN: 3732
+FP: 1284
+total gold (TP + FN): 4314 - 4314
+total predict (TP + FP): 1866 - 1866
+total unmatched: 3732
+multiple rules: 0
+my F1:  0.18834951456310678 my AUC:  0.5
+precision:  0.31189710610932475 recall 0.1349095966620306
+max f1 is 0.4288968580535477
 auc is 0.0
 
 
@@ -78,23 +94,29 @@ auc is 0.0
 DUPLICATED IDX
 
 === DetIE LSOIE ===
-TP: 0
-FN: 4314
-FP: 977
+(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/lsoie_dev.tsv --allennlp ../hrg/source/iwcs/baselines/filtered/detie_lsoie_dev_duplicated_idx.lsoie --out detie_eval.dat
+the number of unmatched is:  4313
+TP: 1
+FN: 4313
+FP: 976
 total gold (TP + FN): 4314 - 4314
 total predict (TP + FP): 977 - 977
-total unmatched: 4314
+total unmatched: 4313
+multiple rules: 0
 
 
 OVERLAPPING (after duplicated idx)
 
 === DetIE ===
+(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/lsoie_dev.tsv --allennlp ../hrg/source/iwcs/baselines/filtered/detie_lsoie_dev_only_overlapping.lsoie --out detie_eval.dat
+the number of unmatched is:  4310
 TP: 4
 FN: 4310
 FP: 77
 total gold (TP + FN): 4314 - 4314
 total predict (TP + FP): 81 - 81
 total unmatched: 4310
+multiple rules: 0
 
 
 OVERLAPPING (only with error)
