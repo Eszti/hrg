@@ -1,7 +1,7 @@
 DetIE - LSOIE - exact match
 
 === original ===
-(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/lsoie_dev.tsv --allennlp ../hrg/source/iwcs/baselines/detie_lsoie_dev.lsoie --out detie_eval.dat
+(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/lsoie_dev.tsv --allennlp ../hrg/source/iwcs/baselines/detie_lsoie/original.lsoie --out detie_eval.dat
 TP: 740
 FN: 3574
 FP: 2859
@@ -17,6 +17,7 @@ my F1:  0.21309111880046136 my AUC:  0.5
 precision:  0.2818459191456903 recall 0.17130273528048215
 
 === remove duplicated index + overlapping subgraphs ===
+(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/lsoie_dev.tsv --allennlp ../hrg/source/iwcs/baselines/detie_lsoie/filter_duplicated_idx_and_overlapping.lsoie --out detie_eval.dat
 TP: 735
 FN: 3579
 FP: 1806

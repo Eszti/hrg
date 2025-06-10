@@ -2,24 +2,32 @@ DetIE - IMoJIE - CaRB - exact match
 
 === original ===
 (openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/carb_dev.tsv --allennlp ../hrg/source/iwcs/baselines/detie_imojie_dev.carb --out detie_eval.dat
-TP: 72
-FN: 2476
-FP: 1183
-my F1:  0.03786484354457008 my AUC:  0.5
-precision:  0.05737051792828685 recall 0.0282574568288854
+TP: 102
+FN: 2446
+FP: 1153
+my F1:  0.05364186168814094 my AUC:  0.5
+precision:  0.08127490039840637 recall 0.040031397174254316
 
 === remove duplicated index ===
 (openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/carb_dev.tsv --allennlp ../hrg/source/iwcs/baselines/detie_carb/filter_duplicated_idx.carb --out detie_eval.dat
-TP: 72
-FN: 2476
-FP: 963
-my F1:  0.04018978509628803 my AUC:  0.5
-precision:  0.06956521739130435 recall 0.0282574568288854
+TP: 102
+FN: 2446
+FP: 933
+my F1:  0.056935528886408036 my AUC:  0.5
+precision:  0.09855072463768116 recall 0.040031397174254316
 
 === remove duplicated index + overlapping subgraphs ===
 (openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/carb_dev.tsv --allennlp ../hrg/source/iwcs/baselines/detie_carb/filter_duplicated_idx_and_overlapping.carb --out detie_eval.dat
-TP: 70
-FN: 2478
-FP: 942
-my F1:  0.03932584269662921 my AUC:  0.5
-precision:  0.0691699604743083 recall 0.027472527472527472
+TP: 100
+FN: 2448
+FP: 912
+my F1:  0.056179775280898875 my AUC:  0.5
+precision:  0.09881422924901186 recall 0.03924646781789639
+
+=== filter with rules ===
+(openie6) ➜  openie6 git:(master) ✗ python carb/benchmark.py --gold ../hrg/source/iwcs/data/carb_dev.tsv --allennlp ../hrg/source/iwcs/baselines/detie_carb/filter_with_rules.carb --out detie_eval.dat
+TP: 99
+FN: 2449
+FP: 835
+my F1:  0.05686387133831131 my AUC:  0.5
+precision:  0.10599571734475374 recall 0.03885400313971742

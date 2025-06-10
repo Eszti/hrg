@@ -41,6 +41,7 @@ def filter_predictions():
     FILTER_DUPLICATED_IDX = True
     FILTER_OVERLAPPING_SUBGRAPH = True
     FILTER_NP_PP = False
+    FILTER_RULES = True
 
     parser = parse_args()
     args = parser.parse_args()
@@ -261,18 +262,19 @@ def filter_predictions():
                 if FILTER_OVERLAPPING_SUBGRAPH:
                     continue
 
-            validated = add_validated(
-                validated,
-                out_f,
-                sentence,
-                subj,
-                relation,
-                obj,
-                confidence,
-                "not_overlapping",
-                f"{sen_id}_{extraction_id}",
-            )
-            continue
+            if not FILTER_RULES:
+                validated = add_validated(
+                    validated,
+                    out_f,
+                    sentence,
+                    subj,
+                    relation,
+                    obj,
+                    confidence,
+                    "not_overlapping",
+                    f"{sen_id}_{extraction_id}",
+                )
+                continue
 
             # Triplet graph
             triplet_graph = contracted_ud.subgraph(
