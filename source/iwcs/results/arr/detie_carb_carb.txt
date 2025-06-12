@@ -1,0 +1,48 @@
+DetIE - IMoJIE - thesis curve
+
+=== original ===
+=== exact match ===
+python carb/benchmark.py --gold /home/eszter/data/oie_arr/data/carb_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/detie_carb/original.carb --out detie_eval.dat
+TP: 102
+FN: 2446
+FP: 1153
+my F1:  0.05364186168814094 my AUC:  0.5
+precision:  0.08127490039840637 recall 0.040031397174254316
+=== CaRB metric ===
+python carb/carb.py --gold /home/eszter/data/oie_arr/data/carb_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/detie_carb/original.carb --out detie_eval.dat
+AUC: 0.3771      Optimal (precision, recall, F1): (0.5949, 0.4729, 0.5269)      Zero Conf (precision, recall, F1): (0.5949, 0.4729, 0.5269)
+
+=== remove duplicated index ===
+=== exact match ===
+python carb/benchmark.py --gold /home/eszter/data/oie_arr/data/carb_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/detie_carb/filter_duplicated_idx.carb --out detie_eval.dat
+TP: 102
+FN: 2446
+FP: 933
+my F1:  0.056935528886408036 my AUC:  0.5
+precision:  0.09855072463768116 recall 0.040031397174254316
+=== CaRM metric ===
+python carb/carb.py --gold /home/eszter/data/oie_arr/data/carb_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/detie_carb/filter_duplicated_idx.carb --out detie_eval.dat
+AUC: 0.3187      Optimal (precision, recall, F1): (0.6234, 0.3926, 0.4818)      Zero Conf (precision, recall, F1): (0.6234, 0.3926, 0.4818)
+
+=== remove duplicated index + overlapping subgraphs ===
+=== exact match  ===
+python carb/benchmark.py --gold /home/eszter/data/oie_arr/data/carb_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/detie_carb/filter_duplicated_idx_and_overlapping.carb --out detie_eval.dat
+TP: 100
+FN: 2448
+FP: 912
+my F1:  0.056179775280898875 my AUC:  0.5
+precision:  0.09881422924901186 recall 0.03924646781789639
+=== CaRB metric ===
+python carb/carb.py --gold /home/eszter/data/oie_arr/data/carb_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/detie_carb/filter_duplicated_idx_and_overlapping.carb --out detie_eval.dat
+AUC: 0.3148      Optimal (precision, recall, F1): (0.6264, 0.3871, 0.4785)      Zero Conf (precision, recall, F1): (0.6264, 0.3871, 0.4785)
+
+=== filter with rules ===
+=== exact match  ===
+python carb/benchmark.py --gold ../hrg/source/iwcs/data/carb_dev.tsv --allennlp ../hrg/source/iwcs/baselines/detie_carb/filter_with_rules.carb --out detie_eval.dat
+TP: 99
+FN: 2449
+FP: 835
+my F1:  0.05686387133831131 my AUC:  0.5
+precision:  0.10599571734475374 recall 0.03885400313971742
+=== CaRB metric ===
+AUC: 0.3033      Optimal (precision, recall, F1): (0.6393, 0.37, 0.4687)        Zero Conf (precision, recall, F1): (0.6393, 0.37, 0.4687)
