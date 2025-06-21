@@ -105,7 +105,8 @@ def words_to_idx(arg, parsed_sen):
                 multiples.append(k)
         for k in multiples:
             new_idx_l = list(set(all_matches[k]) - uniques)
-            assert len(new_idx_l) > 0
+            if len(new_idx_l) == 0:
+                return []
             all_matches[k] = new_idx_l
             if len(new_idx_l) == 1:
                 uniques.add(new_idx_l[0])
