@@ -101,7 +101,7 @@ def filter_predictions():
     predicted.read(args.inp)
 
     for sen_id, (sentence, extractions) in tqdm(enumerate(predicted.oie.items())):
-        # if sen_id < 1420:
+        # if sen_id < 261:
         #     continue
         # if sen_id > 1420:
         #     break

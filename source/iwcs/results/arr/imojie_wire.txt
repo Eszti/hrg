@@ -1,0 +1,103 @@
+IMoJIE - WiRe - thesis curve
+
+NOTE:
+Overlapping subgraphs doesn't have an effect.
+
+=== original ===
+python carb/benchmark.py --gold /home/eszter/data/oie_arr/data/wire_gold.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_wire/original.wire --out detie_eval.dat
+python carb/carb.py --gold /home/eszter/data/oie_arr/data/wire_gold.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_wire/original.wire --out detie_eval.dat
+bash carb/evaluate_all.sh /home/eszter/data/oie_arr/baselines/imojie_wire/original.wire /home/eszter/data/oie_arr/data/wire_gold.tsv
+
+=== remove duplicated index ===
+python carb/benchmark.py --gold /home/eszter/data/oie_arr/data/wire_gold.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_wire/filter_duplicated_idx.wire --out detie_eval.dat
+python carb/carb.py --gold /home/eszter/data/oie_arr/data/wire_gold.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_wire/filter_duplicated_idx.wire --out detie_eval.dat
+bash carb/evaluate_all.sh /home/eszter/data/oie_arr/baselines/imojie_wire/filter_duplicated_idx.wire /home/eszter/data/oie_arr/data/wire_gold.tsv
+
+=== remove duplicated index + overlapping subgraphs ===
+python carb/benchmark.py --gold /home/eszter/data/oie_arr/data/wire_gold.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_wire/filter_duplicated_idx_and_overlapping.wire --out detie_eval.dat
+python carb/carb.py --gold /home/eszter/data/oie_arr/data/wire_gold.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_wire/filter_duplicated_idx_and_overlapping.wire --out detie_eval.dat
+bash carb/evaluate_all.sh /home/eszter/data/oie_arr/baselines/imojie_wire/filter_duplicated_idx_and_overlapping.wire /home/eszter/data/oie_arr/data/wire_gold.tsv
+
+=== filter with rules ===
+python carb/benchmark.py --gold /home/eszter/data/oie_arr/data/wire_gold.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_wire/filter_with_rules.wire --out detie_eval.dat
+python carb/carb.py --gold /home/eszter/data/oie_arr/data/wire_gold.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_wire/filter_with_rules.wire --out detie_eval.dat
+bash carb/evaluate_all.sh /home/eszter/data/oie_arr/baselines/imojie_wire/filter_with_rules.wire /home/eszter/data/oie_arr/data/wire_gold.tsv
+
+===================
+=== exact match ===
+===================
+
+=== original ===
+TP: 2
+FN: 341
+FP: 92
+my F1:  0.009153318077803205 my AUC:  0.6847826086956521
+precision:  0.02127659574468085 recall 0.0058309037900874635
+
+=== remove duplicated index ===
+TP: 2
+FN: 341
+FP: 87
+my F1:  0.009259259259259259 my AUC:  0.6954022988505748
+precision:  0.02247191011235955 recall 0.0058309037900874635
+
+=== remove duplicated index + overlapping subgraphs ===
+
+=== filter with rules ===
+TP: 1
+FN: 342
+FP: 75
+my F1:  0.0047732696897374695 my AUC:  0.42666666666666664
+precision:  0.013157894736842105 recall 0.0029154518950437317
+
+=================
+=== carb(s,m) ===
+=================
+
+=== original ===
+AUC: 0.174       Optimal (precision, recall, F1): (0.5949, 0.2901, 0.3901)      Zero Conf (precision, recall, F1): (0.5949, 0.2901, 0.3901)
+=== remove duplicated index ===
+AUC: 0.1665      Optimal (precision, recall, F1): (0.5986, 0.2723, 0.3744)      Zero Conf (precision, recall, F1): (0.5986, 0.2723, 0.3744)
+=== remove duplicated index + overlapping subgraphs ===
+=== filter with rules ===
+AUC: 0.1442      Optimal (precision, recall, F1): (0.598, 0.234, 0.3364)        Zero Conf (precision, recall, F1): (0.598, 0.234, 0.3364)
+
+=================
+=== carb(s,s) ===
+=================
+
+=== original ===
+AUC: 0.0937      Optimal (precision, recall, F1): (0.5949, 0.1559, 0.2471)      Zero Conf (precision, recall, F1): (0.5949, 0.1559, 0.2471)
+=== remove duplicated index ===
+AUC: 0.0897      Optimal (precision, recall, F1): (0.5986, 0.1467, 0.2357)      Zero Conf (precision, recall, F1): (0.5986, 0.1467, 0.2357)
+=== remove duplicated index + overlapping subgraphs ===
+=== filter with rules ===
+AUC: 0.0759      Optimal (precision, recall, F1): (0.598, 0.1235, 0.2047)       Zero Conf (precision, recall, F1): (0.598, 0.1235, 0.2047)
+
+=============
+=== oie16 ===
+=============
+
+=== original ===
+AUC: 0.17840908182757448
+ Optimal (precision, recall, F1, threshold): (0.8021978021978022, 0.21282798833819241, 0.336405529953917, -0.13119441270828247)
+=== remove duplicated index ===
+AUC: 0.179137211745281
+ Optimal (precision, recall, F1, threshold): (0.813953488372093, 0.20408163265306123, 0.3263403263403264, -0.13119441270828247)
+=== remove duplicated index + overlapping subgraphs ===
+=== filter with rules ===
+AUC: 0.14195994309993168
+ Optimal (precision, recall, F1, threshold): (0.8169014084507042, 0.16909620991253643, 0.28019323671497587, -0.09643949568271637)
+
+==============
+=== wire57 ===
+==============
+
+=== original ===
+prec/rec/f1: 35.3% 10.1% 0.157
+=== remove duplicated index ===
+prec/rec/f1: 35.0% 9.3% 0.146
+=== remove duplicated index + overlapping subgraphs ===
+=== filter with rules ===
+prec/rec/f1: 34.0% 7.8% 0.127
+
