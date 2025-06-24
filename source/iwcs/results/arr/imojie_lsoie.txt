@@ -1,0 +1,112 @@
+IMoJIE - LSOIE - thesis curve
+
+NOTE:
+Overlapping subgraphs doesn't have an effect.
+
+=== original ===
+python carb/benchmark.py --gold /home/eszter/data/oie_arr/data/lsoie_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_lsoie/original.lsoie --out detie_eval.dat
+python carb/carb.py --gold /home/eszter/data/oie_arr/data/lsoie_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_lsoie/original.lsoie --out detie_eval.dat
+bash carb/evaluate_all.sh /home/eszter/data/oie_arr/baselines/imojie_lsoie/original.lsoie /home/eszter/data/oie_arr/data/lsoie_dev.tsv
+
+=== remove duplicated index ===
+python carb/benchmark.py --gold /home/eszter/data/oie_arr/data/lsoie_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_lsoie/filter_duplicated_idx.lsoie --out detie_eval.dat
+python carb/carb.py --gold /home/eszter/data/oie_arr/data/lsoie_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_lsoie/filter_duplicated_idx.lsoie --out detie_eval.dat
+bash carb/evaluate_all.sh /home/eszter/data/oie_arr/baselines/imojie_lsoie/filter_duplicated_idx.lsoie /home/eszter/data/oie_arr/data/lsoie_dev.tsv
+
+=== remove duplicated index + overlapping subgraphs ===
+python carb/benchmark.py --gold /home/eszter/data/oie_arr/data/lsoie_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_lsoie/filter_duplicated_idx_and_overlapping.lsoie --out detie_eval.dat
+python carb/carb.py --gold /home/eszter/data/oie_arr/data/lsoie_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_lsoie/filter_duplicated_idx_and_overlapping.lsoie --out detie_eval.dat
+bash carb/evaluate_all.sh /home/eszter/data/oie_arr/baselines/imojie_lsoie/filter_duplicated_idx_and_overlapping.lsoie /home/eszter/data/oie_arr/data/lsoie_dev.tsv
+
+=== filter with rules ===
+python carb/benchmark.py --gold /home/eszter/data/oie_arr/data/lsoie_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_lsoie/filter_with_rules.lsoie --out detie_eval.dat
+python carb/carb.py --gold /home/eszter/data/oie_arr/data/lsoie_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/imojie_lsoie/filter_with_rules.lsoie --out detie_eval.dat
+bash carb/evaluate_all.sh /home/eszter/data/oie_arr/baselines/imojie_lsoie/filter_with_rules.lsoie /home/eszter/data/oie_arr/data/lsoie_dev.tsv
+
+===================
+=== exact match ===
+===================
+
+=== original ===
+TP: 437
+FN: 3877
+FP: 3540
+my F1:  0.10541551079483777 my AUC:  0.6199802195244929
+precision:  0.10988182046768921 recall 0.10129809921186833
+
+=== remove duplicated index ===
+TP: 437
+FN: 3877
+FP: 3531
+my F1:  0.10553006520164211 my AUC:  0.6198527977436851
+precision:  0.11013104838709678 recall 0.10129809921186833
+
+=== remove duplicated index + overlapping subgraphs ===
+TP: 433
+FN: 3881
+FP: 3453
+my F1:  0.10560975609756097 my AUC:  0.6172140703033611
+precision:  0.11142563046834791 recall 0.10037088548910524
+
+=== filter with rules ===
+TP: 425
+FN: 3889
+FP: 3207
+my F1:  0.1069720614145482 my AUC:  0.6116480493039125
+precision:  0.11701541850220264 recall 0.09851645804357904
+
+=================
+=== carb(s,m) ===
+=================
+
+=== original ===
+AUC: 0.3384      Optimal (precision, recall, F1): (0.536, 0.5326, 0.5343)       Zero Conf (precision, recall, F1): (0.5351, 0.5331, 0.5341)
+=== remove duplicated index ===
+AUC: 0.3383      Optimal (precision, recall, F1): (0.5366, 0.5319, 0.5343)      Zero Conf (precision, recall, F1): (0.5358, 0.5324, 0.5341)
+=== remove duplicated index + overlapping subgraphs ===
+AUC: 0.3321      Optimal (precision, recall, F1): (0.5366, 0.5206, 0.5285)      Zero Conf (precision, recall, F1): (0.5357, 0.5211, 0.5283)
+=== filter with rules ===
+AUC: 0.3343      Optimal (precision, recall, F1): (0.5607, 0.509, 0.5336)       Zero Conf (precision, recall, F1): (0.5597, 0.5094, 0.5334)
+
+=================
+=== carb(s,s) ===
+=================
+
+=== original ===
+AUC: 0.3168      Optimal (precision, recall, F1): (0.536, 0.4981, 0.5164)       Zero Conf (precision, recall, F1): (0.5351, 0.4986, 0.5162)
+=== remove duplicated index ===
+AUC: 0.3167      Optimal (precision, recall, F1): (0.5366, 0.4975, 0.5163)      Zero Conf (precision, recall, F1): (0.5358, 0.498, 0.5162)
+=== remove duplicated index + overlapping subgraphs ===
+AUC: 0.3107      Optimal (precision, recall, F1): (0.5366, 0.4864, 0.5103)      Zero Conf (precision, recall, F1): (0.5357, 0.4869, 0.5102)
+=== filter with rules ===
+AUC: 0.3128      Optimal (precision, recall, F1): (0.5607, 0.4758, 0.5148)      Zero Conf (precision, recall, F1): (0.5597, 0.4762, 0.5146)
+
+=============
+=== oie16 ===
+=============
+
+=== original ===
+AUC: 0.5623094562485236
+ Optimal (precision, recall, F1, threshold): (0.7248581743166581, 0.6515994436717664, 0.686279296875, -0.10816998779773712)
+=== remove duplicated index ===
+AUC: 0.5613722484245516
+ Optimal (precision, recall, F1, threshold): (0.7250645994832041, 0.6504404265183125, 0.6857282502443793, -0.10816998779773712)
+=== remove duplicated index + overlapping subgraphs ===
+AUC: 0.5517766561028055
+ Optimal (precision, recall, F1, threshold): (0.7258575197889182, 0.6376912378303199, 0.678923988153998, -0.10816998779773712)
+=== filter with rules ===
+AUC: 0.5362942717585919
+ Optimal (precision, recall, F1, threshold): (0.7431862882832256, 0.6131200741770978, 0.6719166772513654, -0.11060086637735367)
+
+==============
+=== wire57 ===
+==============
+
+=== original ===
+prec/rec/f1: 47.5% 45.2% 0.463
+=== remove duplicated index ===
+prec/rec/f1: 47.6% 45.2% 0.463
+=== remove duplicated index + overlapping subgraphs ===
+prec/rec/f1: 47.6% 44.2% 0.458
+=== filter with rules ===
+prec/rec/f1: 49.9% 43.3% 0.464
