@@ -13,7 +13,12 @@ def contract_triplet_elements(ud_graph, index_dict, element_map):
         if indices:
             if set(indices) - set(ud_graph.G):
                 raise OverlappingException
-            arg_graph = ud_graph.subgraph(indices, handle_unconnected="shortest_path").G
+            try:
+                arg_graph = ud_graph.subgraph(
+                    indices, handle_unconnected="shortest_path"
+                ).G
+            except nx.NetworkXNoPath:
+                raise OverlappingException
             arg_nodes = set(arg_graph)
             head = list(nx.topological_sort(arg_graph))[0]
             heads[name] = head
