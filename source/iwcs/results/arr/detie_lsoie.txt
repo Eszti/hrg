@@ -61,7 +61,7 @@ AUC: 0.5692      Optimal (precision, recall, F1): (0.6437, 0.6926, 0.6673)      
 === remove duplicated index ===
 AUC: 0.421       Optimal (precision, recall, F1): (0.7231, 0.4887, 0.5832)      Zero Conf (precision, recall, F1): (0.7231, 0.4887, 0.5832)
 === remove duplicated index + overlapping subgraphs ===
-UC: 0.4092      Optimal (precision, recall, F1): (0.7295, 0.4732, 0.574)       Zero Conf (precision, recall, F1): (0.7295, 0.4732, 0.574)
+AUC: 0.4092      Optimal (precision, recall, F1): (0.7295, 0.4732, 0.574)       Zero Conf (precision, recall, F1): (0.7295, 0.4732, 0.574)
 === filter with rules ===
 AUC: 0.3971      Optimal (precision, recall, F1): (0.7433, 0.4555, 0.5649)      Zero Conf (precision, recall, F1): (0.7433, 0.4555, 0.5649)
 

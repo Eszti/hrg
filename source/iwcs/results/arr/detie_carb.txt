@@ -1,4 +1,4 @@
-DetIE - IMoJIE - thesis curve
+DetIE - CaRB - thesis curve
 
 === original ===
 python carb/benchmark.py --gold /home/eszter/data/oie_arr/data/carb_dev.tsv --allennlp /home/eszter/data/oie_arr/baselines/detie_carb/original.carb --out detie_eval.dat

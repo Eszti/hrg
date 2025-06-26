@@ -1,5 +1,5 @@
-from oie_readers.oieReader import OieReader
-from oie_readers.extraction import Extraction
+from .oieReader import OieReader
+from .extraction import Extraction
 
 
 class OpenieFiveReader(OieReader):
