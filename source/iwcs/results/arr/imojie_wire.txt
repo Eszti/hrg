@@ -42,6 +42,11 @@ my F1:  0.009259259259259259 my AUC:  0.6954022988505748
 precision:  0.02247191011235955 recall 0.0058309037900874635
 
 === remove duplicated index + overlapping subgraphs ===
+TP: 2
+FN: 341
+FP: 87
+my F1:  0.009259259259259259 my AUC:  0.6954022988505748
+precision:  0.02247191011235955 recall 0.0058309037900874635
 
 === filter with rules ===
 TP: 1
@@ -59,6 +64,7 @@ AUC: 0.174       Optimal (precision, recall, F1): (0.5949, 0.2901, 0.3901)      
 === remove duplicated index ===
 AUC: 0.1665      Optimal (precision, recall, F1): (0.5986, 0.2723, 0.3744)      Zero Conf (precision, recall, F1): (0.5986, 0.2723, 0.3744)
 === remove duplicated index + overlapping subgraphs ===
+AUC: 0.1665      Optimal (precision, recall, F1): (0.5986, 0.2723, 0.3744)      Zero Conf (precision, recall, F1): (0.5986, 0.2723, 0.3744)
 === filter with rules ===
 AUC: 0.1442      Optimal (precision, recall, F1): (0.598, 0.234, 0.3364)        Zero Conf (precision, recall, F1): (0.598, 0.234, 0.3364)
 
@@ -71,6 +77,7 @@ AUC: 0.0937      Optimal (precision, recall, F1): (0.5949, 0.1559, 0.2471)      
 === remove duplicated index ===
 AUC: 0.0897      Optimal (precision, recall, F1): (0.5986, 0.1467, 0.2357)      Zero Conf (precision, recall, F1): (0.5986, 0.1467, 0.2357)
 === remove duplicated index + overlapping subgraphs ===
+AUC: 0.0897      Optimal (precision, recall, F1): (0.5986, 0.1467, 0.2357)      Zero Conf (precision, recall, F1): (0.5986, 0.1467, 0.2357)
 === filter with rules ===
 AUC: 0.0759      Optimal (precision, recall, F1): (0.598, 0.1235, 0.2047)       Zero Conf (precision, recall, F1): (0.598, 0.1235, 0.2047)
 
@@ -85,6 +92,8 @@ AUC: 0.17840908182757448
 AUC: 0.179137211745281
  Optimal (precision, recall, F1, threshold): (0.813953488372093, 0.20408163265306123, 0.3263403263403264, -0.13119441270828247)
 === remove duplicated index + overlapping subgraphs ===
+AUC: 0.179137211745281
+ Optimal (precision, recall, F1, threshold): (0.813953488372093, 0.20408163265306123, 0.3263403263403264, -0.13119441270828247)
 === filter with rules ===
 AUC: 0.14195994309993168
  Optimal (precision, recall, F1, threshold): (0.8169014084507042, 0.16909620991253643, 0.28019323671497587, -0.09643949568271637)
@@ -98,6 +107,7 @@ prec/rec/f1: 35.3% 10.1% 0.157
 === remove duplicated index ===
 prec/rec/f1: 35.0% 9.3% 0.146
 === remove duplicated index + overlapping subgraphs ===
+prec/rec/f1: 35.0% 9.3% 0.146
 === filter with rules ===
 prec/rec/f1: 34.0% 7.8% 0.127
 
